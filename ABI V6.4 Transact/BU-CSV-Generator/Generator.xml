@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="5930ae34-6c5d-41d9-ab97-9fcef0441a29" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Generator" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5930ae34-6c5d-41d9-ab97-9fcef0441a29fileName">Generator</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="GenerateCsv" id="1f0f5d50-8ae3-49da-977e-32a39a5c40d9">
+    <con:settings/>
+    <con:config>
+      <script><![CDATA[import com.eviware.soapui.support.XmlHolder;
+
+try
+{	
+	// Get current date
+	def today = new Date().clearTime()
+	today = today.format( "MMddyyyy" )
+	
+	// Get folder path where to export data
+	def resultDir = new File( context.expand( '${ExportDir}' ) )
+
+	// Check if folder exists, create it otherwise
+	if ( ! resultDir.exists() )
+	{
+		resultDir.mkdirs()
+	}
+
+	// Set name for the exported file
+	def csvfile = 'BU_' + today.toString() + '.csv'
+	def resultsFile = new File( resultDir, csvfile )
+
+	// If the file does not already exist, we want to create it, otherwise we want to append
+	if ( ! resultsFile.exists() )
+	{
+		resultsFile.createNewFile()
+	}
+
+	def allTrxTypes = [
+		"Sale",
+		"Auth",
+		"Credit",
+		"Sale - Corp",
+		"RecurringSale",
+		"RecurringAuth",
+		"RecurringCredit",
+		"CreateToken",
+		"SpecialForce",
+		"PartialReversal - Full",
+		"PartialReversal - Partial",
+		"SpecialReturn - Full",
+		"SpecialReturn - Partial",
+		"Void",
+		"ReAuth"
+	]
+
+	def trxId = (int) Math.floor(Math.random()*1000000)
+	
+	for (trxTypeSplit in allTrxTypes)
+	{
+		// Get generic data
+		def merchantId = context.expand( '${MerchantId}' ) ?: ""
+		def trxType = ""
+		def trxInfo = ""
+
+		if (trxTypeSplit.toString().contains("-"))
+		{
+			trxType = trxTypeSplit.toString().split("-")[0].trim() ?: ""
+			trxInfo = trxTypeSplit.toString().split("-")[1].trim() ?: ""
+		}
+
+		else
+		{
+			trxType = trxTypeSplit
+		}
+
+		// Orig trx
+		def origTrx = ""
+		
+		if ("SpecialForce" == trxType) { origTrx = "ProcessCreditCard - Auth 1" }
+		else if ("PartialReversal" == trxType && "Full" == trxInfo) { origTrx = "ProcessCreditCard - Auth 2" }
+		else if ("PartialReversal" == trxType && "Partial" == trxInfo) { origTrx = "ProcessCreditCard - Auth 3" }
+		else if ("ReAuth" == trxType) { origTrx = "ProcessCreditCard - Auth 4" }
+		else if ("SpecialReturn" == trxType && "Full" == trxInfo) { origTrx = "ProcessCreditCard - Sale 1" }
+		else if ("SpecialReturn" == trxType && "Partial" == trxInfo) { origTrx = "ProcessCreditCard - Sale 2" }
+		else if ("Void" == trxType) { origTrx = "ProcessCreditCard - Sale 3" }
+
+		// Ref number
+		def trxReferenceNumber = context.expand( '${#[BU CSV Generator#ProcessCreditCard#' + origTrx + ']#Response#declare namespace ns1=\'http://tempuri.org/\'; declare namespace a=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common\'; //ns1:ProcessCreditCardResponse[1]/ns1:ProcessCreditCardResult[1]/a:ReferenceNumber[1]}' )
+		
+		// Regular card
+		def cardNumber = context.expand( '${MagneticData}' ).split( "=" )[0].trim() ?: ""
+		def cardLastFour = context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()
+		def cardHolderName = context.expand( '${NameOnCard}' ) ?: ""
+		def cardExpDate = context.expand( '${CardExpDate}' ) ?: ""
+		def cardCvv = context.expand( '${CardCVV}' ) ?: ""
+		
+		// Corp card
+		def corpCardNumber = context.expand( '${CorpCardMagneticData}' ).split( "=" )[0].trim() ?: ""
+		def corpCardLastFour = context.expand( '${CorpCardMagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()
+		def corpCardHolderName = context.expand( '${CorpCardNameOnCard}' ) ?: ""
+		def corpCardExpDate = context.expand( '${CorpCardExpDate}' ) ?: ""
+		def corpCardCvv = context.expand( '${CorpCardCVV}' ) ?: ""
+		
+		def amount = context.expand( '${Amount}' ) ?: ""
+		def amountPartial = context.expand( '${AmountRefundPartial}' ) ?: ""
+		def amountTax = context.expand( '${TaxAmount}' ) ?: ""
+		def invoiceNumber = context.expand( '${InvoiceNumber}' ) ?: ""
+		def authNumber = ""
+		def customerAvs = context.expand( '${CustomerAddress}' ) ?: ""
+		def customerZip = context.expand( '${CustomerZipCode}' ) ?: ""
+		//def customerCode = context.expand( '${CustomerCode}' ) ?: ""
+		def customerCode = "BU-" + trxId
+		def customerEmail = context.expand( '${CustomerEmail}' ) ?: ""
+		def freeColumnData = ""
+		def tokenId = context.expand( '${TokenId}' ) ?: ""
+
+		// We are finally ready, lets write info to file
+		//resultsFile.write('"TRX ID","MID","TRX TYPE","CARDNUMBER","NAME ON CARD","EXP DATE","CVV","AMOUNT","TAX","INVOICE","REF NUMBER","AUTH NUMBER","AVS","ZIP","CLIENT ID","EMAIL","FREE","TOKEN"')
+		resultsFile.append(trxId + ','); // Trx Id
+		resultsFile.append(merchantId + ','); // Merchant Id
+		resultsFile.append(trxType + ','); // Trx Type
+		
+		if (trxType in ["Sale", "Auth", "Credit", "CreateToken"] && "Corp" != trxInfo)
+		{
+			resultsFile.append(cardNumber + ','); // Card number
+			resultsFile.append(cardHolderName + ','); // Name on card
+			resultsFile.append(cardExpDate + ','); // Exp. date
+			resultsFile.append(cardCvv + ','); // CVV		
+		}
+
+		else if (trxType in ["Sale", "Auth", "Credit", "CreateToken"] && "Corp" == trxInfo)
+		{
+			resultsFile.append(corpCardNumber + ','); // Card number
+			resultsFile.append(corpCardHolderName + ','); // Name on card
+			resultsFile.append(corpCardExpDate + ','); // Exp. date
+			resultsFile.append(corpCardCvv + ','); // CVV
+		}
+
+		else if(! trxType in ["Sale", "Auth", "Credit", "CreateToken"] && "Corp" == trxInfo)
+		{
+			resultsFile.append(corpCardLastFour + ','); // Card number
+			resultsFile.append(','); // Name on card
+			resultsFile.append(','); // Exp. date
+			resultsFile.append(','); // CVV
+		}
+
+		else
+		{
+			resultsFile.append(cardLastFour + ','); // Card number
+			resultsFile.append(','); // Name on card
+			resultsFile.append(','); // Exp. date
+			resultsFile.append(','); // CVV
+		}
+		
+		if ("Partial" != trxInfo)
+		{
+			resultsFile.append(amount + ','); // Amount
+		}
+
+		else
+		{
+			resultsFile.append(amountPartial + ','); // Amount
+		}
+		
+		resultsFile.append(amountTax + ','); // Tax amount
+		resultsFile.append(invoiceNumber + ','); // Invoice number
+		
+		if (trxType in ["SpecialForce", "PartialReversal", "SpecialReturn", "Void", "ReAuth"])
+		{
+			resultsFile.append(trxReferenceNumber + ','); // Ref. number
+		}
+
+		else
+		{
+			resultsFile.append(','); // Ref. number
+		}
+		
+		resultsFile.append(authNumber + ','); // Auth. number
+
+		if (trxType in ["RecurringSale", "RecurringAuth", "RecurringCredit"])
+		{
+			resultsFile.append(customerAvs + ','); // Customer Address
+			resultsFile.append(customerZip + ','); // Customer Zip
+		}
+
+		else
+		{
+			resultsFile.append(','); // Customer Address
+			resultsFile.append(','); // Customer Zip
+		}
+		
+		resultsFile.append(customerCode + ','); // Customer code
+		resultsFile.append(customerEmail + ','); // Customer Email
+		resultsFile.append(freeColumnData + ','); // Free column
+		
+		if (trxType in ["RecurringSale", "RecurringAuth", "RecurringCredit"])
+		{
+			resultsFile.append(tokenId + ','); // TokenId
+		}
+
+		else
+		{
+			resultsFile.append(','); // TokenId
+		}
+		
+		resultsFile.append('\n'); //Newline
+		trxId++
+	}
+}
+
+catch( e )
+{
+	log.error( "An error occurred: " + e.toString() );
+}]]></script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

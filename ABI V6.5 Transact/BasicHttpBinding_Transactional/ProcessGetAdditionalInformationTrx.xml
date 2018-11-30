@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessGetAdditionalInformationTrx" name="ProcessGetAdditionalInformationTrx" bindingOperationName="ProcessGetAdditionalInformationTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="999c12c2-f0df-4a69-92bd-b76c5976c81d" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="999c12c2-f0df-4a69-92bd-b76c5976c81dfileName">ProcessGetAdditionalInformationTrx</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="e5e9bf26-e255-4582-a7ae-91016eaeeb1d" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:acr4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:acr5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessGetAdditionalInformationTrx>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr4:GeoLocationInformation>?</acr4:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr4:IMEI>?</acr4:IMEI>\r
+            <!--Optional:-->\r
+            <acr4:AdditionalInformation>\r
+               <acr5:BeginDate>?</acr5:BeginDate>\r
+               <!--Optional:-->\r
+               <acr5:EndDate>?</acr5:EndDate>\r
+            </acr4:AdditionalInformation>\r
+         </tem:request>\r
+      </tem:ProcessGetAdditionalInformationTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessGetAdditionalInformationTrx"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

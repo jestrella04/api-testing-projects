@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="00fab04f-8604-4c1c-b1ec-33af033c7479" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Delete" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="00fab04f-8604-4c1c-b1ec-33af033c7479fileName">Delete</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="GetToken" id="54d6ff41-c923-48a2-a310-820530ec26a1">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>GetToken</con:operation>
+      <con:request name="GetToken" id="2599dab4-dea9-4364-b167-939ac599daa2" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetToken>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:CardNumber xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:EmailAddress>%</acr1:EmailAddress>
+            <acr1:IncludeMultipleMerchants>false</acr1:IncludeMultipleMerchants>\r
+            <acr1:IncludeSignature>false</acr1:IncludeSignature>\r
+         </tem:request>\r
+      </tem:GetToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="97ba300b-b9d0-4282-b217-d61263236cca"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="afd73651-c265-450b-984e-50803ff5c72d">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="fcf599c0-8332-44ae-beb4-a3e6918ea2a9">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="36b1c437-790b-4f6a-9782-12bfd75695f0">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="190d1fe4-7ac4-4043-b1b5-609060276e0a">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="DataSource" id="d2618048-91ae-42f2-b52c-606e6115d1b0">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="XML">
+        <con:configuration>
+          <sourceStep>GetToken</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>declare namespace b='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common';
+declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses';
+//ns1:GetTokenResponse[1]/ns1:GetTokenResult[1]/a:Tokens[1]/b:Token</rowPath>
+          <columnPath>b:TokenId[1]</columnPath>
+          <columnPath>b:CardNumber[1]</columnPath>
+          <columnPath>b:AccountNumber[1]</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:property>tokenId</con:property>
+      <con:property>cardNumber</con:property>
+      <con:property>accountNumber</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="DeleteToken" id="8ea49957-6841-4fd5-8718-7a49d5764800">
+    <con:settings/>
+    <con:config>
+      <script>def tokenId = context.expand( '${DataSource#tokenId}' )
+def cardNumber = context.expand( '${DataSource#cardNumber}' )
+def accountNumber = context.expand( '${DataSource#accountNumber}' )
+
+if (cardNumber != "")
+{
+	testRunner.runTestStep(context.testCase.testSteps['DeleteCardToken'])
+}
+
+else if (accountNumber != "")
+{
+	testRunner.runTestStep(context.testCase.testSteps['DeleteAchToken'])
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteCardToken" id="bb28266a-208b-4aa9-b70a-97b70b91485d" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>DeleteCardToken</con:operation>
+      <con:request name="DeleteCardToken" id="9a3996b0-ac2c-4f47-bb45-813c4cea1e13" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteCardToken>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:TokenId>${DataSource#tokenId}</acr1:TokenId>\r
+         </tem:request>\r
+      </tem:DeleteCardToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="3805d755-cfda-4348-95e3-cc92cf3c1b2c"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="afd73651-c265-450b-984e-50803ff5c72d">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="fcf599c0-8332-44ae-beb4-a3e6918ea2a9">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="36b1c437-790b-4f6a-9782-12bfd75695f0">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="190d1fe4-7ac4-4043-b1b5-609060276e0a">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteAchToken" id="82f35cb4-4fa7-4e16-a13e-640df9b1b718" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>DeleteAchToken</con:operation>
+      <con:request name="DeleteAchToken" id="a2581eef-a101-449f-af70-ac95aefef7f9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteAchToken>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:TokenId>${DataSource#tokenId}</acr1:TokenId>\r
+         </tem:request>\r
+      </tem:DeleteAchToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="12a72692-cf90-4bce-a35e-f722de3f2b35"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="7dc15138-a55c-4701-89ca-d112e23cc9d3">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>DeleteToken</targetStep>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>28742a7e-34b5-411c-9075-e7c40cd01f44</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>54d6ff41-c923-48a2-a310-820530ec26a1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>7dc15138-a55c-4701-89ca-d112e23cc9d3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>d2618048-91ae-42f2-b52c-606e6115d1b0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>bb28266a-208b-4aa9-b70a-97b70b91485d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>8ea49957-6841-4fd5-8718-7a49d5764800</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

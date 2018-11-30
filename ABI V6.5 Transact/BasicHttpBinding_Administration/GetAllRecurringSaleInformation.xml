@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Administration/GetAllRecurringSaleInformation" name="GetAllRecurringSaleInformation" bindingOperationName="GetAllRecurringSaleInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0bebcbee-4013-4788-b6bb-8233da0a22b2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0bebcbee-4013-4788-b6bb-8233da0a22b2fileName">GetAllRecurringSaleInformation</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="86a86817-d84d-48b1-9064-3960580b12b7" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetAllRecurringSaleInformation>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:CardNumber>?</acr1:CardNumber>
+            <!--Optional:-->
+            <acr1:CustomerCode>?</acr1:CustomerCode>
+            <!--Optional:-->
+            <acr1:EmailAddress>?</acr1:EmailAddress>
+            <acr1:IncludeMultipleMerchants>?</acr1:IncludeMultipleMerchants>
+            <!--Optional:-->
+            <acr1:IncludeSignature>?</acr1:IncludeSignature>
+         </tem:request>
+      </tem:GetAllRecurringSaleInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/GetAllRecurringSaleInformation"/>
+  </con:call>
+</con:operation>

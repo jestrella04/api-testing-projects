@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ModifyCardToken" searchProperties="true" id="52447b4a-333b-4965-a7fc-2c6c6b87eb1e" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="52447b4a-333b-4965-a7fc-2c6c6b87eb1efileName">ModifyCardToken</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="ModifyCardToken - New Id" id="fb5843d6-d4db-4f47-822c-735543d34456">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>ModifyCardToken</con:operation>
+      <con:request name="ModifyCardToken - New Id" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="ab98d1c6-a3f1-4c65-a48f-f244b5519bba" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:Token>
+                  <acr2:CustomerBillingAddress></acr2:CustomerBillingAddress>
+                  <acr2:CustomerCode>Test001</acr2:CustomerCode>
+                  <acr2:CustomerEmailAddress>jonjon@cenp.os</acr2:CustomerEmailAddress>
+                  <acr2:CustomerZipCode xsi:nil="true" />
+                  <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+                  <acr2:Signature xsi:nil="true" />
+                  <acr2:TokenId>${UseToken}</acr2:TokenId>
+                  <acr2:CardExpirationDate>1230</acr2:CardExpirationDate>
+                  <acr2:CardNumber xsi:nil="true" />
+                  <acr2:CardType xsi:nil="true" />
+                  <acr2:MagneticData xsi:nil="true" />
+                  <acr2:NameOnCard xsi:nil="true" />
+                  <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:ModifyCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="94e41641-8b1c-4595-8b7d-bb034823a8d8"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/ModifyCardToken"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyCardToken - Existing Id" id="b9b0c824-52df-439d-a420-19963828b726">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>ModifyCardToken</con:operation>
+      <con:request name="ModifyCardToken - Existing Id" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e7af0138-a61f-41a6-9a13-4351ddd62fd2" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:Token>
+                  <acr2:CustomerBillingAddress></acr2:CustomerBillingAddress>
+                  <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+                  <acr2:CustomerEmailAddress>jonjon@cenp.os</acr2:CustomerEmailAddress>
+                  <acr2:CustomerZipCode xsi:nil="true" />
+                  <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+                  <acr2:Signature xsi:nil="true" />
+                  <acr2:TokenId>${TokenId2}</acr2:TokenId>
+                  <acr2:CardExpirationDate>1230</acr2:CardExpirationDate>
+                  <acr2:CardNumber xsi:nil="true" />
+                  <acr2:CardType xsi:nil="true" />
+                  <acr2:MagneticData xsi:nil="true" />
+                  <acr2:NameOnCard xsi:nil="true" />
+                  <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:ModifyCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="7fa00666-d7ab-453a-9b40-31bbae0e7e7d"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/ModifyCardToken"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Export" id="2bb8472d-e0cb-4cd5-a1b1-82a9016f1841">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.support.XmlHolder;
+
+try {	
+	//Current date
+	def today = new Date().clearTime()
+	today = today.format( "MM-dd-yyyy" )
+	
+	//The path and file to persist results
+	def resultDir = new File( context.expand( '${ExportDir}' ) )
+	
+	if( ! resultDir.exists() ) {
+		resultDir.mkdirs()
+	}
+
+	def csvfile = 'Tokens ' + today.toString() + '.csv'
+	def resultsFile = new File( resultDir, csvfile )
+
+	//If the file does not already exist, we want to create it, otherwise we want to append
+	if( ! resultsFile.exists() ) {
+		resultsFile.createNewFile()
+		
+		//Header row
+		resultsFile.write('"MID","INTERFACE","TRANSACTION","CARDTYPE","RESULT","RESULT CODE","TOKENID", "REFERENCE NO.","TIMESTAMP"')
+	}
+
+	def testSteps = context.testCase.getTestStepList()
+		
+	//Loop through transactions and write results to file
+	testSteps.each{
+		// Get the data to be added to the report
+		def testCaseName = it.testCase.name
+		def testStepName = it.name
+		def merchantId = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "MerchantId" )
+		def cardNumber = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "CardNumber" )
+		def identifier = cardNumber.substring(0,1)
+		
+		if ( identifier == "4" ) {
+			
+			cardType = "VISA"
+			
+		} else if ( identifier == "5" ) {
+			
+			cardType = "MASTERCARD"
+			
+		} else if ( identifier == "6" ) {
+			
+			cardType = "DISCOVER"
+			
+		} else if ( identifier == "3" ) {
+			
+			cardType = "AMEX"
+			
+		} else {
+			
+			cardType = "OTHER"
+			
+		}
+
+		def modelItem = it.getModelItem().toString()
+
+		if ( modelItem.contains("WsdlTestRequestStep") ) {
+
+			def response = testRunner.testCase.testSuite.getTestCaseByName(testCaseName).getTestStepByName(testStepName).httpRequest.response
+			XmlHolder responseXML = new XmlHolder( response.getResponseContent() );
+			responseXML.namespaces["ns2"] = "http://tempuri.org/"
+			responseXML.namespaces["ns1"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+			responseXML.namespaces["a"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"
+
+			def interfName = testCaseName
+			/*def getCaseName = testCaseName.split( '-' )
+			def interfName = getCaseName[0].trim()
+			def inputType = getCaseName[1].trim()
+
+			def getStepName = testStepName.split( '-' )
+			def transaction = getStepName[1].trim()*/
+			
+			def status = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Message[1]' )
+			def referenceNumber = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:ReferenceNumber[1]' )
+			def resultCode = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Result[1]' )
+			def timestamp = response.responseHeaders["Date"]
+
+			if ( referenceNumber == null || ! referenceNumber.isNumber() ) {
+
+				referenceNumber = "N/A";
+				
+			}
+
+			//Write info to file
+			resultsFile.append('\n'); //Newline
+			resultsFile.append('"' + merchantId + '",'); //Merchant Id
+			resultsFile.append('"' + interfName + '",'); //Interface
+			resultsFile.append('"' + testStepName + '",'); //Transaction
+			resultsFile.append('"' + cardType + '",'); //CardType
+			resultsFile.append('"' + status + '",'); //Transaction result
+			resultsFile.append('"' + resultCode + '",'); //Transaction result code
+			resultsFile.append('"' + '' + '",'); //TokenId
+			resultsFile.append('"' + '' + '",'); //Reference number
+			resultsFile.append('"' + timestamp + '",'); //Timestamp
+		}
+	}
+
+} catch( e ) {
+	log.error("An error occurred: " + e.toString());
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

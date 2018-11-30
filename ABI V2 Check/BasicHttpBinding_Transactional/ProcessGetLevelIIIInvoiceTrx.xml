@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessGetLevelIIIInvoiceTrx" name="ProcessGetLevelIIIInvoiceTrx" bindingOperationName="ProcessGetLevelIIIInvoiceTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="19914dea-bf85-4600-ba73-80066e8676bd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="19914dea-bf85-4600-ba73-80066e8676bdfileName">ProcessGetLevelIIIInvoiceTrx</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="95e40bc9-941f-462b-b4d4-2b0766644b45" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessGetLevelIIIInvoiceTrx>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation>?</acr2:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr2:IMEI>?</acr2:IMEI>\r
+            <!--Optional:-->\r
+            <acr2:LevelIIIInvoice>\r
+               <acr3:BeginDate>?</acr3:BeginDate>\r
+               <!--Optional:-->\r
+               <acr3:EndDate>?</acr3:EndDate>\r
+            </acr2:LevelIIIInvoice>\r
+         </tem:request>\r
+      </tem:ProcessGetLevelIIIInvoiceTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessGetLevelIIIInvoiceTrx"/>
+  </con:call>
+</con:operation>

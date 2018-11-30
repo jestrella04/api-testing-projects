@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Administration/AddDiscount" name="AddDiscount" bindingOperationName="AddDiscount" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="1945899a-fbf1-43ac-ab77-2a7cea56cb05" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1945899a-fbf1-43ac-ab77-2a7cea56cb05fileName">AddDiscount</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="0c13089c-087d-4cc8-b192-472ad55ac909" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddDiscount>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:Discount>
+               <!--Optional:-->
+               <acr1:CardType>?</acr1:CardType>
+               <!--Optional:-->
+               <acr1:CardTypeDescription>?</acr1:CardTypeDescription>
+               <!--Optional:-->
+               <acr1:CardUsage>?</acr1:CardUsage>
+               <!--Optional:-->
+               <acr1:CardUsageDescription>?</acr1:CardUsageDescription>
+               <!--Optional:-->
+               <acr1:DiscountValue>?</acr1:DiscountValue>
+               <!--Optional:-->
+               <acr1:ProductType>?</acr1:ProductType>
+            </acr1:Discount>
+         </tem:request>
+      </tem:AddDiscount>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/AddDiscount"/>
+  </con:call>
+</con:operation>

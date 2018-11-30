@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="75e9bd00-5746-4df0-916e-d31eb338c844" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Sample" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="75e9bd00-5746-4df0-916e-d31eb338c844fileName">Sample</con:setting>
+  </con:settings>
+  <con:testStep type="request" id="89196a88-abc6-4cd8-a182-fd918ee6273f" name="AddAchToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddAchToken</con:operation>
+      <con:request name="AddAchToken" id="5d07e7c1-f424-4d12-b4a8-62209895ffc5" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddAchToken>\r
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>               
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature xsi:nil="true" />
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:ABANumber>${PersonalCheckABA}</acr2:ABANumber>
+               <acr2:AccountNumber>${PersonalCheckAccount}</acr2:AccountNumber>
+               <acr2:AccountType>Checking</acr2:AccountType>
+               <acr2:BirthDay xsi:nil="true" />
+               <acr2:CheckType>Personal</acr2:CheckType>
+               <acr2:City>Miami</acr2:City>
+               <acr2:DriversNumber>${CustomerDriversNumber}</acr2:DriversNumber>
+               <acr2:FirstName>${CustomerName}</acr2:FirstName>
+               <acr2:LastName>E</acr2:LastName>
+               <acr2:Phone>9095223269</acr2:Phone>
+               <acr2:State>FL</acr2:State>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddAchToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddAchToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="0a0abd69-9fea-4c37-a345-7ad68aeb156a" name="AddCardToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken" id="c05aecee-8d22-474c-9d2f-45f65043ff17" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:ReferenceNumber xsi:nil="true"/>
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>999</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature>UEsDBBQACAAIABxZwUQAAAAAAAAAAAAAAAANAAAAc2lnbmF0dXJlLnppcN1WaVQTWRYOGqDIgB2S IEhECCIE2lbsSABBSQERQcBiOZAom8EOOjAgmxCWAUuchrC4BdmhhhZxelgFFIVGMxKH1TTQgEjA IyhC06ZFVESEnhfpM8d/0j9nznl16t7vu/e7X733flQG4u6kQdAl4HA4DecDjp44nJIIPH2QCkDc kEMpOBxBz9kR9o5/9GKsM0pmRWSJV34ruxy+zyqBNqiMXe6B9P9tLDYMcNh65Jw+DnpZh8dBBBy6 LhXDgWVAX81WgdVsjTTI1kh/qvUZ+hOtz9B/xOhlHA5WYiE4IkWx8Mqr2SrwMVsrDbI10p9ofYb+ VOsz9B8wKiH9vxze2o1y1v3PHN6Kxt3JubfaqdjJLzf7pihBwvRW9fYWTrq6Ad0+SjBwh6oSqYRn H7BHoyzMUzHE1ihl+VdfvBuHhegQL/6WUjtYuS1SCf67wNUH/8zLDwfTuK6GKdIxTcpGIqWw2OWU 6jexFCWYJlZJ4gVraxEpuuGtJpaxR0FLHz8xgaGACsOub2JGeQBIPFV4gqyACCme0hunbarBxNcD gvvZR7xZCL1ZwB9rXGYfIFKEySRpKzeTABEsLXsGhg1aUzGrkixIeA3UB0VXNcJLJB2IkGF3wne0 mK2MP3uFGj+YzQUa7UYzgUYxj9bjJVOWTLpejT7+rE/ZlX9GdJSvQ7/eQa+R7k3Ffnwb03+CsRG4 qCQPTwckIfbI9Mv+2FGdsBg+FY7cY51UPbQFhpHWk8wg6viFpqY2SKiR0G6SUDT+nlt/Q5E4Io5s hEgpysfSXS40NV6FhL2Lz2IzbeP4owmGdPRrucjQLHRIetiQzqy+AGvmvlusy4GEboIwxHHbqd4q Gsrz2qJH8cgo0pj9Fnt4ZXz8zHNJLsaxwUtMkiopHmo2JRxLvIS/nV5uSAfaD/emu+QI6gIgYTZn dTK1PlEz1zY6qASYqMPShZgBnXl0wdBMIA90/R0aUEN55PFEu3fMP8+i2MN42Tmvrv6QiH1EStm0 MtvbXj6YBJoC4fottCe79cGU+8nWFWm2EQ2nQfFY3rU0WdEICwlrlXcXpsnyQLixLYuJVIqcF44Z AwM1Sw3GtIVgEBZlLjXsoFWSGaCRI3sszm4emGl3Bdp+C8f923LKBYpWEdMdtEoHbQ3oqCG9nBQ1 NqUE1/fd9g0lR/XyQXih2XeWHFWtCDtvD2vMXkrONqwZ2A5kuAtfmtGGQzaAoVVLem37PcQMVXAI Q8sb9lU4BuRZA5N1f7E8ONsY59OLA+JywfQetuqDeSckrMbddP3zYMn8q180Reyds0+z++9fTCnx aW+PdkLwkpkwjrfPh1ulNqDJ3fTeRMvPi/FTkBCzqlAX/tplJ2WAIra3CvubZ2WTgq10tH9q4Oa7 0mWGbSiejRR7qrTHOcn2huAl3c9E/bZtLbyJTaBoQtRv1daCyv8b+6+E2KE8zR/8mMVnNK3evOgw +EjQ20yGHjWwgQ3TipHDJYSbz4XYQ9sST93qwc78eHCj8ly9C3uQmynHSbD4oLGZ6tDM64SEyx9x 3R6Pq/o/KaMT28i5aKjoxAtbB7wE1JwNMZ2UVqjCcxczXOq5XTd8SqmKzfaMSS52J1LgJ1NXnVea 5qqIlEBCXeQesRoBGOGt1+IycjCIUP5Ksrx0URvlOTQSy0lMOxQFIOxRcL20Vm4xGSc4jUEuM9di AoYPLUxHdICvQ+vSituvy1oW9yNJziyOriwT3EJ3U+hgR1NIc2BDNhY/k1bR2UQgAA/q6t0Ns+/f PvoQ9BXYO/rt007+Dk9jIQW1O6dbfr7kA/eV4mbsEFNXOsl9GeT8W/uRDeG8nzIOttfK9f3wynCk y1HW5t7doAPhP+hRvPMZDDBkhCYtLggBquYhU5vgufJ7b6xH5+ICWUjhnem62Z3hpJad3u/exoB+ cXHBZLnmrfnHBKG2XldvofWDuVyhWeQuU+W/qeEljH8QtS9NiNAvdkakRKzc6Ct7H31uRbY52ICe bzE/eszBbjk6OusMFjTUE/Hi/DErUzXhNRCHiy+xhkJ3f4WiXEZLLy/q58NumVjQd4mLSx6WxtIa weKd74McHZUb+PzE+8cW3hTpwOKqgpGpXSOx+sb7kbq5ghGlXYJTdk8ebzrup2607y7U1RoXJ/mh QKeS0lMo0HsPm3+gWrf+FUXd/lX1YPl7+6d5d385WQ6GVQ4ZGJmdsnQQgtDhkMmTyiO1pbCkSk0Y 93pEV+avalPkReD3ZgmdOxI41mBoRkZ+WlXmIFkrTOW7EC/XmlpppcV1FNim2hTxSC0+Pn3ErfTg 5/2JOi1xXOczWdbU5D20HWY+A+b3mgter1RnCLUsfjSXd/uP37FgBLOVqNtpHrvgVIxI0iLjIQJt fv5PFYXZL/Hra8+D/0WcM9vdscY+CP0PUEsHCBKMOasNBwAAVgoAAFBLAQIUABQACAAIABxZwUQS jDmrDQcAAFYKAAANAAAAAAAAAAAAAAAAAAAAAABzaWduYXR1cmUuemlwUEsFBgAAAAABAAEAOwAA AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true"/>
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true"/>
+               <acr2:CardVerificationNumber>${CardCVV}</acr2:CardVerificationNumber>
+               <acr2:DriversNumber xsi:nil="true" />
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="773d0903-41ea-45cf-8315-f060f6bfa218" name="DeleteAchToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>DeleteAchToken</con:operation>
+      <con:request name="DeleteAchToken" id="26d2954e-3fff-4c79-8e02-d878b38979c7" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteAchToken>\r
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:TokenId>B4T8PVCZ</acr1:TokenId>
+         </tem:request>
+      </tem:DeleteAchToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/DeleteAchToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="fc9e5998-9b30-409c-8ea8-459525dd30da" name="DeleteCardToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>DeleteCardToken</con:operation>
+      <con:request name="DeleteCardToken" id="bc96dbb1-b116-468a-813a-302a1a810192" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteCardToken>\r
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:TokenId>${TokenId}</acr1:TokenId>
+         </tem:request>
+      </tem:DeleteCardToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/DeleteCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="d28bd0aa-5c0b-4d4b-9129-de1bb138ad37" name="GetToken" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>GetToken</con:operation>
+      <con:request name="GetToken" id="5a36e2b7-cb80-4cd9-80c5-c571078a2e8a" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>\r
+      <tem:GetToken>\r
+         <tem:request>\r
+            <acr:MerchantId>177</acr:MerchantId>\r
+            <acr:Password>Abi@2012</acr:Password>\r
+            <acr:UserId>cenpos</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:CardNumber xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:EmailAddress>jestrella@cenpos.com</acr1:EmailAddress>\r
+            <acr1:IncludeMultipleMerchants>false</acr1:IncludeMultipleMerchants>\r
+            <acr1:IncludeSignature>false</acr1:IncludeSignature>\r
+         </tem:request>\r
+      </tem:GetToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/GetToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="994545df-9206-43e9-a294-75a928cb1056" name="ModifyAchToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>ModifyAchToken</con:operation>
+      <con:request name="ModifyAchToken" id="7a547ee7-1559-4c7e-85c1-05231cb67214" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ModifyAchToken>\r
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress xsi:nil="true" />
+               <acr2:CustomerCode>je003</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>jon.ath.an@cenp.os</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode xsi:nil="true" />
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature xsi:nil="true" />
+               <acr2:TokenId>RYIBXVJ9</acr2:TokenId>
+               <acr2:ABANumber>${PersonalCheckABA}</acr2:ABANumber>
+               <acr2:AccountNumber>${PersonalCheckAccount}</acr2:AccountNumber>
+               <acr2:AccountType xsi:nil="true" />
+               <acr2:BirthDay xsi:nil="true" />
+               <acr2:CheckType xsi:nil="true" />
+               <acr2:City xsi:nil="true" />
+               <acr2:DriversNumber xsi:nil="true" />
+               <acr2:FirstName>Josefino</acr2:FirstName>
+               <acr2:LastName>Rodriguez</acr2:LastName>
+               <acr2:Phone xsi:nil="true" />
+               <acr2:State>FL</acr2:State>
+            </acr1:Token>
+         </tem:request>
+      </tem:ModifyAchToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/ModifyAchToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="91694de0-e78b-4a9b-a6e2-2f0570db3313" name="ModifyCardToken" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>ModifyCardToken</con:operation>
+      <con:request name="ModifyCardToken" id="1b2eed24-1d3a-4d6f-8415-12c6bcdd1b8c" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ModifyCardToken>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:Token>\r
+               <!--Optional:-->\r
+               <acr2:CustomerBillingAddress>?</acr2:CustomerBillingAddress>\r
+               <!--Optional:-->\r
+               <acr2:CustomerCode>?</acr2:CustomerCode>\r
+               <!--Optional:-->\r
+               <acr2:CustomerEmailAddress>?</acr2:CustomerEmailAddress>\r
+               <!--Optional:-->\r
+               <acr2:CustomerZipCode>?</acr2:CustomerZipCode>\r
+               <!--Optional:-->\r
+               <acr2:MerchantId>?</acr2:MerchantId>\r
+               <!--Optional:-->\r
+               <acr2:Signature>?</acr2:Signature>\r
+               <!--Optional:-->\r
+               <acr2:TokenId>?</acr2:TokenId>\r
+               <!--Optional:-->\r
+               <acr2:CardExpirationDate>?</acr2:CardExpirationDate>\r
+               <!--Optional:-->\r
+               <acr2:CardNumber>?</acr2:CardNumber>\r
+               <!--Optional:-->\r
+               <acr2:CardType>?</acr2:CardType>\r
+               <!--Optional:-->\r
+               <acr2:CardVerificationNumber>?</acr2:CardVerificationNumber>\r
+               <!--Optional:-->\r
+               <acr2:DriversNumber>?</acr2:DriversNumber>\r
+               <!--Optional:-->\r
+               <acr2:InsuranceInformation>?</acr2:InsuranceInformation>\r
+               <!--Optional:-->\r
+               <acr2:MagneticData>?</acr2:MagneticData>\r
+               <!--Optional:-->\r
+               <acr2:NameOnCard>?</acr2:NameOnCard>\r
+               <!--Optional:-->\r
+               <acr2:TaxExempt>?</acr2:TaxExempt>\r
+            </acr1:Token>\r
+         </tem:request>\r
+      </tem:ModifyCardToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/ModifyCardToken" mustUnderstand="NONE" version="200508"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="a6608703-5008-4281-9a1f-536fc9bcffc3" name="UseToken" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>UseToken</con:operation>
+      <con:request name="UseToken" id="363cb1e5-95da-45cc-b826-0822a18e9b37" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UseToken>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:Amount>?</acr1:Amount>\r
+            <!--Optional:-->\r
+            <acr1:AuthorizationNumber>?</acr1:AuthorizationNumber>\r
+            <!--Optional:-->\r
+            <acr1:CardVerificationNumber>?</acr1:CardVerificationNumber>\r
+            <!--Optional:-->\r
+            <acr1:CurrencyCode>?</acr1:CurrencyCode>\r
+            <!--Optional:-->\r
+            <acr1:InvoiceDetail>?</acr1:InvoiceDetail>\r
+            <!--Optional:-->\r
+            <acr1:InvoiceNumber>?</acr1:InvoiceNumber>\r
+            <!--Optional:-->\r
+            <acr1:PurchaseOrderNumber>?</acr1:PurchaseOrderNumber>\r
+            <!--Optional:-->\r
+            <acr1:SecureCode>?</acr1:SecureCode>\r
+            <!--Optional:-->\r
+            <acr1:TaxAmount>?</acr1:TaxAmount>\r
+            <!--Optional:-->\r
+            <acr1:TokenId>?</acr1:TokenId>\r
+            <!--Optional:-->\r
+            <acr1:TransactionType>?</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:UseToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/UseToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="dd0df1e2-0f11-4f82-bfcc-417694915eea" name="Copy of AddCardToken" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="Copy of AddCardToken" id="c05aecee-8d22-474c-9d2f-45f65043ff17" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddCardToken>\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <acr:Password>Abi@2013</acr:Password>\r
+            <acr:UserId>cashier</acr:UserId>\r
+            <acr1:GeoLocationInformation></acr1:GeoLocationInformation>\r
+            <acr1:IMEI></acr1:IMEI>\r
+            <acr1:ReferenceNumber></acr1:ReferenceNumber>\r
+            <acr1:Token>\r
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>\r
+               <acr2:CustomerCode>je005</acr2:CustomerCode>\r
+               <acr2:CustomerEmailAddress>jestrella@cenpos.com</acr2:CustomerEmailAddress>\r
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>\r
+               <acr2:MerchantId>20000022</acr2:MerchantId>\r
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>\r
+               <acr2:TokenId></acr2:TokenId>\r
+               <acr2:CardExpirationDate>1225</acr2:CardExpirationDate>\r
+               <acr2:CardNumber>5454545454545454</acr2:CardNumber>\r
+               <acr2:CardType></acr2:CardType>\r
+               <acr2:CardVerificationNumber>999</acr2:CardVerificationNumber>\r
+               <acr2:DriversNumber></acr2:DriversNumber>\r
+               <acr2:InsuranceInformation></acr2:InsuranceInformation>\r
+               <acr2:MagneticData></acr2:MagneticData>\r
+               <acr2:NameOnCard>Jon</acr2:NameOnCard>\r
+               <acr2:TaxExempt>true</acr2:TaxExempt>\r
+            </acr1:Token>\r
+         </tem:request>\r
+      </tem:AddCardToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="3fb125d1-427e-4695-8588-3287cefdc1fd" name="Copy of UseToken" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>UseToken</con:operation>
+      <con:request name="Copy of UseToken" id="363cb1e5-95da-45cc-b826-0822a18e9b37" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UseToken>\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <acr:Password>Abi@2012</acr:Password>\r
+            <acr:UserId>cenpos</acr:UserId>\r
+            <acr1:GeoLocationInformation></acr1:GeoLocationInformation>\r
+            <acr1:IMEI></acr1:IMEI>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber></acr1:AuthorizationNumber>\r
+            <acr1:CardVerificationNumber></acr1:CardVerificationNumber>\r
+            <acr1:CurrencyCode>840</acr1:CurrencyCode>\r
+            <acr1:InvoiceDetail></acr1:InvoiceDetail>\r
+            <acr1:InvoiceNumber>123456</acr1:InvoiceNumber>\r
+            <acr1:PurchaseOrderNumber></acr1:PurchaseOrderNumber>\r
+            <acr1:SecureCode></acr1:SecureCode>\r
+            <acr1:TaxAmount>5.26</acr1:TaxAmount>\r
+            <acr1:TokenId></acr1:TokenId>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:UseToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/UseToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="SOAP Request" id="3c3ada93-fa5c-4e9a-981c-05fc529dff13" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>GenerateCryptoToken</con:operation>
+      <con:request name="SOAP Request" id="f5d5b04e-761a-4344-b0d4-506db702ef0f">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GenerateCryptoToken>\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <acr:Password>Abi@2012</acr:Password>\r
+            <acr:UserId>cenpos</acr:UserId>\r
+            <acr1:GeoLocationInformation></acr1:GeoLocationInformation>\r
+            <acr1:IMEI></acr1:IMEI>\r
+            <acr1:CardExpirationDate>1225</acr1:CardExpirationDate>\r
+            <acr1:CardNumber>5454545454545454</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber>998</acr1:CardVerificationNumber>\r
+            <acr1:NameOnCard>Jon</acr1:NameOnCard>\r
+         </tem:request>\r
+      </tem:GenerateCryptoToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="41e332e6-2915-45f6-a6ad-3f63931d457e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ValidateCard" id="f40a7565-70a3-40b0-9af9-3ccdca048b98" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>ValidateCard</con:operation>
+      <con:request name="ValidateCard" id="58bdfaf2-abb0-424b-bab0-a1542c6d2f61">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ValidateCard>\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <acr:Password>Abi@2012</acr:Password>\r
+            <acr:UserId>cenpos</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true" />\r
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:CardExpirationDate>1225</acr1:CardExpirationDate>\r
+            <acr1:CardNumber>5454545454545454</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber>998</acr1:CardVerificationNumber>\r
+            <acr1:CustomerBillingAddress>8320</acr1:CustomerBillingAddress>\r
+            <acr1:CustomerZipCode>85284</acr1:CustomerZipCode>\r
+            <acr1:NameOnCard>Jon</acr1:NameOnCard>\r
+         </tem:request>\r
+      </tem:ValidateCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="ed5996ed-eb3f-4d90-9a84-a5593262a7a3"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>545e0e05-6215-4d6e-bef6-f77a2710ef46</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Export Results" searchProperties="true" id="d58540ce-8bdd-4f72-974a-f8e442cfdb4d" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d58540ce-8bdd-4f72-974a-f8e442cfdb4dfileName">Export-Results</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="Export Results" id="08e445b0-f098-48a1-ae73-cc9dd46dc0b7">
+    <con:settings/>
+    <con:config>
+      <script>try {	
+	def currentWorkspace = context.testCase.testSuite.getProject().getWorkspace()
+
+	// Run ExportTrxResults script					
+	ExportTrxResults = testRunner.runTestStep( currentWorkspace.getProjectByName( "Automation" ).testSuites['Automation'].testCases['Automation'].testSteps['ExportTrxResults'] )
+}
+
+catch( e )
+{
+	log.error( "An error occurred: " + e.toString() );
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

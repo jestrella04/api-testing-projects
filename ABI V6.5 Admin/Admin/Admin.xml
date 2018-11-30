@@ -1,0 +1,2143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Admin" searchProperties="true" id="293aeb11-909a-4c6c-b439-e1dc84321c4c" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="293aeb11-909a-4c6c-b439-e1dc84321c4cfileName">Admin</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="AddHierarchyRole" id="e64dcfd9-bdcc-484f-ad14-6b676434ec3d" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddHierarchyRole</con:operation>
+      <con:request name="AddHierarchyRole" id="a9e5ac95-8edb-4993-840b-93a207d6247b" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddHierarchyRole>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:HierarchyRole>
+         <acr1:HierarchyRoleId>20017162</acr1:HierarchyRoleId>
+         <acr1:Name>paltest83</acr1:Name>
+         <acr1:ParameterList>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Zip Code</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Billing Address</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>CVV</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Sale Maximum Amount</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Sale Daily Amount Limit</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Sale Daily Count Limit</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Return Maximum Amount</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Return Daily Amount Limit</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Return Daily Count Limit</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Void Maximum Amount</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Void Daily Amount Limit</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+            <acr1:HierarchyRoleParameter>
+               <acr1:Name>Void Daily Count Limit</acr1:Name>
+               <acr1:Option>1</acr1:Option>
+               <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+               <acr1:TriggerAmount>0</acr1:TriggerAmount>
+            </acr1:HierarchyRoleParameter>
+         </acr1:ParameterList>
+         <acr1:PrivilegeList>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>WebPayReport</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Administration</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Auth</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Force</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>SpecialForce</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>QuickForce</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Return</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>SpecialReturn</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>QuickRefund</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Reprint</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Sale</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Transactions</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Void</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>QuickVoid</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>MOTO</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>VoiceAuth</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Credit</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Reconciliation</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Settlement</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>RecurringSale2</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>SupervisorApproval</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>PositiveCardAuthorization</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Activate</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Reload</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>BalanceCheck</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>ProcessCheck</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>CheckDeposit</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>ItemBatch</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>RepeatCheck</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>CheckSummary</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>CheckVoid</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>PartialReversal</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>ReAuth</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>EbppReport</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Cashier</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>CashSupervisor</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>ReplenishCash</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>EndOfDayCash</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>InitialCash</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>LinkedReturn</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>LinkedTokens</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>CheckCredit</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>SimpleCheck</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>UseToken</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>ManageToken</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>UnlockUser</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>LightRecurring</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>ChangeUserPassword</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Level3Template</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+            <acr1:MerchantUserPrivilege>
+               <acr1:Name>Refund</acr1:Name>
+            </acr1:MerchantUserPrivilege>
+         </acr1:PrivilegeList>
+         <acr1:RoleId>46</acr1:RoleId>
+      </acr1:HierarchyRole>
+         </tem:request>
+      </tem:AddHierarchyRole>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/AddHierarchyRole" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddUser" id="ece00845-b875-4108-9f90-28dec9de148d" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddUser</con:operation>
+      <con:request name="AddUser" id="49f36dba-42bd-41cc-ba2d-07bc12b75650" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" 
+xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddUser>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:User>
+               <acr1:AlertEmailList xsi:nil="true"/>
+               <acr1:CellPhoneNumber>3050000000</acr1:CellPhoneNumber>
+               <acr1:Department>Test Dept</acr1:Department>
+               <acr1:Email>username@domain.tld</acr1:Email>
+               <acr1:HeadCashier xsi:nil="true"/>
+               <acr1:HierarchyRoleId>20017161</acr1:HierarchyRoleId>
+               <acr1:InvoiceOption>4</acr1:InvoiceOption>
+               <acr1:IsLockedOut>false</acr1:IsLockedOut>
+               <acr1:Name>Test User</acr1:Name>
+               <acr1:ParameterList>
+                  <acr1:MerchantUserParameter>
+                     <acr1:Name>Zip Code</acr1:Name>
+                     <acr1:Option>1</acr1:Option>
+                     <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+                     <acr1:TriggerAmount>0</acr1:TriggerAmount>
+                  </acr1:MerchantUserParameter>
+                  <acr1:MerchantUserParameter>
+                     <acr1:Name>Billing Address</acr1:Name>
+                     <acr1:Option>1</acr1:Option>
+                     <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+                     <acr1:TriggerAmount>0</acr1:TriggerAmount>
+                  </acr1:MerchantUserParameter>
+                  <acr1:MerchantUserParameter>
+                     <acr1:Name>CVV</acr1:Name>
+                     <acr1:Option>1</acr1:Option>
+                     <acr1:SendEmailAlert>false</acr1:SendEmailAlert>
+                     <acr1:TriggerAmount>0</acr1:TriggerAmount>
+                  </acr1:MerchantUserParameter>
+               </acr1:ParameterList>
+               <acr1:Password>P@ssw0rd</acr1:Password>
+               <acr1:PrivilegeList>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Adjustment</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Administration</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Auth</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Credit</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Force</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>SpecialForce</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>MOTO</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Reprint</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Return</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>SpecialReturn</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Sale</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Transactions</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>VoiceAuth</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Void</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Reconciliation</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Posting</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Settlement</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Activate</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Reload</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>BalanceCheck</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ForcePrepaidSale</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>RecurringSale</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ForcePrepaidMOTO</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>RecurringSale2</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Industries</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Industry</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>QuickVoid</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>QuickRefund</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>QuickForce</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ProcessCheck</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ItemBatch</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>CheckDeposit</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>RepeatCheck</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>PendingInvoice</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>SupervisorApproval</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>CheckSummary</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Discounts</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Discount</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>CheckCredit</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>PositiveCardAuthorization</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>EBPPMarkAsPaid</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>WebPayReport</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>PartialReversal</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+               </acr1:PrivilegeList>
+               <acr1:ReceiptType>2</acr1:ReceiptType>
+               <acr1:SharedDrawer>false</acr1:SharedDrawer>
+               <acr1:UserId>testuserid1</acr1:UserId>
+            </acr1:User>
+         </tem:request>
+      </tem:AddUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/AddUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ChangePassword" id="40275dec-8e39-45a1-808d-f18436f16dd1" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ChangePassword</con:operation>
+      <con:request name="ChangePassword" id="da8d7cfd-8a4a-4c16-826e-4f375db097ac" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ChangePassword>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+            <!--Optional:-->\r
+            <acr2:NewPassword/>\r
+         </tem:request>\r
+      </tem:ChangePassword>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ChangePassword" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ChangeUserPassword" id="32a9bcb5-3156-489c-8e0b-28c204293ae2" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ChangeUserPassword</con:operation>
+      <con:request name="ChangeUserPassword" id="637f3041-0b1f-4351-b629-49fc75c7a947" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ChangeUserPassword>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:NewPassword>P@$$w0rd6</acr2:NewPassword>\r
+            <acr2:UserIdToChange>testuserid</acr2:UserIdToChange>\r
+         </tem:request>\r
+      </tem:ChangeUserPassword>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ChangeUserPassword" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteHierarchyRole" id="f65f5eb3-0cce-45f6-b738-b6c0edc87ffe" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>DeleteHierarchyRole</con:operation>
+      <con:request name="DeleteHierarchyRole" id="f5bee02f-d861-4b34-b2d7-d42993801385" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteHierarchyRole>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:HierarchyRoleId>1</acr2:HierarchyRoleId>\r
+         </tem:request>\r
+      </tem:DeleteHierarchyRole>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/DeleteHierarchyRole" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteUser" id="0e0777cc-d37b-45ca-992d-433d73fb1143" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>DeleteUser</con:operation>
+      <con:request name="DeleteUser" id="f05dcede-722b-45e0-a9fb-5d77b2311397" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteUser>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+            <!--Optional:-->\r
+            <acr2:UserIdToDelete/>\r
+         </tem:request>\r
+      </tem:DeleteUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/DeleteUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetHierarchyRoleList" id="8d5ab62d-c801-4097-8ccf-bb880a0b8caa" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetHierarchyRoleList</con:operation>
+      <con:request name="GetHierarchyRoleList" id="3cb9d8fb-b9ba-4531-b38f-9d219e845a80" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetHierarchyRoleList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+         </tem:request>\r
+      </tem:GetHierarchyRoleList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetHierarchyRoleList" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetIndustryProducts" id="7e2b7963-2011-4008-bc62-f9e07d5d7c06" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetIndustryProducts</con:operation>
+      <con:request name="GetIndustryProducts" id="751f8772-d9cd-44a6-808e-1853cddeae57" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetIndustryProducts>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:Name>Church</acr2:Name>\r
+         </tem:request>\r
+      </tem:GetIndustryProducts>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetIndustryProducts" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetInvoiceDetail" id="ebce1ac6-7bc5-485d-afda-3987c0af3733" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetInvoiceDetail</con:operation>
+      <con:request name="GetInvoiceDetail" id="652d60be-1e73-438e-a570-2d40a3681f89" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetInvoiceDetail>\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:BeginDate>2015-01-14T00:00:00Z</acr2:BeginDate>\r
+            <acr2:EndDate>2015-01-21T00:00:00Z</acr2:EndDate>\r
+            <acr2:ReferenceNumber xsi:nil="true"/>\r
+         </tem:request>\r
+      </tem:GetInvoiceDetail>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetInvoiceDetail" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetLinkedMerchants" id="dd21b8ee-2fc0-4e11-8923-6541f46278cf" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetLinkedMerchants</con:operation>
+      <con:request name="GetLinkedMerchants" id="4284f432-e39d-4b6a-a5e7-e9b9e3dc8ab0" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetLinkedMerchants>\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:UserToProcess>Sauron</acr2:UserToProcess>\r
+         </tem:request>\r
+      </tem:GetLinkedMerchants>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetLinkedMerchants" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetLinkedUsers" id="390b8ff4-e02d-4998-8bed-b860b98a849d" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetLinkedUsers</con:operation>
+      <con:request name="GetLinkedUsers" id="4b4824cb-7391-40db-b52d-80bb29f4d7c5" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetLinkedUsers>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:GetLinkedUsers>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetLinkedUsers" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetMerchant" id="05164780-ec4e-481b-b945-39bdccc10b67" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetMerchant</con:operation>
+      <con:request name="GetMerchant" id="6e4bc151-d679-4f24-9984-ae2ac4e030eb" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMerchant>\r
+         <tem:request>\r
+            <acr:MerchantId>12721627</acr:MerchantId>\r
+            <acr:Password>Cenpos@2014</acr:Password>\r
+            <acr:UserId>jestrella</acr:UserId>\r
+            <acr2:GeoLocationInformation/>\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:GetMerchant>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetMerchant" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetMerchantParameters" id="01545d25-109e-4dff-84de-3aae433fa291" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetMerchantParameters</con:operation>
+      <con:request name="GetMerchantParameters" id="93cb36e7-7d50-4900-bba8-f489afbaa884" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMerchantParameters>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:GetMerchantParameters>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetMerchantParameters" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetRoleList" id="677c6470-95e1-4e31-bd4e-2dd135220072" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetRoleList</con:operation>
+      <con:request name="GetRoleList" id="5ebae863-adad-4fcc-9f33-70023b2e63a7" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetRoleList>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:GetRoleList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetRoleList" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetUser" id="c795629f-7725-45f4-ab4f-b192bada0295" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetUser</con:operation>
+      <con:request name="GetUser" id="1521ea4a-edf8-40ed-957e-3dbea9de390a" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetUser>\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:UserIdToRetrieve>Sauron</acr2:UserIdToRetrieve>\r
+         </tem:request>\r
+      </tem:GetUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetUserList" id="2f4950fa-d728-47a5-8431-8c0ed2c5ae15" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetUserList</con:operation>
+      <con:request name="GetUserList" id="295c75c3-7a4c-44cd-9be7-5ea962c8b45e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetUserList>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:GetUserList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetUserList" mustUnderstand="NONE" version="200508"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login" id="93aaa5fa-077d-4fd7-92b1-5150e8bc807c" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login" id="4e74481a-243a-4803-b25b-ce9bac456ecf" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Login>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>30000598</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>APP-CRYPT%eyJhbGciOiJIUzI1NiIsImtpZCI6IjQxZmFlYTI5LTBiYjUtNGI4My1iZTc3LWZmMjczN2QyN2RlYyIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImF4dXNlciIsIm1pZCI6IjMwMDAwNTk4Iiwic3ViIjoiUmVwb3J0cyIsImp0aSI6IjQ2MDExMjk0MDM0OTUxNTI3NDMiLCJuYmYiOjE0OTk3OTUyMzksImV4cCI6MTQ5OTc5NzAzOSwiaWF0IjoxNDk5Nzk1MjM5LCJpc3MiOiI0MWZhZWEyOS0wYmI1LTRiODMtYmU3Ny1mZjI3MzdkMjdkZWMifQ.pAcnVy7VvhWjohFuH8YQ6tAMzB69oh8B7kRgSkyIXFs</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>axuser</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:Login>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyHierarchyRole" id="e09f7638-9836-4ef9-b3ee-d2a043f9b734" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ModifyHierarchyRole</con:operation>
+      <con:request name="ModifyHierarchyRole" id="b7ad57d5-d9e3-49f6-8eb9-ce52c4c77890" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyHierarchyRole>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>20000022</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>Cenpos@1</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>Sauron</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation></acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI></acr1:IMEI>
+            <!--Optional:-->
+            <acr1:HierarchyRole>
+               <!--Optional:-->
+               <acr1:HierarchyRoleId></acr1:HierarchyRoleId>
+               <!--Optional:-->
+               <acr1:Name></acr1:Name>
+               <!--Optional:-->
+               <acr1:ParameterList>
+                  <!--Zero or more repetitions:-->
+                  <acr1:HierarchyRoleParameter>
+                     <!--Optional:-->
+                     <acr1:Name></acr1:Name>
+                     <acr1:Option></acr1:Option>
+                     <!--Optional:-->
+                     <acr1:SendEmailAlert></acr1:SendEmailAlert>
+                     <acr1:TriggerAmount></acr1:TriggerAmount>
+                  </acr1:HierarchyRoleParameter>
+               </acr1:ParameterList>
+               <!--Optional:-->
+               <acr1:PrivilegeList>
+                  <!--Zero or more repetitions:-->
+                  <acr1:MerchantUserPrivilege>
+                     <!--Optional:-->
+                     <acr1:Name></acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+               </acr1:PrivilegeList>
+               <!--Optional:-->
+               <acr1:RoleId></acr1:RoleId>
+            </acr1:HierarchyRole>
+         </tem:request>
+      </tem:ModifyHierarchyRole>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ModifyHierarchyRole" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyMerchant" id="e5e767a1-a11e-4cd4-b636-15e652130cbc" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ModifyMerchant</con:operation>
+      <con:request name="ModifyMerchant" id="713ab100-4e76-47ca-a132-7d98869bd320" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyMerchant>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:Merchant>
+               <acr1:Address1>x</acr1:Address1>
+               <acr1:Address2>y</acr1:Address2>
+               <acr1:AutoCloseBatch>false</acr1:AutoCloseBatch>
+               <acr1:AutoCloseBatchHour>1</acr1:AutoCloseBatchHour>
+               <acr1:AutoCloseBatchMinute>1</acr1:AutoCloseBatchMinute>
+               <acr1:City>q</acr1:City>
+               <acr1:ContactEmail>ian.christian@paladion.net</acr1:ContactEmail>
+               <acr1:ContactFirstName>pal</acr1:ContactFirstName>
+               <acr1:ContactLastName>test</acr1:ContactLastName>
+               <acr1:Country>United States</acr1:Country>
+               <acr1:DefaultTax>20</acr1:DefaultTax>
+               <acr1:Industry xsi:nil="true" />
+               <acr1:InvoiceOption>1</acr1:InvoiceOption>
+               <acr1:LastSettlementDate xsi:nil="true" />
+               <acr1:Logo xsi:nil="true" />
+               <acr1:MaximumTax>50</acr1:MaximumTax>
+               <acr1:MinimumTax>10</acr1:MinimumTax>
+               <acr1:Name>paltest</acr1:Name>
+               <acr1:Phone>1234567890</acr1:Phone>
+               <acr1:ProcessorType xsi:nil="true" />
+               <acr1:RecurringSaleCustomerCodeMode>MultiClient</acr1:RecurringSaleCustomerCodeMode>
+               <acr1:SessionTimeout>15</acr1:SessionTimeout>
+               <acr1:State>Florida</acr1:State>
+               <acr1:TPIPassword xsi:nil="true" />
+               <acr1:TPIUsername xsi:nil="true" />
+               <acr1:TicketDeliveryMethod>EmailAndPrint</acr1:TicketDeliveryMethod>
+               <acr1:UseIndustry>true</acr1:UseIndustry>
+               <acr1:Zip>000</acr1:Zip>
+            </acr1:Merchant>
+         </tem:request>
+      </tem:ModifyMerchant>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ModifyMerchant" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyMerchantLevel3Templates" id="b30a866b-dd33-42e3-9d60-140dfc373955" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ModifyMerchantLevel3Templates</con:operation>
+      <con:request name="ModifyMerchantLevel3Templates" id="9e575f25-016c-45c1-82ed-bf7cf7f0ab23" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ModifyMerchantLevel3Templates>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+            <!--Optional:-->\r
+            <acr2:Templates/>\r
+         </tem:request>\r
+      </tem:ModifyMerchantLevel3Templates>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ModifyMerchantLevel3Templates" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyMerchantParameters" id="09977cd9-6d82-4e52-bbcd-0175aadd61ab">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ModifyMerchantParameters</con:operation>
+      <con:request name="ModifyMerchantParameters" id="9600c46f-0384-4b70-98db-b09fa79c72ab" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyMerchantParameters>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ParameterKeyValuesList>
+               <acr1:ParameterKeyValues>
+                  <acr1:AllowedValues>
+                     <acr1:ParameterValue>
+                        <acr1:Value>#</acr1:Value>
+                        <acr1:ValueId>0</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>?</acr1:Value>
+                        <acr1:ValueId>1</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>@</acr1:Value>
+                        <acr1:ValueId>2</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>_</acr1:Value>
+                        <acr1:ValueId>3</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>0</acr1:Value>
+                        <acr1:ValueId>4</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>5</acr1:Value>
+                        <acr1:ValueId>5</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>A</acr1:Value>
+                        <acr1:ValueId>6</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>B</acr1:Value>
+                        <acr1:ValueId>7</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>C</acr1:Value>
+                        <acr1:ValueId>8</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>D</acr1:Value>
+                        <acr1:ValueId>9</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>E</acr1:Value>
+                        <acr1:ValueId>10</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>G</acr1:Value>
+                        <acr1:ValueId>11</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>I</acr1:Value>
+                        <acr1:ValueId>12</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>M</acr1:Value>
+                        <acr1:ValueId>13</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>N</acr1:Value>
+                        <acr1:ValueId>14</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>P</acr1:Value>
+                        <acr1:ValueId>15</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>R</acr1:Value>
+                        <acr1:ValueId>16</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>S</acr1:Value>
+                        <acr1:ValueId>17</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>U</acr1:Value>
+                        <acr1:ValueId>18</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>W</acr1:Value>
+                        <acr1:ValueId>19</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>X</acr1:Value>
+                        <acr1:ValueId>20</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>Y</acr1:Value>
+                        <acr1:ValueId>21</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>Z</acr1:Value>
+                        <acr1:ValueId>22</acr1:ValueId>
+                     </acr1:ParameterValue>
+                  </acr1:AllowedValues>
+                  <acr1:ParameterKeyName>Zip Code</acr1:ParameterKeyName>
+                  <acr1:SelectedValues>
+                     <acr1:ParameterValue>
+                        <acr1:Value>X</acr1:Value>
+                        <acr1:ValueId>20</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>Y</acr1:Value>
+                        <acr1:ValueId>21</acr1:ValueId>
+                     </acr1:ParameterValue>
+                  </acr1:SelectedValues>
+               </acr1:ParameterKeyValues>
+               <acr1:ParameterKeyValues>
+                  <acr1:AllowedValues>
+                     <acr1:ParameterValue>
+                        <acr1:Value>#</acr1:Value>
+                        <acr1:ValueId>0</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>@</acr1:Value>
+                        <acr1:ValueId>1</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>0</acr1:Value>
+                        <acr1:ValueId>2</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>5</acr1:Value>
+                        <acr1:ValueId>3</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>A</acr1:Value>
+                        <acr1:ValueId>4</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>B</acr1:Value>
+                        <acr1:ValueId>5</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>C</acr1:Value>
+                        <acr1:ValueId>6</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>D</acr1:Value>
+                        <acr1:ValueId>7</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>E</acr1:Value>
+                        <acr1:ValueId>8</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>G</acr1:Value>
+                        <acr1:ValueId>9</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>I</acr1:Value>
+                        <acr1:ValueId>10</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>M</acr1:Value>
+                        <acr1:ValueId>11</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>N</acr1:Value>
+                        <acr1:ValueId>12</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>P</acr1:Value>
+                        <acr1:ValueId>13</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>R</acr1:Value>
+                        <acr1:ValueId>14</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>S</acr1:Value>
+                        <acr1:ValueId>15</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>U</acr1:Value>
+                        <acr1:ValueId>16</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>W</acr1:Value>
+                        <acr1:ValueId>17</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>X</acr1:Value>
+                        <acr1:ValueId>18</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>Y</acr1:Value>
+                        <acr1:ValueId>19</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>Z</acr1:Value>
+                        <acr1:ValueId>20</acr1:ValueId>
+                     </acr1:ParameterValue>
+                  </acr1:AllowedValues>
+                  <acr1:ParameterKeyName>Billing Address</acr1:ParameterKeyName>
+                  <acr1:SelectedValues>
+                     <acr1:ParameterValue>
+                        <acr1:Value>X</acr1:Value>
+                        <acr1:ValueId>18</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>Y</acr1:Value>
+                        <acr1:ValueId>19</acr1:ValueId>
+                     </acr1:ParameterValue>
+                  </acr1:SelectedValues>
+               </acr1:ParameterKeyValues>
+               <acr1:ParameterKeyValues>
+                  <acr1:AllowedValues>
+                     <acr1:ParameterValue>
+                        <acr1:Value/>
+                        <acr1:ValueId>0</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>#</acr1:Value>
+                        <acr1:ValueId>1</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>?</acr1:Value>
+                        <acr1:ValueId>2</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>@</acr1:Value>
+                        <acr1:ValueId>3</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>_</acr1:Value>
+                        <acr1:ValueId>4</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>7</acr1:Value>
+                        <acr1:ValueId>5</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>M</acr1:Value>
+                        <acr1:ValueId>6</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>N</acr1:Value>
+                        <acr1:ValueId>7</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>P</acr1:Value>
+                        <acr1:ValueId>8</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>S</acr1:Value>
+                        <acr1:ValueId>9</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>U</acr1:Value>
+                        <acr1:ValueId>10</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>X</acr1:Value>
+                        <acr1:ValueId>11</acr1:ValueId>
+                     </acr1:ParameterValue>
+                     <acr1:ParameterValue>
+                        <acr1:Value>Y</acr1:Value>
+                        <acr1:ValueId>12</acr1:ValueId>
+                     </acr1:ParameterValue>
+                  </acr1:AllowedValues>
+                  <acr1:ParameterKeyName>CVV</acr1:ParameterKeyName>
+                  <acr1:SelectedValues>
+                     <acr1:ParameterValue>
+                        <acr1:Value>M</acr1:Value>
+                        <acr1:ValueId>6</acr1:ValueId>
+                     </acr1:ParameterValue>
+                  </acr1:SelectedValues>
+               </acr1:ParameterKeyValues>
+            </acr1:ParameterKeyValuesList>
+         </tem:request>
+      </tem:ModifyMerchantParameters>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ModifyMerchantParameters" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyUser" id="019240b1-3852-4573-addc-4731e489e9d9" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ModifyUser</con:operation>
+      <con:request name="ModifyUser" id="98cf0048-452a-47c4-8d5a-9a88e65e0d4e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" 
+xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyUser>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:User>
+               <acr1:AlertEmailList/>
+               <acr1:CellPhoneNumber/>
+               <acr1:Department>est</acr1:Department>
+               <acr1:Email>username@domain.tld</acr1:Email>
+               <acr1:HeadCashier xsi:nil="true"/>
+               <acr1:HierarchyRoleId>20017161</acr1:HierarchyRoleId>
+               <acr1:InvoiceOption>3</acr1:InvoiceOption>
+               <acr1:IsLockedOut>false</acr1:IsLockedOut>
+               <acr1:Name>Testuser</acr1:Name>
+               <acr1:ParameterList>
+                  <acr1:MerchantUserParameter>
+                     <acr1:Name>Zip Code</acr1:Name>
+                     <acr1:Option>1</acr1:Option>
+                     <acr1:SendEmailAlert>true</acr1:SendEmailAlert>
+                     <acr1:TriggerAmount>0</acr1:TriggerAmount>
+                  </acr1:MerchantUserParameter>
+                  <acr1:MerchantUserParameter>
+                     <acr1:Name>Billing Address</acr1:Name>
+                     <acr1:Option>1</acr1:Option>
+                     <acr1:SendEmailAlert>true</acr1:SendEmailAlert>
+                     <acr1:TriggerAmount>0</acr1:TriggerAmount>
+                  </acr1:MerchantUserParameter>
+                  <acr1:MerchantUserParameter>
+                     <acr1:Name>CVV</acr1:Name>
+                     <acr1:Option>1</acr1:Option>
+                     <acr1:SendEmailAlert>true</acr1:SendEmailAlert>
+                     <acr1:TriggerAmount>0</acr1:TriggerAmount>
+                  </acr1:MerchantUserParameter>
+               </acr1:ParameterList>
+               <acr1:Password/>
+               <acr1:PrivilegeList>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Activate</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>RecurringSale2</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Administration</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>InitialCash</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Reload</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Auth</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ItemBatch</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>RepeatCheck</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>BalanceCheck</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>LightRecurring</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ReplenishCash</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Cashier</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>LinkedReturn</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Reprint</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Cashout</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>LinkedTokens</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Return</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>SpecialReturn</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>CashSupervisor</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Sale</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ChangeUserPassword</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>MOTO</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Settlement</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>CheckDeposit</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>PartialReversal</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>CheckSummary</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>SupervisorApproval</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>PositiveCardAuthorization</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Transactions</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>UnlockUser</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Credit</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ProcessCheck</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>QuickForce</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>EndOfDayCash</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>QuickRefund</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>VoiceAuth</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Force</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>SpecialForce</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>QuickVoid</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Void</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>ReAuth</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>WebPayReport</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>Reconciliation</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+                  <acr1:MerchantUserPrivilege>
+                     <acr1:Name>CheckCredit</acr1:Name>
+                  </acr1:MerchantUserPrivilege>
+               </acr1:PrivilegeList>
+               <acr1:ReceiptType>1</acr1:ReceiptType>
+               <acr1:SharedDrawer>false</acr1:SharedDrawer>
+               <acr1:UserId>testuserid</acr1:UserId>
+            </acr1:User>
+            <acr1:UserIdToModify>testuserid</acr1:UserIdToModify>
+         </tem:request>
+      </tem:ModifyUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ModifyUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyUserLinkedGroups" id="5e8ebc14-42f3-4865-bcce-c8515023284a" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ModifyUserLinkedGroups</con:operation>
+      <con:request name="ModifyUserLinkedGroups" id="a6ffb828-51a8-4233-9cc3-d2986a56b005" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ModifyUserLinkedGroups>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:SharingList>\r
+               <acr2:LinkedGroupSharing>\r
+                  <acr2:LinkedGroupId>1000495</acr2:LinkedGroupId>\r
+                  <acr2:ShareTokens>true</acr2:ShareTokens>\r
+                  <acr2:ShareTransactions>true</acr2:ShareTransactions>\r
+                  <acr2:ShareUsers>true</acr2:ShareUsers>\r
+               </acr2:LinkedGroupSharing>\r
+            </acr2:SharingList>\r
+            <acr2:UserName>${UserId}</acr2:UserName>\r
+         </tem:request>\r
+      </tem:ModifyUserLinkedGroups>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ModifyUserLinkedGroups" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="PasswordReset" id="becaf27d-1022-415e-bb3d-6df79b54a5fa" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>PasswordReset</con:operation>
+      <con:request name="PasswordReset" id="3b7c30a3-7539-4d96-87d3-b5c2ddfb594d" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:PasswordReset>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:PasswordReset>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/PasswordReset" mustUnderstand="NONE" version="200508"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ShareMultimerchantUser" id="6d15144a-b68f-400f-a9d4-087b1fa0652b" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ShareMultimerchantUser</con:operation>
+      <con:request name="ShareMultimerchantUser" id="748c1f7c-c165-403c-a1e0-ab1167c81cf5" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ShareMultimerchantUser>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:LinkedGroupIdList>\r
+               <arr:int>1000495</arr:int>\r
+            </acr2:LinkedGroupIdList>\r
+            <acr2:UserName>${UserId}</acr2:UserName>\r
+         </tem:request>\r
+      </tem:ShareMultimerchantUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ShareMultimerchantUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="UnlockUser" id="14d63719-81a3-417a-b373-15efa352feba" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>UnlockUser</con:operation>
+      <con:request name="UnlockUser" id="43c43b45-13d1-46ce-bcce-a3196b694ad3" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UnlockUser>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>20000022</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>Cenpos@1</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>Sauron</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation/>\r
+            <!--Optional:-->\r
+            <acr2:IMEI/>\r
+            <!--Optional:-->\r
+            <acr2:UserIdToUnlock/>\r
+         </tem:request>\r
+      </tem:UnlockUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/UnlockUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="LoginNew" id="16d53d21-bb16-4012-a5a5-cf54ddb8eccc" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>LoginNew</con:operation>
+      <con:request name="LoginNew" id="1532077b-61ba-4cd5-9023-48d40d4850e6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww2.cenpos.net/6/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:LoginNew>\r
+         <tem:request>\r
+            <acr:MerchantId>12721627</acr:MerchantId>\r
+            <acr:Password>Cenpos@2014</acr:Password>\r
+            <acr:UserId>jestrella</acr:UserId>\r
+            <acr2:GeoLocationInformation/>\r
+            <acr2:IMEI/>\r
+         </tem:request>\r
+      </tem:LoginNew>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/LoginNew" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Testcase Replace" disabled="true" id="4fee1137-e1d4-49ba-9e8e-786c2192521f">
+    <con:settings/>
+    <con:config>
+      <script><![CDATA[try
+{
+	steps = context.testCase.getTestStepList()
+
+	steps.each
+	{
+		def testCaseName = it.testCase.name
+		def testStepName = it.name
+		def modelItem = it.getModelItem().toString()
+		
+		if ( modelItem.contains( "WsdlTestRequestStep" ) )
+		{
+			//Get current request content
+			def request = it.httpRequest
+			def requestContent = request.getRequestContent()
+
+			//Update request
+			def updatedRequest = requestContent
+			
+			updatedRequest = updatedRequest.replace( 'jestrella', 'Sauron' )
+			/*updatedRequest = updatedRequest.replace( '<acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>', '<acr1:NameOnCard>${DataSource#NameOnCard}</acr1:NameOnCard>' )
+			updatedRequest = updatedRequest.replace( '<acr1:MagneticData>${MagneticData}</acr1:MagneticData>', '<acr1:MagneticData>${DataSource#MagneticData}</acr1:MagneticData>' )
+			updatedRequest = updatedRequest.replace( '<acr1:MagneticData>${ContactlessMagData}</acr1:MagneticData>', '<acr1:MagneticData>${DataSource#ContactlessMagData}</acr1:MagneticData>' )
+			/*updatedRequest = updatedRequest.replace( '', '' )
+			updatedRequest = updatedRequest.replace( '', '' )
+			updatedRequest = updatedRequest.replace( '', '' )
+			updatedRequest = updatedRequest.replace( '', '' )
+			updatedRequest = updatedRequest.replace( '', '' )
+			updatedRequest = updatedRequest.replace( '', '' )
+			updatedRequest = updatedRequest.replace( '', '' )*/
+			
+			
+			// Save changes now
+			request.setRequestContent( updatedRequest )		
+		}
+
+		/*else if ( modelItem.contains( "WsdlGroovyScriptTestStep" ) )
+		{
+			//Get script contents
+			def scriptContent = it.getScript()
+
+			//Replace script content
+			def scriptUpdated = scriptContent.replace( 'com.eviware.soapui.SoapUI.globalProperties.getPropertyValue(', 'com.eviware.soapui.SoapUI.globalProperties.getPropertyValue(' )
+
+			//Update script contents
+			it.setScript( scriptUpdated )
+		}*/
+	}
+} 
+
+catch( e )
+{
+	log.error("An error occurred: " + e.toString());
+}]]></script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

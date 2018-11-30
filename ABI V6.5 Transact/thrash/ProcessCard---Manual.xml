@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ProcessCard - Manual" searchProperties="true" id="fd09a1d7-015a-4166-8051-3ef7f7f5ac2d" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fd09a1d7-015a-4166-8051-3ef7f7f5ac2dfileName">ProcessCard---Manual</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="DataSource" id="6667fab5-6b4e-4d5f-b0d1-67c500550519">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>C:/Users/jestrella/Desktop/Book2.xlsx</file>
+          <worksheet>Sheet2</worksheet>
+          <cell>E2</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>cardNumber</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCard - Sale 1" id="1a050a8c-1dd9-4ea9-a595-eff424785f85">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCard</con:operation>
+      <con:request name="ProcessCard - Sale 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="32c99f03-30de-4180-9cfb-b1fef3f39fab" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate>${CardExpDate}</acr1:CardExpirationDate>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${DataSource#cardNumber}' ).reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber>${DataSource#cardNumber}</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber>${CardCVV}</acr1:CardVerificationNumber>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress>${CustomerAddress}</acr1:CustomerBillingAddress>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode>${CustomerZipCode}</acr1:CustomerZipCode>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData xsi:nil="true"/>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:PurchaseOrderNumber>${PONumber}</acr1:PurchaseOrderNumber>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:SecureCode xsi:nil="true"/>\r
+            <acr1:TerminalCapabilities>Manual</acr1:TerminalCapabilities>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f7d30150-aa22-409c-981c-445365d42b6d"/>
+        <con:assertion type="XPath Match" id="7c33bd29-aef0-4a75-bd44-d300f9c005e8" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+declare namespace tem='http://tempuri.org/';
+//tem:ProcessCardResponse[1]/tem:ProcessCardResult[1]/acr:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="0e0306d4-80ff-4437-b5b3-02c52b512625">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>ProcessCard - Sale 1</targetStep>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>55e5682e-6a52-4c7f-ac9b-afe113664b15</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2981a46c-ff03-4513-b992-d8134d65f470</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>dbef7832-5884-44e1-82f0-482898cb9fe8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>df053650-1564-4b26-8bde-fd90b7d385e9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4a90e48c-80db-4c76-8330-963bb568f131</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4ecf09be-6696-4d57-ad73-66921c7c2d47</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>28e06a5f-7c5e-4bb3-9d8e-1b4c2a8be9b1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>48001c4e-4636-4f7d-b960-51dc7fc7aab9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ed5f8f34-a65f-4484-938c-ac910db58597</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6667fab5-6b4e-4d5f-b0d1-67c500550519</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

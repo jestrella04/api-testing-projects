@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="User" searchProperties="true" id="962afda9-350e-45d2-8354-c4aa5269a943" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="962afda9-350e-45d2-8354-c4aa5269a943fileName">User</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="GetHierarchyRoleList" id="199209b3-b4a1-4216-bf4d-da7e1fce857f">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetHierarchyRoleList</con:operation>
+      <con:request name="GetHierarchyRoleList" id="cad93850-e4e8-46c4-86fe-92242df89721" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetHierarchyRoleList>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:GetHierarchyRoleList>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="b8af53f9-d532-4109-ba74-2c2828913f9d"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetHierarchyRoleList" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddUser" id="1c875103-0d1e-4030-a3b6-713c01b15378">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddUser</con:operation>
+      <con:request name="AddUser" id="aec54ebe-4504-42ac-8a4b-f1923ded30ed" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddUser>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:User>
+               <acr2:AlertEmailList xsi:nil="true"/>
+               <acr2:CellPhoneNumber xsi:nil="true"/>
+               <acr2:Department>Test Dept</acr2:Department>
+               <acr2:Email>${CustomerEmail}</acr2:Email>
+               <acr2:HeadCashier xsi:nil="true"/>
+               <acr2:HierarchyRoleId>${GetHierarchyRoleList#Response#declare namespace b='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses'; //ns1:GetHierarchyRoleListResponse[1]/ns1:GetHierarchyRoleListResult[1]/a:HierarchyRoleList[1]/b:HierarchyRole[1]/b:HierarchyRoleId[1]}</acr2:HierarchyRoleId>
+               <acr2:InvoiceOption>4</acr2:InvoiceOption>
+               <acr2:IsLockedOut>false</acr2:IsLockedOut>
+               <acr2:Name>Test User</acr2:Name>
+               <acr2:ParameterList>
+                  <acr2:MerchantUserParameter>
+                     <acr2:Name>Zip Code</acr2:Name>
+                     <acr2:Option>1</acr2:Option>
+                     <acr2:SendEmailAlert>false</acr2:SendEmailAlert>
+                     <acr2:TriggerAmount>0</acr2:TriggerAmount>
+                  </acr2:MerchantUserParameter>
+                  <acr2:MerchantUserParameter>
+                     <acr2:Name>Billing Address</acr2:Name>
+                     <acr2:Option>1</acr2:Option>
+                     <acr2:SendEmailAlert>false</acr2:SendEmailAlert>
+                     <acr2:TriggerAmount>0</acr2:TriggerAmount>
+                  </acr2:MerchantUserParameter>
+                  <acr2:MerchantUserParameter>
+                     <acr2:Name>CVV</acr2:Name>
+                     <acr2:Option>1</acr2:Option>
+                     <acr2:SendEmailAlert>false</acr2:SendEmailAlert>
+                     <acr2:TriggerAmount>0</acr2:TriggerAmount>
+                  </acr2:MerchantUserParameter>
+               </acr2:ParameterList>
+               <acr2:Password>P@ssw0rd</acr2:Password>
+               <acr2:PrivilegeList>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Adjustment</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Administration</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Auth</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Credit</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Force</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>SpecialForce</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>MOTO</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Reprint</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Return</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>SpecialReturn</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Sale</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Transactions</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>VoiceAuth</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Void</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Reconciliation</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Posting</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Settlement</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Activate</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Reload</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>BalanceCheck</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ForcePrepaidSale</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>RecurringSale</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ForcePrepaidMOTO</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>RecurringSale2</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Industries</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Industry</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>QuickVoid</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>QuickRefund</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>QuickForce</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ProcessCheck</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ItemBatch</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>CheckDeposit</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>RepeatCheck</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>PendingInvoice</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>SupervisorApproval</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>CheckSummary</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Discounts</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Discount</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>CheckCredit</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>PositiveCardAuthorization</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>EBPPMarkAsPaid</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>WebPayReport</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>PartialReversal</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+               </acr2:PrivilegeList>
+               <acr2:ReceiptType>2</acr2:ReceiptType>
+               <acr2:SharedDrawer>false</acr2:SharedDrawer>
+               <acr2:UserId>testuserid</acr2:UserId>
+            </acr1:User>
+         </tem:request>
+      </tem:AddUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="2307fe71-2bb1-465f-9386-26bc386db2d3"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/AddUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetUser" id="6e7b454b-68c7-452a-8bc3-d22010c93c8c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetUser</con:operation>
+      <con:request name="GetUser" id="8d877f85-4cab-4986-b224-976b6069acdc">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetUser>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:UserIdToRetrieve>testuserid</acr1:UserIdToRetrieve>\r
+         </tem:request>\r
+      </tem:GetUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="b691f320-bb8b-400d-b17d-1f9242d17e4e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetUserList" id="ffbe1c90-0a3d-47f4-9e13-510f65ddf545">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetUserList</con:operation>
+      <con:request name="GetUserList" id="295c75c3-7a4c-44cd-9be7-5ea962c8b45e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetUserList>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:GetUserList>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f4edfe58-4d9b-4091-8ec9-20f9d46e26b6"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Administration/GetUserList" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - User must change password" id="08630afb-8e27-4314-8d05-0bf32010c4f1">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - User must change password" id="54b58069-204d-463e-9823-b946a1857ee2" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>P@ssw0rd</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="28451405-6fcb-4cf0-b54f-e39143d3319b"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ChangePassword (Weak)" id="6f22675b-eafa-41d3-be03-274a175d534f">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ChangePassword</con:operation>
+      <con:request name="ChangePassword (Weak)" id="ae89f77f-ac0b-49f7-b403-9e68de93fbc8" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ChangePassword>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>P@ssw0rd</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:NewPassword>123465678</acr1:NewPassword>
+         </tem:request>
+      </tem:ChangePassword>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="fe2cba7e-a712-4945-ad2a-917230196ef9"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ChangePassword" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ChangePassword (Success)" id="f8db526d-fb71-4c65-bbd9-232a6d978bd5">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ChangePassword</con:operation>
+      <con:request name="ChangePassword (Success)" id="ae89f77f-ac0b-49f7-b403-9e68de93fbc8" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ChangePassword>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>P@ssw0rd</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:NewPassword>Myp@ssw0rd!</acr1:NewPassword>
+         </tem:request>
+      </tem:ChangePassword>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="fe2cba7e-a712-4945-ad2a-917230196ef9"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ChangePassword" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Successful" id="eb9ba39f-4224-42c1-9342-0a88ef025269">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Successful" id="8eecdac6-88b9-4535-9bfc-dda6af709d59" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Myp@ssw0rd!</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="5c41db3f-1c3d-4e0b-bdd2-267b316183d2"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid 1" id="9e1aaa8c-93a6-4e23-8df6-b73ea0784cea">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid 1" id="f604815f-d3ae-4a52-9ea2-61d1fd1a7a8f" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="4975d92b-c663-4887-acab-c7cab20402ee"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid 2" id="a13bf730-316b-45f1-9f98-93bb83fe181c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid 2" id="78efc30d-cca8-4bd0-a4dd-473b840cda80" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="36fa0652-64b8-4bf0-b09f-4f04d8619fd9"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid 3" id="4b612eac-2f76-480a-9564-37068b93553f">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid 3" id="6a0cc120-2d78-47ab-8695-4c4ead38579f" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="8f0394a2-2e39-4f5e-b896-da683ad948cb"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid 4" id="6cac524d-11d1-44d3-9f4b-5576d6b8743d">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid 4" id="1ed8e218-4ceb-4659-a913-5eb9c4931b88" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="583cd01c-b172-4a42-898d-ed848421baf5"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - User Blocked" id="0e177214-55f4-46fb-97ca-6194a19def17">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - User Blocked" id="8ba91717-ebfc-4b55-9a26-7e8d1e46d169" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="13876ec7-8089-4f7c-ab57-ac617ec1b55c"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Reset Password" id="851cf117-63da-41d8-ae0b-bd5407064ef8">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>PasswordReset</con:operation>
+      <con:request name="Reset Password" id="5574e779-da47-4923-9cce-6298be012b69">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:PasswordReset>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Myp@ssw0rd!</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>\r
+      </tem:PasswordReset>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="74b5d478-1119-419b-b220-e6a87ad44712"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="Get Temp Password" id="16177030-e35b-400a-ad35-f4178f2273e9">
+    <con:description>Paste here the temporary password sent to the user.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:expectedResult>Paste here the temporary password sent to the user.</con:expectedResult>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - User must change password (Reset)" id="317ed2ca-d375-4d28-93f5-4cb157fbd1b6">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - User must change password (Reset)" id="8eecdac6-88b9-4535-9bfc-dda6af709d59" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Get Temp Password#Result}</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="95572ee0-f4c6-41ce-900b-3bab29a2609a"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ChangePassword (Reset)" id="a0915609-4ae6-444c-b5e0-48813758348d">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ChangePassword</con:operation>
+      <con:request name="ChangePassword (Reset)" id="ae89f77f-ac0b-49f7-b403-9e68de93fbc8" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ChangePassword>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Get Temp Password#Result}</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:NewPassword>Myp@ssw0rd!2</acr1:NewPassword>
+         </tem:request>
+      </tem:ChangePassword>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="fe2cba7e-a712-4945-ad2a-917230196ef9"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ChangePassword" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid (To unlock)" id="60c64d1b-7bb5-4f15-b88b-4c401e54b9e9">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid (To unlock)" id="f604815f-d3ae-4a52-9ea2-61d1fd1a7a8f" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="4975d92b-c663-4887-acab-c7cab20402ee"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid 2 (To unlock)" id="0350c0bf-8a8b-4a68-bc10-038786e16bff">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid 2 (To unlock)" id="78efc30d-cca8-4bd0-a4dd-473b840cda80" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="36fa0652-64b8-4bf0-b09f-4f04d8619fd9"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid 3 (To unlock)" id="672304f5-afd7-42a4-b5db-87c7a56bc97f">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid 3 (To unlock)" id="6a0cc120-2d78-47ab-8695-4c4ead38579f" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="8f0394a2-2e39-4f5e-b896-da683ad948cb"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Invalid 4 (To unlock)" id="df2b30a1-1518-442b-9228-dbc86be8d2dd">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Invalid 4 (To unlock)" id="1ed8e218-4ceb-4659-a913-5eb9c4931b88" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="583cd01c-b172-4a42-898d-ed848421baf5"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - User Blocked (To unlock)" id="1d7f1f23-a611-42f4-8b49-4140f2c4eae5">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - User Blocked (To unlock)" id="8ba91717-ebfc-4b55-9a26-7e8d1e46d169" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Test@123</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="13876ec7-8089-4f7c-ab57-ac617ec1b55c"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="UnlockUser" id="9290e7c1-4af4-4dbf-b322-bc8fe5b54a45">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>UnlockUser</con:operation>
+      <con:request name="UnlockUser" id="95f208f9-2ed0-479b-bb10-095fecb82d7f" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UnlockUser>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:UserIdToUnlock>testuserid</acr1:UserIdToUnlock>
+         </tem:request>
+      </tem:UnlockUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="5c079ff2-043d-48e6-a144-33a7c2c4091b"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/UnlockUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Login - Succesful (Unlocked)" id="96615230-1765-4ad6-bcf7-40ea456c3653">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>Login</con:operation>
+      <con:request name="Login - Succesful (Unlocked)" id="8eecdac6-88b9-4535-9bfc-dda6af709d59" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Login>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>Myp@ssw0rd!2</acr:Password>
+            <acr:UserId>testuserid</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+         </tem:request>
+      </tem:Login>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="95572ee0-f4c6-41ce-900b-3bab29a2609a"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/Login" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ModifyUser" id="dde5ad28-44aa-4456-8a12-6298f8d8c8ee">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>ModifyUser</con:operation>
+      <con:request name="ModifyUser" id="6c28638f-3e46-4a72-9f19-964a8d7e21e0" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyUser>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:User>
+               <acr2:AlertEmailList/>
+               <acr2:CellPhoneNumber/>
+               <acr2:Department>est</acr2:Department>
+               <acr2:Email>username@domain.tld</acr2:Email>
+               <acr2:HeadCashier xsi:nil="true"/>
+               <acr2:HierarchyRoleId>${GetHierarchyRoleList#Response#declare namespace b='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses'; //ns1:GetHierarchyRoleListResponse[1]/ns1:GetHierarchyRoleListResult[1]/a:HierarchyRoleList[1]/b:HierarchyRole[1]/b:HierarchyRoleId[1]}</acr2:HierarchyRoleId>
+               <acr2:InvoiceOption>3</acr2:InvoiceOption>
+               <acr2:IsLockedOut>false</acr2:IsLockedOut>
+               <acr2:Name>Testuser</acr2:Name>
+               <acr2:ParameterList>
+                  <acr2:MerchantUserParameter>
+                     <acr2:Name>Zip Code</acr2:Name>
+                     <acr2:Option>1</acr2:Option>
+                     <acr2:SendEmailAlert>true</acr2:SendEmailAlert>
+                     <acr2:TriggerAmount>0</acr2:TriggerAmount>
+                  </acr2:MerchantUserParameter>
+                  <acr2:MerchantUserParameter>
+                     <acr2:Name>Billing Address</acr2:Name>
+                     <acr2:Option>1</acr2:Option>
+                     <acr2:SendEmailAlert>true</acr2:SendEmailAlert>
+                     <acr2:TriggerAmount>0</acr2:TriggerAmount>
+                  </acr2:MerchantUserParameter>
+                  <acr2:MerchantUserParameter>
+                     <acr2:Name>CVV</acr2:Name>
+                     <acr2:Option>1</acr2:Option>
+                     <acr2:SendEmailAlert>true</acr2:SendEmailAlert>
+                     <acr2:TriggerAmount>0</acr2:TriggerAmount>
+                  </acr2:MerchantUserParameter>
+               </acr2:ParameterList>
+               <acr2:Password/>
+               <acr2:PrivilegeList>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Activate</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>RecurringSale2</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Administration</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>InitialCash</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Reload</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Auth</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ItemBatch</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>RepeatCheck</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>BalanceCheck</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>LightRecurring</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ReplenishCash</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Cashier</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>LinkedReturn</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Reprint</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Cashout</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>LinkedTokens</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Return</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>SpecialReturn</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>CashSupervisor</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Sale</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ChangeUserPassword</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>MOTO</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Settlement</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>CheckDeposit</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>PartialReversal</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>CheckSummary</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>SupervisorApproval</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>PositiveCardAuthorization</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Transactions</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>UnlockUser</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Credit</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ProcessCheck</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>QuickForce</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>EndOfDayCash</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>QuickRefund</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>VoiceAuth</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Force</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>SpecialForce</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>QuickVoid</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Void</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>ReAuth</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>WebPayReport</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>Reconciliation</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+                  <acr2:MerchantUserPrivilege>
+                     <acr2:Name>CheckCredit</acr2:Name>
+                  </acr2:MerchantUserPrivilege>
+               </acr2:PrivilegeList>
+               <acr2:ReceiptType>1</acr2:ReceiptType>
+               <acr2:SharedDrawer>false</acr2:SharedDrawer>
+               <acr2:UserId>testuserid</acr2:UserId>
+            </acr1:User>
+            <acr1:UserIdToModify>testuserid</acr1:UserIdToModify>
+         </tem:request>
+      </tem:ModifyUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="19ab9c02-2e79-447c-ab13-113cfc2478e7"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/ModifyUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetUser (Modified)" id="83062a4a-f3b2-4edb-a59b-7d03988cc446">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetUser</con:operation>
+      <con:request name="GetUser (Modified)" id="8d877f85-4cab-4986-b224-976b6069acdc">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetUser>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:UserIdToRetrieve>testuserid</acr1:UserIdToRetrieve>\r
+         </tem:request>\r
+      </tem:GetUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="b691f320-bb8b-400d-b17d-1f9242d17e4e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteUser" id="e5eb4868-9ef9-4c61-acff-9a312e643492">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>DeleteUser</con:operation>
+      <con:request name="DeleteUser" id="3dc83f17-e1b1-4a02-b7fa-822338b73b2e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/"
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DeleteUser>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:UserIdToDelete>testuserid</acr1:UserIdToDelete>
+         </tem:request>
+      </tem:DeleteUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="cc28eb65-c34f-4b3d-aa13-c02d92ed05df"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Administration/DeleteUser" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+        <con:environmentSpec>
+          <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>6e7b454b-68c7-452a-8bc3-d22010c93c8c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>96615230-1765-4ad6-bcf7-40ea456c3653</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>83062a4a-f3b2-4edb-a59b-7d03988cc446</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>851cf117-63da-41d8-ae0b-bd5407064ef8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>60c64d1b-7bb5-4f15-b88b-4c401e54b9e9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0350c0bf-8a8b-4a68-bc10-038786e16bff</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>672304f5-afd7-42a4-b5db-87c7a56bc97f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>df2b30a1-1518-442b-9228-dbc86be8d2dd</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1d7f1f23-a611-42f4-8b49-4140f2c4eae5</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>16177030-e35b-400a-ad35-f4178f2273e9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>317ed2ca-d375-4d28-93f5-4cb157fbd1b6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a0915609-4ae6-444c-b5e0-48813758348d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6f22675b-eafa-41d3-be03-274a175d534f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ffbe1c90-0a3d-47f4-9e13-510f65ddf545</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

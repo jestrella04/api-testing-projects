@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="d03a847f-f7e0-498e-ba84-7cabd4fad36a" isOneWay="false" action="http://tempuri.org/Transactional/GetFleetProductCodes" name="GetFleetProductCodes" bindingOperationName="GetFleetProductCodes" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d03a847f-f7e0-498e-ba84-7cabd4fad36afileName">GetFleetProductCodes</con:setting>
+  </con:settings>
+  <con:call id="a044cc7b-f8ce-4c1e-b270-5467024c335e" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://ww2.cenpos.net/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetFleetProductCodes>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+         </tem:request>\r
+      </tem:GetFleetProductCodes>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/GetFleetProductCodes"/>
+  </con:call>
+</con:operation>

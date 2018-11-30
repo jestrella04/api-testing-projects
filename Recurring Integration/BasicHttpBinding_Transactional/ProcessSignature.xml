@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="2998d563-d51f-4860-972a-6d8bcd2dddcc" isOneWay="false" action="http://tempuri.org/Transactional/ProcessSignature" name="ProcessSignature" bindingOperationName="ProcessSignature" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2998d563-d51f-4860-972a-6d8bcd2dddccfileName">ProcessSignature</con:setting>
+  </con:settings>
+  <con:call id="c7ff5423-5cf6-43ca-8d05-ac03912d1dd7" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://ww2.cenpos.net/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessSignature>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:AuthorizationNumber>?</acr1:AuthorizationNumber>\r
+            <!--Optional:-->\r
+            <acr1:RecurringSaleTokenId>?</acr1:RecurringSaleTokenId>\r
+            <!--Optional:-->\r
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>\r
+            <!--Optional:-->\r
+            <acr1:Signature>?</acr1:Signature>\r
+            <!--Optional:-->\r
+            <acr1:SignatureType>?</acr1:SignatureType>\r
+         </tem:request>\r
+      </tem:ProcessSignature>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessSignature"/>
+  </con:call>
+</con:operation>

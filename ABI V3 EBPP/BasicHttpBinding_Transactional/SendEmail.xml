@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/SendEmail" name="SendEmail" bindingOperationName="SendEmail" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="4087ecd8-24fe-49ee-8873-3c44bd7e7d75" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4087ecd8-24fe-49ee-8873-3c44bd7e7d75fileName">SendEmail</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="dbbc7c21-cb9b-4255-8e52-4f2e2913e3d8" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:SendEmail>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:EmailAddress>?</acr1:EmailAddress>
+            <!--Optional:-->
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>
+         </tem:request>
+      </tem:SendEmail>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/SendEmail"/>
+  </con:call>
+</con:operation>

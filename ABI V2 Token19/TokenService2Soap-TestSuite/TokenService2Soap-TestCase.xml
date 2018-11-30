@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="04a4a322-0541-4353-a4a6-49b9ad6de52a" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TokenService2Soap TestCase" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="04a4a322-0541-4353-a4a6-49b9ad6de52afileName">TokenService2Soap-TestCase</con:setting>
+  </con:settings>
+  <con:testStep type="request" id="de1cb9b1-c39f-4326-a9ca-12492771f9ff" name="GenerateToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>TokenService2Soap</con:interface>
+      <con:operation>GenerateToken</con:operation>
+      <con:request name="GenerateToken" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="a321b6cc-3933-471f-bd68-8251a8ba7f69">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://hub.cenpos.net/v2/TokenService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GenerateToken>\r
+         <tem:merchantId></tem:merchantId>\r
+         <tem:customerCode></tem:customerCode>\r
+         <tem:cardNumber></tem:cardNumber>\r
+      </tem:GenerateToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/GenerateToken"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" id="bdf084eb-ca75-499d-b4d7-4cc06b78bcb3" wsaVersion="NONE" name="TokenServiceSoap" type="wsdl" bindingName="{http://tempuri.org/}TokenServiceSoap" soapVersion="1_1" anonymous="optional" definition="https://hub.cenpos.net/TokenService.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="bdf084eb-ca75-499d-b4d7-4cc06b78bcb3fileName">TokenServiceSoap</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="https://hub.cenpos.net/TokenService.asmx?wsdl">
+    <con:part>
+      <con:url>https://hub.cenpos.net/TokenService.asmx?wsdl</con:url>
+      <con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GenerateToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="merchantId" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateTokenResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GenerateTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateToken"/>
+  </wsdl:message>
+  <wsdl:message name="GenerateTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateTokenResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="TokenServiceSoap">
+    <wsdl:operation name="GenerateToken">
+      <wsdl:input message="tns:GenerateTokenSoapIn"/>
+      <wsdl:output message="tns:GenerateTokenSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TokenServiceSoap" type="tns:TokenServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerateToken">
+      <soap:operation soapAction="http://tempuri.org/GenerateToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TokenServiceSoap12" type="tns:TokenServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerateToken">
+      <soap12:operation soapAction="http://tempuri.org/GenerateToken" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TokenService">
+    <wsdl:port name="TokenServiceSoap" binding="tns:TokenServiceSoap">
+      <soap:address location="https://hub.cenpos.net/TokenService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TokenServiceSoap12" binding="tns:TokenServiceSoap12">
+      <soap12:address location="https://hub.cenpos.net/TokenService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+      <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://hub.cenpos.net/TokenService.asmx</con:endpoint>
+  </con:endpoints>
+</con:interface>

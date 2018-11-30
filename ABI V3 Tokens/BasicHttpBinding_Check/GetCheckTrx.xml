@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Check/GetCheckTrx" name="GetCheckTrx" bindingOperationName="GetCheckTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="aff893ff-889f-4a70-ac87-9190f5a601ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="aff893ff-889f-4a70-ac87-9190f5a601cafileName">GetCheckTrx</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="4d902afe-4bc3-4f30-a4bc-06aa1a7e737e" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/2/check.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetCheckTrx>
+         <tem:request>
+            <acr:MerchantId>${#Project#MerchantId}</acr:MerchantId>
+            <acr:Password>${#Project#Password}</acr:Password>
+            <acr:UserId>${#Project#UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:BeginDate>2014-07-01T04:00:00Z</acr1:BeginDate>
+            <acr1:CheckBatchId xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:ColumnDelimiter xsi:nil="true" />
+            <acr1:CustomerName xsi:nil="true" />
+            <acr1:DepositDate xsi:nil="true" />
+            <acr1:EndDate>2014-09-23T04:00:00Z</acr1:EndDate>
+            <acr1:ExcludeResult xsi:nil="true" />
+            <acr1:ExcludeTransactionType xsi:nil="true" />
+            <acr1:ExcludeVoid>true</acr1:ExcludeVoid>
+            <acr1:IncludeHeader>false</acr1:IncludeHeader>
+            <acr1:IncludeImage>false</acr1:IncludeImage>
+            <acr1:IncludeSignature>true</acr1:IncludeSignature>
+            <acr1:InvoiceId xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Result xsi:nil="true" />
+            <acr1:RowDelimiter xsi:nil="true" />
+            <acr1:TransactionType xsi:nil="true" />
+            <acr1:TransformType>XML</acr1:TransformType>
+            <acr1:User xsi:nil="true" />
+         </tem:request>
+      </tem:GetCheckTrx>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:environmentSpec>
+      <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/GetCheckTrx"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

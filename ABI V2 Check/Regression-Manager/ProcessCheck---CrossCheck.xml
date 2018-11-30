@@ -1,0 +1,1674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fe73a119-b1be-4740-b9f6-dec0a5a686b3" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="ProcessCheck - CrossCheck" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fe73a119-b1be-4740-b9f6-dec0a5a686b3fileName">ProcessCheck---CrossCheck</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="HoldCheck (Personal)" id="7530c694-31e9-46c7-a01a-e45a72a82fc4">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Personal)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${PersonalCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>5</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Personal</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" id="28963fbd-2f19-4fb7-b480-4b7d28782d36" name="XPath Match">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckAdd (Personal)" id="cefd9a94-18bb-448b-a2c4-e4d8ae435069">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckAdd (Personal)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${PersonalCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>5</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Personal</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Personal)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckAdd</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="70f8ce72-6e4e-4da2-91e9-986f311dd6bd">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Personal)" id="2f0bc34a-7dd5-4175-86ce-8131ca44898c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Personal)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Personal)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="82a2e298-4e3a-4ab3-9ec3-59a89768de11">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheck (Corp)" id="770fb599-77bc-4f58-ab83-2ae4ee5e13de">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Corp)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${CorpCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Corporate</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="7fce11c2-4de1-412b-9512-4a25ec74bf3a">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckAdd (Corp)" id="4f9dd07b-3ba4-4c86-b2e0-a304b94f8aef">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckAdd (Corp)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${CorpCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Corporate</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Corp)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckAdd</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="be2aecd7-a950-4ac0-81f1-2d5113911ca5">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Corp)" id="3a6e2cd0-a8ba-41c4-9a51-7599d8091f11">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Corp)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>20</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Corp)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="0efe9cf1-c35b-425a-bb09-3b1cc97ad205">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheck (Personal + Image)" id="0d531a8a-0b84-4ae4-97c2-49379c21c294">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Personal + Image)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${PersonalCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>15</acr1:Amount>
+            <acr1:CheckBackSideImage>${CheckBackImage}</acr1:CheckBackSideImage>
+            <acr1:CheckFrontImage>${CheckFrontImage}</acr1:CheckFrontImage>
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Personal</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="d7d0d067-37bc-4184-a840-a636a85f0182">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckAdd (Personal + Image)" id="a298ff13-ce88-43fa-9d32-5b3c90ca17b0">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckAdd (Personal + Image)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${PersonalCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>15</acr1:Amount>
+            <acr1:CheckBackSideImage>${CheckBackImage}</acr1:CheckBackSideImage>
+            <acr1:CheckFrontImage>${CheckFrontImage}</acr1:CheckFrontImage>
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Personal</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Personal + Image)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckAdd</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="1ca10033-1c6e-48c5-a0ea-e4444fc8f6c1">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Personal + Image)" id="238af447-cf7a-4fd0-9bef-becf20c69e3c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Personal + Image)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>30</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Personal + Image)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="5ba418e9-648f-468f-995b-60c80845ca31">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheck (Corp + Image)" id="5a86f125-fcd5-4d87-a6f6-290ce451a691">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Corp + Image)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${CorpCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>20</acr1:Amount>
+            <acr1:CheckBackSideImage>${CheckBackImage}</acr1:CheckBackSideImage>
+            <acr1:CheckFrontImage>${CheckFrontImage}</acr1:CheckFrontImage>
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Corporate</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="110519d4-b93e-4d6b-9517-bc8ffe49df8e">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckAdd (Corp + Image)" id="7a9f11a6-eccb-47a4-a9de-70077fb04731">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckAdd (Corp + Image)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${CorpCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>20</acr1:Amount>
+            <acr1:CheckBackSideImage>${CheckBackImage}</acr1:CheckBackSideImage>
+            <acr1:CheckFrontImage>${CheckFrontImage}</acr1:CheckFrontImage>
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Corporate</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Corp + Image)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckAdd</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="17dd5804-1c2d-45e3-999a-593d1c5be458">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Corp + Image)" id="7ca3c9f9-c791-456b-a4ba-2c5f608a9a9a">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Corp + Image)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>40</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Corp + Image)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="9c76ec49-1aad-425c-9a92-7fd34da42eb9">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheck (Personal + Unique)" id="754d6840-dbd0-4c38-95e4-ddb17b3d9e3a">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Personal + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${PersonalCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Personal</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="3dd15981-c3d8-42f6-bbf6-f0073e142e65">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Personal + Unique)" id="003f80d2-dbcf-4418-9478-442aa0999eee">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Personal + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Personal + Unique)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="c8bd068f-806a-4247-9cfc-cea04698fa64">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheck (Corp + Unique)" id="c67911bf-4678-455e-bff7-b5ef47210308">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Corp + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${CorpCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Corporate</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="3fc38052-8773-4d3b-86dc-a50e56b3dcf7">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Corp + Unique)" id="5322b956-c2ba-4c11-9539-43fd4a667cd8">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Corp + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Corp + Unique)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="5f07e7ab-e73a-45c0-979a-d877c77db81c">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheck (Personal + Image + Unique)" id="c3a9fb45-b036-46ae-81ff-6847ce6717c2">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Personal + Image + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${PersonalCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>15</acr1:Amount>
+            <acr1:CheckBackSideImage>${CheckBackImage}</acr1:CheckBackSideImage>
+            <acr1:CheckFrontImage>${CheckFrontImage}</acr1:CheckFrontImage>
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Personal</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="1a30c54b-d074-4404-a728-b8c2310d8170">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Personal + Image + Unique)" id="2c812674-5e40-4e73-9f43-6f18e4c7e989">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Personal + Image + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>15</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Personal + Image + Unique)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="9b21e347-12d4-4619-b8be-158566a6ddf3">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheck (Corp + Image + Unique)" id="6749b1b4-460f-4be1-a361-e063954ab5c1">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheck (Corp + Image + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${CorpCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>20</acr1:Amount>
+            <acr1:CheckBackSideImage>${CheckBackImage}</acr1:CheckBackSideImage>
+            <acr1:CheckFrontImage>${CheckFrontImage}</acr1:CheckFrontImage>
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckNumber>
+            <acr1:CheckType>Corporate</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>HoldCheck</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="93f10e51-4e59-41b9-8a03-01a038da5ca0">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="HoldCheckClose (Corp + Image + Unique)" id="89f1d6b1-c11d-43cc-8565-addbc65f26cb">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="HoldCheckClose (Corp + Image + Unique)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="286057ad-564f-4678-a6fe-f3ef25c9db0e" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>20</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType xsi:nil="true" />
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber xsi:nil="true" />
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber>${HoldCheck (Corp + Image + Unique)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //tem:ProcessCheckResponse[1]/tem:ProcessCheckResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:TransactionType>HoldCheckClose</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f052ed11-6e7d-4247-8e12-071ea49705aa"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="573e6c32-7530-4bd8-9aba-5fa9205e5eff">
+          <con:configuration>
+            <path>${HoldCheck (Personal)#Response#declare namespace ns2='http://tempuri.org/'; declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common'; //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]}</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>8d5ab204-51c3-4abf-b997-25dd5196362d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e0f2618d-8b72-4f4e-a9d0-f42be9f06642</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>9fed89c8-e5d7-4e17-90e5-8212fdbb91ad</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1316b0c1-3a47-4b82-8458-e85a981be0fa</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>bc12e73d-5fe2-4351-98cb-17aabe2b1c29</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e24757cf-96da-496d-b3ef-a690299765ee</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>94ea976c-c622-44f9-a239-6398be4423eb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a70c84e4-f1df-450e-b0fa-ba329fb98fe2</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c89ce3b1-df0e-4d2b-8216-a51fa3a0fc74</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>08c9a9fa-978d-4cc0-9aaa-e961a0a906b4</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e53ebc5e-d1b5-4314-90e7-0e72ba5cef89</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>255e21d9-7afd-40a2-80d6-e3646097c561</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1ed538d7-863a-4862-9f2a-dcf3d25f76ed</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="30c8c04d-f1e3-472e-a510-c57d2fa5b2f8" isOneWay="false" action="http://tempuri.org/Tokens/DeleteAchToken" name="DeleteAchToken" bindingOperationName="DeleteAchToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="30c8c04d-f1e3-472e-a510-c57d2fa5b2f8fileName">DeleteAchToken</con:setting>
+  </con:settings>
+  <con:call id="be62f871-c601-408d-9681-d8889afe59de" defaultOutgoingWss="" defaultIncomingWss="" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteAchToken>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:TokenId>?</acr1:TokenId>\r
+         </tem:request>\r
+      </tem:DeleteAchToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/DeleteAchToken"/>
+  </con:call>
+</con:operation>

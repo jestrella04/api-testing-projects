@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Check/ProcessCheckConfirmation" name="ProcessCheckConfirmation" bindingOperationName="ProcessCheckConfirmation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="fc7b7d69-eb41-4ed1-970e-aea2200b2387" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fc7b7d69-eb41-4ed1-970e-aea2200b2387fileName">ProcessCheckConfirmation</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="12ca8ccf-8f63-4975-a10c-df799f8de14d" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/2/check.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheckConfirmation>
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <acr:Password>?</acr:Password>
+            <acr:UserId>?</acr:UserId>
+            <acr1:ProcessElectronicDeposit>?</acr1:ProcessElectronicDeposit>
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>
+         </tem:request>
+      </tem:ProcessCheckConfirmation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheckConfirmation"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

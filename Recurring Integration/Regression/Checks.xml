@@ -1,0 +1,1416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="e5391461-24d0-4d0a-8e92-df99ef27879a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Checks" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e5391461-24d0-4d0a-8e92-df99ef27879afileName">Checks</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="ProcessCheck" id="322c1923-c6c4-4e68-b713-7074e0df2f63">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="ProcessCheck" id="2e31494d-fac1-436a-a852-553ef12596b9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww2.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber>${PersonalCheckABA}</acr1:AbaNumber>
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType>Checking</acr1:AccountType>
+            <acr1:Amount>10</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
+            <acr1:CheckNumber>${PersonalCheckNumber}</acr1:CheckNumber>
+            <acr1:CheckType>Personal</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState>FL</acr1:CustomerState>
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>Conversion</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="112eb850-7aab-4558-a5fa-bbdd0095018c"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Personal)" id="3043578f-291b-48e5-8701-3bbc5d2c1c40">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Personal)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2017-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2017-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2017-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>WEEKLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <tem:RecurringCheckVO>\r
+                  <tem:Token>test</tem:Token>
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Corporate)" id="b09186bc-fffc-48c1-8f92-a617631de182">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Corporate)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2017-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2017-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2017-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>WEEKLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>067006432</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>2000022326456</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Corporate</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (-1)" id="a216ec24-16ae-4938-86ab-10f89929b6c0">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (-1)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>-25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>WEEKLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Corporate</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Daily)" id="5b3faf7c-dfb7-4222-a684-ab91e82f71c9">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Daily)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>DAILY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Monthly)" id="30552ed0-d31f-4bd7-a4aa-29496c277808">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Monthly)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>MONTHLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Yearly)" id="6b97e400-22e8-4872-a2c0-11e3312f08aa">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Yearly)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>YEARLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Biweekly)" id="e9a5153c-109c-46f5-9d78-5a50e05a6b51">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Biweekly)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>BIWEEKLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Semi Monthly)" id="f68b45bc-aa97-4b47-b22a-b7c8b44b86e0">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Semi Monthly)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>SEMIMONTHLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Quarterly)" id="535eccca-56ac-4f52-b963-a593471293e7">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Quarterly)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>QUARTERLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Semi Anually)" id="4841f7b3-7ac4-4d95-98e6-0e3fabf5d2aa">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap12</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Semi Anually)" id="55c26210-24b9-463e-a498-055ac437388b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddRecurringContract>\r
+         <!--Optional:-->\r
+         <tem:addContractRequestVO>\r
+            <!--Optional:-->\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>2016-09-16T04:00:00Z</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <!--Optional:-->\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2016-09-23T04:00:00Z</tem:EndDate>\r
+            <tem:NextBillDate>2016-09-16T04:00:00Z</tem:NextBillDate>\r
+            <tem:SubTotal>25.5</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <!--Optional:-->\r
+            <tem:Frecuency>SEMIANNUALLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Customer>\r
+               <!--Optional:-->\r
+               <tem:ExternalCode>112233</tem:ExternalCode>\r
+               <!--Optional:-->\r
+               <tem:FirstName>Francisco</tem:FirstName>\r
+               <!--Optional:-->\r
+               <tem:LastName>Mendoza</tem:LastName>\r
+               <!--Optional:-->\r
+               <tem:Company>Smarter</tem:Company>\r
+               <!--Optional:-->\r
+               <tem:Title>FranTestQA</tem:Title>\r
+               <!--Optional:-->\r
+               <tem:Department>QA</tem:Department>\r
+               <!--Optional:-->\r
+               <tem:EveningPhone/>
+               <!--Optional:-->\r
+               <tem:EmailAdress>fmendoza@smartersolutions.com.ve</tem:EmailAdress>\r
+               <!--Optional:-->\r
+               <tem:MobilePhone/>
+               <!--Optional:-->\r
+               <tem:DayTimePhone/>
+               <!--Optional:-->\r
+               <tem:Fax/>
+               <!--Optional:-->\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <!--Optional:-->\r
+               <tem:BillingAddress3/>
+               <!--Optional:-->\r
+               <tem:BillingAddress2/>
+               <!--Optional:-->\r
+               <tem:BillingAddress1>Las Minas</tem:BillingAddress1>\r
+               <!--Optional:-->\r
+               <tem:City>San Antonio</tem:City>\r
+               <!--Optional:-->\r
+               <tem:Province>Miranda</tem:Province>\r
+               <!--Optional:-->\r
+               <tem:ZipCode>12011</tem:ZipCode>\r
+               <!--Optional:-->\r
+               <tem:State>Miranda</tem:State>\r
+               <!--Optional:-->\r
+               <tem:Country>usa</tem:Country>\r
+            </tem:Customer>\r
+            <!--Optional:-->\r
+
+            <!--Optional:-->\r
+            <tem:Checks>\r
+               <!--Zero or more repetitions:-->\r
+               <tem:RecurringCheckVO>\r
+                  <!--Optional:-->\r
+                  <tem:Token>test</tem:Token>
+                  <!--Optional:-->\r
+                  <tem:Aba>267080177</tem:Aba>\r
+                  <!--Optional:-->\r
+                  <tem:CheckContractType>PRINCIPAL</tem:CheckContractType>\r
+                  <!--Optional:-->\r
+                  <tem:AccountNumber>10965057341014</tem:AccountNumber>\r
+                  <tem:DateIssue>2016-09-15T04:00:00Z</tem:DateIssue>\r
+                  <!--Optional:-->\r
+                  <tem:LastName>Mendoza</tem:LastName>\r
+                  <!--Optional:-->\r
+                  <tem:Name>Francisco</tem:Name>\r
+                  <!--Optional:-->\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <!--Optional:-->\r
+                  <tem:CheckType>Personal</tem:CheckType>\r
+                  <tem:Id>0</tem:Id>\r
+                  <!--Optional:-->\r
+                  <tem:AccountType>Checking</tem:AccountType>\r
+                  <!--Optional:-->\r
+                  <tem:ReferenceNumber>${ProcessCheck#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses'; //ns1:ProcessCheckResponse[1]/ns1:ProcessCheckResult[1]/a:ReferenceNumber[1]}</tem:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <tem:CustomerCode>FLM</tem:CustomerCode>\r
+               </tem:RecurringCheckVO>\r
+            </tem:Checks>\r
+            <!--Optional:-->\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <!--Optional:-->\r
+            <tem:PrincipalPaymentMethod>CHECK</tem:PrincipalPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+            <!--Optional:-->\r
+            <tem:DropDownSelection/>
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="02e32c7c-0007-4869-b5d2-0e70e17a3d11"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

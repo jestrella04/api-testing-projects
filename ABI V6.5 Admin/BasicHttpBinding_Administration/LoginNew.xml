@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Administration/LoginNew" name="LoginNew" bindingOperationName="LoginNew" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="aa865b5d-13c7-4553-9491-77fd61982399" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="aa865b5d-13c7-4553-9491-77fd61982399fileName">LoginNew</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="5e5d1232-1ec7-4e39-8bb2-f0f6d0cdb1f6" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:LoginNew>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+         </tem:request>
+      </tem:LoginNew>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/LoginNew"/>
+    <con:environmentSpec>
+      <con:entry environmentId="0eb56c0c-6c92-4e64-ab04-e7ead44349ae">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:call>
+  <con:call id="c239aa59-b98a-4d07-b850-effe49c6cd5f" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.v3.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:LoginNew>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr3:GeoLocationInformation>?</acr3:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr3:IMEI>?</acr3:IMEI>\r
+         </tem:request>\r
+      </tem:LoginNew>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/LoginNew"/>
+  </con:call>
+</con:operation>

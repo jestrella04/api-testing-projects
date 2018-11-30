@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Administration/ModifyUserLinkedGroups" name="ModifyUserLinkedGroups" bindingOperationName="ModifyUserLinkedGroups" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="81018a9a-c609-48c1-9847-9021825e3433" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="81018a9a-c609-48c1-9847-9021825e3433fileName">ModifyUserLinkedGroups</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="c11e9d2c-d766-42fb-8238-cd31fd1089a7" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyUserLinkedGroups>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:SharingList>
+               <!--Zero or more repetitions:-->
+               <acr1:LinkedGroupSharing>
+                  <!--Optional:-->
+                  <acr1:LinkedGroupId>?</acr1:LinkedGroupId>
+                  <!--Optional:-->
+                  <acr1:ShareTokens>?</acr1:ShareTokens>
+                  <!--Optional:-->
+                  <acr1:ShareTransactions>?</acr1:ShareTransactions>
+                  <!--Optional:-->
+                  <acr1:ShareUsers>?</acr1:ShareUsers>
+               </acr1:LinkedGroupSharing>
+            </acr1:SharingList>
+            <!--Optional:-->
+            <acr1:UserName>?</acr1:UserName>
+         </tem:request>
+      </tem:ModifyUserLinkedGroups>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/ModifyUserLinkedGroups"/>
+  </con:call>
+</con:operation>

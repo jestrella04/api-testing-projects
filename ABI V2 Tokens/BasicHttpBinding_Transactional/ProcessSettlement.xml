@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessSettlement" name="ProcessSettlement" bindingOperationName="ProcessSettlement" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="add4fed0-5770-441d-ae47-6f0db073ca82" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="add4fed0-5770-441d-ae47-6f0db073ca82fileName">ProcessSettlement</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="f11cbdd9-9a2a-4f13-967f-8389527c94d8" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessSettlement>
+         <tem:request>
+            <acr:MerchantId>${#Project#MerchantId}</acr:MerchantId>
+            <acr:Password>${#Project#Password}</acr:Password>
+            <acr:UserId>${#Project#UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>CaptureAll</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessSettlement>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessSettlement"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

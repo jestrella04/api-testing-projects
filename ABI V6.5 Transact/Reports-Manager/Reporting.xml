@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Reporting" searchProperties="true" id="ecd33e39-2377-482c-bc75-0d084cec2291" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ecd33e39-2377-482c-bc75-0d084cec2291fileName">Reporting</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="GetCardTrx - Reprint" id="6277971b-f75a-4e42-87bf-c26a65fecf2d">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>GetCardTrx</con:operation>
+      <con:request name="GetCardTrx - Reprint" id="cd2f90d0-ecea-4a41-b10a-da1574973a4d" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/5/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetCardTrx>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:BeginDate>${BeginDate}</acr1:BeginDate>\r
+            <acr1:BringLinkedHierarchy>true</acr1:BringLinkedHierarchy>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:ColumnDelimiter xsi:nil="true"/>\r
+            <acr1:EndDate>${EndDate}</acr1:EndDate>\r
+            <acr1:ExcludeResult xsi:nil="true"/>\r
+            <acr1:ExcludeTransactionType>'PartialReversal','SpecialPartialReversal'</acr1:ExcludeTransactionType>\r
+            <acr1:ExcludeVoid>true</acr1:ExcludeVoid>\r
+            <acr1:IncludeHeader>false</acr1:IncludeHeader>\r
+            <acr1:IncludeSignature>false</acr1:IncludeSignature>\r
+            <acr1:InvoiceId xsi:nil="true"/>\r
+            <acr1:MerchantType xsi:nil="true"/>\r
+            <acr1:NameOnCard xsi:nil="true"/>\r
+            <acr1:PaymentType xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:Result xsi:nil="true"/>\r
+            <acr1:RowDelimiter xsi:nil="true"/>\r
+            <acr1:Settle xsi:nil="true"/>\r
+            <acr1:SettleDate xsi:nil="true"/>\r
+            <acr1:TransactionType xsi:nil="true"/>\r
+            <acr1:TransformType>XML</acr1:TransformType>\r
+            <acr1:User xsi:nil="true"/>\r
+         </tem:request>\r
+      </tem:GetCardTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="ac2925f5-748d-4921-9a78-0c4785d672f2"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetTrx - Transactions" id="b8447f5b-2160-4114-9090-5da8c1e517bc">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>GetTrx</con:operation>
+      <con:request name="GetTrx - Transactions" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="85dee6a3-8340-4587-9cea-a06b22ef606d" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/5/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetTrx>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:BeginDate>${BeginDate}</acr1:BeginDate>\r
+            <acr1:BringLinkedHierarchy>true</acr1:BringLinkedHierarchy>\r
+            <acr1:ColumnDelimiter xsi:nil="true"/>\r
+            <acr1:CustomerName xsi:nil="true"/>\r
+            <acr1:EndDate>${EndDate}</acr1:EndDate>\r
+            <acr1:ExcludeResult xsi:nil="true"/>\r
+            <acr1:ExcludeTransactionType>'Void','Auth','Authorization','PartialReversal','SpecialPartialReversal','InitialCash','EndOfDayCash','ReplenishCash','Overage','Shortage'</acr1:ExcludeTransactionType>\r
+            <acr1:ExcludeVoid>true</acr1:ExcludeVoid>\r
+            <acr1:IncludeHeader>false</acr1:IncludeHeader>\r
+            <acr1:IncludeImage>false</acr1:IncludeImage>\r
+            <acr1:InvoiceId xsi:nil="true"/>\r
+            <acr1:MerchantType xsi:nil="true"/>\r
+            <acr1:PaymentNumber xsi:nil="true"/>\r
+            <acr1:PaymentType xsi:nil="true"/>\r
+            <acr1:ProcessDate xsi:nil="true"/>\r
+            <acr1:Processed xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:Result xsi:nil="true"/>\r
+            <acr1:RowDelimiter xsi:nil="true"/>\r
+            <acr1:TransactionType xsi:nil="true"/>\r
+            <acr1:TransformType>XML</acr1:TransformType>\r
+            <acr1:User xsi:nil="true"/>\r
+         </tem:request>\r
+      </tem:GetTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="c2f3a93e-8aa0-4514-8b29-33b6ece3e6c0"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/GetTrx"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetCheckTrx - Check Report" id="4f0a7134-deac-47d7-afb8-1bce4fffceb3">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>GetCheckTrx</con:operation>
+      <con:request name="GetCheckTrx - Check Report" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e97d40a9-1e17-405a-bfd3-09ef9d77c0ba" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetCheckTrx>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:BeginDate>${BeginDate}</acr1:BeginDate>
+            <acr1:CheckBatchId xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:ColumnDelimiter xsi:nil="true" />
+            <acr1:CustomerName xsi:nil="true" />
+            <acr1:DepositDate xsi:nil="true" />
+            <acr1:EndDate>${EndDate}</acr1:EndDate>
+            <acr1:ExcludeResult xsi:nil="true" />
+            <acr1:ExcludeTransactionType xsi:nil="true" />
+            <acr1:ExcludeVoid>true</acr1:ExcludeVoid>
+            <acr1:IncludeHeader>false</acr1:IncludeHeader>
+            <acr1:IncludeImage>false</acr1:IncludeImage>
+            <acr1:IncludeSignature>false</acr1:IncludeSignature>
+            <acr1:InvoiceId xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Result xsi:nil="true" />
+            <acr1:RowDelimiter xsi:nil="true" />
+            <acr1:TransactionType xsi:nil="true" />
+            <acr1:TransformType>XML</acr1:TransformType>
+            <acr1:User xsi:nil="true" />
+         </tem:request>
+      </tem:GetCheckTrx>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="87a2a0ea-82ea-4714-825a-325d177f3ea6"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/GetCheckTrx"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetCashTrx - Cash Summary" id="1c6fddd7-e09e-4464-99a2-f484be7e0445">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>GetCashTrx</con:operation>
+      <con:request name="GetCashTrx - Cash Summary" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e8766a66-3e60-41ea-831e-2cbd8cbddfea" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetCashTrx>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:BeginDate>${BeginDate}</acr1:BeginDate>\r
+            <acr1:Cashier>${UserId}</acr1:Cashier>\r
+            <acr1:EndDate>${EndDate}</acr1:EndDate>\r
+            <acr1:Processed>true</acr1:Processed>\r
+         </tem:request>\r
+      </tem:GetCashTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="1a4e5412-991c-4403-ad62-540ce4e45757"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/GetCashTrx"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessGetRestaurantTrx" id="36b31ff6-0d00-404a-86a5-89fc0a148f9a">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessGetRestaurantTrx</con:operation>
+      <con:request name="ProcessGetRestaurantTrx" id="7e2d0573-bfab-4e09-b5d1-cc7c87606788">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:acr4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessGetRestaurantTrx>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr3:GeoLocationInformation xsi:nil="true"/>\r
+            <acr3:IMEI xsi:nil="true"/>\r
+            <acr3:RestaurantTransaction>\r
+               <acr4:BeginDate>${BeginDate}</acr4:BeginDate>\r
+               <acr4:EndDate>${EndDate}</acr4:EndDate>\r
+               <acr4:ExcludeTransactionType xsi:nil="true"/>\r
+               <acr4:IncludeTransactionType xsi:nil="true"/>\r
+               <acr4:ReferenceNumber xsi:nil="true"/>\r
+            </acr3:RestaurantTransaction>\r
+         </tem:request>\r
+      </tem:ProcessGetRestaurantTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="4fef4569-027d-4d43-a0e6-764b998a79e3"/>
+        <con:assertion type="Schema Compliance" id="17955984-fba2-427b-a1b1-c998eaa70eea">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="a7f0f093-7aa9-42c6-99e1-5d4ca456ce38"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessGetAdditionalInformationTrx - Custom Fields Reports" disabled="true" id="16d77968-5a6f-4d85-9ec9-194e65bbfd55">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessGetAdditionalInformationTrx</con:operation>
+      <con:request name="ProcessGetAdditionalInformationTrx - Custom Fields Reports" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="3d7a1fe5-5938-4dc9-92ee-f6287733b35c" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessGetAdditionalInformationTrx>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:AdditionalInformation>\r
+               <acr3:BeginDate>${BeginDate}</acr3:BeginDate>\r
+               <acr3:EndDate>${EndDate}</acr3:EndDate>\r
+            </acr1:AdditionalInformation>\r
+         </tem:request>\r
+      </tem:ProcessGetAdditionalInformationTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="336cd494-2bd0-47ac-ac05-9a5cb91b1eb8"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessGetAdditionalInformationTrx"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Copy of ProcessGetRestaurantTrx" id="6fc022e3-6ef1-4f6e-973f-7848b4a1fa8a" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessGetRestaurantTrx</con:operation>
+      <con:request name="Copy of ProcessGetRestaurantTrx" id="7e2d0573-bfab-4e09-b5d1-cc7c87606788">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:acr4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessGetRestaurantTrx>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr3:GeoLocationInformation xsi:nil="true"/>\r
+            <acr3:IMEI xsi:nil="true"/>\r
+            <acr3:RestaurantTransaction>\r
+               <acr4:BeginDate xsi:nil="true"/>\r
+               <acr4:EndDate xsi:nil="true"/>\r
+               <acr4:ExcludeTransactionType xsi:nil="true"/>\r
+               <acr4:IncludeTransactionType xsi:nil="true"/>\r
+               <acr4:ReferenceNumber>1465179130</acr4:ReferenceNumber>\r
+            </acr3:RestaurantTransaction>\r
+         </tem:request>\r
+      </tem:ProcessGetRestaurantTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="4fef4569-027d-4d43-a0e6-764b998a79e3"/>
+        <con:assertion type="Schema Compliance" id="17955984-fba2-427b-a1b1-c998eaa70eea">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="a7f0f093-7aa9-42c6-99e1-5d4ca456ce38"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>dbfe15ee-10ce-43a2-be43-5c02f7191f63</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>fe397fdf-0664-4686-a680-de186720ddc7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>36b31ff6-0d00-404a-86a5-89fc0a148f9a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

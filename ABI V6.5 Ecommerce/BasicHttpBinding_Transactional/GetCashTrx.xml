@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/GetCashTrx" name="GetCashTrx" bindingOperationName="GetCashTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="e1b05474-5f89-4bc5-ba4d-e4c43ca0a0e5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e1b05474-5f89-4bc5-ba4d-e4c43ca0a0e5fileName">GetCashTrx</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="eb73dead-85aa-4b80-a9b0-11bee39cca57" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/ecommerce.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetCashTrx>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr3:GeoLocationInformation>?</acr3:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr3:IMEI>?</acr3:IMEI>\r
+            <!--Optional:-->\r
+            <acr3:BeginDate>?</acr3:BeginDate>\r
+            <!--Optional:-->\r
+            <acr3:Cashier>?</acr3:Cashier>\r
+            <!--Optional:-->\r
+            <acr3:EndDate>?</acr3:EndDate>\r
+            <!--Optional:-->\r
+            <acr3:Processed>?</acr3:Processed>\r
+         </tem:request>\r
+      </tem:GetCashTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/GetCashTrx"/>
+  </con:call>
+</con:operation>

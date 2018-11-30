@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ProcessCreditCard - Swipe" searchProperties="true" id="a51f8d23-6692-4ba4-acaa-57f37a752291" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a51f8d23-6692-4ba4-acaa-57f37a752291fileName">ProcessCreditCard---Swipe</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="ProcessCreditCard - Sale (Bad Swipe)" id="b627050e-bc7b-4df6-867e-02e85c79077d">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Sale (Bad Swipe)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="3ca2ec92-b2a1-4ab4-8097-a857cf997700" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>%E?;E?;E?+E?</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="b23e8b66-8364-4eb1-b948-2846306f2d2b"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Sale (Invalid Last Four)" id="dd1f3377-b61e-4688-b926-5fedbcc6dc74">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Sale (Invalid Last Four)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>abcd</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>${MagneticData}</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Sale (No Mag Data)" id="f6c1f9a3-1940-4109-a346-6bdaffa16483">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Sale (No Mag Data)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>32.80</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData xsi:nil="true"/>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Auth (Bad Swipe)" id="76834a26-db50-4b2e-87cd-3ff3a599f9e5">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Auth (Bad Swipe)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="3ca2ec92-b2a1-4ab4-8097-a857cf997700" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>%E?;E?;E?+E?</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Auth</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="b23e8b66-8364-4eb1-b948-2846306f2d2b"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Auth (Invalid Last Four)" id="52828f4e-42cb-459a-a882-32ffff38aecd">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Auth (Invalid Last Four)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>abcd</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>${MagneticData}</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Auth</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Auth (No Mag Data)" id="c7100b51-0caf-4ab2-ade8-0bfe017147a3">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Auth (No Mag Data)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>32.80</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData xsi:nil="true"/>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Auth</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Credit (Bad Swipe)" id="9920ee6b-0988-4d14-86ea-12cf116dd615">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Credit (Bad Swipe)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="3ca2ec92-b2a1-4ab4-8097-a857cf997700" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>%E?;E?;E?+E?</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Credit</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="b23e8b66-8364-4eb1-b948-2846306f2d2b"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Credit (No Mag Data)" id="a833b49a-c110-4db9-8c1e-0484c4f239c1">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Credit (No Mag Data)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>32.80</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber xsi:nil="true"/>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData xsi:nil="true"/>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Credit</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Sale (Card Mismatch)" id="384abde6-d861-4ec4-b58e-b66fedb0f84f">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Sale (Card Mismatch)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse()}</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>${MagneticData}</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Auth (Card Mismatch)" id="d4d49fda-ec34-4732-a13a-4f559f55fc10">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Auth (Card Mismatch)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse()}</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>${MagneticData}</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Auth</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCreditCard - Credit (Card Mismatch)" id="3b3a63cd-6ce2-4730-a9b5-36cf81daf9de">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCreditCard</con:operation>
+      <con:request name="ProcessCreditCard - Credit (Card Mismatch)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5865698e-d1ca-4297-9e76-6415b8056ba6" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="SOAPAction" value="http://tempuri.org/Transactional/ProcessCreditCard" xmlns="http://eviware.com/soapui/config"/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCreditCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse()}</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress xsi:nil="true"/>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData>${MagneticData}</acr1:MagneticData>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
+            <acr1:TransactionType>Credit</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCreditCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="dac75d90-1848-46e8-83f4-ff836b478a48"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

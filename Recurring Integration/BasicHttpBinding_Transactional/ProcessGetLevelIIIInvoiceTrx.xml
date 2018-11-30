@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="75aa4316-32a5-43bf-87ee-0cbdb3275f14" isOneWay="false" action="http://tempuri.org/Transactional/ProcessGetLevelIIIInvoiceTrx" name="ProcessGetLevelIIIInvoiceTrx" bindingOperationName="ProcessGetLevelIIIInvoiceTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="75aa4316-32a5-43bf-87ee-0cbdb3275f14fileName">ProcessGetLevelIIIInvoiceTrx</con:setting>
+  </con:settings>
+  <con:call id="49d7ae96-df28-4138-aaa8-e74c29574cf2" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://ww2.cenpos.net/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessGetLevelIIIInvoiceTrx>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:LevelIIIInvoice>\r
+               <acr1:BeginDate>?</acr1:BeginDate>\r
+               <!--Optional:-->\r
+               <acr1:EndDate>?</acr1:EndDate>\r
+            </acr1:LevelIIIInvoice>\r
+         </tem:request>\r
+      </tem:ProcessGetLevelIIIInvoiceTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessGetLevelIIIInvoiceTrx"/>
+  </con:call>
+</con:operation>

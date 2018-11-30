@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d8e5135a-41ad-405b-b504-9420ae10848a" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="ProcessSignature - Signature" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d8e5135a-41ad-405b-b504-9420ae10848afileName">ProcessSignature---Signature</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="ProcessCard - Sale" id="7c8a1bd2-a2d1-42e1-b77f-1f7431ec156b">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCard</con:operation>
+      <con:request name="ProcessCard - Sale" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="32c99f03-30de-4180-9cfb-b1fef3f39fab" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${Amount}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate>${CardExpDate}</acr1:CardExpirationDate>\r
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>\r
+            <acr1:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber>${CardCVV}</acr1:CardVerificationNumber>\r
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>\r
+            <acr1:CustomerBillingAddress>${CustomerAddress}</acr1:CustomerBillingAddress>\r
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>\r
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode>${CustomerZipCode}</acr1:CustomerZipCode>\r
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>\r
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData xsi:nil="true"/>\r
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:PurchaseOrderNumber>${PONumber}</acr1:PurchaseOrderNumber>\r
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:SecureCode xsi:nil="true"/>\r
+            <acr1:TerminalCapabilities>Manual</acr1:TerminalCapabilities>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="25ef3f1d-9097-4dc5-93bb-6f74fbbf6229"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="aaef7221-ccfd-47b3-a995-ba6948d232b3">
+          <con:configuration>
+            <path>declare namespace tem='http://tempuri.org/';
+declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//tem:ProcessCardResponse[1]/tem:ProcessCardResult[1]/acr:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="57065a8c-5fa3-40b8-b79d-fddf4d1d58fc" name="ProcessSignature">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessSignature</con:operation>
+      <con:request name="ProcessSignature" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="c8dfa716-ed16-4c01-9c97-33c6f7833d04" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessSignature>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:RecurringSaleTokenId xsi:nil="true"/>\r
+            <acr1:ReferenceNumber>${ProcessCard - Sale#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
+            <acr1:Signature>${CustomerSignature}</acr1:Signature>\r
+            <acr1:SignatureType>Receipt1</acr1:SignatureType>\r
+         </tem:request>\r
+      </tem:ProcessSignature>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="ed77408c-d79c-421f-b207-9aaea6ba6870"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="58dbfd61-f0d7-4fab-94dc-1ce02391f1a9">
+          <con:configuration>
+            <path>declare namespace tem='http://tempuri.org/';
+declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//tem:ProcessSignatureResponse[1]/tem:ProcessSignatureResult[1]/acr:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessSignature"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

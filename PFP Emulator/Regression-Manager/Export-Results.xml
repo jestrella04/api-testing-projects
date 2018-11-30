@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="062a6191-6a34-4e95-835b-fbaa19c2931d" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Export Results" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="062a6191-6a34-4e95-835b-fbaa19c2931dfileName">Export-Results</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="Export Results" id="5ecd5346-614d-4c42-9d3f-f3c5b98239fd">
+    <con:settings/>
+    <con:config>
+      <script><![CDATA[import com.eviware.soapui.support.XmlHolder;
+
+try {	
+	// Get current date
+	def today = new Date().clearTime()
+	today = today.format( "MM-dd-yyyy" )
+	
+	// Get folder path where to export data
+	def resultDir = new File( context.expand( '${ExportDir}' ) )
+
+	// Check if folder exists, create it otherwise
+	if ( ! resultDir.exists() )
+	{
+		resultDir.mkdirs()
+	}
+
+	// Set name for the exported file
+	def csvfile = context.testCase.getTestSuite().name + ' ' + today.toString() + '.xml'
+	def resultsFile = new File( resultDir, csvfile )
+
+	// If the file does not already exist, we want to create it, otherwise we want to append
+	if ( ! resultsFile.exists() )
+	{
+		resultsFile.createNewFile()
+		
+		//Header row
+		resultsFile.write('<TRX>\n')
+	}
+
+	// Get test cases
+	def testCaseList = context.testCase.getTestSuite().getTestCaseList();
+	testCaseList.remove( testRunner.testCase )
+
+	// Loop trough testcases
+	testCaseList.each
+	{
+		// Iterate only if testcase is not disabled
+		if ( ! it.isDisabled() )
+		{
+			// Test Case
+			def testCaseName = it.name
+			
+			// Get test steps
+			def testSteps = it.getTestStepList()
+			
+			//Loop through transactions and write results to file
+			testSteps.each
+			{
+				// Validate that current test step is not disabled
+				if ( ! it.isDisabled() )
+				{					
+					// Get generic data
+					testStepName = it.name
+					merchantId = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "MerchantId" ) ?: ""
+
+					// Get model item
+					def modelItem = it.getModelItem().toString()
+
+					// Validate current step is a testRequestStep
+					if ( modelItem.contains("HttpTestRequestStep") )
+					{
+						resultsFile.append('<TRXDETAILS>\n')
+						resultsFile.append('<MID>'+ merchantId +'</MID>\n')
+						resultsFile.append('<TESTCASE>'+ testCaseName +'</TESTCASE>\n')
+						resultsFile.append('<TESTSTEP>'+ testStepName +'</TESTSTEP>\n')
+
+						// Get raw response
+						def response = it.httpRequest.response
+
+						// Get response content (only if there was a valid response)
+						if ( null != response && "" != response ) responseContent = response.getResponseContent()
+
+						// Validate response is not empty
+						if ( null != responseContent && "" != responseContent )
+						{
+							def responseParts = responseContent.split( "&" )
+		
+							if ( responseParts )
+							{
+								responseParts.each
+								{
+									def param = it.tokenize( "=" )
+									def key = param[0] ?: ""
+									def val = param[1] ?: ""
+
+									resultsFile.append('<' + key + '>' + val + '</'+ key + '>\n')
+								}
+							}
+						}
+
+						resultsFile.append('</TRXDETAILS>\n')
+					}
+				}
+			}
+		}
+	}
+}
+
+catch( e )
+{
+	log.error( "An error occurred: " + e.toString() );
+}]]></script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

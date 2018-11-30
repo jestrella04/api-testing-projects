@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Check/ProcessCheckSignature" name="ProcessCheckSignature" bindingOperationName="ProcessCheckSignature" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="125de584-c0b9-4733-b8c2-fbd48a0e3311" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="125de584-c0b9-4733-b8c2-fbd48a0e3311fileName">ProcessCheckSignature</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="7d77f022-e1b7-498f-b55b-3d145c8d2b7d" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/2/check.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheckSignature>
+         <tem:request>
+            <acr:MerchantId>${#Project#MerchantId}</acr:MerchantId>
+            <acr:Password>${#Project#Password}</acr:Password>
+            <acr:UserId>${#Project#UserId}</acr:UserId>
+            <acr1:RecurringAchTokenId></acr1:RecurringAchTokenId>
+            <acr1:ReferenceNumber></acr1:ReferenceNumber>
+            <acr1:Signature>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
+AEgHAAAAAA==</acr1:Signature>
+            <acr1:SignatureType></acr1:SignatureType>
+         </tem:request>
+      </tem:ProcessCheckSignature>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheckSignature"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

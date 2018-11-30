@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessCash" name="ProcessCash" bindingOperationName="ProcessCash" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="f2608aa0-25a7-4235-b607-d1009da28f4f" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f2608aa0-25a7-4235-b607-d1009da28f4ffileName">ProcessCash</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="520b51f4-9bd3-4fe6-b698-170b81bd114f" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/4/ecommerce.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCash>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation>?</acr2:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr2:IMEI>?</acr2:IMEI>\r
+            <acr2:Amount>?</acr2:Amount>\r
+            <!--Optional:-->\r
+            <acr2:Cashier>?</acr2:Cashier>\r
+            <!--Optional:-->\r
+            <acr2:InvoiceNumber>?</acr2:InvoiceNumber>\r
+            <!--Optional:-->\r
+            <acr2:TransactionType>?</acr2:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCash>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCash"/>
+  </con:call>
+</con:operation>

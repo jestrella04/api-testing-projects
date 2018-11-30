@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c4920fcf-1147-4fc0-a2a0-a03315513235" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="IMEI" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c4920fcf-1147-4fc0-a2a0-a03315513235fileName">IMEI</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="AddMerchantIMEI (Allow - Static)" id="a1e7b9fa-f86c-4c72-8c9b-971b6d45a368">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEI</con:operation>
+      <con:request name="AddMerchantIMEI (Allow - Static)" id="5532eca9-d578-4288-b212-23e74c5e66c0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEI>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI xsi:nil="true"/>\r
+            <acr2:Allowed>true</acr2:Allowed>\r
+            <acr2:IMEIToAdd>343817656764796</acr2:IMEIToAdd>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c2f67e-c6ba-44a8-9fd2-a2c612918fae"/>
+        <con:assertion type="Schema Compliance" id="ed7e37e7-595e-42b2-a6da-eb8b68398ecf">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="92d28843-1e39-4bb9-a8e0-3d887384a01e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetMerchantIMEIList (Before)" id="d30cea13-1792-41ae-a43a-56696779fd95">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetMerchantIMEIList</con:operation>
+      <con:request name="GetMerchantIMEIList (Before)" id="cafbdd85-5efa-4e65-93c7-b8b468f85af2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+         </tem:request>\r
+      </tem:GetMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c69d9c-0689-4c3b-bdab-8e0f35306968"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEI (Allow)" id="ab29f825-5f38-4344-86dc-4d78c7f9a1dd">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEI</con:operation>
+      <con:request name="AddMerchantIMEI (Allow)" id="5532eca9-d578-4288-b212-23e74c5e66c0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEI>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+            <acr2:Allowed>true</acr2:Allowed>\r
+            <acr2:IMEIToAdd>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr2:IMEIToAdd>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c2f67e-c6ba-44a8-9fd2-a2c612918fae"/>
+        <con:assertion type="Schema Compliance" id="ed7e37e7-595e-42b2-a6da-eb8b68398ecf">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="92d28843-1e39-4bb9-a8e0-3d887384a01e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEI (Deny)" id="256392f1-a2da-4e42-848d-b902dfd14b80">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEI</con:operation>
+      <con:request name="AddMerchantIMEI (Deny)" id="5532eca9-d578-4288-b212-23e74c5e66c0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEI>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+            <acr2:Allowed>false</acr2:Allowed>\r
+            <acr2:IMEIToAdd>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr2:IMEIToAdd>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c2f67e-c6ba-44a8-9fd2-a2c612918fae"/>
+        <con:assertion type="Schema Compliance" id="ed7e37e7-595e-42b2-a6da-eb8b68398ecf">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="92d28843-1e39-4bb9-a8e0-3d887384a01e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEI (Allow - To Delete)" id="b34aa903-6c13-40ba-8cb9-ff80ac14dfa6">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEI</con:operation>
+      <con:request name="AddMerchantIMEI (Allow - To Delete)" id="5532eca9-d578-4288-b212-23e74c5e66c0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEI>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+            <acr2:Allowed>true</acr2:Allowed>\r
+            <acr2:IMEIToAdd>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr2:IMEIToAdd>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c2f67e-c6ba-44a8-9fd2-a2c612918fae"/>
+        <con:assertion type="Schema Compliance" id="ed7e37e7-595e-42b2-a6da-eb8b68398ecf">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="92d28843-1e39-4bb9-a8e0-3d887384a01e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEI (Deny - To Delete)" id="898b6b8a-dc4a-458f-b78f-22bf49c178d4">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEI</con:operation>
+      <con:request name="AddMerchantIMEI (Deny - To Delete)" id="5532eca9-d578-4288-b212-23e74c5e66c0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEI>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+            <acr2:Allowed>false</acr2:Allowed>\r
+            <acr2:IMEIToAdd>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr2:IMEIToAdd>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c2f67e-c6ba-44a8-9fd2-a2c612918fae"/>
+        <con:assertion type="Schema Compliance" id="ed7e37e7-595e-42b2-a6da-eb8b68398ecf">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="92d28843-1e39-4bb9-a8e0-3d887384a01e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetMerchantIMEIList (Mid)" id="104909c5-6a17-4af3-b3b3-6f563a5dcd87">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetMerchantIMEIList</con:operation>
+      <con:request name="GetMerchantIMEIList (Mid)" id="cafbdd85-5efa-4e65-93c7-b8b468f85af2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+         </tem:request>\r
+      </tem:GetMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c69d9c-0689-4c3b-bdab-8e0f35306968"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteMerchantIMEI (Allow)" id="50fafb5c-5b36-4473-bc17-22604cc9d5b1">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>DeleteMerchantIMEI</con:operation>
+      <con:request name="DeleteMerchantIMEI (Allow)" id="f0e1ae1a-795e-4c0d-933c-2a3cd98affa1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteMerchantIMEI>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+            <acr2:IMEIToDelete>${AddMerchantIMEI (Allow - To Delete)#RawRequest#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEIToDelete>\r
+         </tem:request>\r
+      </tem:DeleteMerchantIMEI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="1fe32047-0db2-41aa-8d9f-0ccb42812ee3"/>
+        <con:assertion type="Schema Compliance" id="e869009f-0270-4a88-89de-0be7fc9b7950">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="95ce2231-6681-41a2-af74-35c7744b85d0"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteMerchantIMEI (Deny)" id="09bb08a8-7dfb-486f-8b60-81ff3055d864">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>DeleteMerchantIMEI</con:operation>
+      <con:request name="DeleteMerchantIMEI (Deny)" id="f0e1ae1a-795e-4c0d-933c-2a3cd98affa1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:DeleteMerchantIMEI>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+            <acr2:IMEIToDelete>${AddMerchantIMEI (Deny - To Delete)#RawRequest#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEIToDelete>\r
+         </tem:request>\r
+      </tem:DeleteMerchantIMEI>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="1fe32047-0db2-41aa-8d9f-0ccb42812ee3"/>
+        <con:assertion type="Schema Compliance" id="e869009f-0270-4a88-89de-0be7fc9b7950">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="95ce2231-6681-41a2-af74-35c7744b85d0"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetMerchantIMEIList (Mid2)" id="ba5fa499-c0e4-42d1-a579-e1a9005bd289">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetMerchantIMEIList</con:operation>
+      <con:request name="GetMerchantIMEIList (Mid2)" id="cafbdd85-5efa-4e65-93c7-b8b468f85af2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+         </tem:request>\r
+      </tem:GetMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c69d9c-0689-4c3b-bdab-8e0f35306968"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEIList (Allow)" id="de6288af-5eb1-4c66-b6fe-a6b25a6ec4bc">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEIList</con:operation>
+      <con:request name="AddMerchantIMEIList (Allow)" id="4e774308-4f59-4119-b43f-9b0301e0d2cc">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:acr4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr3:GeoLocationInformation xsi:nil="true"/>\r
+            <acr3:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr2:IMEIToAdd[1]}</acr3:IMEI>\r
+            <acr3:IMEIList>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr2:IMEIToAdd[1]}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+            </acr3:IMEIList>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="c082b45f-1338-4ea2-b806-ddefb1e139b4"/>
+        <con:assertion type="Schema Compliance" id="7e90c8fa-91a4-4b6d-87c7-149cf18428af">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="724cbdba-5d67-4708-8368-5cb0064bc996"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEIList (Deny)" id="832ab20d-b2da-49eb-8c93-fa8bb7da6d2a">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEIList</con:operation>
+      <con:request name="AddMerchantIMEIList (Deny)" id="4e774308-4f59-4119-b43f-9b0301e0d2cc">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:acr4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr3:GeoLocationInformation xsi:nil="true"/>\r
+            <acr3:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr2:IMEIToAdd[1]}</acr3:IMEI>\r
+            <acr3:IMEIList>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr2:IMEIToAdd[1]}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+            </acr3:IMEIList>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="c082b45f-1338-4ea2-b806-ddefb1e139b4"/>
+        <con:assertion type="Schema Compliance" id="7e90c8fa-91a4-4b6d-87c7-149cf18428af">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="724cbdba-5d67-4708-8368-5cb0064bc996"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEIList (Mixed)" id="363f2146-1ea2-4d85-ac32-6a0117acb28c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEIList</con:operation>
+      <con:request name="AddMerchantIMEIList (Mixed)" id="4e774308-4f59-4119-b43f-9b0301e0d2cc">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:acr4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr3:GeoLocationInformation xsi:nil="true"/>\r
+            <acr3:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr3:IMEI>\r
+            <acr3:IMEIList>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>true</acr4:Allowed>\r
+                  <acr4:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+               <acr4:MerchantIMEI>\r
+                  <acr4:Allowed>false</acr4:Allowed>\r
+                  <acr4:IMEI>${=String.valueOf((long) Math.floor(Math.random()*1000000000000000))}</acr4:IMEI>\r
+               </acr4:MerchantIMEI>\r
+            </acr3:IMEIList>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="c082b45f-1338-4ea2-b806-ddefb1e139b4"/>
+        <con:assertion type="Schema Compliance" id="7e90c8fa-91a4-4b6d-87c7-149cf18428af">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="724cbdba-5d67-4708-8368-5cb0064bc996"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetMerchantIMEIList (After)" id="9a117bee-178e-43e3-939e-c4b0f340eb7d">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetMerchantIMEIList</con:operation>
+      <con:request name="GetMerchantIMEIList (After)" id="cafbdd85-5efa-4e65-93c7-b8b468f85af2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+         </tem:request>\r
+      </tem:GetMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c69d9c-0689-4c3b-bdab-8e0f35306968"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddMerchantIMEIList (Reset)" id="8a0e5a35-e92a-4138-8f90-2a1c843cdc2b">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>AddMerchantIMEIList</con:operation>
+      <con:request name="AddMerchantIMEIList (Reset)" id="4e774308-4f59-4119-b43f-9b0301e0d2cc">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr3:GeoLocationInformation xsi:nil="true"/>\r
+            <acr3:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr3:IMEI>\r
+            <acr3:IMEIList/>\r
+         </tem:request>\r
+      </tem:AddMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="c082b45f-1338-4ea2-b806-ddefb1e139b4"/>
+        <con:assertion type="Schema Compliance" id="7e90c8fa-91a4-4b6d-87c7-149cf18428af">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="724cbdba-5d67-4708-8368-5cb0064bc996"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GetMerchantIMEIList (Final)" id="c8ccfe41-8b2a-4931-a4ef-c66f8ee705da">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Administration</con:interface>
+      <con:operation>GetMerchantIMEIList</con:operation>
+      <con:request name="GetMerchantIMEIList (Final)" id="cafbdd85-5efa-4e65-93c7-b8b468f85af2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetMerchantIMEIList>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
+            <acr:Password>${Password}</acr:Password>\r
+            <acr:UserId>${UserId}</acr:UserId>\r
+            <acr2:GeoLocationInformation xsi:nil="true"/>\r
+            <acr2:IMEI>${AddMerchantIMEI (Allow - Static)#Request#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddMerchantIMEI[1]/tem:request[1]/acr1:IMEIToAdd[1]}</acr2:IMEI>\r
+         </tem:request>\r
+      </tem:GetMerchantIMEIList>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="69c69d9c-0689-4c3b-bdab-8e0f35306968"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>832ab20d-b2da-49eb-8c93-fa8bb7da6d2a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>256392f1-a2da-4e42-848d-b902dfd14b80</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>363f2146-1ea2-4d85-ac32-6a0117acb28c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>b34aa903-6c13-40ba-8cb9-ff80ac14dfa6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>898b6b8a-dc4a-458f-b78f-22bf49c178d4</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a1e7b9fa-f86c-4c72-8c9b-971b6d45a368</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>8a0e5a35-e92a-4138-8f90-2a1c843cdc2b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>50fafb5c-5b36-4473-bc17-22604cc9d5b1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>09bb08a8-7dfb-486f-8b60-81ff3055d864</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>104909c5-6a17-4af3-b3b3-6f563a5dcd87</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ba5fa499-c0e4-42d1-a579-e1a9005bd289</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

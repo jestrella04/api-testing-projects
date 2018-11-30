@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="2bb28cf1-2691-4caf-bf62-aff5375551e8" isOneWay="false" action="http://tempuri.org/Administration/ModifyApplicationConfiguration" name="ModifyApplicationConfiguration" bindingOperationName="ModifyApplicationConfiguration" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2bb28cf1-2691-4caf-bf62-aff5375551e8fileName">ModifyApplicationConfiguration</con:setting>
+  </con:settings>
+  <con:call id="2f1ad196-0283-4689-b17f-0eb785c589a3" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ModifyApplicationConfiguration>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:SourceIpAddress>?</acr1:SourceIpAddress>\r
+            <!--Optional:-->\r
+            <acr1:Application>\r
+               <!--Optional:-->\r
+               <acr2:ConfigurationXml>?</acr2:ConfigurationXml>\r
+               <!--Optional:-->\r
+               <acr2:Guid>?</acr2:Guid>\r
+               <!--Optional:-->\r
+               <acr2:Name>?</acr2:Name>\r
+               <!--Optional:-->\r
+               <acr2:ParameterList>\r
+                  <!--Zero or more repetitions:-->\r
+                  <acr2:ApplicationParameter>\r
+                     <!--Optional:-->\r
+                     <acr2:Name>?</acr2:Name>\r
+                     <acr2:Option>?</acr2:Option>\r
+                     <!--Optional:-->\r
+                     <acr2:SendEmailAlert>?</acr2:SendEmailAlert>\r
+                     <acr2:TriggerAmount>?</acr2:TriggerAmount>\r
+                  </acr2:ApplicationParameter>\r
+               </acr2:ParameterList>\r
+            </acr1:Application>\r
+         </tem:request>\r
+      </tem:ModifyApplicationConfiguration>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/ModifyApplicationConfiguration"/>
+  </con:call>
+</con:operation>

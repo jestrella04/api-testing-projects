@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="fb61bd6c-3e46-4454-8338-5745a95d05ef" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Delete All" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fb61bd6c-3e46-4454-8338-5745a95d05effileName">Delete-All</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" id="ae46be51-7fc7-46a9-adc9-915464180367" name="GetToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>GetToken</con:operation>
+      <con:request name="GetToken" id="5a36e2b7-cb80-4cd9-80c5-c571078a2e8a" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>\r
+      <tem:GetToken>\r
+         <tem:request>\r
+            <acr:MerchantId>12721627</acr:MerchantId>
+            <acr:Password>Cenpos@2014</acr:Password>
+            <acr:UserId>jon</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:CardNumber xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:EmailAddress>%</acr1:EmailAddress>\r
+            <acr1:IncludeMultipleMerchants>true</acr1:IncludeMultipleMerchants>\r
+            <acr1:IncludeSignature>false</acr1:IncludeSignature>\r
+         </tem:request>\r
+      </tem:GetToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/GetToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="DataSource" id="1e7ac7af-a174-4f13-943e-98bf434971d9">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="XML">
+        <con:configuration>
+          <sourceStep>GetToken</sourceStep>
+          <sourceProperty>Response</sourceProperty>
+          <rowPath>declare namespace b='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common';
+declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses';
+//ns1:GetTokenResponse[1]/ns1:GetTokenResult[1]/a:Tokens[1]/b:Token[1]</rowPath>
+          <columnPath>test</columnPath>
+        </con:configuration>
+      </con:dataSource>
+      <con:property>test</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="df374b99-f95d-4e2b-892f-83365572b975">
+    <con:settings/>
+    <con:config>
+      <script/>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

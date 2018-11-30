@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Administration/DeleteRecurringSaleInformation" name="DeleteRecurringSaleInformation" bindingOperationName="DeleteRecurringSaleInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="ea092ef2-1be5-40da-9a29-739493474bc4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ea092ef2-1be5-40da-9a29-739493474bc4fileName">DeleteRecurringSaleInformation</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="f1dfc0b9-6b05-45a7-8001-d05b4bc5f70d" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DeleteRecurringSaleInformation>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:CardNumber>?</acr1:CardNumber>
+            <!--Optional:-->
+            <acr1:CustomerCode>?</acr1:CustomerCode>
+            <!--Optional:-->
+            <acr1:RecurringSaleTokenId>?</acr1:RecurringSaleTokenId>
+         </tem:request>
+      </tem:DeleteRecurringSaleInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/DeleteRecurringSaleInformation"/>
+  </con:call>
+</con:operation>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="703b07b9-9f4c-4dba-a7ba-40e605d37fe2" isOneWay="false" action="http://tempuri.org/AddToken" name="AddToken" bindingOperationName="AddToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="703b07b9-9f4c-4dba-a7ba-40e605d37fe2fileName">AddToken</con:setting>
+  </con:settings>
+  <con:call id="4e196e83-ba0a-4e0a-b693-d148f2ad8837" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://hub.cenpos.net/pfpQA/v2/TokenService.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddToken>\r
+         <!--Optional:-->\r
+         <tem:userInfo>\r
+            <!--Optional:-->\r
+            <tem:UserName>?</tem:UserName>\r
+            <!--Optional:-->\r
+            <tem:Password>?</tem:Password>\r
+            <tem:MerchantId>?</tem:MerchantId>\r
+         </tem:userInfo>\r
+         <!--Optional:-->\r
+         <tem:nameOnCard>?</tem:nameOnCard>\r
+         <!--Optional:-->\r
+         <tem:cardNumber>?</tem:cardNumber>\r
+         <!--Optional:-->\r
+         <tem:expDate>?</tem:expDate>\r
+         <!--Optional:-->\r
+         <tem:customerEmail>?</tem:customerEmail>\r
+         <!--Optional:-->\r
+         <tem:customerCode>?</tem:customerCode>\r
+      </tem:AddToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/AddToken"/>
+  </con:call>
+</con:operation>

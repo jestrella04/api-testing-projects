@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="9445dab3-b05d-4668-a924-55def09dc991" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddCardToken" searchProperties="true" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9445dab3-b05d-4668-a924-55def09dc991fileName">AddCardToken</con:setting>
+  </con:settings>
+  <con:testStep type="datasource" name="DataSource" id="4bd21b04-7976-41dc-a5fb-f5af8fac85c6" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>../DataSources/DataSource - TokenEmail.xlsx</file>
+          <worksheet/>
+          <cell>A1</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:property>CustomerCode</con:property>
+      <con:property>CustomerEmailAddress</con:property>
+      <con:property>CardNumber</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="ef03e307-4408-4f67-b7f0-e90a1d393a14" name="AddCardToken" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>20000029</acr:MerchantId>
+            <acr:Password>Abi@2012</acr:Password>
+            <acr:UserId>cenpos</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>8320</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${DataSource#CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${DataSource#CustomerEmailAddress}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>85284</acr2:CustomerZipCode>
+               <acr2:Signature>UEsDBBQACAAIABxZwUQAAAAAAAAAAAAAAAANAAAAc2lnbmF0dXJlLnppcN1WaVQTWRYOGqDIgB2S IEhECCIE2lbsSABBSQERQcBiOZAom8EOOjAgmxCWAUuchrC4BdmhhhZxelgFFIVGMxKH1TTQgEjA IyhC06ZFVESEnhfpM8d/0j9nznl16t7vu/e7X733flQG4u6kQdAl4HA4DecDjp44nJIIPH2QCkDc kEMpOBxBz9kR9o5/9GKsM0pmRWSJV34ruxy+zyqBNqiMXe6B9P9tLDYMcNh65Jw+DnpZh8dBBBy6 LhXDgWVAX81WgdVsjTTI1kh/qvUZ+hOtz9B/xOhlHA5WYiE4IkWx8Mqr2SrwMVsrDbI10p9ofYb+ VOsz9B8wKiH9vxze2o1y1v3PHN6Kxt3JubfaqdjJLzf7pihBwvRW9fYWTrq6Ad0+SjBwh6oSqYRn H7BHoyzMUzHE1ihl+VdfvBuHhegQL/6WUjtYuS1SCf67wNUH/8zLDwfTuK6GKdIxTcpGIqWw2OWU 6jexFCWYJlZJ4gVraxEpuuGtJpaxR0FLHz8xgaGACsOub2JGeQBIPFV4gqyACCme0hunbarBxNcD gvvZR7xZCL1ZwB9rXGYfIFKEySRpKzeTABEsLXsGhg1aUzGrkixIeA3UB0VXNcJLJB2IkGF3wne0 mK2MP3uFGj+YzQUa7UYzgUYxj9bjJVOWTLpejT7+rE/ZlX9GdJSvQ7/eQa+R7k3Ffnwb03+CsRG4 qCQPTwckIfbI9Mv+2FGdsBg+FY7cY51UPbQFhpHWk8wg6viFpqY2SKiR0G6SUDT+nlt/Q5E4Io5s hEgpysfSXS40NV6FhL2Lz2IzbeP4owmGdPRrucjQLHRIetiQzqy+AGvmvlusy4GEboIwxHHbqd4q Gsrz2qJH8cgo0pj9Fnt4ZXz8zHNJLsaxwUtMkiopHmo2JRxLvIS/nV5uSAfaD/emu+QI6gIgYTZn dTK1PlEz1zY6qASYqMPShZgBnXl0wdBMIA90/R0aUEN55PFEu3fMP8+i2MN42Tmvrv6QiH1EStm0 MtvbXj6YBJoC4fottCe79cGU+8nWFWm2EQ2nQfFY3rU0WdEICwlrlXcXpsnyQLixLYuJVIqcF44Z AwM1Sw3GtIVgEBZlLjXsoFWSGaCRI3sszm4emGl3Bdp+C8f923LKBYpWEdMdtEoHbQ3oqCG9nBQ1 NqUE1/fd9g0lR/XyQXih2XeWHFWtCDtvD2vMXkrONqwZ2A5kuAtfmtGGQzaAoVVLem37PcQMVXAI Q8sb9lU4BuRZA5N1f7E8ONsY59OLA+JywfQetuqDeSckrMbddP3zYMn8q180Reyds0+z++9fTCnx aW+PdkLwkpkwjrfPh1ulNqDJ3fTeRMvPi/FTkBCzqlAX/tplJ2WAIra3CvubZ2WTgq10tH9q4Oa7 0mWGbSiejRR7qrTHOcn2huAl3c9E/bZtLbyJTaBoQtRv1daCyv8b+6+E2KE8zR/8mMVnNK3evOgw +EjQ20yGHjWwgQ3TipHDJYSbz4XYQ9sST93qwc78eHCj8ly9C3uQmynHSbD4oLGZ6tDM64SEyx9x 3R6Pq/o/KaMT28i5aKjoxAtbB7wE1JwNMZ2UVqjCcxczXOq5XTd8SqmKzfaMSS52J1LgJ1NXnVea 5qqIlEBCXeQesRoBGOGt1+IycjCIUP5Ksrx0URvlOTQSy0lMOxQFIOxRcL20Vm4xGSc4jUEuM9di AoYPLUxHdICvQ+vSituvy1oW9yNJziyOriwT3EJ3U+hgR1NIc2BDNhY/k1bR2UQgAA/q6t0Ns+/f PvoQ9BXYO/rt007+Dk9jIQW1O6dbfr7kA/eV4mbsEFNXOsl9GeT8W/uRDeG8nzIOttfK9f3wynCk y1HW5t7doAPhP+hRvPMZDDBkhCYtLggBquYhU5vgufJ7b6xH5+ICWUjhnem62Z3hpJad3u/exoB+ cXHBZLnmrfnHBKG2XldvofWDuVyhWeQuU+W/qeEljH8QtS9NiNAvdkakRKzc6Ct7H31uRbY52ICe bzE/eszBbjk6OusMFjTUE/Hi/DErUzXhNRCHiy+xhkJ3f4WiXEZLLy/q58NumVjQd4mLSx6WxtIa weKd74McHZUb+PzE+8cW3hTpwOKqgpGpXSOx+sb7kbq5ghGlXYJTdk8ebzrup2607y7U1RoXJ/mh QKeS0lMo0HsPm3+gWrf+FUXd/lX1YPl7+6d5d385WQ6GVQ4ZGJmdsnQQgtDhkMmTyiO1pbCkSk0Y 93pEV+avalPkReD3ZgmdOxI41mBoRkZ+WlXmIFkrTOW7EC/XmlpppcV1FNim2hTxSC0+Pn3ErfTg 5/2JOi1xXOczWdbU5D20HWY+A+b3mgter1RnCLUsfjSXd/uP37FgBLOVqNtpHrvgVIxI0iLjIQJt fv5PFYXZL/Hra8+D/0WcM9vdscY+CP0PUEsHCBKMOasNBwAAVgoAAFBLAQIUABQACAAIABxZwUQS jDmrDQcAAFYKAAANAAAAAAAAAAAAAAAAAAAAAABzaWduYXR1cmUuemlwUEsFBgAAAAABAAEAOwAA AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>1225</acr2:CardExpirationDate>
+               <acr2:CardNumber>${DataSource#CardNumber}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>Jon Star</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Export Results" id="71318958-c2ad-4f80-a7fc-0f6b8ad9762d">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.support.XmlHolder;
+
+try {	
+	//Current date
+	def today = new Date().clearTime()
+	today = today.format( "MM-dd-yyyy" )
+	
+	//The path and file to persist results
+	def resultDir = new File( context.expand( '${ExportDir}' ) )
+	
+	if( ! resultDir.exists() ) {
+		resultDir.mkdirs()
+	}
+
+	def csvfile = 'Tokens ' + today.toString() + '.csv'
+	def resultsFile = new File( resultDir, csvfile )
+
+	//If the file does not already exist, we want to create it, otherwise we want to append
+	if( ! resultsFile.exists() ) {
+		resultsFile.createNewFile()
+		
+		//Header row
+		resultsFile.write('"MID","INTERFACE","TRANSACTION","CARDTYPE","RESULT","RESULT CODE","TOKENID","REFERENCE NO.","TIMESTAMP"')
+	}
+	
+	def testSteps = context.testCase.getTestStepList()
+	
+	//Loop through transactions and write results to file
+	testSteps.each{
+		// Get the data to be added to the report
+		def testCaseName = it.testCase.name
+		def testStepName = it.name
+		def merchantId = context.expand( '${AddCardToken#Request#declare namespace tem=\'http://tempuri.org/\'; declare namespace acr=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common\'; //tem:AddCardToken[1]/tem:request[1]/acr:MerchantId[1]}' )
+		def cardNumber = context.expand( '${DataSource#CardNumber}' )
+		
+		def identifier = cardNumber.substring(0,1)
+		
+		if ( identifier == "4" ) {
+			
+			cardType = "VISA"
+			
+		} else if ( identifier == "5" ) {
+			
+			cardType = "MASTERCARD"
+			
+		} else if ( identifier == "6" ) {
+			
+			cardType = "DISCOVER"
+			
+		} else if ( identifier == "3" ) {
+			
+			cardType = "AMEX"
+			
+		} else {
+			
+			cardType = "OTHER"
+			
+		}
+
+		def modelItem = it.getModelItem().toString()
+
+		if ( modelItem.contains("WsdlTestRequestStep") ) {
+
+			def response = testRunner.testCase.testSuite.getTestCaseByName(testCaseName).getTestStepByName(testStepName).httpRequest.response
+			XmlHolder responseXML = new XmlHolder( response.getResponseContent() );
+			responseXML.namespaces["ns2"] = "http://tempuri.org/"
+			responseXML.namespaces["ns1"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+			responseXML.namespaces["a"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"
+
+			def interfName = testCaseName
+			/*def getCaseName = testCaseName.split( '-' )
+			def interfName = getCaseName[0].trim()
+			def inputType = getCaseName[1].trim()
+
+			def getStepName = testStepName.split( '-' )
+			def transaction = getStepName[1].trim()*/
+			
+			def status = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Message[1]' )
+			def referenceNumber = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:ReferenceNumber[1]' )
+			def tokenId = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:TokenId[1]' )
+			def resultCode = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Result[1]' )
+			def timestamp = response.responseHeaders["Date"]
+
+			if ( referenceNumber == null || ! referenceNumber.isNumber() ) {
+
+				referenceNumber = "N/A";
+				
+			}
+
+			//Write info to file
+			resultsFile.append('\n'); //Newline
+			resultsFile.append('"' + merchantId + '",'); //Merchant Id
+			resultsFile.append('"' + interfName + '",'); //Interface
+			resultsFile.append('"' + testStepName + '",'); //Transaction
+			resultsFile.append('"' + cardType + '",'); //CardType
+			resultsFile.append('"' + status + '",'); //Transaction result
+			resultsFile.append('"' + resultCode + '",'); //Transaction result code
+			resultsFile.append('"' + tokenId + '",'); //Reference number
+			resultsFile.append('"' + '' + '",'); //Reference number
+			resultsFile.append('"' + timestamp + '",'); //Timestamp
+		}
+	}
+
+} catch( e ) {
+	log.error("An error occurred: " + e.toString());
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="c348a984-c535-49b2-89dc-35527cb1fa7b">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>AddCardToken</targetStep>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>71318958-c2ad-4f80-a7fc-0f6b8ad9762d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

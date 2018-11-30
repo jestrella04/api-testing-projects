@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="c70122ba-5ab6-4332-a8a5-8db4e3d45f77" isOneWay="false" action="http://tempuri.org/Tokens/GenerateCheckCryptoToken" name="GenerateCheckCryptoToken" bindingOperationName="GenerateCheckCryptoToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c70122ba-5ab6-4332-a8a5-8db4e3d45f77fileName">GenerateCheckCryptoToken</con:setting>
+  </con:settings>
+  <con:call id="eba9f88f-0d81-4f34-811a-d2e02f5c2ac7" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GenerateCheckCryptoToken>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:AbaNumber>?</acr1:AbaNumber>\r
+            <!--Optional:-->\r
+            <acr1:CheckNumber>?</acr1:CheckNumber>\r
+            <!--Optional:-->\r
+            <acr1:FirstName>?</acr1:FirstName>\r
+            <!--Optional:-->\r
+            <acr1:LastName>?</acr1:LastName>\r
+         </tem:request>\r
+      </tem:GenerateCheckCryptoToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/GenerateCheckCryptoToken"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

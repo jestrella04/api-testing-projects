@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="0c7e5f1f-4faa-4b58-91ba-ed1c73aac2e5" isOneWay="false" action="http://tempuri.org/Tokens/AddCardToken" name="AddCardToken" bindingOperationName="AddCardToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0c7e5f1f-4faa-4b58-91ba-ed1c73aac2e5fileName">AddCardToken</con:setting>
+  </con:settings>
+  <con:call id="b9d2d54b-d8bc-4b55-b84f-f95b62e1fdd7" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://ww2.cenpos.net/2/tokens.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddCardToken>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>\r
+            <!--Optional:-->\r
+            <acr1:Token>\r
+               <!--Optional:-->\r
+               <acr2:CustomerBillingAddress>?</acr2:CustomerBillingAddress>\r
+               <!--Optional:-->\r
+               <acr2:CustomerCode>?</acr2:CustomerCode>\r
+               <!--Optional:-->\r
+               <acr2:CustomerEmailAddress>?</acr2:CustomerEmailAddress>\r
+               <!--Optional:-->\r
+               <acr2:CustomerZipCode>?</acr2:CustomerZipCode>\r
+               <!--Optional:-->\r
+               <acr2:MerchantId>?</acr2:MerchantId>\r
+               <!--Optional:-->\r
+               <acr2:Signature>?</acr2:Signature>\r
+               <!--Optional:-->\r
+               <acr2:TokenId>?</acr2:TokenId>\r
+               <!--Optional:-->\r
+               <acr2:CardExpirationDate>?</acr2:CardExpirationDate>\r
+               <!--Optional:-->\r
+               <acr2:CardNumber>?</acr2:CardNumber>\r
+               <!--Optional:-->\r
+               <acr2:CardType>?</acr2:CardType>\r
+               <!--Optional:-->\r
+               <acr2:CardVerificationNumber>?</acr2:CardVerificationNumber>\r
+               <!--Optional:-->\r
+               <acr2:DriversNumber>?</acr2:DriversNumber>\r
+               <!--Optional:-->\r
+               <acr2:InsuranceInformation>?</acr2:InsuranceInformation>\r
+               <!--Optional:-->\r
+               <acr2:MagneticData>?</acr2:MagneticData>\r
+               <!--Optional:-->\r
+               <acr2:NameOnCard>?</acr2:NameOnCard>\r
+               <!--Optional:-->\r
+               <acr2:TaxExempt>?</acr2:TaxExempt>\r
+            </acr1:Token>\r
+         </tem:request>\r
+      </tem:AddCardToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/AddCardToken"/>
+  </con:call>
+</con:operation>

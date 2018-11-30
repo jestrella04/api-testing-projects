@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="d5f53d63-2c57-4a33-945d-3f50f4e920f3" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Check Tokens" searchProperties="true" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d5f53d63-2c57-4a33-945d-3f50f4e920f3fileName">Check-Tokens</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="AddAchToken" id="ad0d8731-68a1-42fd-8e6b-2c97dc682696">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddAchToken</con:operation>
+      <con:request name="AddAchToken" id="c176d611-84a0-48ec-971a-ef3b413408e0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddAchToken>
+         <tem:request>
+            <acr:MerchantId>12721628</acr:MerchantId>
+            <acr:Password>Ros@parks@1955</acr:Password>
+            <acr:UserId>cenpos</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>jestrella@cenpos.com</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>12721628</acr2:MerchantId>
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:ABANumber>067006432</acr2:ABANumber>
+               <acr2:AccountNumber>2000022326422</acr2:AccountNumber>
+               <acr2:AccountType>Checking</acr2:AccountType>
+               <acr2:BirthDay xsi:nil="true" />
+               <acr2:CheckType>Corporate</acr2:CheckType>
+               <acr2:City xsi:nil="true" />
+               <acr2:DriversNumber xsi:nil="true" />
+               <acr2:FirstName xsi:nil="true" />
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:LastName xsi:nil="true" />
+               <acr2:Phone>3056307960</acr2:Phone>
+               <acr2:State xsi:nil="true" />
+            </acr1:Token>
+         </tem:request>
+      </tem:AddAchToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="5a772834-cceb-4956-af33-4572ba35249e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Copy of AddAchToken" id="60888702-1f77-4b32-b938-5aeff6d57c99" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddAchToken</con:operation>
+      <con:request name="Copy of AddAchToken" id="c176d611-84a0-48ec-971a-ef3b413408e0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddAchToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${DataSource - Cards#ClientId}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${DataSource - Cards#ClientId}@${DataSource - Cards#ClientId}.zzz</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:ABANumber>?</acr2:ABANumber>
+               <acr2:AccountNumber>?</acr2:AccountNumber>
+               <acr2:AccountType>?</acr2:AccountType>
+               <acr2:BirthDay xsi:nil="true" />
+               <acr2:CheckType>?</acr2:CheckType>
+               <acr2:City>?</acr2:City>
+               <acr2:DriversNumber>?</acr2:DriversNumber>
+               <acr2:FirstName>?</acr2:FirstName>
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:LastName>?</acr2:LastName>
+               <acr2:Phone>?</acr2:Phone>
+               <acr2:State>?</acr2:State>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddAchToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="5a772834-cceb-4956-af33-4572ba35249e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

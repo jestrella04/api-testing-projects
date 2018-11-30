@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Check/ProcessCheckDeposit" name="ProcessCheckDeposit" bindingOperationName="ProcessCheckDeposit" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="bcad5715-8339-4848-85fb-dc88206764f9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="bcad5715-8339-4848-85fb-dc88206764f9fileName">ProcessCheckDeposit</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="1203f92e-4a90-49af-ab9f-6571243d1688" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/2/check.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheckDeposit>
+         <tem:request>
+            <acr:MerchantId>${#Project#MerchantId}</acr:MerchantId>
+            <acr:Password>${#Project#Password}</acr:Password>
+            <acr:UserId>${#Project#UserId}</acr:UserId>
+            <acr1:BatchId xsi:nil="true" />
+            <acr1:CheckService xsi:nil="true" />
+         </tem:request>
+      </tem:ProcessCheckDeposit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:environmentSpec>
+      <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheckDeposit"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

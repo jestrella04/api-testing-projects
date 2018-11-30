@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessPayPal" name="ProcessPayPal" bindingOperationName="ProcessPayPal" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="860d39be-ae46-4228-8857-0cd644ec0c8f" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="860d39be-ae46-4228-8857-0cd644ec0c8ffileName">ProcessPayPal</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="9df212c5-9810-4b00-b45d-ff147ca79464" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/ecommerce.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessPayPal>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr3:GeoLocationInformation>?</acr3:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr3:IMEI>?</acr3:IMEI>\r
+            <acr3:Amount>?</acr3:Amount>\r
+            <!--Optional:-->\r
+            <acr3:AuthorizationNumber>?</acr3:AuthorizationNumber>\r
+            <!--Optional:-->\r
+            <acr3:BillingAgreementCustom>?</acr3:BillingAgreementCustom>\r
+            <!--Optional:-->\r
+            <acr3:BillingAgreementDescription>?</acr3:BillingAgreementDescription>\r
+            <!--Optional:-->\r
+            <acr3:BillingAgreementId>?</acr3:BillingAgreementId>\r
+            <!--Optional:-->\r
+            <acr3:BuyerEmailAddress>?</acr3:BuyerEmailAddress>\r
+            <!--Optional:-->\r
+            <acr3:CancelBillingAgreement>?</acr3:CancelBillingAgreement>\r
+            <!--Optional:-->\r
+            <acr3:CancelUrl>?</acr3:CancelUrl>\r
+            <!--Optional:-->\r
+            <acr3:CustomerBillingAddress>?</acr3:CustomerBillingAddress>\r
+            <!--Optional:-->\r
+            <acr3:CustomerEmailOptionenable>?</acr3:CustomerEmailOptionenable>\r
+            <!--Optional:-->\r
+            <acr3:InvoiceDetail>?</acr3:InvoiceDetail>\r
+            <!--Optional:-->\r
+            <acr3:InvoiceNumber>?</acr3:InvoiceNumber>\r
+            <!--Optional:-->\r
+            <acr3:IsLastCapture>?</acr3:IsLastCapture>\r
+            <!--Optional:-->\r
+            <acr3:NoShippingInd>?</acr3:NoShippingInd>\r
+            <!--Optional:-->\r
+            <acr3:PayerId>?</acr3:PayerId>\r
+            <!--Optional:-->\r
+            <acr3:ReferenceNumber>?</acr3:ReferenceNumber>\r
+            <!--Optional:-->\r
+            <acr3:RequestMethod>?</acr3:RequestMethod>\r
+            <!--Optional:-->\r
+            <acr3:ReturnUrl>?</acr3:ReturnUrl>\r
+            <!--Optional:-->\r
+            <acr3:SkipBaCreation>?</acr3:SkipBaCreation>\r
+            <!--Optional:-->\r
+            <acr3:TaxAmount>?</acr3:TaxAmount>\r
+            <acr3:TransactionType>?</acr3:TransactionType>\r
+            <!--Optional:-->\r
+            <acr3:UserSelectedFundingSource>?</acr3:UserSelectedFundingSource>\r
+         </tem:request>\r
+      </tem:ProcessPayPal>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessPayPal"/>
+  </con:call>
+</con:operation>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Administration/ModifyGeoLocationConfiguration" name="ModifyGeoLocationConfiguration" bindingOperationName="ModifyGeoLocationConfiguration" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="fbc178ea-9405-4ac4-9d94-987cda39961f" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fbc178ea-9405-4ac4-9d94-987cda39961ffileName">ModifyGeoLocationConfiguration</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="2cc2eea2-a254-4b3e-86f3-2848b9a2346a" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyGeoLocationConfiguration>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:GeoLocationConfiguration>
+               <!--Optional:-->
+               <acr1:AllowedGeoLocationList>
+                  <!--Zero or more repetitions:-->
+                  <arr:string>?</arr:string>
+               </acr1:AllowedGeoLocationList>
+               <!--Optional:-->
+               <acr1:AllowedImeiList>
+                  <!--Zero or more repetitions:-->
+                  <arr:string>?</arr:string>
+               </acr1:AllowedImeiList>
+               <!--Optional:-->
+               <acr1:AllowedIpAddressList>
+                  <!--Zero or more repetitions:-->
+                  <arr:string>?</arr:string>
+               </acr1:AllowedIpAddressList>
+               <!--Optional:-->
+               <acr1:BlockedIpAddressList>
+                  <!--Zero or more repetitions:-->
+                  <arr:string>?</arr:string>
+               </acr1:BlockedIpAddressList>
+            </acr1:GeoLocationConfiguration>
+         </tem:request>
+      </tem:ModifyGeoLocationConfiguration>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/ModifyGeoLocationConfiguration"/>
+  </con:call>
+</con:operation>

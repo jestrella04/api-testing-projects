@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="66705334-5fdb-429d-9dca-ff4a51813e09" isOneWay="false" action="http://ebpp.cenpos.net/V3/GetInvoicePaymentInformation" name="GetInvoicePaymentInformation" bindingOperationName="GetInvoicePaymentInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="66705334-5fdb-429d-9dca-ff4a51813e09fileName">GetInvoicePaymentInformation</con:setting>
+  </con:settings>
+  <con:call id="76e4c94d-1a37-462e-b7da-f7f5f633661c" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v3="http://ebpp.cenpos.net/V3">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v3:GetInvoicePaymentInformation>\r
+         <!--Optional:-->\r
+         <v3:paymentInfoRequestVO>\r
+            <v3:BeginDate>?</v3:BeginDate>\r
+            <!--Optional:-->\r
+            <v3:EndDate>?</v3:EndDate>\r
+            <!--Optional:-->\r
+            <v3:PaidInvoice>?</v3:PaidInvoice>\r
+            <!--Optional:-->\r
+            <v3:UserName>?</v3:UserName>\r
+            <!--Optional:-->\r
+            <v3:Password>?</v3:Password>\r
+            <!--Optional:-->\r
+            <v3:UserId>?</v3:UserId>\r
+            <v3:MerchantId>?</v3:MerchantId>\r
+            <v3:EndDateSpecified>?</v3:EndDateSpecified>\r
+            <v3:PaidInvoiceSpecified>?</v3:PaidInvoiceSpecified>\r
+         </v3:paymentInfoRequestVO>\r
+      </v3:GetInvoicePaymentInformation>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ebpp.cenpos.net/V3/GetInvoicePaymentInformation"/>
+  </con:call>
+</con:operation>

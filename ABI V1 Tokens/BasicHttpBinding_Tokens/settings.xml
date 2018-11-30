@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" id="1ac5c655-c67c-4105-af12-a161ffb3be5c" wsaVersion="NONE" name="BasicHttpBinding_Tokens" type="wsdl" bindingName="{http://tempuri.org/}BasicHttpBinding_Tokens" soapVersion="1_1" anonymous="optional" definition="https://test.cenpos.net:9443/tokens.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1ac5c655-c67c-4105-af12-a161ffb3be5cfileName">BasicHttpBinding_Tokens</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="https://test.cenpos.net:9443/tokens.asmx?wsdl">
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/tokens.asmx?wsdl</con:url>
+      <con:content><![CDATA[<wsdl:definitions name="TokenWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_Tokens_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Tokens_AddAchToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAchToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_AddAchToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAchTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_AddCardToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCardToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_AddCardToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCardTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_GetToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_GetToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_UseToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:UseToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_UseToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UseTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_ModifyAchToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyAchToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_ModifyAchToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyAchTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_ModifyCardToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyCardToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_ModifyCardToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyCardTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_DeleteAchToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAchToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_DeleteAchToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAchTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_DeleteCardToken_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCardToken"/>
+  </wsdl:message>
+  <wsdl:message name="Tokens_DeleteCardToken_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCardTokenResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Tokens">
+    <wsdl:operation name="AddAchToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/AddAchToken" message="tns:Tokens_AddAchToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/AddAchTokenResponse" message="tns:Tokens_AddAchToken_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddCardToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/AddCardToken" message="tns:Tokens_AddCardToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/AddCardTokenResponse" message="tns:Tokens_AddCardToken_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/GetToken" message="tns:Tokens_GetToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/GetTokenResponse" message="tns:Tokens_GetToken_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="UseToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/UseToken" message="tns:Tokens_UseToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/UseTokenResponse" message="tns:Tokens_UseToken_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAchToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/ModifyAchToken" message="tns:Tokens_ModifyAchToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/ModifyAchTokenResponse" message="tns:Tokens_ModifyAchToken_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCardToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/ModifyCardToken" message="tns:Tokens_ModifyCardToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/ModifyCardTokenResponse" message="tns:Tokens_ModifyCardToken_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAchToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/DeleteAchToken" message="tns:Tokens_DeleteAchToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/DeleteAchTokenResponse" message="tns:Tokens_DeleteAchToken_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCardToken">
+      <wsdl:input wsaw:Action="http://tempuri.org/Tokens/DeleteCardToken" message="tns:Tokens_DeleteCardToken_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Tokens/DeleteCardTokenResponse" message="tns:Tokens_DeleteCardToken_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Tokens" type="tns:Tokens">
+    <wsp:PolicyReference URI="#BasicHttpBinding_Tokens_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddAchToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/AddAchToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCardToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/AddCardToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/GetToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UseToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/UseToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyAchToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/ModifyAchToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyCardToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/ModifyCardToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAchToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/DeleteAchToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCardToken">
+      <soap:operation soapAction="http://tempuri.org/Tokens/DeleteCardToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TokenWebService">
+    <wsdl:port name="BasicHttpBinding_Tokens" binding="tns:BasicHttpBinding_Tokens">
+      <soap:address location="https://test.cenpos.net:9443/tokens.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+      <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/tokens.asmx?xsd=xsd0</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+  <xs:element name="AddAchToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q1:AddAchTokenRequest" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAchTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddAchTokenResult" nillable="true" type="q2:AddAchTokenResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCardToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q3:AddCardTokenRequest" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCardTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddCardTokenResult" nillable="true" type="q4:AddCardTokenResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q5:GetTokenRequest" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTokenResult" nillable="true" type="q6:GetTokenResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UseToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q7:UseTokenRequest" xmlns:q7="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UseTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UseTokenResult" nillable="true" type="q8:UseTokenResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAchToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q9:ModifyAchTokenRequest" xmlns:q9="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyAchTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyAchTokenResult" nillable="true" type="q10:ModifyAchTokenResponse" xmlns:q10="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyCardToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q11:ModifyCardTokenRequest" xmlns:q11="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyCardTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyCardTokenResult" nillable="true" type="q12:ModifyCardTokenResponse" xmlns:q12="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAchToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q13:DeleteAchTokenRequest" xmlns:q13="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAchTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAchTokenResult" nillable="true" type="q14:DeleteAchTokenResponse" xmlns:q14="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCardToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q15:DeleteCardTokenRequest" xmlns:q15="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCardTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCardTokenResult" nillable="true" type="q16:DeleteCardTokenResponse" xmlns:q16="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/tokens.asmx?xsd=xsd2</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+  <xs:complexType name="AddAchTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Token" nillable="true" type="q1:AchToken" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddAchTokenRequest" nillable="true" type="tns:AddAchTokenRequest"/>
+  <xs:complexType name="SecureVirtualTerminalWebServiceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q2:VirtualTerminalWebServiceRequest" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeoLocationInformation" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IMEI" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SecureVirtualTerminalWebServiceRequest" nillable="true" type="tns:SecureVirtualTerminalWebServiceRequest"/>
+  <xs:complexType name="AddCardTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Token" nillable="true" type="q3:CardToken" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddCardTokenRequest" nillable="true" type="tns:AddCardTokenRequest"/>
+  <xs:complexType name="GetTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string"/>
+          <xs:element name="IncludeMultipleMerchants" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="IncludeSignature" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTokenRequest" nillable="true" type="tns:GetTokenRequest"/>
+  <xs:complexType name="UseTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AuthorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardVerificationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceDetail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PurchaseOrderNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SecureCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TokenId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UseTokenRequest" nillable="true" type="tns:UseTokenRequest"/>
+  <xs:complexType name="ModifyAchTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Token" nillable="true" type="q4:AchToken" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyAchTokenRequest" nillable="true" type="tns:ModifyAchTokenRequest"/>
+  <xs:complexType name="ModifyCardTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Token" nillable="true" type="q5:CardToken" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyCardTokenRequest" nillable="true" type="tns:ModifyCardTokenRequest"/>
+  <xs:complexType name="DeleteAchTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteAchTokenRequest" nillable="true" type="tns:DeleteAchTokenRequest"/>
+  <xs:complexType name="DeleteCardTokenRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteCardTokenRequest" nillable="true" type="tns:DeleteCardTokenRequest"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/tokens.asmx?xsd=xsd4</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common">
+  <xs:complexType name="AchToken">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Token">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ABANumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="AccountType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BirthDay" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="CheckType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="DriversNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="State" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AchToken" nillable="true" type="tns:AchToken"/>
+  <xs:complexType name="Token">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CustomerBillingAddress" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CustomerEmailAddress" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CustomerZipCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="MerchantId" type="xs:int"/>
+      <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TokenId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Token" nillable="true" type="tns:Token"/>
+  <xs:complexType name="CardToken">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Token">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardExpirationDate" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="MagneticData" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="NameOnCard" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TaxExempt" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CardToken" nillable="true" type="tns:CardToken"/>
+  <xs:complexType name="ArrayOfToken">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Token" nillable="true" type="tns:Token"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfToken" nillable="true" type="tns:ArrayOfToken"/>
+  <xs:complexType name="ArrayOfParameterValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParameterValidationResult" nillable="true" type="tns:ParameterValidationResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameterValidationResult" nillable="true" type="tns:ArrayOfParameterValidationResult"/>
+  <xs:complexType name="ParameterValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParameterValidationResult" nillable="true" type="tns:ParameterValidationResult"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/tokens.asmx?xsd=xsd3</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+  <xs:complexType name="VirtualTerminalWebServiceRequest">
+    <xs:sequence>
+      <xs:element name="MerchantId" type="xs:int"/>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VirtualTerminalWebServiceRequest" nillable="true" type="tns:VirtualTerminalWebServiceRequest"/>
+  <xs:complexType name="VirtualTerminalWebServiceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ClientWebServiceResponse">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VirtualTerminalWebServiceResponse" nillable="true" type="tns:VirtualTerminalWebServiceResponse"/>
+  <xs:complexType name="ClientWebServiceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Result" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientWebServiceResponse" nillable="true" type="tns:ClientWebServiceResponse"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/tokens.asmx?xsd=xsd5</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/tokens.asmx?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+  <xs:complexType name="AddAchTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q1:VirtualTerminalWebServiceResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddAchTokenResponse" nillable="true" type="tns:AddAchTokenResponse"/>
+  <xs:complexType name="AddCardTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q2:VirtualTerminalWebServiceResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CardLastFourDigits" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IsCommercial" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddCardTokenResponse" nillable="true" type="tns:AddCardTokenResponse"/>
+  <xs:complexType name="GetTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q3:VirtualTerminalWebServiceResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Tokens" nillable="true" type="q4:ArrayOfToken" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTokenResponse" nillable="true" type="tns:GetTokenResponse"/>
+  <xs:complexType name="UseTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q5:VirtualTerminalWebServiceResponse" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountBalanceAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AuthorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Discount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ParameterValidationResultList" nillable="true" type="q6:ArrayOfParameterValidationResult" xmlns:q6="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"/>
+          <xs:element minOccurs="0" name="PartiallyAuthorizedAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Surcharge" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SurchargeAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TraceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UseTokenResponse" nillable="true" type="tns:UseTokenResponse"/>
+  <xs:complexType name="ModifyAchTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q7:VirtualTerminalWebServiceResponse" xmlns:q7="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyAchTokenResponse" nillable="true" type="tns:ModifyAchTokenResponse"/>
+  <xs:complexType name="ModifyCardTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q8:VirtualTerminalWebServiceResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyCardTokenResponse" nillable="true" type="tns:ModifyCardTokenResponse"/>
+  <xs:complexType name="DeleteAchTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q9:VirtualTerminalWebServiceResponse" xmlns:q9="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteAchTokenResponse" nillable="true" type="tns:DeleteAchTokenResponse"/>
+  <xs:complexType name="DeleteCardTokenResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q10:VirtualTerminalWebServiceResponse" xmlns:q10="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteCardTokenResponse" nillable="true" type="tns:DeleteCardTokenResponse"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/tokens.asmx?xsd=xsd1</con:url>
+      <con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://test.cenpos.net:9443/tokens.asmx</con:endpoint>
+  </con:endpoints>
+</con:interface>

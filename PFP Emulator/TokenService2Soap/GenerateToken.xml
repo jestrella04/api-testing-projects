@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="05aad0b5-aedb-4300-8bb1-be840aea1d6d" isOneWay="false" action="http://tempuri.org/GenerateToken" name="GenerateToken" bindingOperationName="GenerateToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="05aad0b5-aedb-4300-8bb1-be840aea1d6dfileName">GenerateToken</con:setting>
+  </con:settings>
+  <con:call id="3f7406c7-a528-4806-ac6c-55c1ef675b3d" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://hub.cenpos.net/pfpQA/v2/TokenService.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GenerateToken>\r
+         <tem:merchantId>?</tem:merchantId>\r
+         <!--Optional:-->\r
+         <tem:customerCode>?</tem:customerCode>\r
+         <!--Optional:-->\r
+         <tem:cardNumber>?</tem:cardNumber>\r
+      </tem:GenerateToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/GenerateToken"/>
+  </con:call>
+</con:operation>

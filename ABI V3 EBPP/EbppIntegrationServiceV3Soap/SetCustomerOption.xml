@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="5ad17962-d302-44e3-98fd-0fb2fd99b550" isOneWay="false" action="http://ebpp.cenpos.net/V3/SetCustomerOption" name="SetCustomerOption" bindingOperationName="SetCustomerOption" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5ad17962-d302-44e3-98fd-0fb2fd99b550fileName">SetCustomerOption</con:setting>
+  </con:settings>
+  <con:call id="92fb6aa2-4333-464d-84ba-832f084cb69a" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v3="http://ebpp.cenpos.net/V3">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v3:SetCustomerOption>\r
+         <!--Optional:-->\r
+         <v3:customerOptionRequetVO>\r
+            <!--Optional:-->\r
+            <v3:Username>?</v3:Username>\r
+            <!--Optional:-->\r
+            <v3:Password>?</v3:Password>\r
+            <!--Optional:-->\r
+            <v3:UserId>?</v3:UserId>\r
+            <v3:MerchantId>?</v3:MerchantId>\r
+            <!--Optional:-->\r
+            <v3:CustomerEmail>?</v3:CustomerEmail>\r
+            <v3:AllowSMS>?</v3:AllowSMS>\r
+            <v3:AllowEmail>?</v3:AllowEmail>\r
+         </v3:customerOptionRequetVO>\r
+      </v3:SetCustomerOption>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ebpp.cenpos.net/V3/SetCustomerOption"/>
+  </con:call>
+</con:operation>

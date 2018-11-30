@@ -1,0 +1,1686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="dd8db499-257e-4ea5-becd-0aa8b3a5216b" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Cards" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dd8db499-257e-4ea5-becd-0aa8b3a5216bfileName">Cards</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="httprequest" name="Verify - GetToken (CustomerCode)" id="f9e057d3-1a8a-455b-8391-69cb2abfafe6">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - GetToken (CustomerCode)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - GetToken (CustomerCode)" id="66aee3b2-8063-4262-a5c2-3e3c53e35f4f">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - GetToken (CustomerCode)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/GetToken/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - GetToken (CustomerCode)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - GetToken (CustomerCode)#Response#$['Data']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - GetToken (Email)" id="c5b8d25e-822f-4d52-af23-c019aaa5d0b7">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - GetToken (Email)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - GetToken (Email)" id="ef707f7e-549d-4590-8069-6f9a99b928e1">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - GetToken (Email)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/GetToken/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - GetToken (Email)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify#Response#$['Data']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - GetToken (Email+CustomerCode)" id="31e7caee-9f10-46d2-90c2-bc301938828b">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - GetToken (Email+CustomerCode)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CustomerCode}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - GetToken (Email+CustomerCode)" id="4340579d-f782-4bf2-9dac-21bd847b6d95">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - GetToken (Email+CustomerCode)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/GetToken/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - GetToken (CustomerCode)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - GetToken (CustomerCode)#Response#$['Data']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - UseToken (Sale)" id="26079cdc-5044-4b2f-89c8-a486d6543c97">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - UseToken (Sale)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>city</con:name>
+          <con:value>${CustomerCity}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCity}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>state</con:name>
+          <con:value>${CustomerState}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerState}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>${CustomerAddress}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerAddress}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>zipcode</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${TokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${TokenId}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>cvv</con:name>
+          <con:value>${CardCVV}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardCVV}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Sale</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Sale</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - UseToken (Sale)" id="13465c5d-1c34-4af6-9137-c60b974dbeaf">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - UseToken (Sale)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/UseToken/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - UseToken (Sale)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - UseToken (Sale)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${TokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${TokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - UseToken (Sale + L3)" id="2d6725f7-b9e1-4be1-960f-61358e38b783">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - UseToken (Sale + L3)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>city</con:name>
+          <con:value>${CustomerCity}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCity}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>state</con:name>
+          <con:value>${CustomerState}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerState}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>${CustomerAddress}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerAddress}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>zipcode</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CorpTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CorpTokenId}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>cvv</con:name>
+          <con:value>${CorpCardCVV}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CorpCardCVV}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Sale</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Sale</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - UseToken (Sale + L3)" id="2bc5d3f8-6a05-404e-b6bd-56e02a8ef1d5">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - UseToken (Sale + L3)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/UseToken/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - UseToken (Sale + L3)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - UseToken (Sale + L3)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>invoiceDetail</con:name>
+          <con:value>${SwpInvoiceDetailBase64}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${SwpInvoiceDetailBase64}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CorpTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CorpTokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - UseToken (Auth)" id="c586fd2e-b610-4482-b629-573455a1b788">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - UseToken (Auth)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Amount}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>city</con:name>
+          <con:value>${CustomerCity}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCity}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>state</con:name>
+          <con:value>${CustomerState}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerState}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>${CustomerAddress}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerAddress}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>zipcode</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${TokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${TokenId}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>cvv</con:name>
+          <con:value>${CardCVV}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardCVV}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Auth</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Auth</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - UseToken (Auth)" id="0a291543-0df9-4ef6-a3f0-42546fe44c19">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - UseToken (Auth)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/UseToken/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - UseToken (Auth)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - UseToken (Auth)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${TokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${TokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - UseCrypto (Sale)" id="2770920f-5dec-4272-a9aa-22740f2bada9">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - UseCrypto (Sale)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Amount}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>city</con:name>
+          <con:value>${CustomerCity}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCity}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>state</con:name>
+          <con:value>${CustomerState}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerState}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>${CustomerAddress}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerAddress}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>zipcode</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoTokenId}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>cvv</con:name>
+          <con:value>${CardCVV}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardCVV}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Sale</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Sale</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - UseCrypto (Sale)" id="80c1406a-aa3e-44dd-b65f-bd989132331d">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - UseCrypto (Sale)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/UseCrypto/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - UseCrypto (Sale)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - UseCrypto (Sale)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoTokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - UseCrypto (Sale + L3)" id="2875a3fb-eab4-44b2-afce-02325dfb63e2">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - UseCrypto (Sale + L3)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Amount}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>city</con:name>
+          <con:value>${CustomerCity}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCity}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>state</con:name>
+          <con:value>${CustomerState}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerState}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>${CustomerAddress}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerAddress}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>zipcode</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoCorpTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoCorpTokenId}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>cvv</con:name>
+          <con:value>${CorpCardCVV}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CorpCardCVV}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Sale</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Sale</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - UseCrypto (Sale + L3)" id="892b0c3a-bf68-43ff-a953-3bb506baa597">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - UseCrypto (Sale + L3)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/UseCrypto/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - UseCrypto (Sale + L3)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - UseCrypto (Sale + L3)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>invoiceDetail</con:name>
+          <con:value>${SwpInvoiceDetailBase64}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${SwpInvoiceDetailBase64}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoCorpTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoCorpTokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - UseCrypto (Auth)" id="69bd43df-3a1f-4ba6-a543-86aea835b2de">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - UseCrypto (Auth)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Amount}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>city</con:name>
+          <con:value>${CustomerCity}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCity}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>state</con:name>
+          <con:value>${CustomerState}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerState}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>${CustomerAddress}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerAddress}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>zipcode</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoTokenId}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>cvv</con:name>
+          <con:value>${CardCVV}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardCVV}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Auth</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Auth</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - UseCrypto (Auth)" id="ddf2f3ec-a250-4649-9f4b-ebdc2f647a2c">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - UseCrypto (Auth)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/UseCrypto/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - UseCrypto (Auth)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - UseCrypto (Auth)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoTokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - ConvertCrypto" id="918720b7-5d69-4699-af63-9ed011710868">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - ConvertCrypto" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>city</con:name>
+          <con:value>${CustomerCity}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCity}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>state</con:name>
+          <con:value>${CustomerState}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerState}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>address</con:name>
+          <con:value>${CustomerAddress}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerAddress}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>zipcode</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>email</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}+crypto</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}+crypto</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoTokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - ConvertCrypto" id="62cebeb0-a274-435a-9cf6-9e076858c591">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - ConvertCrypto" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/ConvertCrypto/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - ConvertCrypto#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - ConvertCrypto#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CryptoTokenId}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - DeleteToken" id="4bba4fa0-71ad-4c1c-829c-b32b12e7075c">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - DeleteToken" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${Process - ConvertCrypto#Response#$['TokenId']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Process - ConvertCrypto#Response#$['TokenId']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - DeleteToken" id="1e4ff556-741a-4621-8729-1308fc99f31b">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - DeleteToken" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/DeleteToken/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - DeleteToken#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - DeleteToken#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>tokenid</con:name>
+          <con:value>${Process - ConvertCrypto#Response#$['TokenId']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Process - ConvertCrypto#Response#$['TokenId']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - Refund (Sale)" id="38a669e1-8c9e-4c32-8907-0f97fe70b299">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - Refund (Sale)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseToken (Sale)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Process - UseToken (Sale)#Response#$['ReferenceNumber']}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Refund</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Refund</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - Refund (Sale)" id="0632f9c6-b2db-4a49-8b7a-2e48776d03f9">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - Refund (Sale)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/Refund/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - Refund (Sale)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - Refund (Sale)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseToken (Sale)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Process - UseToken (Sale)#Response#$['ReferenceNumber']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - Void (Sale + L3)" id="bb22c50e-6b0f-45af-9d39-a975cddd3058">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - Void (Sale + L3)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseToken (Sale + L3)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Process - UseToken (Sale + L3)#Response#$['ReferenceNumber']}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Void</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Void</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - Void (Sale + L3)" id="c8667e02-563e-46e5-9c32-2a2a2a07e0ab">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - Void (Sale + L3)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/Void/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - Void (Sale + L3)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - Void (Sale + L3)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseToken (Sale + L3)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Process - UseToken (Sale + L3)#Response#$['ReferenceNumber']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - Reauth (Auth)" id="75b1e858-387c-4355-a194-e2a76776bd98">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - Reauth (Auth)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseToken (Auth)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Process - UseToken (Auth)#Response#$['ReferenceNumber']}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Reauth</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Reauth</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - Reauth (Auth)" id="49e28d56-5805-4805-b968-97283e0d2f06">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - Reauth (Auth)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/Reauth/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - Reauth (Auth)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - Reauth (Auth)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseToken (Auth)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Process - UseToken (Auth)#Response#$['ReferenceNumber']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Verify - Force (Crypto - Auth)" id="7e0f8473-88e4-4385-99b7-b83b0205994b">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="8a45fbe5-694a-405f-a73e-2403e2abf5a2" name="Verify - Force (Crypto - Auth)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/default.aspx?app=genericcontroller&amp;action=siteVerify</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>secretkey</con:name>
+          <con:value>${SwpCardsSecretKey}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpSecretKey}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>merchant</con:name>
+          <con:value>${SwpCardsEncryptedMerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${WpEncryptedMerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>amount</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>customercode</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>invoiceNumber</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${InvoiceNumber}</con:default>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseCrypto (Auth)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Process - UseCrypto (Auth)#Response#$['ReferenceNumber']}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>type</con:name>
+          <con:value>Force</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>Force</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Process - Force (Crypto - Auth)" id="3953d701-6228-4397-9d94-8a34af5b098c">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="b6a6e22c-684d-47b7-96e0-d7036e17e5e9" name="Process - Force (Crypto - Auth)" postQueryString="true" mediaType="multipart/form-data" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://www3.cenpos.net/simplewebpay-test/cards/api/Force/</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>verifyingPost</con:name>
+          <con:value>${Verify - Force (Crypto - Auth)#Response#$['Data']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Verify - Force (Crypto - Auth)#Response#$['Data']}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>referencenumber</con:name>
+          <con:value>${Process - UseCrypto (Auth)#Response#$['ReferenceNumber']}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Process - UseCrypto (Auth)#Response#$['ReferenceNumber']}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>f9e057d3-1a8a-455b-8391-69cb2abfafe6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>66aee3b2-8063-4262-a5c2-3e3c53e35f4f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c5b8d25e-822f-4d52-af23-c019aaa5d0b7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>26079cdc-5044-4b2f-89c8-a486d6543c97</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2770920f-5dec-4272-a9aa-22740f2bada9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c586fd2e-b610-4482-b629-573455a1b788</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>69bd43df-3a1f-4ba6-a543-86aea835b2de</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>918720b7-5d69-4699-af63-9ed011710868</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4bba4fa0-71ad-4c1c-829c-b32b12e7075c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ef707f7e-549d-4590-8069-6f9a99b928e1</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>13465c5d-1c34-4af6-9137-c60b974dbeaf</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0a291543-0df9-4ef6-a3f0-42546fe44c19</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ddf2f3ec-a250-4649-9f4b-ebdc2f647a2c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>80c1406a-aa3e-44dd-b65f-bd989132331d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>62cebeb0-a274-435a-9cf6-9e076858c591</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>31e7caee-9f10-46d2-90c2-bc301938828b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>4340579d-f782-4bf2-9dac-21bd847b6d95</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2875a3fb-eab4-44b2-afce-02325dfb63e2</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2d6725f7-b9e1-4be1-960f-61358e38b783</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2bc5d3f8-6a05-404e-b6bd-56e02a8ef1d5</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>892b0c3a-bf68-43ff-a953-3bb506baa597</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>75b1e858-387c-4355-a194-e2a76776bd98</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>49e28d56-5805-4805-b968-97283e0d2f06</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

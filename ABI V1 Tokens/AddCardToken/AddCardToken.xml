@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c37dc782-6e96-4bfb-ae95-bbab648526b9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddCardToken" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c37dc782-6e96-4bfb-ae95-bbab648526b9fileName">AddCardToken</con:setting>
+  </con:settings>
+  <con:testStep type="request" id="803f4352-50e7-4864-964f-d5379fbd269d" name="AddCardToken">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>Test001</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Id)" id="fd53b3b2-7792-4a2e-9f21-3d2620b85155">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Id)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}7</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>UEsDBBQACAAIABxZwUQAAAAAAAAAAAAAAAANAAAAc2lnbmF0dXJlLnppcN1WaVQTWRYOGqDIgB2S IEhECCIE2lbsSABBSQERQcBiOZAom8EOOjAgmxCWAUuchrC4BdmhhhZxelgFFIVGMxKH1TTQgEjA IyhC06ZFVESEnhfpM8d/0j9nznl16t7vu/e7X733flQG4u6kQdAl4HA4DecDjp44nJIIPH2QCkDc kEMpOBxBz9kR9o5/9GKsM0pmRWSJV34ruxy+zyqBNqiMXe6B9P9tLDYMcNh65Jw+DnpZh8dBBBy6 LhXDgWVAX81WgdVsjTTI1kh/qvUZ+hOtz9B/xOhlHA5WYiE4IkWx8Mqr2SrwMVsrDbI10p9ofYb+ VOsz9B8wKiH9vxze2o1y1v3PHN6Kxt3JubfaqdjJLzf7pihBwvRW9fYWTrq6Ad0+SjBwh6oSqYRn H7BHoyzMUzHE1ihl+VdfvBuHhegQL/6WUjtYuS1SCf67wNUH/8zLDwfTuK6GKdIxTcpGIqWw2OWU 6jexFCWYJlZJ4gVraxEpuuGtJpaxR0FLHz8xgaGACsOub2JGeQBIPFV4gqyACCme0hunbarBxNcD gvvZR7xZCL1ZwB9rXGYfIFKEySRpKzeTABEsLXsGhg1aUzGrkixIeA3UB0VXNcJLJB2IkGF3wne0 mK2MP3uFGj+YzQUa7UYzgUYxj9bjJVOWTLpejT7+rE/ZlX9GdJSvQ7/eQa+R7k3Ffnwb03+CsRG4 qCQPTwckIfbI9Mv+2FGdsBg+FY7cY51UPbQFhpHWk8wg6viFpqY2SKiR0G6SUDT+nlt/Q5E4Io5s hEgpysfSXS40NV6FhL2Lz2IzbeP4owmGdPRrucjQLHRIetiQzqy+AGvmvlusy4GEboIwxHHbqd4q Gsrz2qJH8cgo0pj9Fnt4ZXz8zHNJLsaxwUtMkiopHmo2JRxLvIS/nV5uSAfaD/emu+QI6gIgYTZn dTK1PlEz1zY6qASYqMPShZgBnXl0wdBMIA90/R0aUEN55PFEu3fMP8+i2MN42Tmvrv6QiH1EStm0 MtvbXj6YBJoC4fottCe79cGU+8nWFWm2EQ2nQfFY3rU0WdEICwlrlXcXpsnyQLixLYuJVIqcF44Z AwM1Sw3GtIVgEBZlLjXsoFWSGaCRI3sszm4emGl3Bdp+C8f923LKBYpWEdMdtEoHbQ3oqCG9nBQ1 NqUE1/fd9g0lR/XyQXih2XeWHFWtCDtvD2vMXkrONqwZ2A5kuAtfmtGGQzaAoVVLem37PcQMVXAI Q8sb9lU4BuRZA5N1f7E8ONsY59OLA+JywfQetuqDeSckrMbddP3zYMn8q180Reyds0+z++9fTCnx aW+PdkLwkpkwjrfPh1ulNqDJ3fTeRMvPi/FTkBCzqlAX/tplJ2WAIra3CvubZ2WTgq10tH9q4Oa7 0mWGbSiejRR7qrTHOcn2huAl3c9E/bZtLbyJTaBoQtRv1daCyv8b+6+E2KE8zR/8mMVnNK3evOgw +EjQ20yGHjWwgQ3TipHDJYSbz4XYQ9sST93qwc78eHCj8ly9C3uQmynHSbD4oLGZ6tDM64SEyx9x 3R6Pq/o/KaMT28i5aKjoxAtbB7wE1JwNMZ2UVqjCcxczXOq5XTd8SqmKzfaMSS52J1LgJ1NXnVea 5qqIlEBCXeQesRoBGOGt1+IycjCIUP5Ksrx0URvlOTQSy0lMOxQFIOxRcL20Vm4xGSc4jUEuM9di AoYPLUxHdICvQ+vSituvy1oW9yNJziyOriwT3EJ3U+hgR1NIc2BDNhY/k1bR2UQgAA/q6t0Ns+/f PvoQ9BXYO/rt007+Dk9jIQW1O6dbfr7kA/eV4mbsEFNXOsl9GeT8W/uRDeG8nzIOttfK9f3wynCk y1HW5t7doAPhP+hRvPMZDDBkhCYtLggBquYhU5vgufJ7b6xH5+ICWUjhnem62Z3hpJad3u/exoB+ cXHBZLnmrfnHBKG2XldvofWDuVyhWeQuU+W/qeEljH8QtS9NiNAvdkakRKzc6Ct7H31uRbY52ICe bzE/eszBbjk6OusMFjTUE/Hi/DErUzXhNRCHiy+xhkJ3f4WiXEZLLy/q58NumVjQd4mLSx6WxtIa weKd74McHZUb+PzE+8cW3hTpwOKqgpGpXSOx+sb7kbq5ghGlXYJTdk8ebzrup2607y7U1RoXJ/mh QKeS0lMo0HsPm3+gWrf+FUXd/lX1YPl7+6d5d385WQ6GVQ4ZGJmdsnQQgtDhkMmTyiO1pbCkSk0Y 93pEV+avalPkReD3ZgmdOxI41mBoRkZ+WlXmIFkrTOW7EC/XmlpppcV1FNim2hTxSC0+Pn3ErfTg 5/2JOi1xXOczWdbU5D20HWY+A+b3mgter1RnCLUsfjSXd/uP37FgBLOVqNtpHrvgVIxI0iLjIQJt fv5PFYXZL/Hra8+D/0WcM9vdscY+CP0PUEsHCBKMOasNBwAAVgoAAFBLAQIUABQACAAIABxZwUQS jDmrDQcAAFYKAAANAAAAAAAAAAAAAAAAAAAAAABzaWduYXR1cmUuemlwUEsFBgAAAAABAAEAOwAA AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId>${TokenId}</acr2:TokenId>
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Corp)" id="0a616d9c-6d2a-4dc0-9079-54c5dce70171">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Corp)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>Test005</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${CorpCardNumber}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${CorpCardNameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="UseToken" id="3958a62e-eda0-4cc2-ad8d-606053407e70">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false">
+        <con:name>TokenId</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>AddCardToken</con:sourceStep>
+        <con:sourcePath>declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses';
+declare namespace ns1='http://tempuri.org/';
+//ns1:AddCardTokenResponse[1]/ns1:AddCardTokenResult[1]/a:TokenId[1]</con:sourcePath>
+        <con:targetType>UseToken</con:targetType>
+        <con:targetStep>#Global#</con:targetStep>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false">
+        <con:name>Corp</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>AddCardToken (Corp)</con:sourceStep>
+        <con:sourcePath>declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses';
+declare namespace ns1='http://tempuri.org/';
+//ns1:AddCardTokenResponse[1]/ns1:AddCardTokenResult[1]/a:TokenId[1]</con:sourcePath>
+        <con:targetType>UseTokenCorp</con:targetType>
+        <con:targetStep>#Global#</con:targetStep>
+        <con:targetPath xsi:nil="true"/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Swiped)" id="645511f9-6004-4b33-8af4-de2e12b1ea17">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Swiped)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}2</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber xsi:nil="true" />
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData>${MagneticData}</acr2:MagneticData>
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Encrypted)" id="6798a4ac-78ef-4fa6-9325-719a337d12fc">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Encrypted)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}3</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber xsi:nil="true" />
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData>${EncryptedMagData}</acr2:MagneticData>
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Bad Swipe)" id="cca3d7bb-12a7-440d-9933-ad620d599cea">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Bad Swipe)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}4</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber xsi:nil="true" />
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData>995214${MagneticData}</acr2:MagneticData>
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Bad Card)" id="d550d718-4520-4bc0-bed6-19a74b3584f5">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Bad Card)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}5</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>UEsDBBQACAAIABxZwUQAAAAAAAAAAAAAAAANAAAAc2lnbmF0dXJlLnppcN1WaVQTWRYOGqDIgB2S IEhECCIE2lbsSABBSQERQcBiOZAom8EOOjAgmxCWAUuchrC4BdmhhhZxelgFFIVGMxKH1TTQgEjA IyhC06ZFVESEnhfpM8d/0j9nznl16t7vu/e7X733flQG4u6kQdAl4HA4DecDjp44nJIIPH2QCkDc kEMpOBxBz9kR9o5/9GKsM0pmRWSJV34ruxy+zyqBNqiMXe6B9P9tLDYMcNh65Jw+DnpZh8dBBBy6 LhXDgWVAX81WgdVsjTTI1kh/qvUZ+hOtz9B/xOhlHA5WYiE4IkWx8Mqr2SrwMVsrDbI10p9ofYb+ VOsz9B8wKiH9vxze2o1y1v3PHN6Kxt3JubfaqdjJLzf7pihBwvRW9fYWTrq6Ad0+SjBwh6oSqYRn H7BHoyzMUzHE1ihl+VdfvBuHhegQL/6WUjtYuS1SCf67wNUH/8zLDwfTuK6GKdIxTcpGIqWw2OWU 6jexFCWYJlZJ4gVraxEpuuGtJpaxR0FLHz8xgaGACsOub2JGeQBIPFV4gqyACCme0hunbarBxNcD gvvZR7xZCL1ZwB9rXGYfIFKEySRpKzeTABEsLXsGhg1aUzGrkixIeA3UB0VXNcJLJB2IkGF3wne0 mK2MP3uFGj+YzQUa7UYzgUYxj9bjJVOWTLpejT7+rE/ZlX9GdJSvQ7/eQa+R7k3Ffnwb03+CsRG4 qCQPTwckIfbI9Mv+2FGdsBg+FY7cY51UPbQFhpHWk8wg6viFpqY2SKiR0G6SUDT+nlt/Q5E4Io5s hEgpysfSXS40NV6FhL2Lz2IzbeP4owmGdPRrucjQLHRIetiQzqy+AGvmvlusy4GEboIwxHHbqd4q Gsrz2qJH8cgo0pj9Fnt4ZXz8zHNJLsaxwUtMkiopHmo2JRxLvIS/nV5uSAfaD/emu+QI6gIgYTZn dTK1PlEz1zY6qASYqMPShZgBnXl0wdBMIA90/R0aUEN55PFEu3fMP8+i2MN42Tmvrv6QiH1EStm0 MtvbXj6YBJoC4fottCe79cGU+8nWFWm2EQ2nQfFY3rU0WdEICwlrlXcXpsnyQLixLYuJVIqcF44Z AwM1Sw3GtIVgEBZlLjXsoFWSGaCRI3sszm4emGl3Bdp+C8f923LKBYpWEdMdtEoHbQ3oqCG9nBQ1 NqUE1/fd9g0lR/XyQXih2XeWHFWtCDtvD2vMXkrONqwZ2A5kuAtfmtGGQzaAoVVLem37PcQMVXAI Q8sb9lU4BuRZA5N1f7E8ONsY59OLA+JywfQetuqDeSckrMbddP3zYMn8q180Reyds0+z++9fTCnx aW+PdkLwkpkwjrfPh1ulNqDJ3fTeRMvPi/FTkBCzqlAX/tplJ2WAIra3CvubZ2WTgq10tH9q4Oa7 0mWGbSiejRR7qrTHOcn2huAl3c9E/bZtLbyJTaBoQtRv1daCyv8b+6+E2KE8zR/8mMVnNK3evOgw +EjQ20yGHjWwgQ3TipHDJYSbz4XYQ9sST93qwc78eHCj8ly9C3uQmynHSbD4oLGZ6tDM64SEyx9x 3R6Pq/o/KaMT28i5aKjoxAtbB7wE1JwNMZ2UVqjCcxczXOq5XTd8SqmKzfaMSS52J1LgJ1NXnVea 5qqIlEBCXeQesRoBGOGt1+IycjCIUP5Ksrx0URvlOTQSy0lMOxQFIOxRcL20Vm4xGSc4jUEuM9di AoYPLUxHdICvQ+vSituvy1oW9yNJziyOriwT3EJ3U+hgR1NIc2BDNhY/k1bR2UQgAA/q6t0Ns+/f PvoQ9BXYO/rt007+Dk9jIQW1O6dbfr7kA/eV4mbsEFNXOsl9GeT8W/uRDeG8nzIOttfK9f3wynCk y1HW5t7doAPhP+hRvPMZDDBkhCYtLggBquYhU5vgufJ7b6xH5+ICWUjhnem62Z3hpJad3u/exoB+ cXHBZLnmrfnHBKG2XldvofWDuVyhWeQuU+W/qeEljH8QtS9NiNAvdkakRKzc6Ct7H31uRbY52ICe bzE/eszBbjk6OusMFjTUE/Hi/DErUzXhNRCHiy+xhkJ3f4WiXEZLLy/q58NumVjQd4mLSx6WxtIa weKd74McHZUb+PzE+8cW3hTpwOKqgpGpXSOx+sb7kbq5ghGlXYJTdk8ebzrup2607y7U1RoXJ/mh QKeS0lMo0HsPm3+gWrf+FUXd/lX1YPl7+6d5d385WQ6GVQ4ZGJmdsnQQgtDhkMmTyiO1pbCkSk0Y 93pEV+avalPkReD3ZgmdOxI41mBoRkZ+WlXmIFkrTOW7EC/XmlpppcV1FNim2hTxSC0+Pn3ErfTg 5/2JOi1xXOczWdbU5D20HWY+A+b3mgter1RnCLUsfjSXd/uP37FgBLOVqNtpHrvgVIxI0iLjIQJt fv5PFYXZL/Hra8+D/0WcM9vdscY+CP0PUEsHCBKMOasNBwAAVgoAAFBLAQIUABQACAAIABxZwUQS jDmrDQcAAFYKAAANAAAAAAAAAAAAAAAAAAAAAABzaWduYXR1cmUuemlwUEsFBgAAAAABAAEAOwAA AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}16546651+</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (No Data)" id="4644fdc5-8b78-4c2f-9aa2-b0f06f1834d2">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (No Data)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode xsi:nil="true" />
+               <acr2:CustomerEmailAddress xsi:nil="true" />
+               <acr2:CustomerZipCode xsi:nil="true" />
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate xsi:nil="true" />
+               <acr2:CardNumber xsi:nil="true" />
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Expired)" id="e10c1ab0-fe7f-449b-b50d-ef6d951886aa">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Expired)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}6</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>1210</acr2:CardExpirationDate>
+               <acr2:CardNumber>4000000000000000</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Same Id New Card)" id="05ff0b4f-f13d-4955-8fa8-4b516ddffc34">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Same Id New Card)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId>${TokenId}</acr2:TokenId>
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>4111111111111111</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>VISA TEST</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Existing Card)" id="efb42b5e-81d2-4a80-8217-97a16fe725ce">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Existing Card)" id="c81c1efa-fec1-479c-9ea0-40a86efd2855" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:Signature>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 AEgHAAAAAA==</acr2:Signature>
+               <acr2:TokenId>${TokenId}+1</acr2:TokenId>
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/AddCardToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

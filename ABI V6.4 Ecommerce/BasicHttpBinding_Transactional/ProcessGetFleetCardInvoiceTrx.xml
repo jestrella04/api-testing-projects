@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessGetFleetCardInvoiceTrx" name="ProcessGetFleetCardInvoiceTrx" bindingOperationName="ProcessGetFleetCardInvoiceTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="449c2061-b222-4c83-84a3-afef80fd4ec7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="449c2061-b222-4c83-84a3-afef80fd4ec7fileName">ProcessGetFleetCardInvoiceTrx</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="59aa7051-afaf-471b-9cff-b9e651317db5" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/4/ecommerce.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessGetFleetCardInvoiceTrx>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr2:GeoLocationInformation>?</acr2:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr2:IMEI>?</acr2:IMEI>\r
+            <!--Optional:-->\r
+            <acr2:FleetCardInvoice>\r
+               <acr3:BeginDate>?</acr3:BeginDate>\r
+               <!--Optional:-->\r
+               <acr3:EndDate>?</acr3:EndDate>\r
+            </acr2:FleetCardInvoice>\r
+         </tem:request>\r
+      </tem:ProcessGetFleetCardInvoiceTrx>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessGetFleetCardInvoiceTrx"/>
+  </con:call>
+</con:operation>

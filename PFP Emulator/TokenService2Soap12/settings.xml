@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" id="3af0ff42-1ce9-40fb-ba48-b0ad2266e3a9" wsaVersion="NONE" name="TokenService2Soap12" type="wsdl" bindingName="{http://tempuri.org/}TokenService2Soap12" soapVersion="1_2" anonymous="optional" definition="https://hub.cenpos.net/pfpQA/v2/TokenService.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="3af0ff42-1ce9-40fb-ba48-b0ad2266e3a9fileName">TokenService2Soap12</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="https://hub.cenpos.net/pfpQA/v2/TokenService.asmx?wsdl">
+    <con:part>
+      <con:url>https://hub.cenpos.net/pfpQA/v2/TokenService.asmx?wsdl</con:url>
+      <con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GenerateToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="merchantId" type="s:int"/>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateTokenResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userInfo" type="tns:UserInfo"/>
+            <s:element minOccurs="0" maxOccurs="1" name="nameOnCard" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="expDate" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="customerEmail" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddTokenResult" type="tns:Result"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Result">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ResultId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CardToken" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GenerateTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateToken"/>
+  </wsdl:message>
+  <wsdl:message name="GenerateTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateTokenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AddTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:AddToken"/>
+  </wsdl:message>
+  <wsdl:message name="AddTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTokenResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="TokenService2Soap">
+    <wsdl:operation name="GenerateToken">
+      <wsdl:input message="tns:GenerateTokenSoapIn"/>
+      <wsdl:output message="tns:GenerateTokenSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddToken">
+      <wsdl:input message="tns:AddTokenSoapIn"/>
+      <wsdl:output message="tns:AddTokenSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TokenService2Soap" type="tns:TokenService2Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerateToken">
+      <soap:operation soapAction="http://tempuri.org/GenerateToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToken">
+      <soap:operation soapAction="http://tempuri.org/AddToken" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TokenService2Soap12" type="tns:TokenService2Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GenerateToken">
+      <soap12:operation soapAction="http://tempuri.org/GenerateToken" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToken">
+      <soap12:operation soapAction="http://tempuri.org/AddToken" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TokenService2">
+    <wsdl:port name="TokenService2Soap" binding="tns:TokenService2Soap">
+      <soap:address location="https://hub.cenpos.net/pfpQA/v2/TokenService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="TokenService2Soap12" binding="tns:TokenService2Soap12">
+      <soap12:address location="https://hub.cenpos.net/pfpQA/v2/TokenService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+      <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://hub.cenpos.net/pfpQA/v2/TokenService.asmx</con:endpoint>
+  </con:endpoints>
+</con:interface>

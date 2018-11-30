@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="951e2d29-fc4b-4680-9121-8de1fdb0cb76" isOneWay="false" action="http://ebpp.cenpos.net/V3/UpdateEbppInvoice" name="UpdateEbppInvoice" bindingOperationName="UpdateEbppInvoice" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="951e2d29-fc4b-4680-9121-8de1fdb0cb76fileName">UpdateEbppInvoice</con:setting>
+  </con:settings>
+  <con:call id="e46873a6-f7c6-48ca-8d29-deaf64f23765" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v3="http://ebpp.cenpos.net/V3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v3:UpdateEbppInvoice>
+         <!--Optional:-->
+         <v3:updateInvoiceRequestVO>
+            <!--Optional:-->
+            <v3:Username>?</v3:Username>
+            <!--Optional:-->
+            <v3:Password>?</v3:Password>
+            <!--Optional:-->
+            <v3:UserId>?</v3:UserId>
+            <v3:MerchantId>?</v3:MerchantId>
+            <!--Optional:-->
+            <v3:Invoice>
+               <v3:Id>?</v3:Id>
+               <!--Optional:-->
+               <v3:InvoiceNumber>?</v3:InvoiceNumber>
+               <v3:TotalAmount>?</v3:TotalAmount>
+               <v3:TaxAmount>?</v3:TaxAmount>
+               <v3:Discount>?</v3:Discount>
+               <v3:AmountAfterDiscount>?</v3:AmountAfterDiscount>
+               <!--Optional:-->
+               <v3:TinyUrlCode>?</v3:TinyUrlCode>
+               <!--Optional:-->
+               <v3:BinaryInvoice>cid:851140267643</v3:BinaryInvoice>
+               <v3:Processed>?</v3:Processed>
+               <v3:ProcessedDate>?</v3:ProcessedDate>
+               <v3:PaidAmount>?</v3:PaidAmount>
+               <!--Optional:-->
+               <v3:InvoiceDetailStatus>?</v3:InvoiceDetailStatus>
+               <v3:InvoiceDate>?</v3:InvoiceDate>
+               <v3:HasSpecialPayment>?</v3:HasSpecialPayment>
+               <v3:Balance>?</v3:Balance>
+               <!--Optional:-->
+               <v3:InvoiceEncoded>cid:1201662772672</v3:InvoiceEncoded>
+            </v3:Invoice>
+            <!--Optional:-->
+            <v3:LineItems>
+               <!--Zero or more repetitions:-->
+               <v3:InvoiceLineItemVO>
+                  <!--Optional:-->
+                  <v3:Description>?</v3:Description>
+                  <v3:TotalPrice>?</v3:TotalPrice>
+                  <v3:Quantity>?</v3:Quantity>
+                  <v3:TotalTax>?</v3:TotalTax>
+               </v3:InvoiceLineItemVO>
+            </v3:LineItems>
+            <v3:IsLineItemsPresent>?</v3:IsLineItemsPresent>
+         </v3:updateInvoiceRequestVO>
+      </v3:UpdateEbppInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ebpp.cenpos.net/V3/UpdateEbppInvoice"/>
+  </con:call>
+</con:operation>

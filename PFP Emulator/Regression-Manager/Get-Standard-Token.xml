@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="497ac0bc-f329-4fad-89ad-e480441c7d89" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Get Standard Token" searchProperties="true" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="497ac0bc-f329-4fad-89ad-e480441c7d89fileName">Get-Standard-Token</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="GetTokenId" id="9ab31cc2-9efd-4c50-a103-7c8a444f06b2">
+    <con:settings/>
+    <con:config>
+      <script>try {	
+	def currentWorkspace = context.testCase.testSuite.getProject().getWorkspace()
+	def tokensTestCase = currentWorkspace.getProjectByName( "ABI V2 Tokens" ).testSuites['ManageTestTokens'].testCases['Cards - Create']
+	def map = new com.eviware.soapui.support.types.StringToObjectMap()
+	
+	testCaseRunner = tokensTestCase.run( map, false )
+}
+
+catch ( e )
+{
+	log.error( "An error occurred: " + e.toString() );
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

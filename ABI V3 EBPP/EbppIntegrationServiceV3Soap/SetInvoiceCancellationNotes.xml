@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="5aff7984-e7d9-4deb-9044-f0eb8b101658" isOneWay="false" action="http://ebpp.cenpos.net/V3/SetInvoiceCancellationNotes" name="SetInvoiceCancellationNotes" bindingOperationName="SetInvoiceCancellationNotes" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5aff7984-e7d9-4deb-9044-f0eb8b101658fileName">SetInvoiceCancellationNotes</con:setting>
+  </con:settings>
+  <con:call id="e0a6c7e1-689b-4ded-9f0b-9f0847e14ec1" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v3="http://ebpp.cenpos.net/V3">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v3:SetInvoiceCancellationNotes>\r
+         <!--Optional:-->\r
+         <v3:setCancellationRequestVO>\r
+            <!--Optional:-->\r
+            <v3:CancellationNotes>\r
+               <!--Zero or more repetitions:-->\r
+               <v3:CancellationNote>\r
+                  <!--Optional:-->\r
+                  <v3:InvoiceNumber>?</v3:InvoiceNumber>\r
+                  <!--Optional:-->\r
+                  <v3:Comment>?</v3:Comment>\r
+               </v3:CancellationNote>\r
+            </v3:CancellationNotes>\r
+            <v3:MerchantId>?</v3:MerchantId>\r
+            <!--Optional:-->\r
+            <v3:UserId>?</v3:UserId>\r
+            <!--Optional:-->\r
+            <v3:Password>?</v3:Password>\r
+            <!--Optional:-->\r
+            <v3:Username>?</v3:Username>\r
+         </v3:setCancellationRequestVO>\r
+      </v3:SetInvoiceCancellationNotes>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ebpp.cenpos.net/V3/SetInvoiceCancellationNotes"/>
+  </con:call>
+</con:operation>

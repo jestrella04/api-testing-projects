@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Tokens/ModifyCardToken" name="ModifyCardToken" bindingOperationName="ModifyCardToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="c7703207-bb85-4507-8897-e163f4243261" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c7703207-bb85-4507-8897-e163f4243261fileName">ModifyCardToken</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="899abeb0-2593-432b-9f21-4782c02661ad" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/tokens.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyCardToken>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:Token>
+               <!--Optional:-->
+               <acr2:CustomerBillingAddress>?</acr2:CustomerBillingAddress>
+               <!--Optional:-->
+               <acr2:CustomerCode>?</acr2:CustomerCode>
+               <!--Optional:-->
+               <acr2:CustomerEmailAddress>?</acr2:CustomerEmailAddress>
+               <!--Optional:-->
+               <acr2:CustomerZipCode>?</acr2:CustomerZipCode>
+               <!--Optional:-->
+               <acr2:MerchantId>?</acr2:MerchantId>
+               <!--Optional:-->
+               <acr2:Signature>?</acr2:Signature>
+               <!--Optional:-->
+               <acr2:TokenId>?</acr2:TokenId>
+               <!--Optional:-->
+               <acr2:CardExpirationDate>?</acr2:CardExpirationDate>
+               <!--Optional:-->
+               <acr2:CardNumber>?</acr2:CardNumber>
+               <!--Optional:-->
+               <acr2:CardType>?</acr2:CardType>
+               <!--Optional:-->
+               <acr2:MagneticData>?</acr2:MagneticData>
+               <!--Optional:-->
+               <acr2:NameOnCard>?</acr2:NameOnCard>
+               <!--Optional:-->
+               <acr2:TaxExempt>?</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:ModifyCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/ModifyCardToken"/>
+  </con:call>
+</con:operation>

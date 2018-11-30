@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="465de457-447b-4115-a28e-692b9745b5af" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Regression" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="465de457-447b-4115-a28e-692b9745b5affileName">Regression</con:setting>
+  </con:settings>
+  <con:testStep type="request" id="4cfbc79b-4791-4cd8-93a3-db61f029b8d9" name="Sale 01">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Sale 01" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e9ad60c4-9c06-465d-a5bd-0d7e36e7fc9a">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-2bc3b794-3a3b-4031-b143-6ed84800af33-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<billTo>
+				<firstName />
+				<lastName />
+				<customerID>${CustomerCode}</customerID>
+			</billTo>
+			<purchaseTotals>
+				<taxAmount>${TaxAmount}</taxAmount>
+				<grandTotalAmount>${Amount}</grandTotalAmount>
+			</purchaseTotals>
+			<card>
+				<fullName />
+				<accountNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</accountNumber>
+				<expirationMonth>12</expirationMonth>
+				<expirationYear>2025</expirationYear>
+				<cvNumber>${CardCVV}</cvNumber>
+			</card>
+			<ccAuthService run="true" />
+			<ccCaptureService run="true" />
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" id="74989bdb-73cc-4915-961b-d1297396f84c" name="Not SOAP Fault"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="3c8f5605-a8bf-459c-9409-c3ae0bc2feee" name="Sale 02">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Sale 02" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e9ad60c4-9c06-465d-a5bd-0d7e36e7fc9a">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-2bc3b794-3a3b-4031-b143-6ed84800af33-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<billTo>
+				<firstName />
+				<lastName />
+				<customerID>${CustomerCode}</customerID>
+			</billTo>
+			<purchaseTotals>
+				<taxAmount>${TaxAmount}</taxAmount>
+				<grandTotalAmount>${Amount}</grandTotalAmount>
+			</purchaseTotals>
+			<card>
+				<fullName />
+				<accountNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</accountNumber>
+				<expirationMonth>12</expirationMonth>
+				<expirationYear>2025</expirationYear>
+				<cvNumber>${CardCVV}</cvNumber>
+			</card>
+			<ccAuthService run="true" />
+			<ccCaptureService run="true" />
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" id="74989bdb-73cc-4915-961b-d1297396f84c" name="Not SOAP Fault"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="83ddbe8c-8c55-42b8-b990-4a4552d928aa" name="Sale 03">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Sale 03" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="e9ad60c4-9c06-465d-a5bd-0d7e36e7fc9a">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-2bc3b794-3a3b-4031-b143-6ed84800af33-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<billTo>
+				<firstName />
+				<lastName />
+				<customerID>${CustomerCode}</customerID>
+			</billTo>
+			<purchaseTotals>
+				<taxAmount>${TaxAmount}</taxAmount>
+				<grandTotalAmount>${Amount}</grandTotalAmount>
+			</purchaseTotals>
+			<card>
+				<fullName />
+				<accountNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</accountNumber>
+				<expirationMonth>12</expirationMonth>
+				<expirationYear>2025</expirationYear>
+				<cvNumber>${CardCVV}</cvNumber>
+			</card>
+			<ccAuthService run="true" />
+			<ccCaptureService run="true" />
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" id="74989bdb-73cc-4915-961b-d1297396f84c" name="Not SOAP Fault"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="a9c5c3a6-2839-40c0-a305-0f1202964643" name="Void">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Void" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="bb6d2a7a-d6be-473d-a980-525005a151c6">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-79f91825-9818-4f5a-9d3f-8b1a38bbb682-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<voidService run="true">
+				<voidRequestID>${Sale 02#Response#declare namespace ns1='urn:schemas-cybersource-com:transaction-data-1.80'; //ns1:replyMessage[1]/ns1:requestID[1]}</voidRequestID>
+			</voidService>
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault" id="5b8ab4a6-6168-413b-880f-a4af75b3ab9e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="7b022cfc-8ee4-4083-bf98-59f07574f64f" name="Refund">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Refund" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="92ef5366-ec0c-4e28-ae78-5d148187d1bc">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-9376b53d-1aff-4e84-8b21-c3903655787e-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password>${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<apRefundService run="true">
+				<captureRequestID>${Sale 03#Response#declare namespace ns1='urn:schemas-cybersource-com:transaction-data-1.80'; //ns1:replyMessage[1]/ns1:requestID[1]}</captureRequestID>
+			</apRefundService>
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault" id="1efb7ae0-db31-486e-9faf-ceb021a02a59"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="aad94cc2-abbc-420e-bceb-c7c01afb35ea" name="Auth 01">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Auth 01" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="45572b41-5bbc-46e6-806d-b877eb0a848b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-8055f7f2-a5d0-48e0-adfd-4502ef041ee9-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<billTo>
+				<firstName />
+				<lastName />
+				<customerID>${CustomerCode}</customerID>
+			</billTo>
+			<purchaseTotals>
+				<taxAmount>${TaxAmount}</taxAmount>
+				<grandTotalAmount>${Amount}</grandTotalAmount>
+			</purchaseTotals>
+			<card>
+				<fullName />
+				<accountNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</accountNumber>
+				<expirationMonth>12</expirationMonth>
+				<expirationYear>2025</expirationYear>
+				<cvNumber>${CardCVV}</cvNumber>
+			</card>
+			<ccAuthService run="true" />
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault" id="f5e0068b-a5db-40e0-8bf9-b7912ef00176"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="3123d400-597f-48f3-a5cc-fd5b433a2094" name="Auth 02">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Auth 02" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="332509c5-ea0e-4ad4-88c8-bbbc2470f59d">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-64590fef-acc0-4a69-bc2e-c34b7cc592c4-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<billTo>
+				<firstName />
+				<lastName />
+				<customerID>${CustomerCode}</customerID>
+			</billTo>
+			<purchaseTotals>
+				<taxAmount>${TaxAmount}</taxAmount>
+				<grandTotalAmount>${Amount}</grandTotalAmount>
+			</purchaseTotals>
+			<card>
+				<fullName />
+				<accountNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</accountNumber>
+				<expirationMonth>12</expirationMonth>
+				<expirationYear>2025</expirationYear>
+				<cvNumber>${CardCVV}</cvNumber>
+			</card>
+			<ccAuthService run="true" />
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault" id="587c93d6-4e3d-4732-9b6e-f2fca50e3fe8"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="b6d966ea-2134-4b12-8d8f-c54c617ec4e1" name="Credit">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Credit" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="96a53f88-856e-498b-8811-6ca80af4a73e">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-53a42169-8d07-449b-a527-380e301bf3fd-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${UserId}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>${InvoiceNumber}</merchantReferenceCode>
+			<billTo>
+				<firstName />
+				<lastName />
+				<customerID>${CustomerCode}</customerID>
+			</billTo>
+			<purchaseTotals>
+				<taxAmount>${TaxAmount}</taxAmount>
+				<grandTotalAmount>${Amount}</grandTotalAmount>
+			</purchaseTotals>
+			<card>
+				<fullName />
+				<accountNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</accountNumber>
+				<expirationMonth>12</expirationMonth>
+				<expirationYear>2025</expirationYear>
+				<cvNumber>${CardCVV}</cvNumber>
+			</card>
+			<ccCreditService run="true" />
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault" id="102d81ad-2f0f-4500-96ff-afd041002d14"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="9fa03822-613b-4930-b5bf-c8f2e761c216" name="Null">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>ITransactionProcessor</con:interface>
+      <con:operation>runTransaction</con:operation>
+      <con:request name="Null" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="9508b656-7bcf-486c-bb07-3cac62d8d0cd">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://miami1.cenpos.net/CyberSource/TransactionProcessor.svc</con:endpoint>
+        <con:request><![CDATA[<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>${CurrentDateTime1}</u:Created>
+				<u:Expires>${CurrentDateTime2}</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-2bc3b794-3a3b-4031-b143-6ed84800af33-1">
+				<o:Username>${UserId}</o:Username>
+				<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">${Password}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-1.80">
+			<merchantID>${MerchantId}</merchantID>
+			<merchantReferenceCode>^#@</merchantReferenceCode>
+			<billTo>
+				<firstName />
+				<lastName />
+				<customerID>${CustomerCode}</customerID>
+			</billTo>
+			<purchaseTotals>
+				<taxAmount>${TaxAmount}</taxAmount>
+				<grandTotalAmount>${Amount}</grandTotalAmount>
+			</purchaseTotals>
+			<card>
+				<fullName />
+				<accountNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</accountNumber>
+				<expirationMonth>12</expirationMonth>
+				<expirationYear>2025</expirationYear>
+				<cvNumber>${CardCVV}</cvNumber>
+			</card>
+			<ccAuthService run="true" />
+			<ccCaptureService run="true" />
+		</requestMessage>
+	</s:Body>
+</s:Envelope>]]></con:request>
+        <con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault" id="9f3944f0-5095-4098-8285-454b9f1d44aa"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="runTransaction"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>3c8f5605-a8bf-459c-9409-c3ae0bc2feee</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3123d400-597f-48f3-a5cc-fd5b433a2094</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>83ddbe8c-8c55-42b8-b990-4a4552d928aa</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a9c5c3a6-2839-40c0-a305-0f1202964643</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>7b022cfc-8ee4-4083-bf98-59f07574f64f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

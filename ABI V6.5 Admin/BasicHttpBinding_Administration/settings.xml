@@ -1,0 +1,2699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="BasicHttpBinding_Administration" type="wsdl" bindingName="{http://tempuri.org/}BasicHttpBinding_Administration" soapVersion="1_1" anonymous="optional" definition="https://test.cenpos.net:9443/6/5/admin.asmx?wsdl" id="dbe9aef1-1f58-4966-a21d-a825e559d900" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="CreateWsdlDocumentationAction@report-directory">C:\Users\jestrella\Desktop</con:setting>
+    <con:setting id="dbe9aef1-1f58-4966-a21d-a825e559d900fileName">BasicHttpBinding_Administration</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="https://test.cenpos.net:9443/6/5/admin.asmx?wsdl">
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?wsdl</con:url>
+      <con:content><![CDATA[<wsdl:definitions name="AdministrationWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_Administration_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Administration_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_LoginNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginNew"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_LoginNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginNewResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyUser"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetUserList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserList"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetUserList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ChangeUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserPassword"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ChangeUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeUserPasswordResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyMerchant_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMerchant"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyMerchant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMerchantResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchant_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchant"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_UnlockUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockUser"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_UnlockUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlockUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyMerchantParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMerchantParameters"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyMerchantParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMerchantParametersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchantParameters_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantParameters"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchantParameters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantParametersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetInvoiceDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetail"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetInvoiceDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetailResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetIndustryProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIndustryProducts"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetIndustryProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIndustryProductsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetRoleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleList"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetRoleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddHierarchyRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddHierarchyRole"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddHierarchyRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddHierarchyRoleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyHierarchyRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyHierarchyRole"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyHierarchyRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyHierarchyRoleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteHierarchyRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHierarchyRole"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteHierarchyRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHierarchyRoleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetHierarchyRoleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchyRoleList"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetHierarchyRoleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHierarchyRoleListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_PasswordReset_InputMessage">
+    <wsdl:part name="parameters" element="tns:PasswordReset"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_PasswordReset_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PasswordResetResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetLinkedUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedUsers"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetLinkedUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedUsersResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetLinkedMerchants_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedMerchants"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetLinkedMerchants_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLinkedMerchantsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ShareMultimerchantUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:ShareMultimerchantUser"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ShareMultimerchantUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ShareMultimerchantUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyUserLinkedGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyUserLinkedGroups"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyUserLinkedGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyUserLinkedGroupsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyMerchantLevel3Templates_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMerchantLevel3Templates"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyMerchantLevel3Templates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyMerchantLevel3TemplatesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchantIpAddressList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantIpAddressList"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchantIpAddressList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantIpAddressListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIpAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIpAddress"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIpAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIpAddressResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIpAddressList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIpAddressList"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIpAddressList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIpAddressListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteMerchantIpAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMerchantIpAddress"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteMerchantIpAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMerchantIpAddressResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchantIMEIList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantIMEIList"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetMerchantIMEIList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMerchantIMEIListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIMEI_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIMEI"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIMEI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIMEIResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIMEIList_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIMEIList"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddMerchantIMEIList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMerchantIMEIListResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteMerchantIMEI_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMerchantIMEI"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeleteMerchantIMEI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMerchantIMEIResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddApplicationKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddApplicationKey"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_AddApplicationKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddApplicationKeyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ActivateApplicationKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateApplicationKey"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ActivateApplicationKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateApplicationKeyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeactivateApplicationKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateApplicationKey"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_DeactivateApplicationKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeactivateApplicationKeyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetApplicationConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationConfiguration"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_GetApplicationConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationConfigurationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyApplicationConfiguration_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyApplicationConfiguration"/>
+  </wsdl:message>
+  <wsdl:message name="Administration_ModifyApplicationConfiguration_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModifyApplicationConfigurationResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Administration">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/Login" message="tns:Administration_Login_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/LoginResponse" message="tns:Administration_Login_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="LoginNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/LoginNew" message="tns:Administration_LoginNew_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/LoginNewResponse" message="tns:Administration_LoginNew_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ChangePassword" message="tns:Administration_ChangePassword_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ChangePasswordResponse" message="tns:Administration_ChangePassword_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/AddUser" message="tns:Administration_AddUser_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/AddUserResponse" message="tns:Administration_AddUser_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ModifyUser" message="tns:Administration_ModifyUser_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ModifyUserResponse" message="tns:Administration_ModifyUser_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/DeleteUser" message="tns:Administration_DeleteUser_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/DeleteUserResponse" message="tns:Administration_DeleteUser_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetUser" message="tns:Administration_GetUser_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetUserResponse" message="tns:Administration_GetUser_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserList">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetUserList" message="tns:Administration_GetUserList_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetUserListResponse" message="tns:Administration_GetUserList_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ChangeUserPassword" message="tns:Administration_ChangeUserPassword_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ChangeUserPasswordResponse" message="tns:Administration_ChangeUserPassword_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMerchant">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ModifyMerchant" message="tns:Administration_ModifyMerchant_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ModifyMerchantResponse" message="tns:Administration_ModifyMerchant_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchant">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetMerchant" message="tns:Administration_GetMerchant_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetMerchantResponse" message="tns:Administration_GetMerchant_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/UnlockUser" message="tns:Administration_UnlockUser_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/UnlockUserResponse" message="tns:Administration_UnlockUser_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMerchantParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ModifyMerchantParameters" message="tns:Administration_ModifyMerchantParameters_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ModifyMerchantParametersResponse" message="tns:Administration_ModifyMerchantParameters_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantParameters">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetMerchantParameters" message="tns:Administration_GetMerchantParameters_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetMerchantParametersResponse" message="tns:Administration_GetMerchantParameters_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetInvoiceDetail" message="tns:Administration_GetInvoiceDetail_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetInvoiceDetailResponse" message="tns:Administration_GetInvoiceDetail_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndustryProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetIndustryProducts" message="tns:Administration_GetIndustryProducts_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetIndustryProductsResponse" message="tns:Administration_GetIndustryProducts_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetRoleList" message="tns:Administration_GetRoleList_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetRoleListResponse" message="tns:Administration_GetRoleList_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddHierarchyRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/AddHierarchyRole" message="tns:Administration_AddHierarchyRole_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/AddHierarchyRoleResponse" message="tns:Administration_AddHierarchyRole_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyHierarchyRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ModifyHierarchyRole" message="tns:Administration_ModifyHierarchyRole_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ModifyHierarchyRoleResponse" message="tns:Administration_ModifyHierarchyRole_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHierarchyRole">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/DeleteHierarchyRole" message="tns:Administration_DeleteHierarchyRole_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/DeleteHierarchyRoleResponse" message="tns:Administration_DeleteHierarchyRole_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchyRoleList">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetHierarchyRoleList" message="tns:Administration_GetHierarchyRoleList_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetHierarchyRoleListResponse" message="tns:Administration_GetHierarchyRoleList_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="PasswordReset">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/PasswordReset" message="tns:Administration_PasswordReset_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/PasswordResetResponse" message="tns:Administration_PasswordReset_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetLinkedUsers" message="tns:Administration_GetLinkedUsers_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetLinkedUsersResponse" message="tns:Administration_GetLinkedUsers_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedMerchants">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetLinkedMerchants" message="tns:Administration_GetLinkedMerchants_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetLinkedMerchantsResponse" message="tns:Administration_GetLinkedMerchants_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ShareMultimerchantUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ShareMultimerchantUser" message="tns:Administration_ShareMultimerchantUser_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ShareMultimerchantUserResponse" message="tns:Administration_ShareMultimerchantUser_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyUserLinkedGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ModifyUserLinkedGroups" message="tns:Administration_ModifyUserLinkedGroups_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ModifyUserLinkedGroupsResponse" message="tns:Administration_ModifyUserLinkedGroups_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMerchantLevel3Templates">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ModifyMerchantLevel3Templates" message="tns:Administration_ModifyMerchantLevel3Templates_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ModifyMerchantLevel3TemplatesResponse" message="tns:Administration_ModifyMerchantLevel3Templates_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantIpAddressList">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetMerchantIpAddressList" message="tns:Administration_GetMerchantIpAddressList_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetMerchantIpAddressListResponse" message="tns:Administration_GetMerchantIpAddressList_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIpAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/AddMerchantIpAddress" message="tns:Administration_AddMerchantIpAddress_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/AddMerchantIpAddressResponse" message="tns:Administration_AddMerchantIpAddress_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIpAddressList">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/AddMerchantIpAddressList" message="tns:Administration_AddMerchantIpAddressList_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/AddMerchantIpAddressListResponse" message="tns:Administration_AddMerchantIpAddressList_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMerchantIpAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/DeleteMerchantIpAddress" message="tns:Administration_DeleteMerchantIpAddress_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/DeleteMerchantIpAddressResponse" message="tns:Administration_DeleteMerchantIpAddress_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantIMEIList">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetMerchantIMEIList" message="tns:Administration_GetMerchantIMEIList_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetMerchantIMEIListResponse" message="tns:Administration_GetMerchantIMEIList_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIMEI">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/AddMerchantIMEI" message="tns:Administration_AddMerchantIMEI_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/AddMerchantIMEIResponse" message="tns:Administration_AddMerchantIMEI_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIMEIList">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/AddMerchantIMEIList" message="tns:Administration_AddMerchantIMEIList_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/AddMerchantIMEIListResponse" message="tns:Administration_AddMerchantIMEIList_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMerchantIMEI">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/DeleteMerchantIMEI" message="tns:Administration_DeleteMerchantIMEI_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/DeleteMerchantIMEIResponse" message="tns:Administration_DeleteMerchantIMEI_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="AddApplicationKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/AddApplicationKey" message="tns:Administration_AddApplicationKey_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/AddApplicationKeyResponse" message="tns:Administration_AddApplicationKey_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateApplicationKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ActivateApplicationKey" message="tns:Administration_ActivateApplicationKey_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ActivateApplicationKeyResponse" message="tns:Administration_ActivateApplicationKey_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateApplicationKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/DeactivateApplicationKey" message="tns:Administration_DeactivateApplicationKey_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/DeactivateApplicationKeyResponse" message="tns:Administration_DeactivateApplicationKey_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/GetApplicationConfiguration" message="tns:Administration_GetApplicationConfiguration_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/GetApplicationConfigurationResponse" message="tns:Administration_GetApplicationConfiguration_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyApplicationConfiguration">
+      <wsdl:input wsaw:Action="http://tempuri.org/Administration/ModifyApplicationConfiguration" message="tns:Administration_ModifyApplicationConfiguration_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Administration/ModifyApplicationConfigurationResponse" message="tns:Administration_ModifyApplicationConfiguration_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Administration" type="tns:Administration">
+    <wsp:PolicyReference URI="#BasicHttpBinding_Administration_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Administration/Login" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginNew">
+      <soap:operation soapAction="http://tempuri.org/Administration/LoginNew" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/Administration/ChangePassword" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/Administration/AddUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyUser">
+      <soap:operation soapAction="http://tempuri.org/Administration/ModifyUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/Administration/DeleteUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserList">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetUserList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeUserPassword">
+      <soap:operation soapAction="http://tempuri.org/Administration/ChangeUserPassword" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMerchant">
+      <soap:operation soapAction="http://tempuri.org/Administration/ModifyMerchant" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchant">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetMerchant" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlockUser">
+      <soap:operation soapAction="http://tempuri.org/Administration/UnlockUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMerchantParameters">
+      <soap:operation soapAction="http://tempuri.org/Administration/ModifyMerchantParameters" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantParameters">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetMerchantParameters" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetail">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetInvoiceDetail" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIndustryProducts">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetIndustryProducts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleList">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetRoleList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddHierarchyRole">
+      <soap:operation soapAction="http://tempuri.org/Administration/AddHierarchyRole" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyHierarchyRole">
+      <soap:operation soapAction="http://tempuri.org/Administration/ModifyHierarchyRole" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHierarchyRole">
+      <soap:operation soapAction="http://tempuri.org/Administration/DeleteHierarchyRole" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHierarchyRoleList">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetHierarchyRoleList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PasswordReset">
+      <soap:operation soapAction="http://tempuri.org/Administration/PasswordReset" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedUsers">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetLinkedUsers" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLinkedMerchants">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetLinkedMerchants" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ShareMultimerchantUser">
+      <soap:operation soapAction="http://tempuri.org/Administration/ShareMultimerchantUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyUserLinkedGroups">
+      <soap:operation soapAction="http://tempuri.org/Administration/ModifyUserLinkedGroups" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyMerchantLevel3Templates">
+      <soap:operation soapAction="http://tempuri.org/Administration/ModifyMerchantLevel3Templates" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantIpAddressList">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetMerchantIpAddressList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIpAddress">
+      <soap:operation soapAction="http://tempuri.org/Administration/AddMerchantIpAddress" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIpAddressList">
+      <soap:operation soapAction="http://tempuri.org/Administration/AddMerchantIpAddressList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMerchantIpAddress">
+      <soap:operation soapAction="http://tempuri.org/Administration/DeleteMerchantIpAddress" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantIMEIList">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetMerchantIMEIList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIMEI">
+      <soap:operation soapAction="http://tempuri.org/Administration/AddMerchantIMEI" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMerchantIMEIList">
+      <soap:operation soapAction="http://tempuri.org/Administration/AddMerchantIMEIList" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMerchantIMEI">
+      <soap:operation soapAction="http://tempuri.org/Administration/DeleteMerchantIMEI" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddApplicationKey">
+      <soap:operation soapAction="http://tempuri.org/Administration/AddApplicationKey" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActivateApplicationKey">
+      <soap:operation soapAction="http://tempuri.org/Administration/ActivateApplicationKey" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeactivateApplicationKey">
+      <soap:operation soapAction="http://tempuri.org/Administration/DeactivateApplicationKey" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationConfiguration">
+      <soap:operation soapAction="http://tempuri.org/Administration/GetApplicationConfiguration" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModifyApplicationConfiguration">
+      <soap:operation soapAction="http://tempuri.org/Administration/ModifyApplicationConfiguration" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdministrationWebService">
+    <wsdl:port name="BasicHttpBinding_Administration" binding="tns:BasicHttpBinding_Administration">
+      <soap:address location="https://test.cenpos.net:9443/6/5/admin.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+      <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd0</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q1:LoginRequest" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginResult" nillable="true" type="q2:LoginResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q3:LoginNewRequest" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginNewResult" nillable="true" type="q4:LoginNewResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q5:ChangePasswordRequest" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangePasswordResult" nillable="true" type="q6:ChangePasswordResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q7:AddUserRequest" xmlns:q7="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddUserResult" nillable="true" type="q8:AddUserResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q9:ModifyUserRequest" xmlns:q9="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyUserResult" nillable="true" type="q10:ModifyUserResponse" xmlns:q10="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q11:DeleteUserRequest" xmlns:q11="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserResult" nillable="true" type="q12:DeleteUserResponse" xmlns:q12="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q13:GetUserRequest" xmlns:q13="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserResult" nillable="true" type="q14:GetUserResponse" xmlns:q14="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q15:GetUserListRequest" xmlns:q15="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserListResult" nillable="true" type="q16:GetUserListResponse" xmlns:q16="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUserPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q17:ChangeUserPasswordRequest" xmlns:q17="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeUserPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangeUserPasswordResult" nillable="true" type="q18:ChangeUserPasswordResponse" xmlns:q18="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyMerchant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q19:ModifyMerchantRequest" xmlns:q19="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyMerchantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyMerchantResult" nillable="true" type="q20:ModifyMerchantResponse" xmlns:q20="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q21:GetMerchantRequest" xmlns:q21="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMerchantResult" nillable="true" type="q22:GetMerchantResponse" xmlns:q22="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlockUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q23:UnlockUserRequest" xmlns:q23="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlockUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UnlockUserResult" nillable="true" type="q24:UnlockUserResponse" xmlns:q24="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyMerchantParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q25:ModifyMerchantParametersRequest" xmlns:q25="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyMerchantParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyMerchantParametersResult" nillable="true" type="q26:ModifyMerchantParametersResponse" xmlns:q26="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchantParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q27:GetMerchantParametersRequest" xmlns:q27="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchantParametersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMerchantParametersResult" nillable="true" type="q28:GetMerchantParametersResponse" xmlns:q28="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInvoiceDetail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q29:GetInvoiceDetailRequest" xmlns:q29="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInvoiceDetailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetInvoiceDetailResult" nillable="true" type="q30:GetInvoiceDetailResponse" xmlns:q30="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIndustryProducts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q31:GetIndustryProductsRequest" xmlns:q31="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIndustryProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIndustryProductsResult" nillable="true" type="q32:GetIndustryProductsResponse" xmlns:q32="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q33:GetRoleListRequest" xmlns:q33="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRoleListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRoleListResult" nillable="true" type="q34:GetRoleListResponse" xmlns:q34="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddHierarchyRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q35:AddHierarchyRoleRequest" xmlns:q35="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddHierarchyRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddHierarchyRoleResult" nillable="true" type="q36:AddHierarchyRoleResponse" xmlns:q36="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyHierarchyRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q37:ModifyHierarchyRoleRequest" xmlns:q37="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyHierarchyRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyHierarchyRoleResult" nillable="true" type="q38:ModifyHierarchyRoleResponse" xmlns:q38="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteHierarchyRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q39:DeleteHierarchyRoleRequest" xmlns:q39="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteHierarchyRoleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteHierarchyRoleResult" nillable="true" type="q40:DeleteHierarchyRoleResponse" xmlns:q40="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHierarchyRoleList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q41:GetHierarchyRoleListRequest" xmlns:q41="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHierarchyRoleListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetHierarchyRoleListResult" nillable="true" type="q42:GetHierarchyRoleListResponse" xmlns:q42="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PasswordReset">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q43:PasswordResetRequest" xmlns:q43="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PasswordResetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PasswordResetResult" nillable="true" type="q44:PasswordResetResponse" xmlns:q44="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinkedUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q45:GetLinkedUsersRequest" xmlns:q45="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinkedUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLinkedUsersResult" nillable="true" type="q46:GetLinkedUsersResponse" xmlns:q46="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinkedMerchants">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q47:GetLinkedMerchantsRequest" xmlns:q47="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLinkedMerchantsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLinkedMerchantsResult" nillable="true" type="q48:GetLinkedMerchantsResponse" xmlns:q48="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShareMultimerchantUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q49:ShareMultimerchantUserRequest" xmlns:q49="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShareMultimerchantUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ShareMultimerchantUserResult" nillable="true" type="q50:ShareMultimerchantUserResponse" xmlns:q50="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyUserLinkedGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q51:ModifyUserLinkedGroupsRequest" xmlns:q51="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyUserLinkedGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyUserLinkedGroupsResult" nillable="true" type="q52:ModifyUserLinkedGroupsResponse" xmlns:q52="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyMerchantLevel3Templates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q53:ModifyMerchantLevel3TemplatesRequest" xmlns:q53="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyMerchantLevel3TemplatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyMerchantLevel3TemplatesResult" nillable="true" type="q54:ModifyMerchantLevel3TemplatesResponse" xmlns:q54="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchantIpAddressList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q55:GetMerchantIpAddressListRequest" xmlns:q55="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchantIpAddressListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMerchantIpAddressListResult" nillable="true" type="q56:GetMerchantIpAddressListResponse" xmlns:q56="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIpAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q57:AddMerchantIpAddressRequest" xmlns:q57="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIpAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMerchantIpAddressResult" nillable="true" type="q58:AddMerchantIpAddressResponse" xmlns:q58="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIpAddressList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q59:AddMerchantIpAddressListRequest" xmlns:q59="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIpAddressListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMerchantIpAddressListResult" nillable="true" type="q60:AddMerchantIpAddressListResponse" xmlns:q60="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMerchantIpAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q61:DeleteMerchantIpAddressRequest" xmlns:q61="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMerchantIpAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteMerchantIpAddressResult" nillable="true" type="q62:DeleteMerchantIpAddressResponse" xmlns:q62="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchantIMEIList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q63:GetMerchantIMEIListRequest" xmlns:q63="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMerchantIMEIListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMerchantIMEIListResult" nillable="true" type="q64:GetMerchantIMEIListResponse" xmlns:q64="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIMEI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q65:AddMerchantIMEIRequest" xmlns:q65="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIMEIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMerchantIMEIResult" nillable="true" type="q66:AddMerchantIMEIResponse" xmlns:q66="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIMEIList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q67:AddMerchantIMEIListRequest" xmlns:q67="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMerchantIMEIListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddMerchantIMEIListResult" nillable="true" type="q68:AddMerchantIMEIListResponse" xmlns:q68="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMerchantIMEI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q69:DeleteMerchantIMEIRequest" xmlns:q69="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteMerchantIMEIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteMerchantIMEIResult" nillable="true" type="q70:DeleteMerchantIMEIResponse" xmlns:q70="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApplicationKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q71:AddApplicationKeyRequest" xmlns:q71="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApplicationKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddApplicationKeyResult" nillable="true" type="q72:AddApplicationKeyResponse" xmlns:q72="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateApplicationKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q73:ActivateApplicationKeyRequest" xmlns:q73="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActivateApplicationKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActivateApplicationKeyResult" nillable="true" type="q74:ActivateApplicationKeyResponse" xmlns:q74="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeactivateApplicationKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q75:DeactivateApplicationKeyRequest" xmlns:q75="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeactivateApplicationKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeactivateApplicationKeyResult" nillable="true" type="q76:DeactivateApplicationKeyResponse" xmlns:q76="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q77:GetApplicationConfigurationRequest" xmlns:q77="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicationConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetApplicationConfigurationResult" nillable="true" type="q78:GetApplicationConfigurationResponse" xmlns:q78="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyApplicationConfiguration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q79:ModifyApplicationConfigurationRequest" xmlns:q79="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ModifyApplicationConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ModifyApplicationConfigurationResult" nillable="true" type="q80:ModifyApplicationConfigurationResponse" xmlns:q80="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd2</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <xs:complexType name="LoginRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginRequest" nillable="true" type="tns:LoginRequest"/>
+  <xs:complexType name="SecureVirtualTerminalWebServiceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q1:VirtualTerminalWebServiceRequest" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeoLocationInformation" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IMEI" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SourceIpAddress" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SecureVirtualTerminalWebServiceRequest" nillable="true" type="tns:SecureVirtualTerminalWebServiceRequest"/>
+  <xs:complexType name="LoginNewRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginNewRequest" nillable="true" type="tns:LoginNewRequest"/>
+  <xs:complexType name="ChangePasswordRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewPassword" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangePasswordRequest" nillable="true" type="tns:ChangePasswordRequest"/>
+  <xs:complexType name="AddUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="User" nillable="true" type="q2:MerchantUser" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddUserRequest" nillable="true" type="tns:AddUserRequest"/>
+  <xs:complexType name="ModifyUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="User" nillable="true" type="q3:MerchantUser" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+          <xs:element minOccurs="0" name="UserIdToModify" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyUserRequest" nillable="true" type="tns:ModifyUserRequest"/>
+  <xs:complexType name="DeleteUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserIdToDelete" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserRequest" nillable="true" type="tns:DeleteUserRequest"/>
+  <xs:complexType name="GetUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserIdToRetrieve" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserRequest" nillable="true" type="tns:GetUserRequest"/>
+  <xs:complexType name="GetUserListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserListRequest" nillable="true" type="tns:GetUserListRequest"/>
+  <xs:complexType name="ChangeUserPasswordRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewPassword" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UserIdToChange" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeUserPasswordRequest" nillable="true" type="tns:ChangeUserPasswordRequest"/>
+  <xs:complexType name="ModifyMerchantRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Merchant" nillable="true" type="q4:Merchant" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyMerchantRequest" nillable="true" type="tns:ModifyMerchantRequest"/>
+  <xs:complexType name="GetMerchantRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantRequest" nillable="true" type="tns:GetMerchantRequest"/>
+  <xs:complexType name="UnlockUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserIdToUnlock" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UnlockUserRequest" nillable="true" type="tns:UnlockUserRequest"/>
+  <xs:complexType name="ModifyMerchantParametersRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ParameterKeyValuesList" nillable="true" type="q5:ArrayOfParameterKeyValues" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyMerchantParametersRequest" nillable="true" type="tns:ModifyMerchantParametersRequest"/>
+  <xs:complexType name="GetMerchantParametersRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantParametersRequest" nillable="true" type="tns:GetMerchantParametersRequest"/>
+  <xs:complexType name="GetInvoiceDetailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetInvoiceDetailRequest" nillable="true" type="tns:GetInvoiceDetailRequest"/>
+  <xs:complexType name="GetIndustryProductsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetIndustryProductsRequest" nillable="true" type="tns:GetIndustryProductsRequest"/>
+  <xs:complexType name="GetRoleListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRoleListRequest" nillable="true" type="tns:GetRoleListRequest"/>
+  <xs:complexType name="AddHierarchyRoleRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HierarchyRole" nillable="true" type="q6:HierarchyRole" xmlns:q6="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddHierarchyRoleRequest" nillable="true" type="tns:AddHierarchyRoleRequest"/>
+  <xs:complexType name="ModifyHierarchyRoleRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HierarchyRole" nillable="true" type="q7:HierarchyRole" xmlns:q7="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyHierarchyRoleRequest" nillable="true" type="tns:ModifyHierarchyRoleRequest"/>
+  <xs:complexType name="DeleteHierarchyRoleRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HierarchyRoleId" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteHierarchyRoleRequest" nillable="true" type="tns:DeleteHierarchyRoleRequest"/>
+  <xs:complexType name="GetHierarchyRoleListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetHierarchyRoleListRequest" nillable="true" type="tns:GetHierarchyRoleListRequest"/>
+  <xs:complexType name="PasswordResetRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PasswordResetRequest" nillable="true" type="tns:PasswordResetRequest"/>
+  <xs:complexType name="GetLinkedUsersRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLinkedUsersRequest" nillable="true" type="tns:GetLinkedUsersRequest"/>
+  <xs:complexType name="GetLinkedMerchantsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserToProcess" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLinkedMerchantsRequest" nillable="true" type="tns:GetLinkedMerchantsRequest"/>
+  <xs:complexType name="ShareMultimerchantUserRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LinkedGroupIdList" nillable="true" type="q8:ArrayOfint" xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShareMultimerchantUserRequest" nillable="true" type="tns:ShareMultimerchantUserRequest"/>
+  <xs:complexType name="ModifyUserLinkedGroupsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SharingList" nillable="true" type="tns:ArrayOfLinkedGroupSharing"/>
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyUserLinkedGroupsRequest" nillable="true" type="tns:ModifyUserLinkedGroupsRequest"/>
+  <xs:complexType name="ArrayOfLinkedGroupSharing">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedGroupSharing" nillable="true" type="tns:LinkedGroupSharing"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkedGroupSharing" nillable="true" type="tns:ArrayOfLinkedGroupSharing"/>
+  <xs:complexType name="LinkedGroupSharing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LinkedGroupId" type="xs:int"/>
+      <xs:element minOccurs="0" name="ShareTokens" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="ShareTransactions" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="ShareUsers" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkedGroupSharing" nillable="true" type="tns:LinkedGroupSharing"/>
+  <xs:complexType name="ModifyMerchantLevel3TemplatesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Templates" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyMerchantLevel3TemplatesRequest" nillable="true" type="tns:ModifyMerchantLevel3TemplatesRequest"/>
+  <xs:complexType name="GetMerchantIpAddressListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantIpAddressListRequest" nillable="true" type="tns:GetMerchantIpAddressListRequest"/>
+  <xs:complexType name="AddMerchantIpAddressRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Device" type="q9:DevicesIpAccess" xmlns:q9="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+          <xs:element minOccurs="0" name="Enabled" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIpAddressRequest" nillable="true" type="tns:AddMerchantIpAddressRequest"/>
+  <xs:complexType name="AddMerchantIpAddressListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MerchantIpAddressList" nillable="true" type="q10:ArrayOfMerchantIpAddress" xmlns:q10="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIpAddressListRequest" nillable="true" type="tns:AddMerchantIpAddressListRequest"/>
+  <xs:complexType name="DeleteMerchantIpAddressRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Device" type="q11:DevicesIpAccess" xmlns:q11="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+          <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteMerchantIpAddressRequest" nillable="true" type="tns:DeleteMerchantIpAddressRequest"/>
+  <xs:complexType name="GetMerchantIMEIListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantIMEIListRequest" nillable="true" type="tns:GetMerchantIMEIListRequest"/>
+  <xs:complexType name="AddMerchantIMEIRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Allowed" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="IMEIToAdd" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIMEIRequest" nillable="true" type="tns:AddMerchantIMEIRequest"/>
+  <xs:complexType name="AddMerchantIMEIListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IMEIList" nillable="true" type="q12:ArrayOfMerchantIMEI" xmlns:q12="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIMEIListRequest" nillable="true" type="tns:AddMerchantIMEIListRequest"/>
+  <xs:complexType name="DeleteMerchantIMEIRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IMEIToDelete" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteMerchantIMEIRequest" nillable="true" type="tns:DeleteMerchantIMEIRequest"/>
+  <xs:complexType name="AddApplicationKeyRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="KeyType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddApplicationKeyRequest" nillable="true" type="tns:AddApplicationKeyRequest"/>
+  <xs:complexType name="ActivateApplicationKeyRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="KeyId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActivateApplicationKeyRequest" nillable="true" type="tns:ActivateApplicationKeyRequest"/>
+  <xs:complexType name="DeactivateApplicationKeyRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="KeyId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ServerName" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeactivateApplicationKeyRequest" nillable="true" type="tns:DeactivateApplicationKeyRequest"/>
+  <xs:complexType name="GetApplicationConfigurationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApplicationConfigurationRequest" nillable="true" type="tns:GetApplicationConfigurationRequest"/>
+  <xs:complexType name="ModifyApplicationConfigurationRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Application" nillable="true" type="q13:Application" xmlns:q13="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyApplicationConfigurationRequest" nillable="true" type="tns:ModifyApplicationConfigurationRequest"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd3</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+  <xs:complexType name="VirtualTerminalWebServiceRequest">
+    <xs:sequence>
+      <xs:element name="MerchantId" type="xs:int"/>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VirtualTerminalWebServiceRequest" nillable="true" type="tns:VirtualTerminalWebServiceRequest"/>
+  <xs:complexType name="VirtualTerminalWebServiceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ClientWebServiceResponse">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VirtualTerminalWebServiceResponse" nillable="true" type="tns:VirtualTerminalWebServiceResponse"/>
+  <xs:complexType name="ClientWebServiceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Result" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientWebServiceResponse" nillable="true" type="tns:ClientWebServiceResponse"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd5</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <xs:complexType name="Merchant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInformationConfiguration" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="AutoCloseBatch" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="AutoCloseBatchHour" type="xs:unsignedByte"/>
+      <xs:element minOccurs="0" name="AutoCloseBatchMinute" type="xs:unsignedByte"/>
+      <xs:element minOccurs="0" name="BlockedCountryList" nillable="true" type="tns:ArrayOfCountry"/>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ContactEmail" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ContactFirstName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ContactLastName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CountryList" nillable="true" type="tns:ArrayOfCountry"/>
+      <xs:element name="DefaultTax" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="Industry" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="InvoiceFooter" nillable="true" type="xs:string"/>
+      <xs:element name="InvoiceOption" type="xs:short"/>
+      <xs:element minOccurs="0" name="IsManualMia1" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="LastSettlementDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="Level3Template" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ListInvoiceTemplate" nillable="true" type="tns:ArrayOfInvoiceTemplate"/>
+      <xs:element minOccurs="0" name="ListMerchantInvoiceTemplate" nillable="true" type="tns:ArrayOfMerchantInvoiceTemplate"/>
+      <xs:element minOccurs="0" name="Logo" nillable="true" type="xs:string"/>
+      <xs:element name="MaximumTax" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="MerchantParameterExceptions" nillable="true" type="tns:ArrayOfMerchantParameterException"/>
+      <xs:element minOccurs="0" name="MerchantParameters" nillable="true" type="tns:ArrayOfMerchantParameter"/>
+      <xs:element name="MinimumTax" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ProcessorType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="RecurringSaleCustomerCodeMode" nillable="true" type="xs:string"/>
+      <xs:element name="SessionTimeout" type="xs:int"/>
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TPIPassword" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TPIUsername" nillable="true" type="xs:string"/>
+      <xs:element name="TicketDeliveryMethod" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UseForceManagement" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="UseIndustry" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="UseMultiForce" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="UseRoundRobin" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Merchant" nillable="true" type="tns:Merchant"/>
+  <xs:complexType name="ArrayOfCountry">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Country" nillable="true" type="tns:Country"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCountry" nillable="true" type="tns:ArrayOfCountry"/>
+  <xs:complexType name="Country">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Country" nillable="true" type="tns:Country"/>
+  <xs:complexType name="ArrayOfInvoiceTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceTemplate" nillable="true" type="tns:InvoiceTemplate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceTemplate" nillable="true" type="tns:ArrayOfInvoiceTemplate"/>
+  <xs:complexType name="InvoiceTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TemplateFileName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int"/>
+      <xs:element minOccurs="0" name="TemplateName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TemplateStructure" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceTemplate" nillable="true" type="tns:InvoiceTemplate"/>
+  <xs:complexType name="ArrayOfMerchantInvoiceTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantInvoiceTemplate" nillable="true" type="tns:MerchantInvoiceTemplate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantInvoiceTemplate" nillable="true" type="tns:ArrayOfMerchantInvoiceTemplate"/>
+  <xs:complexType name="MerchantInvoiceTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MerchantId" type="xs:int"/>
+      <xs:element minOccurs="0" name="TemplateId" type="xs:int"/>
+      <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantInvoiceTemplate" nillable="true" type="tns:MerchantInvoiceTemplate"/>
+  <xs:complexType name="ArrayOfMerchantParameterException">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantParameterException" nillable="true" type="tns:MerchantParameterException"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantParameterException" nillable="true" type="tns:ArrayOfMerchantParameterException"/>
+  <xs:complexType name="MerchantParameterException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExceptionData" nillable="true" type="q1:ArrayOfstring" xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      <xs:element minOccurs="0" name="ExceptionType" nillable="true" type="xs:string"/>
+      <xs:element name="Option" type="xs:short"/>
+      <xs:element minOccurs="0" name="ParameterName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SendEmailAlert" type="xs:boolean"/>
+      <xs:element name="TriggerAmount" nillable="true" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantParameterException" nillable="true" type="tns:MerchantParameterException"/>
+  <xs:complexType name="ArrayOfMerchantParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantParameter" nillable="true" type="tns:MerchantParameter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantParameter" nillable="true" type="tns:ArrayOfMerchantParameter"/>
+  <xs:complexType name="MerchantParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element name="Option" type="xs:short"/>
+      <xs:element minOccurs="0" name="SendEmailAlert" type="xs:boolean"/>
+      <xs:element name="TriggerAmount" nillable="true" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantParameter" nillable="true" type="tns:MerchantParameter"/>
+  <xs:complexType name="MerchantUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlertEmailList" nillable="true" type="q2:ArrayOfstring" xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+      <xs:element minOccurs="0" name="CellPhoneNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ConfigurationXml" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="HeadCashier" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="HierarchyRoleId" type="xs:int"/>
+      <xs:element name="InvoiceOption" type="xs:short"/>
+      <xs:element name="IsLockedOut" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ParameterList" nillable="true" type="tns:ArrayOfMerchantUserParameter"/>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PrivilegeList" nillable="true" type="tns:ArrayOfMerchantUserPrivilege"/>
+      <xs:element minOccurs="0" name="ProcessingUserType" nillable="true" type="xs:string"/>
+      <xs:element name="ReceiptType" type="xs:short"/>
+      <xs:element minOccurs="0" name="SharedDrawer" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantUser" nillable="true" type="tns:MerchantUser"/>
+  <xs:complexType name="ArrayOfMerchantUserParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantUserParameter" nillable="true" type="tns:MerchantUserParameter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantUserParameter" nillable="true" type="tns:ArrayOfMerchantUserParameter"/>
+  <xs:complexType name="MerchantUserParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element name="Option" type="xs:short"/>
+      <xs:element minOccurs="0" name="SendEmailAlert" type="xs:boolean"/>
+      <xs:element name="TriggerAmount" nillable="true" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantUserParameter" nillable="true" type="tns:MerchantUserParameter"/>
+  <xs:complexType name="ArrayOfMerchantUserPrivilege">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantUserPrivilege" nillable="true" type="tns:MerchantUserPrivilege"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantUserPrivilege" nillable="true" type="tns:ArrayOfMerchantUserPrivilege"/>
+  <xs:complexType name="MerchantUserPrivilege">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantUserPrivilege" nillable="true" type="tns:MerchantUserPrivilege"/>
+  <xs:complexType name="MerchantShort">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AdditionalInformationConfiguration" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string"/>
+      <xs:element name="DefaultTax" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="IsManualMia1" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="Logo" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="MerchantParameters" nillable="true" type="tns:ArrayOfMerchantParameter"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string"/>
+      <xs:element name="SessionTimeout" type="xs:int"/>
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string"/>
+      <xs:element name="TicketDeliveryMethod" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Zip" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantShort" nillable="true" type="tns:MerchantShort"/>
+  <xs:complexType name="MerchantUserShort">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConfigurationXml" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Department" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string"/>
+      <xs:element name="InvoiceOption" type="xs:short"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ParameterList" nillable="true" type="tns:ArrayOfMerchantUserParameter"/>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PrivilegeList" nillable="true" type="tns:ArrayOfMerchantUserPrivilege"/>
+      <xs:element name="ReceiptType" type="xs:short"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantUserShort" nillable="true" type="tns:MerchantUserShort"/>
+  <xs:complexType name="ArrayOfMerchantUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantUser" nillable="true" type="tns:MerchantUser"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantUser" nillable="true" type="tns:ArrayOfMerchantUser"/>
+  <xs:complexType name="ArrayOfParameterKeyValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParameterKeyValues" nillable="true" type="tns:ParameterKeyValues"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameterKeyValues" nillable="true" type="tns:ArrayOfParameterKeyValues"/>
+  <xs:complexType name="ParameterKeyValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowedValues" nillable="true" type="tns:ArrayOfParameterValue"/>
+      <xs:element minOccurs="0" name="ParameterKeyName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="SelectedValues" nillable="true" type="tns:ArrayOfParameterValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParameterKeyValues" nillable="true" type="tns:ParameterKeyValues"/>
+  <xs:complexType name="ArrayOfParameterValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParameterValue" nillable="true" type="tns:ParameterValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameterValue" nillable="true" type="tns:ArrayOfParameterValue"/>
+  <xs:complexType name="ParameterValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ValueId" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParameterValue" nillable="true" type="tns:ParameterValue"/>
+  <xs:complexType name="ArrayOfInvoiceDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceDetail" nillable="true" type="tns:InvoiceDetail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceDetail" nillable="true" type="tns:ArrayOfInvoiceDetail"/>
+  <xs:complexType name="InvoiceDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExtendedData" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceDetail" nillable="true" type="tns:InvoiceDetail"/>
+  <xs:complexType name="ArrayOfRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="tns:Role"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRole" nillable="true" type="tns:ArrayOfRole"/>
+  <xs:complexType name="Role">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PrivilegeList" nillable="true" type="tns:ArrayOfMerchantUserPrivilege"/>
+      <xs:element minOccurs="0" name="RoleId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Role" nillable="true" type="tns:Role"/>
+  <xs:complexType name="HierarchyRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HierarchyRoleId" type="xs:int"/>
+      <xs:element minOccurs="0" name="InvoiceOption" nillable="true" type="xs:short"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ParameterList" nillable="true" type="tns:ArrayOfHierarchyRoleParameter"/>
+      <xs:element minOccurs="0" name="PrivilegeList" nillable="true" type="tns:ArrayOfMerchantUserPrivilege"/>
+      <xs:element minOccurs="0" name="ReceiptType" nillable="true" type="xs:short"/>
+      <xs:element minOccurs="0" name="RoleId" type="xs:int"/>
+      <xs:element minOccurs="0" name="RoleLevel" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HierarchyRole" nillable="true" type="tns:HierarchyRole"/>
+  <xs:complexType name="ArrayOfHierarchyRoleParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HierarchyRoleParameter" nillable="true" type="tns:HierarchyRoleParameter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHierarchyRoleParameter" nillable="true" type="tns:ArrayOfHierarchyRoleParameter"/>
+  <xs:complexType name="HierarchyRoleParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element name="Option" type="xs:short"/>
+      <xs:element minOccurs="0" name="SendEmailAlert" type="xs:boolean"/>
+      <xs:element name="TriggerAmount" nillable="true" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HierarchyRoleParameter" nillable="true" type="tns:HierarchyRoleParameter"/>
+  <xs:complexType name="ArrayOfHierarchyRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HierarchyRole" nillable="true" type="tns:HierarchyRole"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHierarchyRole" nillable="true" type="tns:ArrayOfHierarchyRole"/>
+  <xs:complexType name="ArrayOfLinkedUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedUser" nillable="true" type="tns:LinkedUser"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkedUser" nillable="true" type="tns:ArrayOfLinkedUser"/>
+  <xs:complexType name="LinkedUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MerchantId" type="xs:int"/>
+      <xs:element minOccurs="0" name="MerchantName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkedUser" nillable="true" type="tns:LinkedUser"/>
+  <xs:complexType name="ArrayOfLinkedGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedGroup" nillable="true" type="tns:LinkedGroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkedGroup" nillable="true" type="tns:ArrayOfLinkedGroup"/>
+  <xs:complexType name="LinkedGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupAdmin" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="LinkedGroupId" type="xs:int"/>
+      <xs:element minOccurs="0" name="MerchantList" nillable="true" type="tns:ArrayOfLinkedMerchant"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ShareTokens" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="ShareTransactions" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="ShareUsers" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkedGroup" nillable="true" type="tns:LinkedGroup"/>
+  <xs:complexType name="ArrayOfLinkedMerchant">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LinkedMerchant" nillable="true" type="tns:LinkedMerchant"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLinkedMerchant" nillable="true" type="tns:ArrayOfLinkedMerchant"/>
+  <xs:complexType name="LinkedMerchant">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MerchantId" type="xs:int"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LinkedMerchant" nillable="true" type="tns:LinkedMerchant"/>
+  <xs:complexType name="ArrayOfMerchantIpAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantIpAddress" nillable="true" type="tns:MerchantIpAddress"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantIpAddress" nillable="true" type="tns:ArrayOfMerchantIpAddress"/>
+  <xs:complexType name="MerchantIpAddress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Device" type="tns:DevicesIpAccess"/>
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="IpAddress" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantIpAddress" nillable="true" type="tns:MerchantIpAddress"/>
+  <xs:simpleType name="DevicesIpAccess">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="All"/>
+      <xs:enumeration value="VT"/>
+      <xs:enumeration value="eCommerce"/>
+      <xs:enumeration value="Mobile"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DevicesIpAccess" nillable="true" type="tns:DevicesIpAccess"/>
+  <xs:complexType name="ArrayOfMerchantIMEI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MerchantIMEI" nillable="true" type="tns:MerchantIMEI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMerchantIMEI" nillable="true" type="tns:ArrayOfMerchantIMEI"/>
+  <xs:complexType name="MerchantIMEI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Allowed" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="IMEI" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MerchantIMEI" nillable="true" type="tns:MerchantIMEI"/>
+  <xs:complexType name="ArrayOfApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Application" nillable="true" type="tns:Application"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplication" nillable="true" type="tns:ArrayOfApplication"/>
+  <xs:complexType name="Application">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConfigurationXml" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ParameterList" nillable="true" type="tns:ArrayOfApplicationParameter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Application" nillable="true" type="tns:Application"/>
+  <xs:complexType name="ArrayOfApplicationParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ApplicationParameter" nillable="true" type="tns:ApplicationParameter"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfApplicationParameter" nillable="true" type="tns:ArrayOfApplicationParameter"/>
+  <xs:complexType name="ApplicationParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element name="Option" type="xs:short"/>
+      <xs:element minOccurs="0" name="SendEmailAlert" type="xs:boolean"/>
+      <xs:element name="TriggerAmount" nillable="true" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ApplicationParameter" nillable="true" type="tns:ApplicationParameter"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd6</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring"/>
+  <xs:complexType name="ArrayOfint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd4</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+  <xs:complexType name="LoginResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q1:VirtualTerminalWebServiceResponse" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Merchant" nillable="true" type="q2:Merchant" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+          <xs:element minOccurs="0" name="User" nillable="true" type="q3:MerchantUser" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginResponse" nillable="true" type="tns:LoginResponse"/>
+  <xs:complexType name="LoginNewResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q4:VirtualTerminalWebServiceResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Merchant" nillable="true" type="q5:MerchantShort" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+          <xs:element minOccurs="0" name="User" nillable="true" type="q6:MerchantUserShort" xmlns:q6="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoginNewResponse" nillable="true" type="tns:LoginNewResponse"/>
+  <xs:complexType name="ChangePasswordResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q7:VirtualTerminalWebServiceResponse" xmlns:q7="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangePasswordResponse" nillable="true" type="tns:ChangePasswordResponse"/>
+  <xs:complexType name="AddUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q8:VirtualTerminalWebServiceResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddUserResponse" nillable="true" type="tns:AddUserResponse"/>
+  <xs:complexType name="ModifyUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q9:VirtualTerminalWebServiceResponse" xmlns:q9="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyUserResponse" nillable="true" type="tns:ModifyUserResponse"/>
+  <xs:complexType name="DeleteUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q10:VirtualTerminalWebServiceResponse" xmlns:q10="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteUserResponse" nillable="true" type="tns:DeleteUserResponse"/>
+  <xs:complexType name="GetUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q11:VirtualTerminalWebServiceResponse" xmlns:q11="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="User" nillable="true" type="q12:MerchantUser" xmlns:q12="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserResponse" nillable="true" type="tns:GetUserResponse"/>
+  <xs:complexType name="GetUserListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q13:VirtualTerminalWebServiceResponse" xmlns:q13="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserList" nillable="true" type="q14:ArrayOfMerchantUser" xmlns:q14="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetUserListResponse" nillable="true" type="tns:GetUserListResponse"/>
+  <xs:complexType name="ChangeUserPasswordResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q15:VirtualTerminalWebServiceResponse" xmlns:q15="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ChangeUserPasswordResponse" nillable="true" type="tns:ChangeUserPasswordResponse"/>
+  <xs:complexType name="ModifyMerchantResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q16:VirtualTerminalWebServiceResponse" xmlns:q16="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyMerchantResponse" nillable="true" type="tns:ModifyMerchantResponse"/>
+  <xs:complexType name="GetMerchantResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q17:VirtualTerminalWebServiceResponse" xmlns:q17="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Merchant" nillable="true" type="q18:Merchant" xmlns:q18="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantResponse" nillable="true" type="tns:GetMerchantResponse"/>
+  <xs:complexType name="UnlockUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q19:VirtualTerminalWebServiceResponse" xmlns:q19="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UnlockUserResponse" nillable="true" type="tns:UnlockUserResponse"/>
+  <xs:complexType name="ModifyMerchantParametersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q20:VirtualTerminalWebServiceResponse" xmlns:q20="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyMerchantParametersResponse" nillable="true" type="tns:ModifyMerchantParametersResponse"/>
+  <xs:complexType name="GetMerchantParametersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q21:VirtualTerminalWebServiceResponse" xmlns:q21="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ParameterKeyValuesList" nillable="true" type="q22:ArrayOfParameterKeyValues" xmlns:q22="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantParametersResponse" nillable="true" type="tns:GetMerchantParametersResponse"/>
+  <xs:complexType name="GetInvoiceDetailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q23:VirtualTerminalWebServiceResponse" xmlns:q23="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="InvoiceDetailList" nillable="true" type="q24:ArrayOfInvoiceDetail" xmlns:q24="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetInvoiceDetailResponse" nillable="true" type="tns:GetInvoiceDetailResponse"/>
+  <xs:complexType name="GetIndustryProductsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q25:VirtualTerminalWebServiceResponse" xmlns:q25="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Products" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetIndustryProductsResponse" nillable="true" type="tns:GetIndustryProductsResponse"/>
+  <xs:complexType name="GetRoleListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q26:VirtualTerminalWebServiceResponse" xmlns:q26="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RoleList" nillable="true" type="q27:ArrayOfRole" xmlns:q27="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRoleListResponse" nillable="true" type="tns:GetRoleListResponse"/>
+  <xs:complexType name="AddHierarchyRoleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q28:VirtualTerminalWebServiceResponse" xmlns:q28="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HierarchyRoleId" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddHierarchyRoleResponse" nillable="true" type="tns:AddHierarchyRoleResponse"/>
+  <xs:complexType name="ModifyHierarchyRoleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q29:VirtualTerminalWebServiceResponse" xmlns:q29="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyHierarchyRoleResponse" nillable="true" type="tns:ModifyHierarchyRoleResponse"/>
+  <xs:complexType name="DeleteHierarchyRoleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q30:VirtualTerminalWebServiceResponse" xmlns:q30="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteHierarchyRoleResponse" nillable="true" type="tns:DeleteHierarchyRoleResponse"/>
+  <xs:complexType name="GetHierarchyRoleListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q31:VirtualTerminalWebServiceResponse" xmlns:q31="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HierarchyRoleList" nillable="true" type="q32:ArrayOfHierarchyRole" xmlns:q32="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetHierarchyRoleListResponse" nillable="true" type="tns:GetHierarchyRoleListResponse"/>
+  <xs:complexType name="PasswordResetResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q33:VirtualTerminalWebServiceResponse" xmlns:q33="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PasswordResetResponse" nillable="true" type="tns:PasswordResetResponse"/>
+  <xs:complexType name="GetLinkedUsersResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q34:VirtualTerminalWebServiceResponse" xmlns:q34="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LinkedUsers" nillable="true" type="q35:ArrayOfLinkedUser" xmlns:q35="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLinkedUsersResponse" nillable="true" type="tns:GetLinkedUsersResponse"/>
+  <xs:complexType name="GetLinkedMerchantsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q36:VirtualTerminalWebServiceResponse" xmlns:q36="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LinkedGroups" nillable="true" type="q37:ArrayOfLinkedGroup" xmlns:q37="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLinkedMerchantsResponse" nillable="true" type="tns:GetLinkedMerchantsResponse"/>
+  <xs:complexType name="ShareMultimerchantUserResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q38:VirtualTerminalWebServiceResponse" xmlns:q38="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShareMultimerchantUserResponse" nillable="true" type="tns:ShareMultimerchantUserResponse"/>
+  <xs:complexType name="ModifyUserLinkedGroupsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q39:VirtualTerminalWebServiceResponse" xmlns:q39="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyUserLinkedGroupsResponse" nillable="true" type="tns:ModifyUserLinkedGroupsResponse"/>
+  <xs:complexType name="ModifyMerchantLevel3TemplatesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q40:VirtualTerminalWebServiceResponse" xmlns:q40="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyMerchantLevel3TemplatesResponse" nillable="true" type="tns:ModifyMerchantLevel3TemplatesResponse"/>
+  <xs:complexType name="GetMerchantIpAddressListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q41:VirtualTerminalWebServiceResponse" xmlns:q41="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MerchantIpAddressList" nillable="true" type="q42:ArrayOfMerchantIpAddress" xmlns:q42="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantIpAddressListResponse" nillable="true" type="tns:GetMerchantIpAddressListResponse"/>
+  <xs:complexType name="AddMerchantIpAddressResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q43:VirtualTerminalWebServiceResponse" xmlns:q43="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIpAddressResponse" nillable="true" type="tns:AddMerchantIpAddressResponse"/>
+  <xs:complexType name="AddMerchantIpAddressListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q44:VirtualTerminalWebServiceResponse" xmlns:q44="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIpAddressListResponse" nillable="true" type="tns:AddMerchantIpAddressListResponse"/>
+  <xs:complexType name="DeleteMerchantIpAddressResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q45:VirtualTerminalWebServiceResponse" xmlns:q45="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteMerchantIpAddressResponse" nillable="true" type="tns:DeleteMerchantIpAddressResponse"/>
+  <xs:complexType name="GetMerchantIMEIListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q46:VirtualTerminalWebServiceResponse" xmlns:q46="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MerchantIMEIList" nillable="true" type="q47:ArrayOfMerchantIMEI" xmlns:q47="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetMerchantIMEIListResponse" nillable="true" type="tns:GetMerchantIMEIListResponse"/>
+  <xs:complexType name="AddMerchantIMEIResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q48:VirtualTerminalWebServiceResponse" xmlns:q48="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIMEIResponse" nillable="true" type="tns:AddMerchantIMEIResponse"/>
+  <xs:complexType name="AddMerchantIMEIListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q49:VirtualTerminalWebServiceResponse" xmlns:q49="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddMerchantIMEIListResponse" nillable="true" type="tns:AddMerchantIMEIListResponse"/>
+  <xs:complexType name="DeleteMerchantIMEIResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q50:VirtualTerminalWebServiceResponse" xmlns:q50="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteMerchantIMEIResponse" nillable="true" type="tns:DeleteMerchantIMEIResponse"/>
+  <xs:complexType name="AddApplicationKeyResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q51:VirtualTerminalWebServiceResponse" xmlns:q51="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdministratorEmail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddApplicationKeyResponse" nillable="true" type="tns:AddApplicationKeyResponse"/>
+  <xs:complexType name="ActivateApplicationKeyResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q52:VirtualTerminalWebServiceResponse" xmlns:q52="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ActivateApplicationKeyResponse" nillable="true" type="tns:ActivateApplicationKeyResponse"/>
+  <xs:complexType name="DeactivateApplicationKeyResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q53:VirtualTerminalWebServiceResponse" xmlns:q53="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeactivateApplicationKeyResponse" nillable="true" type="tns:DeactivateApplicationKeyResponse"/>
+  <xs:complexType name="GetApplicationConfigurationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q54:VirtualTerminalWebServiceResponse" xmlns:q54="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicationList" nillable="true" type="q55:ArrayOfApplication" xmlns:q55="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetApplicationConfigurationResponse" nillable="true" type="tns:GetApplicationConfigurationResponse"/>
+  <xs:complexType name="ModifyApplicationConfigurationResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q56:VirtualTerminalWebServiceResponse" xmlns:q56="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModifyApplicationConfigurationResponse" nillable="true" type="tns:ModifyApplicationConfigurationResponse"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/5/admin.asmx?xsd=xsd1</con:url>
+      <con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://test.cenpos.net:9443/6/3/admin.asmx</con:endpoint>
+    <con:endpoint>https://test.cenpos.net:9443/6/4/admin.asmx</con:endpoint>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/admin.asmx</con:endpoint>
+    <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+  </con:endpoints>
+</con:interface>

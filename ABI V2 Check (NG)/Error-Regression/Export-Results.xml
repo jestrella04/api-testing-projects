@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Export Results" searchProperties="true" id="73c5903a-b994-421f-b3db-8bcef54479e5" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="73c5903a-b994-421f-b3db-8bcef54479e5fileName">Export-Results</con:setting>
+  </con:settings>
+  <con:testStep type="groovy" name="Export Results" id="e3d32284-f2c4-4735-a894-fd5f38016f52">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.support.XmlHolder
+
+try {	
+	//Current date
+	def today = new Date().clearTime()
+	today = today.format( "MM-dd-yyyy" )
+	
+	//The path and file to persist results
+	def resultDir = new File( context.expand( '${ExportDir}' ) )
+	
+	if( ! resultDir.exists() ) {
+		resultDir.mkdirs()
+	}
+
+	def csvfile = context.testCase.getTestSuite().name + ' Checks ' + today.toString() + '.csv'
+	def resultsFile = new File( resultDir, csvfile )
+
+	//If the file does not already exist, we want to create it, otherwise we want to append
+	if( ! resultsFile.exists() ) {
+		resultsFile.createNewFile()
+		
+		//Header row
+		resultsFile.write( '"MID","INTERFACE","TRANSACTION","CHECK DATE","RESULT","RESULT CODE","REFERENCE NO.","TIMESTAMP"' )
+	}
+
+	def testCaseList = context.testCase.getTestSuite().getTestCaseList()
+	testCaseList.remove( testRunner.testCase )
+
+	//Loop trough testcases
+	testCaseList.each {
+		//def testSteps = context.testCase.getTestStepList()
+		def testSteps = it.getTestStepList()
+		
+		//Loop through transactions and write results to file
+		testSteps.each{
+			// Get the data to be added to the report
+			def testCaseName = it.testCase.name
+			def testStepName = it.name
+			def merchantId = testRunner.testCase.testSuite.getTestCaseByName(testCaseName).getPropertyValue( "MerchantId" )
+			def checkDate = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "CheckIssueDate" )
+			def interfName = "ProcessCheck"
+			def modelItem = it.getModelItem().toString()
+	
+			if ( modelItem.contains( "WsdlTestRequestStep" ) ) {
+
+				def response = testRunner.testCase.testSuite.getTestCaseByName( testCaseName ).getTestStepByName( testStepName ).httpRequest.response
+				XmlHolder responseXML = new XmlHolder( response.getResponseContent() )
+				responseXML.namespaces["ns2"] = "http://tempuri.org/"
+				responseXML.namespaces["ns1"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+				responseXML.namespaces["a"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses"
+				
+				def status = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Message[1]' )
+				def resultCode = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Result[1]' )
+				def referenceNumber = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:ReferenceNumber[1]' )
+				def timestamp = response.responseHeaders["Date"]
+	
+				if ( referenceNumber == null || ! referenceNumber.isNumber() ) {
+	
+					referenceNumber = "N/A";
+					
+				}
+	
+				//Write info to file
+				resultsFile.append( '\n' ) //Newline
+				resultsFile.append( '"' + merchantId + '",' ) //Merchant Id
+				resultsFile.append( '"' + testCaseName + '",' ) //Interface
+				resultsFile.append( '"' + testStepName + '",' ) //Transaction
+				resultsFile.append( '"' + checkDate + '",' ) //Check Date
+				resultsFile.append( '"' + status + '",' ) //Transaction status
+				resultsFile.append( '"' + resultCode + '",' ) //Transaction status
+				resultsFile.append( '"' + referenceNumber + '",' ) //Reference number
+				resultsFile.append( '"' + timestamp + '",' ) //Timestamp
+			}
+		}
+	}
+
+} 
+
+catch( e )
+{	
+	log.error( "An error occurred: " + e.toString() )
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

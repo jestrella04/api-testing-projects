@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UseToken" searchProperties="true" id="e3151a87-b442-4fbe-a280-e0ca0f859909" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e3151a87-b442-4fbe-a280-e0ca0f859909fileName">UseToken</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="UseToken (Personal Check) - Sale" id="4afe046c-1bbc-438f-abd1-f3a0f0bdec39">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>UseToken</con:operation>
+      <con:request name="UseToken (Personal Check) - Sale" id="23da7a38-5300-48d9-9526-18e71309fd15" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UseToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:AuthorizationNumber xsi:nil="true" />
+            <acr1:CardVerificationNumber xsi:nil="true" />
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:PurchaseOrderNumber xsi:nil="true" />
+            <acr1:SecureCode xsi:nil="true" />
+            <acr1:TokenId>${UseTokenCheckPerso}</acr1:TokenId>
+            <acr1:TransactionType>Sale</acr1:TransactionType>
+         </tem:request>
+      </tem:UseToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/UseToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="UseToken (Corp Check) - Sale" id="00b71dd8-3d37-458f-9b4b-c5b1a6ee0f6e">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>UseToken</con:operation>
+      <con:request name="UseToken (Corp Check) - Sale" id="23da7a38-5300-48d9-9526-18e71309fd15" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:UseToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:AuthorizationNumber xsi:nil="true" />
+            <acr1:CardVerificationNumber xsi:nil="true" />
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:PurchaseOrderNumber xsi:nil="true" />
+            <acr1:SecureCode xsi:nil="true" />
+            <acr1:TokenId>${UseTokenCheckCorp}</acr1:TokenId>
+            <acr1:TransactionType>Sale</acr1:TransactionType>
+         </tem:request>
+      </tem:UseToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Tokens/UseToken" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="42f88e07-faee-46d4-88b6-a21bd10657a4" isOneWay="false" action="http://tempuri.org/Check/GetRecurringACHInformation" name="GetRecurringACHInformation" bindingOperationName="GetRecurringACHInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="42f88e07-faee-46d4-88b6-a21bd10657a4fileName">GetRecurringACHInformation</con:setting>
+  </con:settings>
+  <con:call id="9c8ab105-0a53-45bd-88ae-c17da0f743c4" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://ww2.cenpos.net/2/check.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GetRecurringACHInformation>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:FirstName>?</acr1:FirstName>\r
+            <!--Optional:-->\r
+            <acr1:IncludeSignature>?</acr1:IncludeSignature>\r
+            <!--Optional:-->\r
+            <acr1:LastName>?</acr1:LastName>\r
+         </tem:request>\r
+      </tem:GetRecurringACHInformation>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/GetRecurringACHInformation"/>
+  </con:call>
+</con:operation>

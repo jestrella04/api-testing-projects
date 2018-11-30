@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="0fa0ce94-2d68-4b96-90c2-264b3b3e114e" isOneWay="false" action="http://tempuri.org/Check/ProcessCheckSignature" name="ProcessCheckSignature" bindingOperationName="ProcessCheckSignature" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0fa0ce94-2d68-4b96-90c2-264b3b3e114efileName">ProcessCheckSignature</con:setting>
+  </con:settings>
+  <con:call id="28dbb5ba-200a-4b3d-83e3-b0dc23796a09" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://ww2.cenpos.net/2/check.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCheckSignature>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:RecurringAchTokenId>?</acr1:RecurringAchTokenId>\r
+            <!--Optional:-->\r
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>\r
+            <!--Optional:-->\r
+            <acr1:Signature>?</acr1:Signature>\r
+            <!--Optional:-->\r
+            <acr1:SignatureType>?</acr1:SignatureType>\r
+         </tem:request>\r
+      </tem:ProcessCheckSignature>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheckSignature"/>
+  </con:call>
+</con:operation>

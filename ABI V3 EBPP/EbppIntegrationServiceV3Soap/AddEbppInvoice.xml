@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="267a4e34-0e7d-4385-a0f3-71dea8d7db7b" isOneWay="false" action="http://ebpp.cenpos.net/V3/AddEbppInvoice" name="AddEbppInvoice" bindingOperationName="AddEbppInvoice" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="267a4e34-0e7d-4385-a0f3-71dea8d7db7bfileName">AddEbppInvoice</con:setting>
+  </con:settings>
+  <con:call id="c2056dfe-6290-4b96-a412-a343bf67c97d" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v3="http://ebpp.cenpos.net/V3">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v3:AddEbppInvoice>
+         <!--Optional:-->
+         <v3:addInvoiceRequestVO>
+            <!--Optional:-->
+            <v3:Invoice>
+               <v3:Id>?</v3:Id>
+               <!--Optional:-->
+               <v3:InvoiceNumber>?</v3:InvoiceNumber>
+               <v3:TotalAmount>?</v3:TotalAmount>
+               <v3:TaxAmount>?</v3:TaxAmount>
+               <v3:Discount>?</v3:Discount>
+               <v3:AmountAfterDiscount>?</v3:AmountAfterDiscount>
+               <!--Optional:-->
+               <v3:TinyUrlCode>?</v3:TinyUrlCode>
+               <!--Optional:-->
+               <v3:BinaryInvoice>cid:610781699343</v3:BinaryInvoice>
+               <v3:Processed>?</v3:Processed>
+               <v3:ProcessedDate>?</v3:ProcessedDate>
+               <v3:PaidAmount>?</v3:PaidAmount>
+               <!--Optional:-->
+               <v3:InvoiceDetailStatus>?</v3:InvoiceDetailStatus>
+               <v3:InvoiceDate>?</v3:InvoiceDate>
+               <v3:HasSpecialPayment>?</v3:HasSpecialPayment>
+               <v3:Balance>?</v3:Balance>
+               <!--Optional:-->
+               <v3:InvoiceEncoded>cid:305041044581</v3:InvoiceEncoded>
+            </v3:Invoice>
+            <!--Optional:-->
+            <v3:Customer>
+               <!--Optional:-->
+               <v3:Phone>?</v3:Phone>
+               <!--Optional:-->
+               <v3:MobilePhone>?</v3:MobilePhone>
+               <!--Optional:-->
+               <v3:MailingZipCode>?</v3:MailingZipCode>
+               <!--Optional:-->
+               <v3:MailingState>?</v3:MailingState>
+               <!--Optional:-->
+               <v3:MailingCity>?</v3:MailingCity>
+               <!--Optional:-->
+               <v3:MailingAddress>?</v3:MailingAddress>
+               <!--Optional:-->
+               <v3:FaxNumber>?</v3:FaxNumber>
+               <!--Optional:-->
+               <v3:CustomField3>?</v3:CustomField3>
+               <!--Optional:-->
+               <v3:CustomField2>?</v3:CustomField2>
+               <!--Optional:-->
+               <v3:CustomField1>?</v3:CustomField1>
+               <!--Optional:-->
+               <v3:CustomerName>?</v3:CustomerName>
+               <!--Optional:-->
+               <v3:CustomerEmail>?</v3:CustomerEmail>
+               <!--Optional:-->
+               <v3:AlternateFaxNumber>?</v3:AlternateFaxNumber>
+               <!--Optional:-->
+               <v3:AlternateEmail>?</v3:AlternateEmail>
+               <!--Optional:-->
+               <v3:CustomerCode>?</v3:CustomerCode>
+            </v3:Customer>
+            <!--Optional:-->
+            <v3:LineItems>
+               <!--Zero or more repetitions:-->
+               <v3:InvoiceLineItemVO>
+                  <!--Optional:-->
+                  <v3:Description>?</v3:Description>
+                  <v3:TotalPrice>?</v3:TotalPrice>
+                  <v3:Quantity>?</v3:Quantity>
+                  <v3:TotalTax>?</v3:TotalTax>
+               </v3:InvoiceLineItemVO>
+            </v3:LineItems>
+            <!--Optional:-->
+            <v3:LinkButton>?</v3:LinkButton>
+            <!--Optional:-->
+            <v3:LinkLabel>?</v3:LinkLabel>
+            <!--Optional:-->
+            <v3:Username>?</v3:Username>
+            <!--Optional:-->
+            <v3:UserId>?</v3:UserId>
+            <!--Optional:-->
+            <v3:Password>?</v3:Password>
+            <v3:MerchantId>?</v3:MerchantId>
+            <v3:PickupTime>?</v3:PickupTime>
+         </v3:addInvoiceRequestVO>
+      </v3:AddEbppInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ebpp.cenpos.net/V3/AddEbppInvoice"/>
+  </con:call>
+</con:operation>

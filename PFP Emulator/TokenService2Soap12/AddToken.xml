@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="6b2beb34-5ccc-4dbb-b350-5af0cae291e6" isOneWay="false" action="http://tempuri.org/AddToken" name="AddToken" bindingOperationName="AddToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="6b2beb34-5ccc-4dbb-b350-5af0cae291e6fileName">AddToken</con:setting>
+  </con:settings>
+  <con:call id="2754653b-0a72-4c02-b3bc-29dcca366384" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://hub.cenpos.net/pfpQA/v2/TokenService.asmx</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:AddToken>\r
+         <!--Optional:-->\r
+         <tem:userInfo>\r
+            <!--Optional:-->\r
+            <tem:UserName>?</tem:UserName>\r
+            <!--Optional:-->\r
+            <tem:Password>?</tem:Password>\r
+            <tem:MerchantId>?</tem:MerchantId>\r
+         </tem:userInfo>\r
+         <!--Optional:-->\r
+         <tem:nameOnCard>?</tem:nameOnCard>\r
+         <!--Optional:-->\r
+         <tem:cardNumber>?</tem:cardNumber>\r
+         <!--Optional:-->\r
+         <tem:expDate>?</tem:expDate>\r
+         <!--Optional:-->\r
+         <tem:customerEmail>?</tem:customerEmail>\r
+         <!--Optional:-->\r
+         <tem:customerCode>?</tem:customerCode>\r
+      </tem:AddToken>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/TokenService2Soap/AddTokenRequest"/>
+  </con:call>
+</con:operation>

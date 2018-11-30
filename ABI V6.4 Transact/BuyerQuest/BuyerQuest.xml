@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f55f79dc-5c89-4be4-85ca-4e51197b231e" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="BuyerQuest" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f55f79dc-5c89-4be4-85ca-4e51197b231efileName">BuyerQuest</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="manualTestStep" name="GetMerchantId" id="7492e2eb-e264-45bc-886f-c5fdb21f268b">
+    <con:description>Enter the merchant id where the transaction should be processed.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="GetAppCrypt" id="2fd1286b-be3f-4549-96d8-2c68505d6323">
+    <con:description>Enter the application cryptogram returned by the BuyerQuest test tool, you'll find it as AccessToken in the response.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="GetCryptoToken" id="ab9a565b-dee4-418c-afbe-069e51adc732">
+    <con:description>Enter the crypto token returned by the BuyerQuest test tool, you'll find it as TokenId in the response.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="GetAmount" id="87b475ce-ddda-4689-b757-c68583059bbe">
+    <con:description>Enter the amount to be processed, as returned by the BuyerQuest test tool.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="manualTestStep" name="GetPurchaseOrderNumber" id="befd6f0b-3242-4a9a-88d5-415d3e9bac95">
+    <con:description>Enter the purchase order number for the transaction as returned by the BuyerQuest test tool, you'll find it as PurchaseOrderNumber in the response.</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  </con:testStep>
+  <con:testStep type="request" name="ProcessCard - Sale" id="ad9b9893-ff8b-4b4f-a24c-6038ae1169f6">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCard</con:operation>
+      <con:request name="ProcessCard - Sale" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="32c99f03-30de-4180-9cfb-b1fef3f39fab" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessCard>\r
+         <tem:request>\r
+            <acr:MerchantId>${GetMerchantId#Result}</acr:MerchantId>\r
+            <acr:Password>${GetAppCrypt#Result}</acr:Password>\r
+            <acr:UserId>application%buyerquest</acr:UserId>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>\r
+            <acr1:IMEI xsi:nil="true"/>\r
+            <acr1:Amount>${GetAmount#Result}</acr1:Amount>\r
+            <acr1:AuthorizationNumber xsi:nil="true"/>\r
+            <acr1:CardExpirationDate xsi:nil="true"/>\r
+            <acr1:CardLastFourDigits xsi:nil="true"/>\r
+            <acr1:CardNumber>${GetCryptoToken#Result}</acr1:CardNumber>\r
+            <acr1:CardVerificationNumber xsi:nil="true"/>
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>\r
+            <acr1:CurrencyCode xsi:nil="true"/>
+            <acr1:CustomerBillingAddress xsi:nil="true"/>
+            <acr1:CustomerCity xsi:nil="true"/>\r
+            <acr1:CustomerCode xsi:nil="true"/>
+            <acr1:CustomerEmailAddress>cenposqatest@mailinator.com</acr1:CustomerEmailAddress>
+            <acr1:CustomerPhone xsi:nil="true"/>\r
+            <acr1:CustomerState xsi:nil="true"/>\r
+            <acr1:CustomerZipCode xsi:nil="true"/>
+            <acr1:InvoiceDetail xsi:nil="true"/>\r
+            <acr1:InvoiceNumber>${GetPurchaseOrderNumber#Result}</acr1:InvoiceNumber>
+            <acr1:KeySerialNumber xsi:nil="true"/>\r
+            <acr1:MagneticData xsi:nil="true"/>\r
+            <acr1:NameOnCard xsi:nil="true"/>\r
+            <acr1:Pin xsi:nil="true"/>\r
+            <acr1:PurchaseOrderNumber>${GetPurchaseOrderNumber#Result}</acr1:PurchaseOrderNumber>
+            <acr1:ReferenceNumber xsi:nil="true"/>\r
+            <acr1:SecureCode xsi:nil="true"/>\r
+            <acr1:TerminalCapabilities>Manual</acr1:TerminalCapabilities>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessCard>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="f7d30150-aa22-409c-981c-445365d42b6d"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="717bcfeb-be4f-4d21-96c9-0278dea0b422">
+          <con:configuration>
+            <path>declare namespace tem='http://tempuri.org/';
+declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//tem:ProcessCardResponse[1]/tem:ProcessCardResult[1]/acr:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCard"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>7492e2eb-e264-45bc-886f-c5fdb21f268b</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ab9a565b-dee4-418c-afbe-069e51adc732</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>87b475ce-ddda-4689-b757-c68583059bbe</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>befd6f0b-3242-4a9a-88d5-415d3e9bac95</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

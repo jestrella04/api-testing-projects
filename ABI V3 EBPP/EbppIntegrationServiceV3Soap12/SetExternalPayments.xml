@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="eb867e93-97cd-4d41-accf-4698963c860b" isOneWay="false" action="http://ebpp.cenpos.net/V3/SetExternalPayments" name="SetExternalPayments" bindingOperationName="SetExternalPayments" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="eb867e93-97cd-4d41-accf-4698963c860bfileName">SetExternalPayments</con:setting>
+  </con:settings>
+  <con:call id="a6596488-bb56-454b-9cf1-ad2483b38222" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v3="http://ebpp.cenpos.net/V3">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v3:SetExternalPayments>\r
+         <!--Optional:-->\r
+         <v3:externalPaymentRequestVO>\r
+            <!--Optional:-->\r
+            <v3:ExternalPayments>\r
+               <!--Zero or more repetitions:-->\r
+               <v3:ExternalPaymentVO>\r
+                  <!--Optional:-->\r
+                  <v3:InvoiceNumber>?</v3:InvoiceNumber>\r
+                  <v3:Amount>?</v3:Amount>\r
+                  <v3:TotallyPaid>?</v3:TotallyPaid>\r
+                  <!--Optional:-->\r
+                  <v3:Comment>?</v3:Comment>\r
+                  <!--Optional:-->\r
+                  <v3:ReferenceNumber>?</v3:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <v3:AuthorizationNumber>?</v3:AuthorizationNumber>\r
+                  <v3:PaymentDate>?</v3:PaymentDate>\r
+                  <!--Optional:-->\r
+                  <v3:PaymentType>?</v3:PaymentType>\r
+                  <!--Optional:-->\r
+                  <v3:PaymentSource>?</v3:PaymentSource>\r
+                  <!--Optional:-->\r
+                  <v3:AccountNumber>?</v3:AccountNumber>\r
+                  <v3:Discount>?</v3:Discount>\r
+               </v3:ExternalPaymentVO>\r
+            </v3:ExternalPayments>\r
+            <v3:MerchantId>?</v3:MerchantId>\r
+            <!--Optional:-->\r
+            <v3:UserId>?</v3:UserId>\r
+            <!--Optional:-->\r
+            <v3:Password>?</v3:Password>\r
+            <!--Optional:-->\r
+            <v3:Username>?</v3:Username>\r
+         </v3:externalPaymentRequestVO>\r
+      </v3:SetExternalPayments>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ebpp.cenpos.net/V3/EbppIntegrationServiceV3Soap/SetExternalPaymentsRequest"/>
+  </con:call>
+</con:operation>

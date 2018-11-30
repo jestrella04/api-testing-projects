@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="DeleteAchToken" searchProperties="true" id="873a694b-ad4b-49b1-a590-fb8ee93c79bc" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="873a694b-ad4b-49b1-a590-fb8ee93c79bcfileName">DeleteAchToken</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="DeleteAchToken - Personal" id="cfa3ffc1-7c00-4e9d-83f8-e4a0d391b759">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>DeleteAchToken</con:operation>
+      <con:request name="DeleteAchToken - Personal" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f7ffefa8-a7bd-465e-8f54-b805ff706c52" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DeleteAchToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:TokenId>${UseTokenCheckPerso}</acr1:TokenId>
+         </tem:request>
+      </tem:DeleteAchToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="59366309-0686-4cab-8c0a-649eae622ac7"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/DeleteAchToken"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="DeleteAchToken - Corporate" id="b4b331f8-c383-44cf-8995-cd8ff1e15aa4">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>DeleteAchToken</con:operation>
+      <con:request name="DeleteAchToken - Corporate" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="b8a8f8f8-9fae-4341-b371-e877192cad92" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww4.cenpos.net/Tokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DeleteAchToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:TokenId>${UseTokenCheckCorp}</acr1:TokenId>
+         </tem:request>
+      </tem:DeleteAchToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="7e264dce-e3d2-4649-9f8c-d434275fdffd"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/DeleteAchToken"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Export" id="e3f9f8d2-b783-45ad-8652-e91151b482c9">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.support.XmlHolder;
+
+try {	
+	//Current date
+	def today = new Date().clearTime()
+	today = today.format( "MM-dd-yyyy" )
+	
+	//The path and file to persist results
+	def resultDir = new File( context.expand( '${ExportDir}' ) )
+	
+	if( ! resultDir.exists() ) {
+		resultDir.mkdirs()
+	}
+
+	def csvfile = 'Tokens ' + today.toString() + '.csv'
+	def resultsFile = new File( resultDir, csvfile )
+
+	//If the file does not already exist, we want to create it, otherwise we want to append
+	if( ! resultsFile.exists() ) {
+		resultsFile.createNewFile()
+		
+		//Header row
+		resultsFile.write('"MID","INTERFACE","TRANSACTION","CARDTYPE","RESULT","RESULT CODE","REFERENCE NO.","TIMESTAMP"')
+	}
+
+	def testSteps = context.testCase.getTestStepList()
+		
+	//Loop through transactions and write results to file
+	testSteps.each{
+		// Get the data to be added to the report
+		def testCaseName = it.testCase.name
+		def testStepName = it.name
+		def merchantId = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "MerchantId" )
+		def cardNumber = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "CardNumber" )
+		def identifier = cardNumber.substring(0,1)
+		
+		if ( identifier == "4" ) {
+			
+			cardType = "VISA"
+			
+		} else if ( identifier == "5" ) {
+			
+			cardType = "MASTERCARD"
+			
+		} else if ( identifier == "6" ) {
+			
+			cardType = "DISCOVER"
+			
+		} else if ( identifier == "3" ) {
+			
+			cardType = "AMEX"
+			
+		} else {
+			
+			cardType = "OTHER"
+			
+		}
+
+		def modelItem = it.getModelItem().toString()
+
+		if ( modelItem.contains("WsdlTestRequestStep") ) {
+
+			def response = testRunner.testCase.testSuite.getTestCaseByName(testCaseName).getTestStepByName(testStepName).httpRequest.response
+			XmlHolder responseXML = new XmlHolder( response.getResponseContent() );
+			responseXML.namespaces["ns2"] = "http://tempuri.org/"
+			responseXML.namespaces["ns1"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+			responseXML.namespaces["a"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Responses"
+
+			def interfName = testCaseName
+			/*def getCaseName = testCaseName.split( '-' )
+			def interfName = getCaseName[0].trim()
+			def inputType = getCaseName[1].trim()
+
+			def getStepName = testStepName.split( '-' )
+			def transaction = getStepName[1].trim()*/
+			
+			def status = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Message[1]' )
+			def referenceNumber = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:ReferenceNumber[1]' )
+			def resultCode = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Result[1]' )
+			def timestamp = response.responseHeaders["Date"]
+
+			if ( referenceNumber == null || ! referenceNumber.isNumber() ) {
+
+				referenceNumber = "N/A";
+				
+			}
+
+			//Write info to file
+			resultsFile.append('\n'); //Newline
+			resultsFile.append('"' + merchantId + '",'); //Merchant Id
+			resultsFile.append('"' + interfName + '",'); //Interface
+			resultsFile.append('"' + testStepName + '",'); //Transaction
+			resultsFile.append('"' + cardType + '",'); //CardType
+			resultsFile.append('"' + status + '",'); //Transaction result
+			resultsFile.append('"' + resultCode + '",'); //Transaction result code
+			resultsFile.append('"' + '' + '",'); //Reference number
+			resultsFile.append('"' + timestamp + '",'); //Timestamp
+		}
+	}
+
+} catch( e ) {
+	log.error("An error occurred: " + e.toString());
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

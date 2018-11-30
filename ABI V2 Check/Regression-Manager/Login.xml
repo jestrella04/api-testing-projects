@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="30fd83cd-21fd-45e4-a4f0-a3b014b354d9" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Login" searchProperties="true" timeout="0" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="30fd83cd-21fd-45e4-a4f0-a3b014b354d9fileName">Login</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="Login" id="cda77b2d-4326-48ce-b393-c59554a393c0">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.support.UISupport
+
+try
+{
+	def username = ''
+	def password = ''
+	def mid = ''
+	def imgType = ''
+	
+	while( username == '' || password == '' || mid == '' || imgType == '' )
+	{
+		username = com.eviware.soapui.support.UISupport.prompt( "Please enter username:", "Username", '' )
+		password = com.eviware.soapui.support.UISupport.prompt( "Please enter password:", "Password", '' )
+		mid = com.eviware.soapui.support.UISupport.prompt( 'Please enter merchant id:', 'Merchant ID', '' )
+		imgType = com.eviware.soapui.support.UISupport.prompt( 'Please select image type:', 'Image Type', [ 'TIFF', 'JPEG' ] )
+	}
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "UserId", username )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "Password", password )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MerchantId", mid )
+
+	if ( "TIFF" == imgType )
+	{
+		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CheckBackImage", "\${CheckBackImageTiff}" )
+		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CheckFrontImage", "\${CheckFrontImageTiff}" )
+	}
+	else if ( "JPEG" == imgType )
+	{
+		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CheckBackImage", "\${CheckBackImageJpeg}" )
+		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CheckFrontImage", "\${CheckFrontImageJpeg}" )
+	}
+}
+
+catch ( e )
+{
+	log.error( "An error occurred: " + e.toString() );
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

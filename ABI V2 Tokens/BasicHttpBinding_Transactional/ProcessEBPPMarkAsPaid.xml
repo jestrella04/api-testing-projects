@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessEBPPMarkAsPaid" name="ProcessEBPPMarkAsPaid" bindingOperationName="ProcessEBPPMarkAsPaid" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="fecb42af-b0e4-4ea3-adf7-745d130bc2f2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="fecb42af-b0e4-4ea3-adf7-745d130bc2f2fileName">ProcessEBPPMarkAsPaid</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="44de8f66-3739-47a8-b0b8-4b4d0ac1d369" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessEBPPMarkAsPaid>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:EBPPInvoiceId>?</acr1:EBPPInvoiceId>
+            <!--Optional:-->
+            <acr1:PaymentDate>?</acr1:PaymentDate>
+         </tem:request>
+      </tem:ProcessEBPPMarkAsPaid>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessEBPPMarkAsPaid"/>
+  </con:call>
+</con:operation>

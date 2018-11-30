@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Export Results" searchProperties="true" id="edb258d3-cf48-46ba-a5c3-2b976e11fb3b" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="edb258d3-cf48-46ba-a5c3-2b976e11fb3bfileName">Export-Results</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="groovy" name="Export Results" id="1e67e689-7050-42d9-aa44-52df635cc048">
+    <con:settings/>
+    <con:config>
+      <script>import com.eviware.soapui.support.XmlHolder;
+
+try {	
+	//Current date
+	def today = new Date().clearTime()
+	today = today.format( "MM-dd-yyyy" )
+	
+	//The path and file to persist results
+	def resultDir = new File( context.expand( '${ExportDir}' ) )
+	
+	if( ! resultDir.exists() ) {
+		resultDir.mkdirs()
+	}
+
+	def csvfile = context.testCase.getTestSuite().name + ' ' + today.toString() + '.csv'
+	def resultsFile = new File( resultDir, csvfile )
+
+	//If the file does not already exist, we want to create it, otherwise we want to append
+	if( ! resultsFile.exists() ) {
+		resultsFile.createNewFile()
+		
+		//Header row
+		resultsFile.write('"SERVER","MID","INTERFACE","REPORT","RESULT","RESULT CODE","COUNT","TIMESTAMP"')
+	}
+
+	def testCaseList = context.testCase.getTestSuite().getTestCaseList();
+	testCaseList.remove( testRunner.testCase )
+
+	//Loop trough testcases
+	testCaseList.each {
+		//def testSteps = context.testCase.getTestStepList()
+		def testSteps = it.getTestStepList()
+		
+		//Loop through transactions and write results to file
+		testSteps.each{
+			// Get the data to be added to the report
+			def testCaseName = it.testCase.name
+			def testStepName = it.name
+			def merchantId = com.eviware.soapui.SoapUI.globalProperties.getPropertyValue( "MerchantId" )	
+			def modelItem = it.getModelItem().toString()
+	
+			if ( modelItem.contains("WsdlTestRequestStep") &amp;&amp; ! it.isDisabled() )
+			{
+				def getStepName = testStepName.split( '-' )
+				def interfName = getStepName[0].trim()
+				def reportName = getStepName[1].trim()
+				
+				def response = testRunner.testCase.testSuite.getTestCaseByName(testCaseName).getTestStepByName(testStepName).httpRequest.response
+				XmlHolder responseXML = new XmlHolder( response.getResponseContent() )
+				responseXML.namespaces["ns2"] = "http://tempuri.org/"
+				responseXML.namespaces["ns1"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"
+				
+				if ( "GetCheckTrx" == interfName )
+				{
+					responseXML.namespaces["a"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Reponses"
+				}
+
+				else
+				{
+					responseXML.namespaces["a"] = "http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.v4.Common.Responses"
+				}
+				
+				def status = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Message[1]' )
+				def tranx = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:TransactionDetails[1]' )
+				def filterList = ""
+				def numberOfData = 0
+
+				if ( interfName.contains( 'GetCard' ) )
+				{
+					filterList = "CardTransactionList"
+				}
+
+				else
+				{
+					filterList = "TransactionList"
+				}
+
+				if ( "ProcessGetAdditionalInformationTrx" == interfName )
+				{
+					elementValues = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:GetAddtionalInformationTrxList[1]' )
+					detailsXML = new XmlHolder( elementValues )
+					numberOfData = detailsXML["count(//a:AdditionalInformationDetail)"]
+				}
+
+				else
+				{
+					elementValues = responseXML.getNodeValue( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/a:TransactionDetails[1]' )
+					detailsXML = new XmlHolder( elementValues )
+					numberOfData = detailsXML["count(//"+ filterList +"/TransactionDetails)"]
+				}
+				
+				def resultCode = responseXML.getNodeValues( '//ns2:' + interfName + 'Response[1]/ns2:' + interfName + 'Result[1]/ns1:Result[1]' )
+				def timestamp = response.responseHeaders["Date"]
+				
+				log.info numberOfData
+	
+				//Write info to file
+				resultsFile.append('\n'); //Newline
+				resultsFile.append('"' + context.expand( '${BaseURL}' ) + '",'); //Merchant Id
+				resultsFile.append('"' + merchantId + '",'); //Merchant Id
+				resultsFile.append('"' + interfName + '",'); //Interface
+				resultsFile.append('"' + reportName + '",'); //Input type
+				resultsFile.append('"' + status + '",'); //Transaction result
+				resultsFile.append('"' + resultCode + '",'); //Transaction result code
+				resultsFile.append('"' + numberOfData + '",'); //Reference number
+				resultsFile.append('"' + timestamp + '",'); //Timestamp
+			}
+		}
+	}
+} 
+
+catch( e )
+{
+	log.error( "An error occurred: " + e.toString() );
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

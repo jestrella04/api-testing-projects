@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="c879c365-29cf-4518-bc5c-d17297cf9f87" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Cards - Create" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c879c365-29cf-4518-bc5c-d17297cf9f87fileName">Cards---Create</con:setting>
+  </con:settings>
+  <con:testStep type="request" name="AddCardToken" id="830cddc7-b640-4505-812e-6c445fd92cd7">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken" id="19701b77-8489-47eb-962c-8b5ec17126c2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/ecommercetokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:CardVerificationNumber>${CardCVV}</acr2:CardVerificationNumber>
+               <acr2:DriversNumber xsi:nil="true" />
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="b9f0789d-95d5-47f6-86b4-67954a3e804a"/>
+        <con:assertion type="Schema Compliance" id="c738b3ff-cd69-4845-b705-8ba1b741c510">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="24e9d2d1-fc50-4d63-9106-da88173c5336"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (Corp)" id="f2c88129-118b-4a09-89d9-a8809232d21f">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (Corp)" id="19701b77-8489-47eb-962c-8b5ec17126c2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/ecommercetokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CorpCardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${=context.expand( '${CorpCardMagneticData}' ).split( "=" )[0].trim()}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:CardVerificationNumber>${CorpCardCVV}</acr2:CardVerificationNumber>
+               <acr2:DriversNumber xsi:nil="true" />
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${CorpCardNameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="b9f0789d-95d5-47f6-86b4-67954a3e804a"/>
+        <con:assertion type="Schema Compliance" id="c738b3ff-cd69-4845-b705-8ba1b741c510">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="24e9d2d1-fc50-4d63-9106-da88173c5336"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddCardToken (RSA)" id="3f44796a-ae35-4f5e-9d36-a7e8d9872791">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddCardToken</con:operation>
+      <con:request name="AddCardToken (RSA)" id="19701b77-8489-47eb-962c-8b5ec17126c2">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/ecommercetokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddCardToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}-RSA</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:CardExpirationDate>${CardExpDate}</acr2:CardExpirationDate>
+               <acr2:CardNumber>${CardNumberRSA}</acr2:CardNumber>
+               <acr2:CardType xsi:nil="true" />
+               <acr2:CardVerificationNumber>${CardCVV}</acr2:CardVerificationNumber>
+               <acr2:DriversNumber xsi:nil="true" />
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:MagneticData xsi:nil="true" />
+               <acr2:NameOnCard>${NameOnCard}</acr2:NameOnCard>
+               <acr2:TaxExempt>true</acr2:TaxExempt>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddCardToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="b9f0789d-95d5-47f6-86b4-67954a3e804a"/>
+        <con:assertion type="Schema Compliance" id="c738b3ff-cd69-4845-b705-8ba1b741c510">
+          <con:configuration/>
+        </con:assertion>
+        <con:assertion type="SOAP Fault Assertion" id="24e9d2d1-fc50-4d63-9106-da88173c5336"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GenerateCryptoToken" id="ef89a76a-c9f1-41c9-95db-b12417347fa6">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>GenerateCryptoToken</con:operation>
+      <con:request name="GenerateCryptoToken" id="9a381851-d9da-4d96-9b98-72a76726fb0f">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/ecommercetokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GenerateCryptoToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:CardExpirationDate>${CardExpDate}</acr1:CardExpirationDate>
+            <acr1:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr1:CardNumber>
+            <acr1:CardVerificationNumber>${CardCVV}</acr1:CardVerificationNumber>
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>
+         </tem:request>
+      </tem:GenerateCryptoToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="209cb374-9d47-49ee-a6a1-493ee5e02079"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="GenerateCryptoToken (Corp)" id="98fbbf99-b756-408b-9dc3-4b0c079aec91">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>GenerateCryptoToken</con:operation>
+      <con:request name="GenerateCryptoToken (Corp)" id="9a381851-d9da-4d96-9b98-72a76726fb0f">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/ecommercetokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GenerateCryptoToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:CardExpirationDate>${CorpCardExpDate}</acr1:CardExpirationDate>
+            <acr1:CardNumber>${=context.expand( '${CorpCardMagneticData}' ).split( "=" )[0].trim()}</acr1:CardNumber>
+            <acr1:CardVerificationNumber>${CorpCardCVV}</acr1:CardVerificationNumber>
+            <acr1:NameOnCard>${CorpCardNameOnCard}</acr1:NameOnCard>
+         </tem:request>
+      </tem:GenerateCryptoToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="209cb374-9d47-49ee-a6a1-493ee5e02079"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="GetTokenId" id="1ff820ec-d0c0-4a5a-850a-9dca0c1d3363">
+    <con:settings/>
+    <con:config>
+      <script>try
+{
+	def cardTokenId = context.expand( '${AddCardToken#Response#declare namespace ns1=\'http://tempuri.org/\'; declare namespace a=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses\'; //ns1:AddCardTokenResponse[1]/ns1:AddCardTokenResult[1]/a:TokenId[1]/text()}' ) ?: ""
+	def corpTokenId = context.expand( '${AddCardToken (Corp)#Response#declare namespace ns1=\'http://tempuri.org/\'; declare namespace a=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses\'; //ns1:AddCardTokenResponse[1]/ns1:AddCardTokenResult[1]/a:TokenId[1]/text()}' ) ?: ""
+	def rsaTokenId = context.expand( '${AddCardToken (RSA)#Response#declare namespace ns1=\'http://tempuri.org/\'; declare namespace a=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses\'; //ns1:AddCardTokenResponse[1]/ns1:AddCardTokenResult[1]/a:TokenId[1]/text()}' ) ?: ""
+	def cryptoTokenId = context.expand( '${GenerateCryptoToken#Response#declare namespace ns1=\'http://tempuri.org/\'; declare namespace a=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses\'; //ns1:GenerateCryptoTokenResponse[1]/ns1:GenerateCryptoTokenResult[1]/a:CryptoToken[1]/text()}' ) ?: ""
+	def cryptoCorpTokenId = context.expand( '${GenerateCryptoToken (Corp)#Response#declare namespace ns1=\'http://tempuri.org/\'; declare namespace a=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses\'; //ns1:GenerateCryptoTokenResponse[1]/ns1:GenerateCryptoTokenResult[1]/a:CryptoToken[1]/text()}' ) ?: ""
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "TokenId", cardTokenId )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpTokenId", corpTokenId )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "RSATokenId", rsaTokenId )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CryptoTokenId", cryptoTokenId )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CryptoCorpTokenId", cryptoCorpTokenId )
+}
+
+catch ( e )
+{
+	log.error( e.toString() )
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>ef89a76a-c9f1-41c9-95db-b12417347fa6</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3f44796a-ae35-4f5e-9d36-a7e8d9872791</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f2c88129-118b-4a09-89d9-a8809232d21f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>98fbbf99-b756-408b-9dc3-4b0c079aec91</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

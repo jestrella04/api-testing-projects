@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="ef5730e0-dae0-4318-b8d3-3b399aab0913" isOneWay="false" action="http://tempuri.org/Transactional/ProcessPayPal" name="ProcessPayPal" bindingOperationName="ProcessPayPal" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="ef5730e0-dae0-4318-b8d3-3b399aab0913fileName">ProcessPayPal</con:setting>
+  </con:settings>
+  <con:call id="cb91bc5b-61f6-45a6-84f3-b6dbdbd8f9bd" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://ww2.cenpos.net/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessPayPal>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <acr1:Amount>?</acr1:Amount>\r
+            <!--Optional:-->\r
+            <acr1:AuthorizationNumber>?</acr1:AuthorizationNumber>\r
+            <!--Optional:-->\r
+            <acr1:BillingAgreementCustom>?</acr1:BillingAgreementCustom>\r
+            <!--Optional:-->\r
+            <acr1:BillingAgreementDescription>?</acr1:BillingAgreementDescription>\r
+            <!--Optional:-->\r
+            <acr1:BillingAgreementId>?</acr1:BillingAgreementId>\r
+            <!--Optional:-->\r
+            <acr1:BuyerEmailAddress>?</acr1:BuyerEmailAddress>\r
+            <!--Optional:-->\r
+            <acr1:CancelBillingAgreement>?</acr1:CancelBillingAgreement>\r
+            <!--Optional:-->\r
+            <acr1:CancelUrl>?</acr1:CancelUrl>\r
+            <!--Optional:-->\r
+            <acr1:CustomerBillingAddress>?</acr1:CustomerBillingAddress>\r
+            <!--Optional:-->\r
+            <acr1:CustomerEmailOptionenable>?</acr1:CustomerEmailOptionenable>\r
+            <!--Optional:-->\r
+            <acr1:InvoiceDetail>?</acr1:InvoiceDetail>\r
+            <!--Optional:-->\r
+            <acr1:InvoiceNumber>?</acr1:InvoiceNumber>\r
+            <!--Optional:-->\r
+            <acr1:IsLastCapture>?</acr1:IsLastCapture>\r
+            <!--Optional:-->\r
+            <acr1:NoShippingInd>?</acr1:NoShippingInd>\r
+            <!--Optional:-->\r
+            <acr1:PayerId>?</acr1:PayerId>\r
+            <!--Optional:-->\r
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>\r
+            <!--Optional:-->\r
+            <acr1:RequestMethod>?</acr1:RequestMethod>\r
+            <!--Optional:-->\r
+            <acr1:ReturnUrl>?</acr1:ReturnUrl>\r
+            <!--Optional:-->\r
+            <acr1:SkipBaCreation>?</acr1:SkipBaCreation>\r
+            <!--Optional:-->\r
+            <acr1:TaxAmount>?</acr1:TaxAmount>\r
+            <acr1:TransactionType>?</acr1:TransactionType>\r
+            <!--Optional:-->\r
+            <acr1:UserSelectedFundingSource>?</acr1:UserSelectedFundingSource>\r
+         </tem:request>\r
+      </tem:ProcessPayPal>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessPayPal"/>
+  </con:call>
+</con:operation>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessSynchronize" name="ProcessSynchronize" bindingOperationName="ProcessSynchronize" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="1800161d-b827-488e-9c47-b7442f4252ae" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="1800161d-b827-488e-9c47-b7442f4252aefileName">ProcessSynchronize</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="cb5780ba-cf34-4f5a-a940-6727cfaedbcc" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessSynchronize>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:BeginDate>?</acr1:BeginDate>
+            <!--Optional:-->
+            <acr1:EndDate>?</acr1:EndDate>
+            <!--Optional:-->
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>
+            <!--Optional:-->
+            <acr1:TransactionType>?</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessSynchronize>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessSynchronize"/>
+  </con:call>
+</con:operation>

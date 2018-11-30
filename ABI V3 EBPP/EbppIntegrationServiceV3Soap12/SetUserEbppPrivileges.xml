@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="baaee904-9ebc-4179-9127-7c381ee16fe9" isOneWay="false" action="http://ebpp.cenpos.net/V3/SetUserEbppPrivileges" name="SetUserEbppPrivileges" bindingOperationName="SetUserEbppPrivileges" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="baaee904-9ebc-4179-9127-7c381ee16fe9fileName">SetUserEbppPrivileges</con:setting>
+  </con:settings>
+  <con:call id="e5072d26-b946-4850-8f77-3350bfed1629" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:v3="http://ebpp.cenpos.net/V3">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v3:SetUserEbppPrivileges>\r
+         <!--Optional:-->\r
+         <v3:setUserRequestVO>\r
+            <!--Optional:-->\r
+            <v3:Username>?</v3:Username>\r
+            <!--Optional:-->\r
+            <v3:Password>?</v3:Password>\r
+            <!--Optional:-->\r
+            <v3:UserId>?</v3:UserId>\r
+            <v3:MerchantId>?</v3:MerchantId>\r
+            <!--Optional:-->\r
+            <v3:Privilege>\r
+               <!--Zero or more repetitions:-->\r
+               <v3:string>?</v3:string>\r
+            </v3:Privilege>\r
+            <!--Optional:-->\r
+            <v3:TargetUsername>?</v3:TargetUsername>\r
+         </v3:setUserRequestVO>\r
+      </v3:SetUserEbppPrivileges>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ebpp.cenpos.net/V3/EbppIntegrationServiceV3Soap/SetUserEbppPrivilegesRequest"/>
+  </con:call>
+</con:operation>

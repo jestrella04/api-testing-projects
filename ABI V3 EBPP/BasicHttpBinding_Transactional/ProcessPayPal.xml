@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessPayPal" name="ProcessPayPal" bindingOperationName="ProcessPayPal" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="b21e3f5d-ff2a-422f-ae79-3c6854ac5f00" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b21e3f5d-ff2a-422f-ae79-3c6854ac5f00fileName">ProcessPayPal</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="ac26cfb4-e6d6-4a20-b095-cf735cd10faa" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessPayPal>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <acr1:Amount>?</acr1:Amount>
+            <!--Optional:-->
+            <acr1:AuthorizationNumber>?</acr1:AuthorizationNumber>
+            <!--Optional:-->
+            <acr1:BillingAgreementCustom>?</acr1:BillingAgreementCustom>
+            <!--Optional:-->
+            <acr1:BillingAgreementDescription>?</acr1:BillingAgreementDescription>
+            <!--Optional:-->
+            <acr1:BillingAgreementId>?</acr1:BillingAgreementId>
+            <!--Optional:-->
+            <acr1:BuyerEmailAddress>?</acr1:BuyerEmailAddress>
+            <!--Optional:-->
+            <acr1:CancelBillingAgreement>?</acr1:CancelBillingAgreement>
+            <!--Optional:-->
+            <acr1:CustomerBillingAddress>?</acr1:CustomerBillingAddress>
+            <!--Optional:-->
+            <acr1:CustomerEmailOptionenable>?</acr1:CustomerEmailOptionenable>
+            <!--Optional:-->
+            <acr1:InvoiceDetail>?</acr1:InvoiceDetail>
+            <!--Optional:-->
+            <acr1:InvoiceNumber>?</acr1:InvoiceNumber>
+            <!--Optional:-->
+            <acr1:IsLastCapture>?</acr1:IsLastCapture>
+            <!--Optional:-->
+            <acr1:NoShippingInd>?</acr1:NoShippingInd>
+            <!--Optional:-->
+            <acr1:PayerId>?</acr1:PayerId>
+            <!--Optional:-->
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>
+            <!--Optional:-->
+            <acr1:RequestMethod>?</acr1:RequestMethod>
+            <!--Optional:-->
+            <acr1:SkipBaCreation>?</acr1:SkipBaCreation>
+            <!--Optional:-->
+            <acr1:TaxAmount>?</acr1:TaxAmount>
+            <acr1:TransactionType>?</acr1:TransactionType>
+            <!--Optional:-->
+            <acr1:UserSelectedFundingSource>?</acr1:UserSelectedFundingSource>
+         </tem:request>
+      </tem:ProcessPayPal>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessPayPal"/>
+  </con:call>
+</con:operation>

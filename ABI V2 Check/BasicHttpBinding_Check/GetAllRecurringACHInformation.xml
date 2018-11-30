@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Check/GetAllRecurringACHInformation" name="GetAllRecurringACHInformation" bindingOperationName="GetAllRecurringACHInformation" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="665a416f-7a2e-41a4-ac81-f57b247245e8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="665a416f-7a2e-41a4-ac81-f57b247245e8fileName">GetAllRecurringACHInformation</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="85a28185-1303-4d46-b4e1-c5c09dc7b7cf" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/2/check.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetAllRecurringACHInformation>
+         <tem:request>
+            <acr:MerchantId>20000029</acr:MerchantId>
+            <acr:Password>Cenpos@2015</acr:Password>
+            <acr:UserId>jestrella</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber xsi:nil="true" />
+            <acr1:CustomerCode xsi:nil="true" />
+            <acr1:EmailAddress xsi:nil="true" />
+            <acr1:IncludeMultipleMerchants>false</acr1:IncludeMultipleMerchants>
+            <acr1:IncludeSignature>false</acr1:IncludeSignature>
+         </tem:request>
+      </tem:GetAllRecurringACHInformation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:environmentSpec>
+      <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+        <con:authProfile>No Authorization</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/GetAllRecurringACHInformation"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

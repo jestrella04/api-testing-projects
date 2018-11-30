@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="20bbc78d-3274-4710-bbab-2b4c714b888a" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Checks - Create" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="20bbc78d-3274-4710-bbab-2b4c714b888afileName">Checks---Create</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="AddAchToken (Corporate)" id="884f1023-7aa2-46ce-bbd5-028bbd94ca9c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddAchToken</con:operation>
+      <con:request name="AddAchToken (Corporate)" id="c176d611-84a0-48ec-971a-ef3b413408e0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/ecommercetokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddAchToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:ABANumber>${CorpCheckABA}</acr2:ABANumber>
+               <acr2:AccountNumber>${CorpCheckAccount}</acr2:AccountNumber>
+               <acr2:AccountType>Checking</acr2:AccountType>
+               <acr2:BirthDay xsi:nil="true" />
+               <acr2:CheckType>Corporate</acr2:CheckType>
+               <acr2:City xsi:nil="true" />
+               <acr2:DriversNumber xsi:nil="true" />
+               <acr2:FirstName xsi:nil="true" />
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:LastName xsi:nil="true" />
+               <acr2:Phone>${CustomerPhone}</acr2:Phone>
+               <acr2:State xsi:nil="true" />
+            </acr1:Token>
+         </tem:request>
+      </tem:AddAchToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="5a772834-cceb-4956-af33-4572ba35249e"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddAchToken (Personal)" id="9476960e-b4c3-4e45-bf19-12c49167538c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Tokens</con:interface>
+      <con:operation>AddAchToken</con:operation>
+      <con:request name="AddAchToken (Personal)" id="c176d611-84a0-48ec-971a-ef3b413408e0">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/2/ecommercetokens.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
+xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddAchToken>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:Token>
+               <acr2:CustomerBillingAddress>${CustomerAddress}</acr2:CustomerBillingAddress>
+               <acr2:CustomerCode>${CustomerCode}</acr2:CustomerCode>
+               <acr2:CustomerEmailAddress>${CustomerEmail}</acr2:CustomerEmailAddress>
+               <acr2:CustomerZipCode>${CustomerZipCode}</acr2:CustomerZipCode>
+               <acr2:MerchantId>${MerchantId}</acr2:MerchantId>
+               <acr2:Signature>${CustomerSignature}</acr2:Signature>
+               <acr2:TokenId xsi:nil="true" />
+               <acr2:ABANumber>${PersonalCheckABA}</acr2:ABANumber>
+               <acr2:AccountNumber>${PersonalCheckAccount}</acr2:AccountNumber>
+               <acr2:AccountType>Checking</acr2:AccountType>
+               <acr2:BirthDay xsi:nil="true" />
+               <acr2:CheckType>Personal</acr2:CheckType>
+               <acr2:City xsi:nil="true" />
+               <acr2:DriversNumber>${CustomerDriversNumber}</acr2:DriversNumber>
+               <acr2:FirstName xsi:nil="true" />
+               <acr2:InsuranceInformation xsi:nil="true" />
+               <acr2:LastName xsi:nil="true" />
+               <acr2:Phone xsi:nil="true" />
+               <acr2:State>FL</acr2:State>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddAchToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="503da118-9f17-439c-9e86-11437c8276b8"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="GetTokenId" id="54eba20c-f1de-439c-9f47-514fbdc3e600">
+    <con:settings/>
+    <con:config>
+      <script>try
+{
+	def achCorporateTokenId = context.expand( '${AddAchToken (Corporate)#Response#declare namespace tem=\'http://tempuri.org/\'; declare namespace acr1=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses\'; //tem:AddAchTokenResponse[1]/tem:AddAchTokenResult[1]/acr1:TokenId[1]}' )
+	def achPersonalTokenId = context.expand( '${AddAchToken (Personal)#Response#declare namespace tem=\'http://tempuri.org/\'; declare namespace acr1=\'http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Responses\'; //tem:AddAchTokenResponse[1]/tem:AddAchTokenResult[1]/acr1:TokenId[1]}' )
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AchCorporateTokenId", achCorporateTokenId )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AchPersonalTokenId", achPersonalTokenId )
+}
+
+catch ( e )
+{
+	log.error( e.toString() )
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

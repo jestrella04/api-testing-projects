@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessCash" name="ProcessCash" bindingOperationName="ProcessCash" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="a97674e1-37ad-4200-b98c-5651879347df" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="a97674e1-37ad-4200-b98c-5651879347dffileName">ProcessCash</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="4b82f88d-5995-4c77-888e-6f2ca60e4003" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/5/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"
+>
+   <soapenv:Header/>
+   <soapenv:Body>
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <acr:Password>?</acr:Password>
+            <acr:UserId>?</acr:UserId>
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <acr1:IMEI>?</acr1:IMEI>
+            <acr1:Amount>?</acr1:Amount>
+            <acr1:Cashier>?</acr1:Cashier>
+            <acr1:InvoiceNumber>?</acr1:InvoiceNumber>
+            <acr1:TransactionType>?</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCash>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCash"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Administration/ModifyDiscount" name="ModifyDiscount" bindingOperationName="ModifyDiscount" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="5bc6de0f-f701-4901-bb08-724accece43e" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="5bc6de0f-f701-4901-bb08-724accece43efileName">ModifyDiscount</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="36fea13a-023b-485c-b68f-98cb395df3cc" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/admin.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ModifyDiscount>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:Discounts>
+               <!--Zero or more repetitions:-->
+               <acr1:Discount>
+                  <!--Optional:-->
+                  <acr1:CardType>?</acr1:CardType>
+                  <!--Optional:-->
+                  <acr1:CardTypeDescription>?</acr1:CardTypeDescription>
+                  <!--Optional:-->
+                  <acr1:CardUsage>?</acr1:CardUsage>
+                  <!--Optional:-->
+                  <acr1:CardUsageDescription>?</acr1:CardUsageDescription>
+                  <!--Optional:-->
+                  <acr1:DiscountValue>?</acr1:DiscountValue>
+                  <!--Optional:-->
+                  <acr1:ProductType>?</acr1:ProductType>
+               </acr1:Discount>
+            </acr1:Discounts>
+         </tem:request>
+      </tem:ModifyDiscount>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Administration/ModifyDiscount"/>
+  </con:call>
+</con:operation>

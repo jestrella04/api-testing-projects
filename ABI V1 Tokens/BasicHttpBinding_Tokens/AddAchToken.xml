@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="4a7f8788-6b10-4cf8-9abb-ae9a165b063e" isOneWay="false" action="http://tempuri.org/Tokens/AddAchToken" name="AddAchToken" bindingOperationName="AddAchToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="4a7f8788-6b10-4cf8-9abb-ae9a165b063efileName">AddAchToken</con:setting>
+  </con:settings>
+  <con:call id="509aa3cf-e453-4367-a5c4-d92499acd1e8" name="Request 1" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/tokens.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddAchToken>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>
+            <!--Optional:-->
+            <acr1:Token>
+               <!--Optional:-->
+               <acr2:CustomerBillingAddress>?</acr2:CustomerBillingAddress>
+               <!--Optional:-->
+               <acr2:CustomerCode>?</acr2:CustomerCode>
+               <!--Optional:-->
+               <acr2:CustomerEmailAddress>?</acr2:CustomerEmailAddress>
+               <!--Optional:-->
+               <acr2:CustomerZipCode>?</acr2:CustomerZipCode>
+               <!--Optional:-->
+               <acr2:MerchantId>?</acr2:MerchantId>
+               <!--Optional:-->
+               <acr2:Signature>?</acr2:Signature>
+               <!--Optional:-->
+               <acr2:TokenId>?</acr2:TokenId>
+               <!--Optional:-->
+               <acr2:ABANumber>?</acr2:ABANumber>
+               <!--Optional:-->
+               <acr2:AccountNumber>?</acr2:AccountNumber>
+               <!--Optional:-->
+               <acr2:AccountType>?</acr2:AccountType>
+               <!--Optional:-->
+               <acr2:BirthDay>?</acr2:BirthDay>
+               <!--Optional:-->
+               <acr2:CheckType>?</acr2:CheckType>
+               <!--Optional:-->
+               <acr2:City>?</acr2:City>
+               <!--Optional:-->
+               <acr2:DriversNumber>?</acr2:DriversNumber>
+               <!--Optional:-->
+               <acr2:FirstName>?</acr2:FirstName>
+               <!--Optional:-->
+               <acr2:LastName>?</acr2:LastName>
+               <!--Optional:-->
+               <acr2:Phone>?</acr2:Phone>
+               <!--Optional:-->
+               <acr2:State>?</acr2:State>
+            </acr1:Token>
+         </tem:request>
+      </tem:AddAchToken>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/AddAchToken"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

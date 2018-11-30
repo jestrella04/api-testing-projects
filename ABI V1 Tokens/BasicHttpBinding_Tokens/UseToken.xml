@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="e1e867a7-3c11-4750-a8df-01e9a84a6128" isOneWay="false" action="http://tempuri.org/Tokens/UseToken" name="UseToken" bindingOperationName="UseToken" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="e1e867a7-3c11-4750-a8df-01e9a84a6128fileName">UseToken</con:setting>
+  </con:settings>
+  <con:call id="bb45cfa6-4031-468c-871b-7640499512f5" name="Request 1" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/tokens.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.Common.Requests">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:UseToken>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <acr:MerchantId>?</acr:MerchantId>\r
+            <!--Optional:-->\r
+            <acr:Password>?</acr:Password>\r
+            <!--Optional:-->\r
+            <acr:UserId>?</acr:UserId>\r
+            <!--Optional:-->\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
+            <!--Optional:-->\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <!--Optional:-->\r
+            <acr1:Amount>?</acr1:Amount>\r
+            <!--Optional:-->\r
+            <acr1:AuthorizationNumber>?</acr1:AuthorizationNumber>\r
+            <!--Optional:-->\r
+            <acr1:CardVerificationNumber>?</acr1:CardVerificationNumber>\r
+            <!--Optional:-->\r
+            <acr1:CurrencyCode>?</acr1:CurrencyCode>\r
+            <!--Optional:-->\r
+            <acr1:InvoiceDetail>?</acr1:InvoiceDetail>\r
+            <!--Optional:-->\r
+            <acr1:InvoiceNumber>?</acr1:InvoiceNumber>\r
+            <!--Optional:-->\r
+            <acr1:PurchaseOrderNumber>?</acr1:PurchaseOrderNumber>\r
+            <!--Optional:-->\r
+            <acr1:SecureCode>?</acr1:SecureCode>\r
+            <!--Optional:-->\r
+            <acr1:TaxAmount>?</acr1:TaxAmount>\r
+            <!--Optional:-->\r
+            <acr1:TokenId>?</acr1:TokenId>\r
+            <!--Optional:-->\r
+            <acr1:TransactionType>?</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:UseToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Tokens/UseToken"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

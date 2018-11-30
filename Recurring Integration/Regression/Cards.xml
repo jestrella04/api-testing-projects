@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="2ca9bd70-32b4-4792-a535-72859939b7ee" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Cards" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="2ca9bd70-32b4-4792-a535-72859939b7eefileName">Cards</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="ProcessCard" id="45775418-8dc0-434f-b1b3-5023070b1326">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessCard</con:operation>
+      <con:request name="ProcessCard" id="d4b6d672-e5fe-4694-bc7b-26e0537af78b">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://ww3.cenpos.net/6/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/" 
+xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCard>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true" />
+            <acr1:IMEI xsi:nil="true" />
+            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:AuthorizationNumber xsi:nil="true" />
+            <acr1:CardExpirationDate>${CardExpDate}</acr1:CardExpirationDate>
+            <acr1:CardLastFourDigits>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</acr1:CardLastFourDigits>
+            <acr1:CardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</acr1:CardNumber>
+            <acr1:CardVerificationNumber>${CardCVV}</acr1:CardVerificationNumber>
+            <acr1:CardholderVerificationMethod xsi:nil="true" />
+            <acr1:CurrencyCode>${CurrencyCode}</acr1:CurrencyCode>
+            <acr1:CustomerBillingAddress>${CustomerAddress}</acr1:CustomerBillingAddress>
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerCode>${CustomerCode}</acr1:CustomerCode>
+            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode>${CustomerZipCode}</acr1:CustomerZipCode>
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:KeySerialNumber xsi:nil="true" />
+            <acr1:MagneticData xsi:nil="true" />
+            <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>
+            <acr1:Pin xsi:nil="true" />
+            <acr1:PurchaseOrderNumber>${PONumber}</acr1:PurchaseOrderNumber>
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:SecureCode xsi:nil="true" />
+            <acr1:TerminalCapabilities>Manual</acr1:TerminalCapabilities>
+            <acr1:TransactionType>Sale</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCard>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="8fe9a65b-812a-4005-b7f0-402411ed4bab"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract" id="d039f66d-732b-4a00-b14f-49e4ad02eb08">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract" id="6faa22bc-d0b2-4c46-ae38-ccff2aafc827">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://remote.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:tem="http://tempuri.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddRecurringContract>\r
+         <tem:addContractRequestVO>\r
+            <tem:Username>${UserId}</tem:Username>\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+            <tem:StartDate>${CurrentDateTime1}</tem:StartDate>\r
+            <tem:MaxRetry>0</tem:MaxRetry>\r
+            <tem:Type>BYDATERANGE</tem:Type>\r
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>\r
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>\r
+            <tem:SubTotal>10</tem:SubTotal>\r
+            <tem:Tax>0</tem:Tax>\r
+            <tem:Frecuency>WEEKLY</tem:Frecuency>\r
+            <tem:PaymentQuote>0</tem:PaymentQuote>\r
+            <tem:Customer>\r
+               <tem:ExternalCode>test001</tem:ExternalCode>\r
+               <tem:FirstName>FranSoap</tem:FirstName>\r
+               <tem:LastName>FranSoap</tem:LastName>\r
+               <tem:Company>QA</tem:Company>\r
+               <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>\r
+               <tem:Status>ACTIVE</tem:Status>\r
+               <tem:BillingAddress1>14290</tem:BillingAddress1>\r
+               <tem:ZipCode>34609</tem:ZipCode>\r
+            </tem:Customer>\r
+            <tem:Cards>\r
+               <tem:CardVO>\r
+                  <tem:Token>test</tem:Token>\r
+                  <tem:Id>0</tem:Id>\r
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>\r
+                  <tem:Country>USA</tem:Country>\r
+                  <tem:Province />\r
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>\r
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>\r
+                  <tem:NameOnCard>Robert</tem:NameOnCard>\r
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>\r
+                  <tem:City />\r
+                  <tem:Address>14290</tem:Address>\r
+                  <tem:Status>ACTIVE</tem:Status>\r
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>\r
+                  <tem:LoadMode>Manual</tem:LoadMode>\r
+                  <tem:CardType />\r
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>\r
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>\r
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>\r
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>\r
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>\r
+               </tem:CardVO>\r
+            </tem:Cards>\r
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>\r
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>\r
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>\r
+         </tem:addContractRequestVO>\r
+      </tem:AddRecurringContract>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="145f1f10-91b9-4131-beb0-29aeb550262f"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (-1)" id="be7823ba-2b73-43b4-9696-a165c062de96">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (-1)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>-10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>WEEKLY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Daily)" id="39b99bb8-27ee-45b7-a5db-6e66f5fbefd5">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Daily)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>DAILY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Monthly)" id="6e69c3e5-0ebd-4961-9f2c-700920afce3c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Monthly)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>MONTHLY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Yearly)" id="878be365-589c-4c98-93bd-903f97a1bca1">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Yearly)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>YEARLY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Biweekly)" id="20021c77-8138-4179-b31f-6debacfcf773">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Biweekly)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>BIWEEKLY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Semimonthly)" id="69a3e41e-39a2-4296-b887-6b3583edab39">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Semimonthly)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>SEMIMONTHLY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Quarterly)" id="f9d0ef71-59c8-46ed-9034-045401b29a11">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Quarterly)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>QUARTERLY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="AddRecurringContract (Semianually)" id="d287531b-821b-4ff2-be8f-ce39bee49274">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>RecurringIntegrationServicesSoap</con:interface>
+      <con:operation>AddRecurringContract</con:operation>
+      <con:request name="AddRecurringContract (Semianually)" id="7989071f-6cc5-40ce-a73b-59fcec0ba8a9">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://va2.cenpos.net/Recurringqa/RecurringIntegrationServices.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope 
+xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:tem="http://tempuri.org/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:AddRecurringContract>
+         <tem:addContractRequestVO>
+            <tem:Username>${UserId}</tem:Username>
+            <tem:Password>${Password}</tem:Password>
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>
+            <tem:StartDate>2016-12-16T00:00:00-05:00</tem:StartDate>
+            <tem:MaxRetry>0</tem:MaxRetry>
+            <tem:Type>BYDATERANGE</tem:Type>
+            <tem:EndDate>2017-02-16T00:00:00</tem:EndDate>
+            <tem:NextBillDate>2017-01-16T00:00:00-05:00</tem:NextBillDate>
+            <tem:SubTotal>10</tem:SubTotal>
+            <tem:Tax>0</tem:Tax>
+            <tem:Frecuency>SEMIANNUALLY</tem:Frecuency>
+            <tem:PaymentQuote>0</tem:PaymentQuote>           
+            <tem:Customer>
+                  <tem:ExternalCode>12724641</tem:ExternalCode>
+                  <tem:FirstName>FranSoap</tem:FirstName>
+                  <tem:LastName>FranSoap</tem:LastName>
+                  <tem:Company>QA</tem:Company> 
+                  <tem:EmailAdress>test@cenpos.com</tem:EmailAdress>               
+                  <tem:Status>ACTIVE</tem:Status>               
+                  <tem:BillingAddress1>14290</tem:BillingAddress1>             
+                  <tem:ZipCode>34609</tem:ZipCode>               
+            </tem:Customer>
+            <tem:Cards>
+               <tem:CardVO>
+                  <tem:Token>test</tem:Token>
+                  <tem:Id>0</tem:Id>
+                  <tem:BillingAddress1>12345</tem:BillingAddress1>
+                  <tem:Country>USA</tem:Country>                
+                  <tem:Province xsi:nil="true"/>
+                  <tem:CardContractType>PRINCIPAL</tem:CardContractType>                  
+                  <tem:ExpirationDate>01/2017</tem:ExpirationDate>
+                  <tem:NameOnCard>Robert</tem:NameOnCard>
+                  <tem:LastFourDigit>1234</tem:LastFourDigit>                 
+                  <tem:City  xsi:nil="true"/>>
+                  <tem:Address>14290</tem:Address>               
+                  <tem:Status>ACTIVE</tem:Status>
+                  <tem:CreatedDate>2017-11-05T10:21:29.9876298-05:00</tem:CreatedDate>
+                  <tem:LoadMode>Manual</tem:LoadMode>
+                  <tem:CardType xsi:nil="true"/>
+                  <tem:CardVerficationNumber>998</tem:CardVerficationNumber>
+                  <tem:RefenceNumber>${ProcessCard#Response#declare namespace ns1='http://tempuri.org/'; declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common'; //ns1:ProcessCardResponse[1]/ns1:ProcessCardResult[1]/a:ReferenceNumber[1]}</tem:RefenceNumber>
+                  <tem:UsePrincipalAddress>true</tem:UsePrincipalAddress>
+                  <tem:CustomerCode>123456-0</tem:CustomerCode>
+                  <tem:CustomerEmail>test@cenpso.com</tem:CustomerEmail>
+               </tem:CardVO>
+            </tem:Cards>          
+            <tem:ContractNumber>${=String.valueOf( ( int ) Math.floor( Math.random() * 1000000000 ) )}</tem:ContractNumber>
+            <tem:PrincipalPaymentMethod>CARD</tem:PrincipalPaymentMethod>
+            <tem:SecondaryPaymentMethod>NONE</tem:SecondaryPaymentMethod>
+         </tem:addContractRequestVO>
+      </tem:AddRecurringContract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="25bd730b-22ae-48d2-8854-66f326270873"/>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

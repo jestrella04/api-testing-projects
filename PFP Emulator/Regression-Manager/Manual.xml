@@ -1,0 +1,3603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="500763f2-1a3e-45d4-addf-a20ff2546beb" discardOkResults="true" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Manual" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="500763f2-1a3e-45d4-addf-a20ff2546bebfileName">Manual</con:setting>
+  </con:settings>
+  <con:testStep type="httprequest" name="Sale 01" id="9ad72d92-a303-4b44-8e8e-2c999159fcf5">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Sale 01" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Sale 02" id="20b32ab4-2fa6-450a-bb8a-e05edcf4e7e0">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Sale 02" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Sale 03" id="9c54caed-9291-47a6-9c87-d136898248aa">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Sale 03" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Auth 01" id="e65568c3-da43-4fd2-8bad-7af0b955b777">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Auth 01" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Auth 02" id="767b8325-08ea-426d-86c2-3a3018e3fee9">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Auth 02" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Auth 03" id="76052ef8-070f-4b84-b079-74d01958f3c8">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Auth 03" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Auth 04" id="827a6695-574f-4f68-984f-20f93376817c">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Auth 04" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Credit 01" id="f605e4b7-2533-4dfb-86f5-a940647f1ef3">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Credit 01" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringSale (Standard)" id="c938e062-9674-4d02-b65d-7ec7f04cef4a">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringSale (Standard)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${TokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${TokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringSale (RSA)" id="6d983ab3-c240-4c46-b824-f3a2ade368ba">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringSale (RSA)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${RSATokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${RSATokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}-RSA</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}-RSA</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringSale (CryptoToken)" id="b9f24ad6-8316-438e-b090-8b9fca78a271" disabled="true">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringSale (CryptoToken)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CryptoTokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringSale (PFPv1)" id="453d71de-dd98-4719-ae88-d1127bf3d3b8">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringSale (PFPv1)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${PFPTokenV1}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${PFPTokenV1}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringSale (PFPv2)" id="5505552e-9677-4737-adaf-3147d31c77ea">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringSale (PFPv2)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>S</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>S</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${PFPTokenV2}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${PFPTokenV2}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringAuth (Standard)" id="0579e984-0138-4c86-89fd-3b359653d17f">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringAuth (Standard)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${TokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${TokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringAuth (RSA)" id="1b23e443-b7e7-476e-aef3-1c3edd5c5ad3">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringAuth (RSA)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${RSATokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${RSATokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}-RSA</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}-RSA</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringAuth (CryptoToken)" id="445027e7-08da-4f27-a7f6-3c0d60d584ca" disabled="true">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringAuth (CryptoToken)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CryptoTokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringAuth (PFPv1)" id="d831aa8b-d505-411f-835f-fdd997f25c72">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringAuth (PFPv1)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${PFPTokenV1}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${PFPTokenV1}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringAuth (PFPv2)" id="a4401bef-64fc-4ea6-b947-f72fe2f7b7c4">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringAuth (PFPv2)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${PFPTokenV2}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${PFPTokenV2}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringCredit (Standard)" id="34032579-885d-4e4c-98e1-26600c9dad8d">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringCredit (Standard)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${TokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${TokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringCredit (RSA)" id="52caf458-f7cb-4ade-9afc-1a98fcf700f9">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringCredit (RSA)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${RSATokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${RSATokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}-RSA</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}-RSA</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringCredit (CryptoToken)" id="0a42dd08-23cc-4771-9248-ff27290a0460" disabled="true">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringCredit (CryptoToken)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${CryptoTokenId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CryptoTokenId}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringCredit (PFPv1)" id="608abbe3-7684-4aff-af99-3466b55a85fd">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringCredit (PFPv1)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${PFPTokenV1}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${PFPTokenV1}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="RecurringCredit (PFPv2)" id="191bc281-fc0f-4fca-b114-ca264ce3f95b">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="RecurringCredit (PFPv2)" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${PFPTokenV2}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${PFPTokenV2}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="GetReferenceNumbers" id="70eba8e7-cad6-4796-93a8-538060c9ad09">
+    <con:settings/>
+    <con:config>
+      <script>def exportTrx = ["Sale 02", "Sale 03", "Auth 02", "Auth 03", "Auth 04"]
+
+exportTrx.each
+{
+	def trxName = it
+	def responseParts = context.testCase.getTestStepByName( it ).httpRequest.response.getResponseContent().split( "&amp;" )
+	
+	if ( responseParts )
+	{
+		responseParts.each
+		{
+			if ( it.contains( "PNREF" ) )
+			{
+				referenceNumber = it.split( "=" )[1]
+				if ( "Sale 02" == trxName ) com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PFPTrxSale02", referenceNumber )
+				if ( "Sale 03" == trxName ) com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PFPTrxSale03", referenceNumber )
+				if ( "Auth 02" == trxName ) com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PFPTrxAuth02", referenceNumber )
+				if ( "Auth 03" == trxName ) com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PFPTrxAuth03", referenceNumber )
+				if ( "Auth 04" == trxName ) com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PFPTrxAuth04", referenceNumber )
+			}
+		}
+	}
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Void - Sale 02" id="388e2d38-cc52-4c8c-bd1b-f2223ead0e7f">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Void - Sale 02" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>V</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>V</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ORIGID</con:name>
+          <con:value>${PFPTrxSale02}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${PFPTrxSale02}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Refund (Partial) - Sale 03" id="affe6ee1-189d-4b0a-b072-72168feeaae3">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Refund (Partial) - Sale 03" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${AmountRefundPartial}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${AmountRefundPartial}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ORIGID</con:name>
+          <con:value>${PFPTrxSale03}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${PFPTrxSale03}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Reauth - Auth 02" id="ed02148e-e52e-4c16-852f-3856b19dcdaf">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Reauth - Auth 02" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>A</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>A</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ORIGID</con:name>
+          <con:value>${PFPTrxAuth02}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${PFPTrxAuth02}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Force - Auth 03" id="3c298de5-1db2-4da0-b210-6dc06ec0c2c6">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Force - Auth 03" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>D</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>D</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${Amount}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${Amount}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ORIGID</con:name>
+          <con:value>${PFPTrxAuth03}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${PFPTrxAuth03}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="Refund (Partial) - Auth 04" id="fffeb4bc-5705-4029-89c3-816338d7c190">
+    <con:settings/>
+    <con:config method="POST" xsi:type="con:HttpRequest" id="01060ca9-92a1-445b-9818-a24371751eac" name="Refund (Partial) - Auth 04" postQueryString="true" mediaType="application/x-www-form-urlencoded" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://hub.cenpos.net/pfpqa/handler.ashx</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>USER</con:name>
+          <con:value>${UserId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${UserId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>PWD</con:name>
+          <con:value>${Password}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${Password}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>VENDOR</con:name>
+          <con:value>${MerchantId}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${MerchantId}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TRXTYPE</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>TENDER</con:name>
+          <con:value>C</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>C</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>PARTNER</con:name>
+          <con:value>CenPos</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>CenPos</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>AMT</con:name>
+          <con:value>${AmountRefundPartial}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${AmountRefundPartial}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>ACCT</con:name>
+          <con:value>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>EXPDATE</con:name>
+          <con:value>${CardExpDate}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${CardExpDate}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>NAME</con:name>
+          <con:value>${NameOnCard}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${NameOnCard}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter required="false" disableUrlEncoding="false">
+          <con:name>INVNUM</con:name>
+          <con:value>${InvoiceNumber}</con:value>
+          <con:style>QUERY</con:style>
+          <con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type>
+          <con:default>${InvoiceNumber}</con:default>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>CUSTCODE</con:name>
+          <con:value>${CustomerCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerCode}</con:default>
+          <con:path xsi:nil="true"/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+        <con:parameter>
+          <con:name>EMAIL</con:name>
+          <con:value>${CustomerEmail}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerEmail}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ZIP</con:name>
+          <con:value>${CustomerZipCode}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${CustomerZipCode}</con:default>
+        </con:parameter>
+        <con:parameter>
+          <con:name>ORIGID</con:name>
+          <con:value>${PFPTrxAuth04}</con:value>
+          <con:style>QUERY</con:style>
+          <con:default>${PFPTrxAuth04}</con:default>
+        </con:parameter>
+      </con:parameters>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>20b32ab4-2fa6-450a-bb8a-e05edcf4e7e0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>9c54caed-9291-47a6-9c87-d136898248aa</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>767b8325-08ea-426d-86c2-3a3018e3fee9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>76052ef8-070f-4b84-b079-74d01958f3c8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>827a6695-574f-4f68-984f-20f93376817c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1c5c6a3d-79ac-459b-a7a7-55ca0cb2b93a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6645aa49-d512-4a58-a1aa-521de62f35a9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>a2dd288b-b8db-4cd9-a261-72e109c17b45</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>341e52c8-2d9b-49c4-8b02-493ef46bdd55</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>29fefb28-59d2-4ade-a0b4-0cddc55eaa82</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>24088eee-0ae4-450d-9604-eb79ad939c23</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6d983ab3-c240-4c46-b824-f3a2ade368ba</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>b9f24ad6-8316-438e-b090-8b9fca78a271</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1b23e443-b7e7-476e-aef3-1c3edd5c5ad3</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>445027e7-08da-4f27-a7f6-3c0d60d584ca</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>52caf458-f7cb-4ade-9afc-1a98fcf700f9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>0a42dd08-23cc-4771-9248-ff27290a0460</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>
