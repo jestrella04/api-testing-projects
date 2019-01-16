@@ -160,27 +160,28 @@ import groovy.time.TimeCategory
 try
 {
 	// Set environment settings
-	def projectName = "ABI V6.4 Ecommerce"
+	def projectName = "PFP Emulator"
 	def suiteName   = "Regression Manager"
 	def stdBaseURL  = "https://test.cenpos.net:9443"
-	def pfpBaseURL  = "https://hub.cenpos.net"
+	def pfpBaseURL  = "https://test.cenpos.net:7443/PaypalProxy"
 	def ebpBaseURL  = "https://www3.cenpos.net"
 	def cbsBaseURL  = "https://miami1.cenpos.net"
 	
 	// Services endpoints, values are relative to stdBaseURL
-	def tranxService  = "/6/4/transact.asmx"
-	def ecommService  = "/6/4/ecommerce.asmx"
-	def motoService   = "/6/moto.asmx"
-	def mobileService = "/6/mobile.asmx"
-	def tokenService  = "/2/tokens.asmx"
-	def adminService  = "/6/admin.asmx"
-	def checkService  = "/2/check.asmx"
-	def pfpService    = "/pfp/handler.ashx"
-	def ebppService   = "/ebpp/v3/EbppIntegrationService.asmx"
-	def cbsService    = "/CyberSource/TransactionProcessor.svc"
+	def tranxService    = "/6/4/transact.asmx"
+	def ecommService    = "/6/4/ecommerce.asmx"
+	def motoService     = "/6/moto.asmx"
+	def mobileService   = "/6/mobile.asmx"
+	def tokenService    = "/2/tokens.asmx"
+	def adminService    = "/6/admin.asmx"
+	def checkService    = "/2/check.asmx"
+	def pfpService      = "/Handler.ashx"
+	def pfpTokenService = "/TokenService.asmx"
+	def ebppService     = "/ebpp/v3/EbppIntegrationService.asmx"
+	def cbsService      = "/CyberSource/TransactionProcessor.svc"
 
 	// Merchant id(s) to point to
-	def merchantIds = ["580"]
+	def merchantIds = ["584"]
 	
 	if ('CyberSource Integration' == projectName)
 	{
@@ -204,14 +205,14 @@ try
 
 	// Set card data to use (specific to host)
 	// Generic, Chase, Tsys, Vantiv, RapidConnect, Cielo, FDC, EMV, VisaACP
-	def hostCardData = "Chase"
+	def hostCardData = "Generic"
 	
 	// Comma separated list of card brands to run
 	def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
 	//def cardTypes = ["Mastercard"]
 
 	// Set additional information
-	def amount = 19.26
+	def amount = 69.26
 	def amountPartial = 9.26
 	def amountDebit = 29.26
 	def amountTimeout = 33.26
@@ -256,12 +257,12 @@ try
 	def endpoint = ""
 	def mpo = false
 	def workspace = context.testCase.getTestSuite().getProject().getWorkspace()
-	def project = workspace.getProjectByName( projectName )
-	if ( ! project ) throw new Exception( "Invalid project name..." )
-	def testSuite = project.getTestSuiteByName( suiteName )
-	if ( ! testSuite ) throw new Exception( "Invalid suite name..." )
+	def project = workspace.getProjectByName(projectName)
+	if (! project) throw new Exception("Invalid project name...")
+	def testSuite = project.getTestSuiteByName(suiteName)
+	if (! testSuite) throw new Exception("Invalid suite name...")
 	def testCaseList = testSuite.getTestCaseList()
-	if ( null != mpoUserId && "" != mpoUserId && null != mpoPassword && "" != mpoPassword ) mpo = true
+	if (null != mpoUserId && "" != mpoUserId && null != mpoPassword && "" != mpoPassword) mpo = true
 
 	// Set timezone to UTC
 	TimeZone.setDefault(TimeZone.getTimeZone('UTC'))
@@ -279,56 +280,56 @@ try
 		currDateTime2 = new Date() + 5.minutes
 	}
 		
-	currDateTime1 = currDateTime1.format( "yyyy-MM-dd'T'HH:mm:ss'Z'" )
-	currDateTime2 = currDateTime2.format( "yyyy-MM-dd'T'HH:mm:ss'Z'" )
-	today = today.format( "MM-dd-yyyy" )
+	currDateTime1 = currDateTime1.format("yyyy-MM-dd'T'HH:mm:ss'Z'")
+	currDateTime2 = currDateTime2.format("yyyy-MM-dd'T'HH:mm:ss'Z'")
+	today = today.format("MM-dd-yyyy")
 	
 	// Set the formatting for amount values
 	def amountPattern = new DecimalFormat("#####.##")
 
 	// Set login info and additional parameters
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "UserId", userId )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "Password", password )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MpoUserId", mpo ? mpoUserId : userId )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MpoPassword", mpo ? mpoPassword : password )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AltMerchantId", altMerchantId )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "Amount", amountPattern.format(amount) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountRefundPartial", amountPattern.format(amountPartial) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountDebit", amountPattern.format(amountDebit) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountTimeout", testTimeouts ? amountPattern.format(amountTimeout) : amountPattern.format(amount) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountDiscount", amountPattern.format(amount * 0.10) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountAfterDiscount", amountPattern.format(amount - (amount * 0.10)) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountOver", amountPattern.format(amount + 15) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountExternalPartial", amountPattern.format(amount / 4) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "TaxAmount", amountPattern.format(amount * 0.07) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountTip", amountPattern.format(amountTip) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PONumber", poNumber )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "InvoiceNumber", invoice )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "InvoiceTimeout", testTimeouts ? invoiceTimeout : invoice )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerAddress", avs )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerZipCode", zip )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerCity", city )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerState", state )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerEmail", customerEmail )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerEmailFake", customerEmailFake )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerCode", customerCode )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "ExportDir", exportDir )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CurrentDateTime1", currDateTime1 )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CurrentDateTime2", currDateTime2 )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "GetTrxRequest", getTrxRequest )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("UserId", userId)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("Password", password)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("MpoUserId", mpo ? mpoUserId : userId)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("MpoPassword", mpo ? mpoPassword : password)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AltMerchantId", altMerchantId)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("Amount", amountPattern.format(amount))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountRefundPartial", amountPattern.format(amountPartial))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountDebit", amountPattern.format(amountDebit))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountTimeout", testTimeouts ? amountPattern.format(amountTimeout) : amountPattern.format(amount))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountDiscount", amountPattern.format(amount * 0.10))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountAfterDiscount", amountPattern.format(amount - (amount * 0.10)))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountOver", amountPattern.format(amount + 15))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountExternalPartial", amountPattern.format(amount / 4))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("TaxAmount", amountPattern.format(amount * 0.07))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("AmountTip", amountPattern.format(amountTip))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("PONumber", poNumber)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("InvoiceNumber", invoice)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("InvoiceTimeout", testTimeouts ? invoiceTimeout : invoice)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerAddress", avs)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerZipCode", zip)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerCity", city)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerState", state)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerEmail", customerEmail)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerEmailFake", customerEmailFake)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerCode", customerCode)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("ExportDir", exportDir)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CurrentDateTime1", currDateTime1)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CurrentDateTime2", currDateTime2)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("GetTrxRequest", getTrxRequest)
 
 	// Set debit card info
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "DebitCardExpDate", '1225' )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "DebitCardCVV", '998' )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "DebitCardKeySN", '060000974FE000D4' )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "DebitCardMagData", '5108050090007811=251210116817502' )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "DebitCardPin", 'D97C366A06C22C85' )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("DebitCardExpDate", '1225')
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("DebitCardCVV", '998')
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("DebitCardKeySN", '060000974FE000D4')
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("DebitCardMagData", '5108050090007811=251210116817502')
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("DebitCardPin", 'D97C366A06C22C85')
 
 	// Set gift card info
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "GiftCardExpDate", '0100' )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "GiftCardCVV", '123' )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "GiftCardMagData", '6010566317594773=00010004000060123550' )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "GiftCardNameOnCard", 'CMS LEE' )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("GiftCardExpDate", '0100')
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("GiftCardCVV", '123')
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("GiftCardMagData", '6010566317594773=00010004000060123550')
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("GiftCardNameOnCard", 'CMS LEE')
 	
 	// First, let's update endpoint for all transactions
 	testCaseList.each
@@ -341,30 +342,33 @@ try
 			def modelItem = it.getModelItem().toString()
 
 			// Update endpoint, one at a time
-			if ( modelItem.contains( "WsdlTestRequestStep" ) )
+			if (modelItem.contains("WsdlTestRequestStep") || modelItem.contains("HttpTestRequestStep"))
 			{
 				def currentEndpoint = it.getHttpRequest().getEndpoint()
 				
-				if ( currentEndpoint.contains( "transact.asmx" ) ) endpoint = stdBaseURL + tranxService
-				if ( currentEndpoint.contains( "ecommerce.asmx" ) ) endpoint = stdBaseURL + ecommService
-				if ( currentEndpoint.contains( "moto.asmx" ) ) endpoint = stdBaseURL + motoService
-				if ( currentEndpoint.contains( "mobile.asmx" ) ) endpoint = stdBaseURL + mobileService
-				if ( currentEndpoint.contains( "admin.asmx" ) ) endpoint = stdBaseURL + adminService
-				if ( currentEndpoint.contains( "check.asmx" ) ) endpoint = stdBaseURL + checkService
-				if ( currentEndpoint.contains( "handler.ashx" ) && currentEndpoint.contains("pfp") ) endpoint = pfpBaseURL + pfpService
-				if ( currentEndpoint.contains( "EbppIntegrationService.asmx" ) ) endpoint = ebpBaseURL + ebppService
-				if ( currentEndpoint.contains( "TransactionProcessor.svc" ) ) endpoint = cbsBaseURL + cbsService
-				if ( currentEndpoint.contains( "tokens.asmx" ) && projectName.contains( "Ecommerce" ) )
-				{
+				if (currentEndpoint.contains("transact.asmx")) endpoint = stdBaseURL + tranxService
+				if (currentEndpoint.contains("ecommerce.asmx")) endpoint = stdBaseURL + ecommService
+				if (currentEndpoint.contains("moto.asmx")) endpoint = stdBaseURL + motoService
+				if (currentEndpoint.contains("mobile.asmx")) endpoint = stdBaseURL + mobileService
+				if (currentEndpoint.contains("admin.asmx")) endpoint = stdBaseURL + adminService
+				if (currentEndpoint.contains("check.asmx")) endpoint = stdBaseURL + checkService
+				if (currentEndpoint.contains("handler.ashx") && projectName.contains("PFP")) endpoint = pfpBaseURL + pfpService
+				if (currentEndpoint.contains("EbppIntegrationService.asmx")) endpoint = ebpBaseURL + ebppService
+				if (currentEndpoint.contains("TransactionProcessor.svc")) endpoint = cbsBaseURL + cbsService
+				
+				if (currentEndpoint.contains("TokenService.asmx") && projectName.contains("PFP"))
+				{	
+					/*if (currentEndpoint.contains("/V2/")) endpoint = pfpBaseURL + "/V2" + pfpTokenService 
+					else if (currentEndpoint.contains("/V3/")) endpoint = pfpBaseURL + "/V3" + pfpTokenService 
+					else endpoint = pfpBaseURL + pfpTokenService*/
+				}
+				
+				if (currentEndpoint.contains("tokens.asmx") && projectName.contains("Ecommerce"))
 					endpoint = stdBaseURL + tokenService.replace("tokens.asmx", "ecommercetokens.asmx")
-				}
+				else	if (currentEndpoint.contains("tokens.asmx")) endpoint = stdBaseURL + tokenService
+				
 
-				else
-				{
-					if ( currentEndpoint.contains( "tokens.asmx" ) ) endpoint = stdBaseURL + tokenService
-				}
-
-				if ( null != endpoint && "" != endpoint ) it.getHttpRequest().setEndpoint( endpoint )
+				if (null != endpoint && "" != endpoint) it.getHttpRequest().setEndpoint(endpoint)
 			}
 		}
 	}
@@ -387,15 +391,15 @@ try
 				def modelItem = it.getModelItem().toString()
 	
 				// Update endpoint, one at a time
-				if ( modelItem.contains( "WsdlTestRequestStep" ) )
+				if (modelItem.contains("WsdlTestRequestStep"))
 				{
-					it.getHttpRequest().setEndpoint( endpoint )
+					it.getHttpRequest().setEndpoint(endpoint)
 				}
 			}
 		}
 	}
 
-	def getTokenTrxSuite = workspace.getProjectByName( "ABI V2 Tokens" ).getTestSuiteByName( "ManageTestTokens" )
+	def getTokenTrxSuite = workspace.getProjectByName("ABI V2 Tokens").getTestSuiteByName("ManageTestTokens")
 	
 	if (getTokenTrxSuite)
 	{
@@ -404,7 +408,7 @@ try
 		getTokenTrxCases.each
 		{			
 			// Force ecommerce tokens for Ecommerce
-			if ( projectName.contains( "Ecommerce" ) )
+			if (projectName.contains("Ecommerce"))
 			{
 				endpoint = stdBaseURL + tokenService.replace("tokens.asmx", "ecommercetokens.asmx")
 			}
@@ -422,9 +426,9 @@ try
 				def modelItem = it.getModelItem().toString()
 	
 				// Update endpoint, one at a time
-				if ( modelItem.contains( "WsdlTestRequestStep" ) )
+				if (modelItem.contains("WsdlTestRequestStep"))
 				{
-					it.getHttpRequest().setEndpoint( endpoint )
+					it.getHttpRequest().setEndpoint(endpoint)
 				}
 			}
 		}
@@ -439,51 +443,51 @@ try
 
 	
 	// Iterate over all provided mids, currencies and cards
-	for ( i in merchantIds )
+	for (i in merchantIds)
 	{
-		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MerchantId", i )
+		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("MerchantId", i)
 		
-		for ( j in currencies )
+		for (j in currencies)
 		{	
 			// Set currency code
-			com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CurrencyCode", j )
+			com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CurrencyCode", j)
 	
 			// Iterate over card types
-			for ( k in cardTypes )
+			for (k in cardTypes)
 			{
 				log.info "Running " + k + " transactions with currency code " + j + " on mid " + i + ". Please wait!"
 				
 				// Set current card type
-				com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CurrentCardType", k )
+				com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CurrentCardType", k)
 	
 				// Set current card data				
-				setCardData = testRunner.runTestStep( context.testCase.getTestStepByName( "Cards - " + hostCardData ) )
+				setCardData = testRunner.runTestStep(context.testCase.getTestStepByName("Cards - " + hostCardData))
 
 				// Create the test tokens before running transactions
 				if (! suiteName.contains("Token Manager"))
 				{
-					def tokensTestCaseCreate = workspace.getProjectByName( "ABI V2 Tokens" ).testSuites['ManageTestTokens'].testCases['Cards - Create']
+					def tokensTestCaseCreate = workspace.getProjectByName("ABI V2 Tokens").testSuites['ManageTestTokens'].testCases['Cards - Create']
 					def tokensTestCaseCreateMap = new com.eviware.soapui.support.types.StringToObjectMap()
-					def tokensTestCaseCreateRunner = tokensTestCaseCreate.run( tokensTestCaseCreateMap, false )
+					def tokensTestCaseCreateRunner = tokensTestCaseCreate.run(tokensTestCaseCreateMap, false)
 				}
 		
 				// Run the transactions test cases
-				UISupport.showDesktopPanel( testSuite )
+				UISupport.showDesktopPanel(testSuite)
 				def testSuiteMap = new com.eviware.soapui.support.types.StringToObjectMap()
-				def testSuiteRunner = testSuite.run( testSuiteMap, false )
+				def testSuiteRunner = testSuite.run(testSuiteMap, false)
 
 				// Delete the the test tokens we created before
 				if (! suiteName.contains("Token Manager") && deleteTestTokens)
 				{
-					def tokensTestCaseDelete = workspace.getProjectByName( "ABI V2 Tokens" ).testSuites['ManageTestTokens'].testCases['Cards - Delete']
+					def tokensTestCaseDelete = workspace.getProjectByName("ABI V2 Tokens").testSuites['ManageTestTokens'].testCases['Cards - Delete']
 					def tokensTestCaseDeleteMap = new com.eviware.soapui.support.types.StringToObjectMap()
-					def tokensTestCaseDeleteRunner = tokensTestCaseDelete.run( tokensTestCaseDeleteMap, false )
+					def tokensTestCaseDeleteRunner = tokensTestCaseDelete.run(tokensTestCaseDeleteMap, false)
 				}
 		
-				if ( merchantIds.last() == i && currencies.last() == j && cardTypes.last() == k )
+				if (merchantIds.last() == i && currencies.last() == j && cardTypes.last() == k)
 				{
 					//continueRunning = true
-					UISupport.showInfoMessage( "Regression test finished with status $testRunner.status", "Regression test finished..." )
+					UISupport.showInfoMessage("Regression test finished with status $testRunner.status", "Regression test finished...")
 				}
 			}
 		}
@@ -497,19 +501,19 @@ try
 	
 		// Get the location of the exported file
 		def xmlFile = suiteName + ' ' + today.toString() + '.xml'
-		def resultsFile = new File( resultDir, xmlFile )
+		def resultsFile = new File(resultDir, xmlFile)
 	
 		// Append close tag if file exists
-		if ( resultsFile.exists() )
+		if (resultsFile.exists())
 		{
 			resultsFile.append('</TRX>\n')
 		}
 	}
 }
 
-catch ( e )
+catch (e)
 {
-	log.error( e.toString() )
+	log.error(e.toString())
 }]]></script>
     </con:config>
   </con:testStep>
@@ -2487,10 +2491,10 @@ try
 	
 	// Comma separated list of card brands to run
 	//def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
-	def cardTypes      = ["Visa"]
+	def cardTypes      = ["Mastercard"]
 
 	// Set additional information
-	def amount         = 117
+	def amount         = 117.56
 	def amountPartial  = 99.50
 	def amountDebit    = 99.99
 	def amountTimeout  = 33.50
@@ -2592,13 +2596,12 @@ try
 			def modelItem = it.getModelItem().toString()
 
 			// Update endpoint, one at a time
-			if ( modelItem.contains( "HttplTestRequestStep" ) )
+			if ( modelItem.contains( "HttpTestRequestStep" ) )
 			{
 				def currentEndpoint = it.getHttpRequest().getEndpoint()
 
 				if (currentEndpoint.contains("/checks/"))
 				{
-					
 					if ( currentEndpoint.contains( "siteVerify" ) ) endpoint = swpRealChecksVerifyUrl
 					else if ( currentEndpoint.contains( "GetToken" ) ) endpoint = swpRealChecksApiUrl + "GetToken/"
 					else if ( currentEndpoint.contains( "UseToken" ) ) endpoint = swpRealChecksApiUrl + "UseToken/"
@@ -2608,7 +2611,7 @@ try
 					if ( currentEndpoint.contains( "siteVerify" ) ) endpoint = swpRealCardsVerifyUrl
 					else if ( currentEndpoint.contains( "GetToken" ) ) endpoint = swpRealCardsApiUrl + "GetToken/"
 					else if ( currentEndpoint.contains( "UseToken" ) ) endpoint = swpRealCardsApiUrl + "UseToken/"
-					else if ( currentEndpoint.contains( "UseCrypto" ) ) endpoint = swpRealCardsApiUrlealApiUrl + "UseCrypto/"
+					else if ( currentEndpoint.contains( "UseCrypto" ) ) endpoint = swpRealCardsApiUrl + "UseCrypto/"
 					else if ( currentEndpoint.contains( "ConvertCrypto" ) ) endpoint = swpRealCardsApiUrl + "ConvertCrypto/"
 					else if ( currentEndpoint.contains( "DeleteToken" ) ) endpoint = swpRealCardsApiUrl + "DeleteToken/"
 					else if ( currentEndpoint.contains( "Refund" ) ) endpoint = swpRealCardsApiUrl + "Refund/"

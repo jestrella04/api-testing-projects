@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="7d43c1dd-fc46-4ba3-817a-1117ae96eaab" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Get PFP Token" searchProperties="true" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="7d43c1dd-fc46-4ba3-817a-1117ae96eaab" discardOkResults="true" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Get PFP Token" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="7d43c1dd-fc46-4ba3-817a-1117ae96eaabfileName">Get-PFP-Token</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="request" name="GenerateToken (v1)" id="3b3d6657-44b0-4368-ae9c-ea9ead72a863">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -13,7 +14,7 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://hub.cenpos.net/TokenService.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:7443/PaypalProxy/TokenService.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/">\r
@@ -46,7 +47,7 @@ xmlns:tem="http://tempuri.org/">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://hub.cenpos.net/v2/TokenService.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:7443/PaypalProxy/V2/TokenService.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/">\r
@@ -72,12 +73,13 @@ xmlns:tem="http://tempuri.org/">\r
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
         <con:wsaConfig mustUnderstand="NONE" version="200508"/>
         <con:wsrmConfig version="1.2"/>
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="GenerateToken (v3)" id="c41ff7eb-7e71-4f97-a93f-a5f6c8560c04" disabled="true">
+  <con:testStep type="request" name="GenerateToken (v3)" id="c41ff7eb-7e71-4f97-a93f-a5f6c8560c04">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>TokenService3Soap</con:interface>
@@ -87,16 +89,14 @@ xmlns:tem="http://tempuri.org/">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://hub.cenpos.net/pfpqa/V3/TokenService.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:7443/PaypalProxy/V3/TokenService.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <tem:GenerateToken>\r
-         <tem:merchantId>?</tem:merchantId>\r
-         <!--Optional:-->\r
-         <tem:customerCode>?</tem:customerCode>\r
-         <!--Optional:-->\r
-         <tem:cardNumber>?</tem:cardNumber>\r
+         <tem:merchantId>${MerchantId}</tem:merchantId>
+         <tem:customerCode>${CustomerCode}</tem:customerCode>\r
+         <tem:cardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</tem:cardNumber>\r
       </tem:GenerateToken>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
@@ -107,6 +107,7 @@ xmlns:tem="http://tempuri.org/">\r
           <con:authType>No Authorization</con:authType>
         </con:credentials>
         <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
         <con:wsaConfig mustUnderstand="NONE" version="200508"/>
         <con:wsrmConfig version="1.2"/>
       </con:request>
@@ -115,11 +116,13 @@ xmlns:tem="http://tempuri.org/">\r
   <con:testStep type="groovy" name="GetTokenIds" id="5d669aee-a3a1-4125-bf30-f65a0e69c2f5">
     <con:settings/>
     <con:config>
-      <script>def tokenV1 = context.expand( '${GenerateToken (v1)#Response#declare namespace ns1=\'http://tempuri.org/\'; //ns1:GenerateTokenResponse[1]/ns1:GenerateTokenResult[1]}' )
-def tokenV2 = context.expand( '${GenerateToken (v2)#Response#declare namespace ns1=\'http://tempuri.org/\'; //ns1:AddTokenResponse[1]/ns1:AddTokenResult[1]/ns1:CardToken[1]}' )
+      <script>def tokenV1 = context.expand('${GenerateToken (v1)#Response#declare namespace ns1=\'http://tempuri.org/\'; //ns1:GenerateTokenResponse[1]/ns1:GenerateTokenResult[1]}')
+def tokenV2 = context.expand('${GenerateToken (v2)#Response#declare namespace ns1=\'http://tempuri.org/\'; //ns1:AddTokenResponse[1]/ns1:AddTokenResult[1]/ns1:CardToken[1]}')
+def tokenV3 = context.expand('${GenerateToken (v3)#Response#declare namespace ns1=\'http://tempuri.org/\'; //ns1:GenerateTokenResponse[1]/ns1:GenerateTokenResult[1]}')
 
-com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PFPTokenV1", tokenV1 )
-com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PFPTokenV2", tokenV2 )</script>
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("PFPTokenV1", tokenV1)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("PFPTokenV2", tokenV2)
+com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("PFPTokenV3", tokenV3)</script>
     </con:config>
   </con:testStep>
   <con:properties/>
