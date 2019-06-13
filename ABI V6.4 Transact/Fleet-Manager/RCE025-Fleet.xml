@@ -95,7 +95,9 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
       <con:request name="130278" id="13b98403-7fd9-4926-8d49-e31d4a02cf59">
-        <con:settings/>
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
         <con:encoding>UTF-8</con:encoding>
         <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests">\r
@@ -145,7 +147,7 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
             <acr1:TaxAmount>0.0</acr1:TaxAmount>\r
             <acr1:TerminalCapabilities>Manual</acr1:TerminalCapabilities>\r
             <acr1:TerminalConfigurationFingerprint/>\r
-            <acr1:TransactionType>Auth</acr1:TransactionType>\r
+            <acr1:TransactionType>Sale</acr1:TransactionType>\r
          </tem:request>\r
       </tem:ProcessCreditCard>\r
    </soapenv:Body>\r
@@ -166,7 +168,10 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
-        <con:wsaConfig action="http://tempuri.org/Transactional/ProcessCreditCard"/>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig action="http://tempuri.org/Transactional/ProcessCreditCard" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
       </con:request>
     </con:config>
   </con:testStep>
@@ -1188,7 +1193,9 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
-        <con:wsaConfig action="http://tempuri.org/Transactional/ProcessCreditCard"/>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Transactional/ProcessCreditCard" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
       </con:request>
     </con:config>
   </con:testStep>
@@ -3011,7 +3018,9 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
-        <con:wsaConfig action="http://tempuri.org/Transactional/ProcessCreditCard"/>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://tempuri.org/Transactional/ProcessCreditCard" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
       </con:request>
     </con:config>
   </con:testStep>

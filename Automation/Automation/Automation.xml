@@ -105,6 +105,13 @@ catch ( e )
 							
 							request.setRequestContent( updatedRequest )
 						}*/
+
+						// Update Endpoint
+						def currentEndpoint = it.getHttpRequest().getEndpoint()
+				
+						if (currentEndpoint.contains("transact.asmx") &amp;&amp; projectName.contains("Ecommerce")) {
+							it.getHttpRequest().setEndpoint("https://test.cenpos.net:9443/6/4/ecommerce.asmx")
+						}
 					}
 
 					else if ( modelItem.contains( "WsdlGroovyScriptTestStep" ) )
@@ -121,7 +128,7 @@ catch ( e )
 
 					else if ( modelItem.contains( "HttpTestRequestStep" ) )
 					{
-						//Get current request properties
+						/*//Get current request properties
 						def step = it
 						def properties = it.getProperties()
 						
@@ -136,7 +143,7 @@ catch ( e )
 									step.setPropertyValue( it.key, "\${SwpCardsEncryptedMerchantId}" )
 								}
 							}
-						}
+						}*/
 					}
 				}
 			}
@@ -160,7 +167,7 @@ import groovy.time.TimeCategory
 try
 {
 	// Set environment settings
-	def projectName = "PFP Emulator"
+	def projectName = "ABI V6.4 Transact"
 	def suiteName   = "Regression Manager"
 	def stdBaseURL  = "https://test.cenpos.net:9443"
 	def pfpBaseURL  = "https://test.cenpos.net:7443/PaypalProxy"
@@ -181,7 +188,7 @@ try
 	def cbsService      = "/CyberSource/TransactionProcessor.svc"
 
 	// Merchant id(s) to point to
-	def merchantIds = ["584"]
+	def merchantIds = ["580"]
 	
 	if ('CyberSource Integration' == projectName)
 	{
@@ -204,8 +211,8 @@ try
 	def altMerchantId = "12721628"
 
 	// Set card data to use (specific to host)
-	// Generic, Chase, Tsys, Vantiv, RapidConnect, Cielo, FDC, EMV, VisaACP
-	def hostCardData = "Generic"
+	// Generic, Chase, Tsys, Vantiv, RC, Cielo, FDC, EMV, VisaACP, Elavon, Moneris
+	def hostCardData = "Chase"
 	
 	// Comma separated list of card brands to run
 	def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
@@ -213,12 +220,12 @@ try
 
 	// Set additional information
 	def amount = 69.26
-	def amountPartial = 9.26
-	def amountDebit = 29.26
+	def amountPartial = 10.36
+	def amountDebit = 69.26
 	def amountTimeout = 33.26
 	def amountTip = 10.00
 	def poNumber = "PO123456"
-	def invoice = "IV-20180201"
+	def invoice = "IV-20190426"
 	def invoiceTimeout = "GENERATE TIMEOUT"
 	def avs = "123 SW Rd"
 	def zip = "85284"
@@ -559,8 +566,8 @@ try
 	def mpoPassword = "Cenpos@2014"
 
 	// Set additional information
-	def amount = 116.20
-	def amount2 = 216.50
+	def amount = 0.23
+	def amount2 = 0.23
 	def amountPartial = 2.98
 	def amountDebit = 1.99
 	def amountTimeout = 33.50
@@ -802,8 +809,8 @@ TimeZone.setDefault( TimeZone.getTimeZone( 'UTC' ) )
 try
 {
 	// Set environment settings
-	def projectName = "ABI V6.4 Admin"
-	def suiteName = "User Manager"
+	def projectName = "ABI V6.4 Transact"
+	def suiteName = "Reports Manager"
 	def baseURL = "https://ww4.cenpos.net"
 	
 	// Additional services might be needed on some scenarios
@@ -1458,7 +1465,7 @@ else if ( "Discover" == i )
 }</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Cards - RapidConnect" id="7d49bb68-e53a-49cc-b39c-5a63491a84a1" disabled="true">
+  <con:testStep type="groovy" name="Cards - RC" id="7d49bb68-e53a-49cc-b39c-5a63491a84a1" disabled="true">
     <con:settings/>
     <con:config>
       <script>def i = context.expand( '${CurrentCardType}' )
@@ -1528,6 +1535,79 @@ else if ( "Discover" == i )
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "123" );
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "0425" );
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "6011208701111117=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "DISCOVER CORP TEST ACC" );
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Cards - RCHB" id="e3446bfd-e7f6-41ae-8ddd-240b063dc894" disabled="true">
+    <con:settings/>
+    <con:config>
+      <script>def i = context.expand( '${CurrentCardType}' )
+
+if ( "Visa" == i )
+{
+	//set visa related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "123" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "4761530001111118=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "VISA TEST ACC" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "RSA-ENCRYPTED%56cd3209155823b3d668513c597b9ef59faa449eb2b287c25c176b98a1bde2f8241b2fec1c4d4b4f5397f4218ea5a5289ea6db4f2bd9e375710d9eef752ccbd9762725f111b78a8ed368f9e363e0d7805356787efd9dc8fc6f36fa1853d9e2a550c0ab84cd3148605269e3cc1dcf099910796358f53799192b8d5c909feb9c08" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "123" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "4761530001111118=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "VISA CORP TEST ACC" );
+}
+
+else if ( "Mastercard" == i )
+{
+	//set mc related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "123" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "5137221111116668=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "MASTERCARD TEST ACC" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "RSA-ENCRYPTED%05eaa24bfc3ef65b1824eb2ac660b669a55413978a4e855be82b674edd1ac7487f698568c8b7c1adc89f808fe97c8e8f836717b15bc5a949a6e24496af9262bbc083647e993efd22e0df4992dd407495c96c9593a5365948611d8a6a97562273368f5d2f88eaaee15c7f8bb994bac15f5bd7321ab8eca36937305f869e02d11e" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "123" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "5137221111116668=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "MASTERCARD CORP TEST ACC" );	
+}
+
+else if ( "Amex" == i )
+{
+	//set amex related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "1234" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "371030089111338=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "AMEX TEST ACC" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "RSA-ENCRYPTED%8898a6c09810f2506858fbc7a20c44688e4456589224e0fb4afd836eef3a01c9b6467d1edefca778821dbee2b5bfdab0abaca19f122ba32f611c4d02addf95f94e45689d17db68b46e789c8d3e8f42abf19662e126a6ea4787e25da50045fdc24ad6a2c0f1d5b8cbec6f99b54973690ec33b8f4f6ae3df9ec696453b8bcbba03");
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "1234" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "371030089111338=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "AMEX CORP TEST ACC" );
+}
+
+else if ( "Discover" == i )
+{
+	//set discover related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "123" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "6011208701117775=2504160410116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "DISCOVER TEST ACC" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "RSA-ENCRYPTED%50c4dde352b4873278a4fd149dc237660ec04e364f95508126cd9ffdeaeaa278600cb69b13115d368628d03dfc71b979e6f71bdc65532a9ca568103b41ba9eefdef2c8ce1af52b7582155ef0d347186be55ed92747bcb82dc9bea5417fc25a7d641ed28e8723de1e737eabe3e7db09db9d268731b4fbfddcc8faa36f6b6bdc6d" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "123" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "0425" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "6011208701117775=2504160410116817502" );
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "DISCOVER CORP TEST ACC" );
 }</script>
     </con:config>
@@ -1788,6 +1868,154 @@ else if ( "Discover" == j )
 }</script>
     </con:config>
   </con:testStep>
+  <con:testStep type="groovy" name="Cards - Elavon" id="6f4ad030-495c-4f67-a395-319f73143469" disabled="true">
+    <con:settings/>
+    <con:config>
+      <script>def j = context.expand( '${CurrentCardType}' )
+
+if ( "Visa" == j )
+{
+	//set visa related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "999" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "4121630071281885=25121015432112345601" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "VISA TRADITIONAL" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "999" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "4124932222222223=25121010000067200000" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "VISA CORPORATE" );
+}
+
+else if ( "Mastercard" == j )
+{
+	//set mc related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "998" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "5406004444444443=251210116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "MASTERCARD CONSUMER" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+		
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "998" );;
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "5472063333333330=251210116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "MASTERCARD CORPORATE" );			
+}
+
+else if ( "Amex" == j )
+{
+	//set amex related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "9997" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "370000999999990=251250105088797700000" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "AMERICAN EXPRESS" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "9997" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "370000999999990=251250105088797700000" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "AMERICAN EXPRESS" );			
+}
+
+else if ( "Discover" == j )
+{
+	//set discover related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "996" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "6011013333333331=251210116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "DISCOVER CONSUMER" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+		
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "996" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "6011308744444440=251210116817502" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "DISCOVER COMMERCIAL" );		
+}</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Cards - Moneris" id="54e0a16e-c255-4e9c-9988-6a0ef4910a92" disabled="true">
+    <con:settings/>
+    <con:config>
+      <script>def j = context.expand( '${CurrentCardType}' )
+
+if ( "Visa" == j )
+{
+	//set visa related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "999" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "4242424242424242=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "VISA TEST" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "999" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "4242424254545454=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "VISA CORP" );
+}
+
+else if ( "Mastercard" == j )
+{
+	//set mc related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "998" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "2223000048400011=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "MASTERCARD TEST" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "998" );;
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "5454545442424242=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "MC CORP" );			
+}
+
+else if ( "Amex" == j )
+{
+	//set amex related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "9997" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "373599005095005=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "AMEX TEST" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "9997" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "373269005095005=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "AMEX CORP" );			
+}
+
+else if ( "Discover" == j )
+{
+	//set discover related properties
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardCVV", "996" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagneticData", "6510000000000182=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "NameOnCard", "DISCOVER TEST" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CardNumberRSA", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PIngenico", "" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MagDataP2PVerifone", "" );
+	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardCVV", "996" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardExpDate", "1225" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardMagneticData", "6510000000000182=25121015454001060101" );
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CorpCardNameOnCard", "DISCOVER TEST" );		
+}</script>
+    </con:config>
+  </con:testStep>
   <con:testStep type="groovy" name="ExportTrxResults" id="b967c4bd-09f9-423b-a362-332b0de5c03a" disabled="true">
     <con:settings/>
     <con:config>
@@ -1817,7 +2045,7 @@ try {
 		resultsFile.createNewFile()
 		
 		//Header row
-		resultsFile.write('"MID","TID","SERVICE","INTERFACE","TEST CASE","TEST STEP","ENTRY METHOD","PAYMENT TYPE","PROCESSED AS","CURRENCY","ORIG. AMOUNT","AUTH AMOUNT","INVOICE","CLIENT ID","AUTH CODE","RESULT","RESULT CODE","REFERENCE NO.","TIMESTAMP"')
+		resultsFile.write('"MID","TID","SERVICE","INTERFACE","TESTCASE","TESTSTEP","ENTRY METHOD","PAYMENT TYPE","PROCESSED AS","CURRENCY","ORIG. AMT","AUTH AMT","SURCHARGE AMT","INVOICE","CLIENT ID","AUTH CODE","RESULT","RESULT CODE","REF NUM","TIMESTAMP"')
 	}
 
 	// Get project and test suite
@@ -1853,6 +2081,7 @@ try {
 				def trxCurrencyCode = ""
 				def trxOrigAmount = ""
 				def trxAuthAmount = ""
+				def trxSurchargeAmount = ""
 				def trxInvoice = ""
 				def trxClientId = ""
 				def trxAuthCode = ""
@@ -1966,6 +2195,7 @@ try {
 										trxAuthCode = transactionDetailsXML.getNodeValue( '/' + getTrxList + '/TransactionDetails/Approval_Code_CH/text()' ) ?: ""
 										trxOrigAmount = transactionDetailsXML.getNodeValue( '/' + getTrxList + '/TransactionDetails/Total_Amt_MN/text()' ) ?: ""
 										trxAuthAmount = transactionDetailsXML.getNodeValue( '/' + getTrxList + '/TransactionDetails/Auth_Amt_MN/text()' ) ?: ""
+										trxSurchargeAmount = transactionDetailsXML.getNodeValue( '/' + getTrxList + '/TransactionDetails/SurchargeAmount/text()' ) ?: ""
 										trxCardType = transactionDetailsXML.getNodeValue( '/' + getTrxList + '/TransactionDetails/Payment_Type_ID/text()' ) ?: ""
 										trxProcessedAs = transactionDetailsXML.getNodeValue( '/' + getTrxList + '/TransactionDetails/Trans_Type_ID/text()' ) ?: ""
 										trxEntryMethod = transactionDetailsXML.getNodeValue( '/' + getTrxList + '/TransactionDetails/Entry_Mode/text()' ) ?: ""
@@ -1990,6 +2220,7 @@ try {
 							resultsFile.append('"' + trxCurrencyCode + '",'); //Currency code
 							resultsFile.append('"' + trxOrigAmount + '",'); //Original Amount
 							resultsFile.append('"' + trxAuthAmount + '",'); //Authorized Amount
+							resultsFile.append('"' + trxSurchargeAmount + '",'); //Surcharge Amount
 							resultsFile.append('"' + trxInvoice + '",'); //Invoice
 							resultsFile.append('"' + trxClientId + '",'); //Client Id
 							resultsFile.append('"' + trxAuthCode + '",'); //Auth Code
@@ -2016,6 +2247,7 @@ try {
 							resultsFile.append(','); //Currency code
 							resultsFile.append(','); //Original Amount
 							resultsFile.append(','); //Authorized Amount
+							resultsFile.append(','); //Surcharge Amount
 							resultsFile.append(','); //Invoice
 							resultsFile.append(','); //Client Id
 							resultsFile.append(','); //Auth Code
@@ -2753,6 +2985,21 @@ catch ( e )
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>b9ef26bd-f519-4456-bd16-51a03028a540</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e3446bfd-e7f6-41ae-8ddd-240b063dc894</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6f4ad030-495c-4f67-a395-319f73143469</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>54e0a16e-c255-4e9c-9988-6a0ef4910a92</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

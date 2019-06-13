@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:interface xsi:type="con:WsdlInterface" id="44ca1d2a-8c6e-486b-aa01-bdb35b4c6418" wsaVersion="NONE" name="EbppIntegrationServiceV3Soap12" type="wsdl" bindingName="{http://ebpp.cenpos.net/V3}EbppIntegrationServiceV3Soap12" soapVersion="1_2" anonymous="optional" definition="https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+<con:interface xsi:type="con:WsdlInterface" id="44ca1d2a-8c6e-486b-aa01-bdb35b4c6418" wsaVersion="NONE" name="EbppIntegrationServiceV3Soap12" type="wsdl" bindingName="{http://ebpp.cenpos.net/V3}EbppIntegrationServiceV3Soap12" soapVersion="1_2" anonymous="optional" definition="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="44ca1d2a-8c6e-486b-aa01-bdb35b4c6418fileName">EbppIntegrationServiceV3Soap12</con:setting>
   </con:settings>
-  <con:definitionCache type="TEXT" rootPart="https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl">
+  <con:definitionCache type="TEXT" rootPart="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl">
     <con:part>
-      <con:url>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl</con:url>
+      <con:url>https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl</con:url>
       <con:content><![CDATA[<wsdl:definitions targetNamespace="http://ebpp.cenpos.net/V3" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ebpp.cenpos.net/V3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://ebpp.cenpos.net/V3">
@@ -80,6 +80,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="TotalPrice" nillable="true" type="s:double"/>
           <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:double"/>
           <s:element minOccurs="1" maxOccurs="1" name="TotalTax" type="s:double"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string"/>
         </s:sequence>
       </s:complexType>
       <s:element name="AddEbppInvoiceResponse">
@@ -234,21 +235,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
         </s:sequence>
       </s:complexType>
-      <s:complexType name="SetUserRequestVO">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:RequestVO">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Privilege" type="tns:ArrayOfString"/>
-              <s:element minOccurs="0" maxOccurs="1" name="TargetUsername" type="s:string"/>
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ArrayOfString">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
-        </s:sequence>
-      </s:complexType>
       <s:complexType name="UpdateEbppInvoiceRequestVO">
         <s:complexContent mixed="false">
           <s:extension base="tns:RequestVO">
@@ -270,6 +256,21 @@
             </s:sequence>
           </s:extension>
         </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SetUserRequestVO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestVO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Privilege" type="tns:ArrayOfString"/>
+              <s:element minOccurs="0" maxOccurs="1" name="TargetUsername" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
       </s:complexType>
       <s:complexType name="EbppConfigurationRequestVO">
         <s:complexContent mixed="false">
@@ -838,10 +839,10 @@
   </wsdl:binding>
   <wsdl:service name="EbppIntegrationServiceV3">
     <wsdl:port name="EbppIntegrationServiceV3Soap" binding="tns:EbppIntegrationServiceV3Soap">
-      <soap:address location="https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx"/>
+      <soap:address location="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx"/>
     </wsdl:port>
     <wsdl:port name="EbppIntegrationServiceV3Soap12" binding="tns:EbppIntegrationServiceV3Soap12">
-      <soap12:address location="https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx"/>
+      <soap12:address location="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>]]></con:content>
@@ -849,6 +850,7 @@
     </con:part>
   </con:definitionCache>
   <con:endpoints>
+    <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
     <con:endpoint>https://www3.cenpos.net/ebpp/v3/EbppIntegrationService.asmx</con:endpoint>
     <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
   </con:endpoints>

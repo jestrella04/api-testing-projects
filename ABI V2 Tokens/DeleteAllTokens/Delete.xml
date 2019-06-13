@@ -45,6 +45,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
+        <con:jmsPropertyConfig/>
         <con:environmentSpec>
           <con:entry environmentId="afd73651-c265-450b-984e-50803ff5c72d">
             <con:authProfile>No Authorization</con:authProfile>
@@ -117,32 +118,27 @@ else if (accountNumber != "")
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
         <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
-        <con:request><![CDATA[<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:tem="http://tempuri.org/" 
-xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
-xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
-xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <tem:DeleteCardToken>\r
-         <tem:request>\r
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:DeleteCardToken>
+         <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>${Password}</acr:Password>
             <acr:UserId>${UserId}</acr:UserId>
-            <acr1:GeoLocationInformation xsi:nil="true" />
-            <acr1:IMEI xsi:nil="true" />
-            <acr1:TokenId>${DataSource#tokenId}</acr1:TokenId>\r
-         </tem:request>\r
-      </tem:DeleteCardToken>\r
-   </soapenv:Body>\r
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:TokenId>${DataSource#tokenId}</acr1:TokenId>
+         </tem:request>
+      </tem:DeleteCardToken>
+   </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="3805d755-cfda-4348-95e3-cc92cf3c1b2c"/>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
+        <con:jmsPropertyConfig/>
         <con:environmentSpec>
           <con:entry environmentId="afd73651-c265-450b-984e-50803ff5c72d">
             <con:authProfile>No Authorization</con:authProfile>

@@ -426,43 +426,6 @@
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="AddMerchantIpAddressList (Clear)" id="092c8ca3-632e-48ab-a028-0d0170da6e75" disabled="true">
-    <con:settings/>
-    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:interface>BasicHttpBinding_Administration</con:interface>
-      <con:operation>AddMerchantIpAddressList</con:operation>
-      <con:request name="AddMerchantIpAddressList (Clear)" id="c0a07ca0-10d5-421d-8c32-0b5b452e7afc">
-        <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-        </con:settings>
-        <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
-        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <tem:AddMerchantIpAddressList>\r
-         <tem:request>\r
-            <acr:MerchantId>${MerchantId}</acr:MerchantId>\r
-            <acr:Password>${Password}</acr:Password>\r
-            <acr:UserId>${UserId}</acr:UserId>\r
-            <acr1:GeoLocationInformation xsi:nil="true"/>\r
-            <acr1:IMEI xsi:nil="true"/>\r
-            <acr1:MerchantIpAddressList />
-         </tem:request>\r
-      </tem:AddMerchantIpAddressList>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request>
-        <con:assertion type="SOAP Response" id="aa2f51b2-6039-49ac-8f5e-55e3dfc4bb81"/>
-        <con:credentials>
-          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-          <con:authType>No Authorization</con:authType>
-        </con:credentials>
-        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
-        <con:wsrmConfig version="1.2"/>
-      </con:request>
-    </con:config>
-  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
   <con:breakPoints>
