@@ -167,11 +167,11 @@ import groovy.time.TimeCategory
 try
 {
 	// Set environment settings
-	def projectName = "ABI V6.4 Transact"
+	def projectName = "ABI V6.4 Ecommerce"
 	def suiteName   = "Regression Manager"
 	def stdBaseURL  = "https://test.cenpos.net:9443"
 	def pfpBaseURL  = "https://test.cenpos.net:7443/PaypalProxy"
-	def ebpBaseURL  = "https://www3.cenpos.net"
+	def ebpBaseURL  = "https://web.mia2.cenpos.net"
 	def cbsBaseURL  = "https://miami1.cenpos.net"
 	
 	// Services endpoints, values are relative to stdBaseURL
@@ -184,11 +184,11 @@ try
 	def checkService    = "/2/check.asmx"
 	def pfpService      = "/Handler.ashx"
 	def pfpTokenService = "/TokenService.asmx"
-	def ebppService     = "/ebpp/v3/EbppIntegrationService.asmx"
+	def ebppService     = "/ebppqa/v3/EbppIntegrationService.asmx"
 	def cbsService      = "/CyberSource/TransactionProcessor.svc"
 
 	// Merchant id(s) to point to
-	def merchantIds = ["580"]
+	def merchantIds = ["177"]
 	
 	if ('CyberSource Integration' == projectName)
 	{
@@ -211,12 +211,12 @@ try
 	def altMerchantId = "12721628"
 
 	// Set card data to use (specific to host)
-	// Generic, Chase, Tsys, Vantiv, RC, Cielo, FDC, EMV, VisaACP, Elavon, Moneris
-	def hostCardData = "Chase"
+	// Generic, Chase, Tsys, Vantiv, RC, Cielo, FDC, EMV, VisaACP, Elavon, Moneris, EPX
+	def hostCardData = "FDC"
 	
 	// Comma separated list of card brands to run
 	def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
-	//def cardTypes = ["Mastercard"]
+	//def cardTypes = ["Visa"]
 
 	// Set additional information
 	def amount = 69.26
@@ -2723,7 +2723,7 @@ try
 	
 	// Comma separated list of card brands to run
 	//def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
-	def cardTypes      = ["Mastercard"]
+	def cardTypes      = ["Visa"]
 
 	// Set additional information
 	def amount         = 117.56
@@ -2849,6 +2849,7 @@ try
 					else if ( currentEndpoint.contains( "Refund" ) ) endpoint = swpRealCardsApiUrl + "Refund/"
 					else if ( currentEndpoint.contains( "Force" ) ) endpoint = swpRealCardsApiUrl + "Force/"
 					else if ( currentEndpoint.contains( "Reauth" ) ) endpoint = swpRealCardsApiUrl + "Reauth/"
+					else if ( currentEndpoint.contains( "Void" ) ) endpoint = swpRealCardsApiUrl + "Void/"
 				}
 				
 				if ( null != endpoint && "" != endpoint ) it.getHttpRequest().setEndpoint( endpoint )

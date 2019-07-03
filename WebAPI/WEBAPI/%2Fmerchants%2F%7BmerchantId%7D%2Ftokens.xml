@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/merchants/{merchantId}/tokens" path="/merchants/{merchantId}/tokens" id="8c023010-d360-4c3d-a518-0d654f0a3bfe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8c023010-d360-4c3d-a518-0d654f0a3bfefileName">%2Fmerchants%2F%7BmerchantId%7D%2Ftokens</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>merchantId</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:dataType>integer</con:dataType>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="MerchantsByMerchantIdTokensGet" id="28ebd41d-9734-4a8d-8702-f5f4fca47378" method="GET">
+    <con:description/>
+    <con:settings/>
+    <con:parameters>
+      <con:parameter>
+        <con:name>accountNumber</con:name>
+        <con:style>QUERY</con:style>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>customerCode</con:name>
+        <con:style>QUERY</con:style>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>emailAddress</con:name>
+        <con:style>QUERY</con:style>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>includeMultipleMerchants</con:name>
+        <con:style>QUERY</con:style>
+        <con:dataType>boolean</con:dataType>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+      <con:parameter>
+        <con:name>includeSignature</con:name>
+        <con:style>QUERY</con:style>
+        <con:dataType>boolean</con:dataType>
+        <con:description xsi:nil="true"/>
+      </con:parameter>
+    </con:parameters>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>[ {
+  "address" : {
+    "streetAddress" : "string",
+    "city" : "string",
+    "state" : "string",
+    "zipCode" : "string",
+    "country" : {
+      "name" : "string",
+      "code" : "string"
+    }
+  },
+  "customerCode" : "string",
+  "email" : "string",
+  "merchantId" : 0,
+  "tokenId" : "string",
+  "signature" : "string",
+  "type" : "string"
+} ]</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="e845dd16-bf3e-496e-b271-bd842115ec41" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>https://test.cenpos.net:9443</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

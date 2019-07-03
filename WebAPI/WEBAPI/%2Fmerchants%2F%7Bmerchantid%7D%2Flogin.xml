@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/merchants/{merchantid}/login" path="/merchants/{merchantid}/login" id="49ffab9f-8800-4dad-8042-01ff508ce5e6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="49ffab9f-8800-4dad-8042-01ff508ce5e6fileName">%2Fmerchants%2F%7Bmerchantid%7D%2Flogin</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>merchantid</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:dataType>integer</con:dataType>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="MerchantsByMerchantidLoginGet" id="1817b687-5aa5-4963-988c-af4f6ff54041" method="GET">
+    <con:description/>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "user" : {
+    "alertEmailList" : [ "string" ],
+    "department" : "string",
+    "email" : "string",
+    "invoiceOption" : 0,
+    "isLockedOut" : true,
+    "name" : "string",
+    "password" : "string",
+    "receiptType" : 0,
+    "userId" : "string",
+    "hierarchyRoleId" : 0,
+    "cellPhoneNumber" : "string",
+    "processingUserType" : "string",
+    "configurationXml" : "string"
+  },
+  "merchant" : {
+    "address1" : "string",
+    "address2" : "string",
+    "city" : "string",
+    "state" : "string",
+    "zipCode" : "string",
+    "country" : "string",
+    "autoCloseBatch" : true,
+    "autoCloseBatchHour" : 0,
+    "autoCloseBatchMinute" : 0,
+    "contactEmail" : "string",
+    "contactFirstName" : "string",
+    "contactLastName" : "string",
+    "defaultTax" : 1.100000023841858,
+    "industry" : "string",
+    "invoiceOption" : 0,
+    "lastSettlementDate" : "2015-07-20T15:49:04-07:00",
+    "logo" : "string",
+    "maximumTax" : 1.100000023841858,
+    "parameters" : [ {
+      "name" : "string",
+      "option" : "DoNotPrompt",
+      "sendEmailAlert" : true,
+      "triggerAmount" : 1.100000023841858
+    } ],
+    "minimumTax" : 1.100000023841858,
+    "name" : "string",
+    "phone" : "string",
+    "recurringSaleCustomerCodeMode" : "string",
+    "sessionTimeout" : 0,
+    "ticketDeliveryMethod" : "string",
+    "useInvoiceDetail" : true,
+    "invoiceFooter" : "string",
+    "listMerchantInvoiceTemplate" : [ {
+      "transactionType" : "string",
+      "templateId" : 0
+    } ],
+    "useForceManagement" : true,
+    "blockedCountryList" : [ {
+      "name" : "string",
+      "code" : "string"
+    } ],
+    "additionalInformationConfiguration" : "string",
+    "level3Template" : "string",
+    "authorizationExpirationDays" : 0,
+    "merchantParameterExceptions" : [ {
+      "parameterName" : "string",
+      "exceptionType" : "string",
+      "exceptionData" : [ "string" ],
+      "option" : "DoNotPrompt",
+      "sendEmailAlert" : true,
+      "triggerAmount" : 1.100000023841858
+    } ]
+  },
+  "parameters" : [ { } ],
+  "privileges" : [ "string" ],
+  "sessionId" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>400</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>401</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>403</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>404</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "code" : "string",
+  "message" : "string",
+  "target" : "string",
+  "details" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:request name="Request 1" id="9a420b59-1b46-4422-9cb4-ce62ec8abf82" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>https://ww4.cenpos.net</con:endpoint>
+      <con:request/>
+      <con:originalUri>https://test.cenpos.net/api/merchants/12721627/login</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>
