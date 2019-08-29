@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Debit &amp; EBT" searchProperties="true" id="85dea2f9-5a43-4a05-880c-5f02b6b35173" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" disabled="true" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase failOnError="false" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Debit &amp; EBT" searchProperties="true" id="85dea2f9-5a43-4a05-880c-5f02b6b35173" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="85dea2f9-5a43-4a05-880c-5f02b6b35173fileName">Debit-%26-EBT</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="request" name="ProcessDebitCard - Sale 1 (Debit)" id="14dae733-4edc-49ac-a25b-d0452af3dbd3">
+  <con:testStep type="request" name="Sale 1 (Debit)" id="14dae733-4edc-49ac-a25b-d0452af3dbd3">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessDebitCard</con:operation>
-      <con:request name="ProcessDebitCard - Sale 1 (Debit)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f8204836-f9e8-430d-83c7-0f0f48f249e3" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Sale 1 (Debit)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f8204836-f9e8-430d-83c7-0f0f48f249e3" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/6/4/transact.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
@@ -61,17 +61,17 @@
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessDebitCard - Sale 2 (EBT)" id="5bb49116-0c7e-4ca1-a48f-2dfce3f911ac">
+  <con:testStep type="request" name="Sale 2 (EBT)" id="5bb49116-0c7e-4ca1-a48f-2dfce3f911ac">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessDebitCard</con:operation>
-      <con:request name="ProcessDebitCard - Sale 2 (EBT)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f8204836-f9e8-430d-83c7-0f0f48f249e3" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Sale 2 (EBT)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="f8204836-f9e8-430d-83c7-0f0f48f249e3" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/6/4/transact.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r

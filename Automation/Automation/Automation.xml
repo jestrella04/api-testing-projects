@@ -90,7 +90,7 @@ catch ( e )
 					def testStepName = it.name
 					def modelItem = it.getModelItem().toString()
 					
-					if ( modelItem.contains( "WsdlTestRequestStep" ) )
+					if (modelItem.contains("WsdlTestRequestStep"))
 					{
 						/*//Get current request content
 						def request = it.httpRequest
@@ -103,7 +103,7 @@ catch ( e )
 							
 							updatedRequest = updatedRequest.replace('xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"', 'xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"')
 							
-							request.setRequestContent( updatedRequest )
+							request.setRequestContent(updatedRequest)
 						}*/
 
 						// Update Endpoint
@@ -114,19 +114,19 @@ catch ( e )
 						}
 					}
 
-					else if ( modelItem.contains( "WsdlGroovyScriptTestStep" ) )
+					else if (modelItem.contains("WsdlGroovyScriptTestStep"))
 					{
 						/*//Get script contents
 						def scriptContent = it.getScript()
 	
 						//Replace script content
-						def scriptUpdated = scriptContent.replace( 'getTestSuiteByName( "GetTrx" )', 'getTestSuiteByName( "GetTrx" )' )
+						def scriptUpdated = scriptContent.replace('getTestSuiteByName("GetTrx")', 'getTestSuiteByName("GetTrx")')
 	
 						//Update script contents
-						it.setScript( scriptUpdated )*/
+						it.setScript(scriptUpdated)*/
 					}
 
-					else if ( modelItem.contains( "HttpTestRequestStep" ) )
+					else if (modelItem.contains("HttpTestRequestStep"))
 					{
 						/*//Get current request properties
 						def step = it
@@ -134,13 +134,13 @@ catch ( e )
 						
 						properties.each
 						{
-							if ( it.value.toString().contains( "RestTestStepProperty" ) )
+							if (it.value.toString().contains("RestTestStepProperty"))
 							{
-								currentPropVal = step.getPropertyValue( it.key )
+								currentPropVal = step.getPropertyValue(it.key)
 
-								if ( currentPropVal.contains( "\${WpEncryptedMerchantId}" ) )
+								if (currentPropVal.contains("\${WpEncryptedMerchantId}"))
 								{
-									step.setPropertyValue( it.key, "\${SwpCardsEncryptedMerchantId}" )
+									step.setPropertyValue(it.key, "\${SwpCardsEncryptedMerchantId}")
 								}
 							}
 						}*/
@@ -167,9 +167,9 @@ import groovy.time.TimeCategory
 try
 {
 	// Set environment settings
-	def projectName = "ABI V6.4 Ecommerce"
-	def suiteName   = "Regression Manager"
-	def stdBaseURL  = "https://test.cenpos.net:9443"
+	def projectName = "ABI V2 Tokens"
+	def suiteName   = "CryptoToken Manager"
+	def stdBaseURL  = "https://abi.va2.cenpos.net"
 	def pfpBaseURL  = "https://test.cenpos.net:7443/PaypalProxy"
 	def ebpBaseURL  = "https://web.mia2.cenpos.net"
 	def cbsBaseURL  = "https://miami1.cenpos.net"
@@ -188,7 +188,7 @@ try
 	def cbsService      = "/CyberSource/TransactionProcessor.svc"
 
 	// Merchant id(s) to point to
-	def merchantIds = ["177"]
+	def merchantIds = ["12721627"]
 	
 	if ('CyberSource Integration' == projectName)
 	{
@@ -212,16 +212,16 @@ try
 
 	// Set card data to use (specific to host)
 	// Generic, Chase, Tsys, Vantiv, RC, Cielo, FDC, EMV, VisaACP, Elavon, Moneris, EPX
-	def hostCardData = "FDC"
+	def hostCardData = "Generic"
 	
 	// Comma separated list of card brands to run
 	def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
 	//def cardTypes = ["Visa"]
 
 	// Set additional information
-	def amount = 69.26
+	def amount = 469.26
 	def amountPartial = 10.36
-	def amountDebit = 69.26
+	def amountDebit = 669.26
 	def amountTimeout = 33.26
 	def amountTip = 10.00
 	def poNumber = "PO123456"
@@ -536,7 +536,7 @@ try
 	// Set environment settings
 	def projectName = "ABI V2 Check" 
 	def suiteName   = "Regression Manager"
-	def stdBaseURL  = "https://ww4.cenpos.net"
+	def stdBaseURL  = "https://abi.va2.cenpos.net"
 	
 	// Services endpoints, values are relative to stdBaseURL
 	def tranxService  = "/6/4/transact.asmx"
@@ -560,33 +560,33 @@ try
 	def userId = "jon"
 	def password = "Cenpos@2014"
 
-	// Login information (Must pass over)
-	// Leave empty to fallback to regular login
-	def mpoUserId = "mustpassover"
-	def mpoPassword = "Cenpos@2014"
+	// Set check amopunt based on routing rules
+	def amount = 99.99
+	def amountGuarantee = 1.25
+	def amountGuaranteeAndACH = 2.25
+	def amountGuaranteeAndCheck21 = 3.25
+	def amountCheck21 = 7.25
+	def amountACH = 11.25
+	def amountRecurringACH = 211.25
+	def amountGenericCheckACH = 111.25
 
 	// Set additional information
-	def amount = 0.23
-	def amount2 = 0.23
-	def amountPartial = 2.98
-	def amountDebit = 1.99
-	def amountTimeout = 33.50
 	def poNumber = "PO123456"
 	def invoice = "INV-03162018"
-	def invoiceTimeout = "GENERATE TIMEOUT"
 	def avs = "123 SW Rd"
 	def zip = "85284"
 	def customerEmail = "mysupercooltestemailv2@mailinator.com"
-	def customerEmailFake = "jon@than.es"
 	def customerCode = "JE001"
 	def exportDir = "C:/Users/jestrella/Desktop"
 	def getTrxRequest = "GetTrx"
 	def imgType = "TIFF" // TIFF or JPEG
 
+	// Set timezone to UTC
+	TimeZone.setDefault(TimeZone.getTimeZone('UTC'))
+
 	// Set issue date to current Date
 	def currDate = new Date().clearTime()
 	def checkIssueDate = currDate.format( "yyyy-MM-dd'T'HH:mm:ss'Z'" )
-	//def checkIssueDate = "2018-03-16T04:00:00Z"
 	
 	// Comma separated list of currencies to run
 	//def currencies = ["840", "978", "392", "400", "044", "826", "951", "484", "608"]
@@ -613,66 +613,38 @@ try
 
 	// Get the list of test steps
 	def endpoint = ""
-	def mpo = false
 	def workspace = context.testCase.getTestSuite().getProject().getWorkspace()
 	def project = workspace.getProjectByName( projectName )
 	if ( ! project ) throw new Exception( "Invalid project name..." )
 	def testSuite = project.getTestSuiteByName( suiteName )
 	if ( ! testSuite ) throw new Exception( "Invalid suite name..." )
 	def testCaseList = testSuite.getTestCaseList()
-	if ( null != mpoUserId && "" != mpoUserId && null != mpoPassword && "" != mpoPassword ) mpo = true
-
-	// Set timezone to UTC
-	TimeZone.setDefault(TimeZone.getTimeZone('UTC'))
-
-	// Get current date and time
-	def today
-	def currDateTime1
-	def currDateTime2
-
-	today = new Date().clearTime()
-	currDateTime1 = new Date()
-	
-	use(TimeCategory)
-	{
-		currDateTime2 = new Date() + 5.minutes
-	}
-		
-	currDateTime1 = currDateTime1.format( "yyyy-MM-dd'T'HH:mm:ss'Z'" )
-	currDateTime2 = currDateTime2.format( "yyyy-MM-dd'T'HH:mm:ss'Z'" )
-	today = today.format( "MM-dd-yyyy" )
 	
 	// Set the formatting for amount values
 	def amountPattern = new DecimalFormat("#####.##")
 
+	// Set amounts to process
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmount", amountPattern.format(amount))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmountGuarantee", amountPattern.format(amountGuarantee))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmountGuaranteeAndACH", amountPattern.format(amountGuaranteeAndACH))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmountGuaranteeAndCheck21", amountPattern.format(amountGuaranteeAndCheck21))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmountCheck21", amountPattern.format(amountCheck21))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmountACH", amountPattern.format(amountACH))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmountRecurringACH", amountPattern.format(amountRecurringACH))
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckAmountGenericCheckACH", amountPattern.format(amountGenericCheckACH))
+
 	// Set login info and additional parameters
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "UserId", userId )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "Password", password )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MpoUserId", mpo ? mpoUserId : userId )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MpoPassword", mpo ? mpoPassword : password )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "Amount", amountPattern.format(amount) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "Amount2", amountPattern.format(amount2) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountRefundPartial", amountPattern.format(amountPartial) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountDebit", amountPattern.format(amountDebit) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountTimeout", testTimeouts ? amountPattern.format(amountTimeout) : amountPattern.format(amount) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountDiscount", amountPattern.format(amount * 0.10) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountAfterDiscount", amountPattern.format(amount - (amount * 0.10)) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountOver", amountPattern.format(amount + 15) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "AmountExternalPartial", amountPattern.format(amount / 4) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "TaxAmount", amountPattern.format(amount * 0.07) )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "PONumber", poNumber )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "InvoiceNumber", invoice )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "InvoiceTimeout", testTimeouts ? invoiceTimeout : invoice )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerAddress", avs )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerZipCode", zip )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerEmail", customerEmail )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerEmailFake", customerEmailFake )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CustomerCode", customerCode )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "ExportDir", exportDir )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CurrentDateTime1", currDateTime1 )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CurrentDateTime2", currDateTime2 )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "GetTrxRequest", getTrxRequest )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CheckIssueDate", checkIssueDate )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("UserId", userId)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("Password", password)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("PONumber", poNumber)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("InvoiceNumber", invoice)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerAddress", avs)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerZipCode", zip)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerEmail", customerEmail)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerCode", customerCode)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("ExportDir", exportDir)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("GetTrxRequest", getTrxRequest)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CheckIssueDate", checkIssueDate)
 
 	if ( "TIFF" == imgType )
 	{
@@ -696,28 +668,29 @@ try
 			def modelItem = it.getModelItem().toString()
 
 			// Update endpoint, one at a time
-			if ( modelItem.contains( "WsdlTestRequestStep" ) )
+			if (modelItem.contains("WsdlTestRequestStep"))
 			{
 				def currentEndpoint = it.getHttpRequest().getEndpoint()
 				
-				if ( currentEndpoint.contains( "transact.asmx" ) ) endpoint = stdBaseURL + tranxService
-				if ( currentEndpoint.contains( "ecommerce.asmx" ) ) endpoint = stdBaseURL + ecommService
-				if ( currentEndpoint.contains( "moto.asmx" ) ) endpoint = stdBaseURL + motoService
-				if ( currentEndpoint.contains( "mobile.asmx" ) ) endpoint = stdBaseURL + mobileService
-				if ( currentEndpoint.contains( "tokens.asmx" ) ) endpoint = stdBaseURL + tokenService
-				if ( currentEndpoint.contains( "admin.asmx" ) ) endpoint = stdBaseURL + adminService
-				if ( currentEndpoint.contains( "check.asmx" ) ) endpoint = stdBaseURL + checkService
-				if ( currentEndpoint.contains( "handler.ashx" ) && currentEndpoint.contains("pfp") ) endpoint = pfpBaseURL + pfpService
-				if ( currentEndpoint.contains( "EbppIntegrationService.asmx" ) ) endpoint = ebpBaseURL + ebppService
-				if ( currentEndpoint.contains( "TransactionProcessor.svc" ) ) endpoint = cbsBaseURL + cbsService
+				if (currentEndpoint.contains("transact.asmx")) endpoint = stdBaseURL + tranxService
+				if (currentEndpoint.contains("ecommerce.asmx")) endpoint = stdBaseURL + ecommService
+				if (currentEndpoint.contains("moto.asmx")) endpoint = stdBaseURL + motoService
+				if (currentEndpoint.contains("mobile.asmx")) endpoint = stdBaseURL + mobileService
+				if (currentEndpoint.contains("tokens.asmx")) endpoint = stdBaseURL + tokenService
+				if (currentEndpoint.contains("admin.asmx")) endpoint = stdBaseURL + adminService
+				if (currentEndpoint.contains("check.asmx")) endpoint = stdBaseURL + checkService
+				if (currentEndpoint.contains("handler.ashx") && currentEndpoint.contains("pfp")) endpoint = pfpBaseURL + pfpService
+				if (currentEndpoint.contains("EbppIntegrationService.asmx")) endpoint = ebpBaseURL + ebppService
+				if (currentEndpoint.contains("TransactionProcessor.svc")) endpoint = cbsBaseURL + cbsService
 
-				if ( null != endpoint && "" != endpoint ) it.getHttpRequest().setEndpoint( endpoint )
+				if (null != endpoint && "" != endpoint) it.getHttpRequest().setEndpoint(endpoint)
 			}
 		}
 	}
 
 	// GetCardTrx & Tokens
 	def getCardTrxSuite = project.getTestSuiteByName("GetTrxRequest")
+	def getTokenTrxSuite = workspace.getProjectByName("ABI V2 Tokens").getTestSuiteByName("ManageTestTokens")
 	
 	if (getCardTrxSuite)
 	{
@@ -734,9 +707,42 @@ try
 				def modelItem = it.getModelItem().toString()
 	
 				// Update endpoint, one at a time
-				if ( modelItem.contains( "WsdlTestRequestStep" ) )
+				if (modelItem.contains("WsdlTestRequestStep"))
 				{
-					it.getHttpRequest().setEndpoint( endpoint )
+					it.getHttpRequest().setEndpoint(endpoint)
+				}
+			}
+		}
+	}
+
+	if (getTokenTrxSuite)
+	{
+		def getTokenTrxCases = getTokenTrxSuite.getTestCaseList()
+	
+		getTokenTrxCases.each
+		{			
+			// Force ecommerce tokens for Ecommerce
+			if (projectName.contains("Ecommerce"))
+			{
+				endpoint = stdBaseURL + tokenService.replace("tokens.asmx", "ecommercetokens.asmx")
+			}
+
+			else
+			{
+				endpoint = stdBaseURL + tokenService
+			}
+				
+			def testSteps = it.getTestStepList()
+			
+			// Loop through transactions
+			testSteps.each
+			{
+				def modelItem = it.getModelItem().toString()
+	
+				// Update endpoint, one at a time
+				if (modelItem.contains("WsdlTestRequestStep"))
+				{
+					it.getHttpRequest().setEndpoint(endpoint)
 				}
 			}
 		}
@@ -751,50 +757,50 @@ try
 
 	
 	// Iterate over all provided mids, currencies and cards
-	for ( i in merchantIds )
+	for (i in merchantIds)
 	{
 		com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MerchantId", i )
 		
-		for ( j in currencies )
+		for (j in currencies)
 		{	
 			// Set currency code
-			com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "CurrencyCode", j )
+			com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CurrencyCode", j)
 
 			log.info "Running transactions with currency code " + j + " on mid " + i + ". Please wait!"
 
 			// Create the test tokens before running transactions
 			if (! suiteName.contains("Token Manager"))
 			{
-				def tokensTestCaseCreate = workspace.getProjectByName( "ABI V2 Tokens" ).testSuites['ManageTestTokens'].testCases['Checks - Create']
+				def tokensTestCaseCreate = workspace.getProjectByName("ABI V2 Tokens").testSuites['ManageTestTokens'].testCases['Checks - Create']
 				def tokensTestCaseCreateMap = new com.eviware.soapui.support.types.StringToObjectMap()
-				def tokensTestCaseCreateRunner = tokensTestCaseCreate.run( tokensTestCaseCreateMap, false )
+				def tokensTestCaseCreateRunner = tokensTestCaseCreate.run(tokensTestCaseCreateMap, false)
 			}
 	
 			// Run the transactions test cases
-			UISupport.showDesktopPanel( testSuite )
+			UISupport.showDesktopPanel(testSuite)
 			def testSuiteMap = new com.eviware.soapui.support.types.StringToObjectMap()
-			def testSuiteRunner = testSuite.run( testSuiteMap, false )
+			def testSuiteRunner = testSuite.run(testSuiteMap, false)
 
 			// Delete the the test tokens we created before
 			if (! suiteName.contains("Token Manager") && deleteTestTokens)
 			{
-				def tokensTestCaseDelete = workspace.getProjectByName( "ABI V2 Tokens" ).testSuites['ManageTestTokens'].testCases['Checks - Delete']
+				def tokensTestCaseDelete = workspace.getProjectByName("ABI V2 Tokens").testSuites['ManageTestTokens'].testCases['Checks - Delete']
 				def tokensTestCaseDeleteMap = new com.eviware.soapui.support.types.StringToObjectMap()
-				def tokensTestCaseDeleteRunner = tokensTestCaseDelete.run( tokensTestCaseDeleteMap, false )
+				def tokensTestCaseDeleteRunner = tokensTestCaseDelete.run(tokensTestCaseDeleteMap, false)
 			}
 	
-			if ( merchantIds.last() == i && currencies.last() == j )
+			if (merchantIds.last() == i && currencies.last() == j)
 			{
 				//continueRunning = true
-				UISupport.showInfoMessage( "Regression test finished with status $testRunner.status", "Regression test finished..." )
+				UISupport.showInfoMessage("Regression test finished with status $testRunner.status", "Regression test finished...")
 			}
 		}
 	}
 }
 
-catch ( e )
+catch (e)
 {
-	log.error( e.toString() )
+	log.error(e.toString())
 }]]></script>
     </con:config>
   </con:testStep>
@@ -809,9 +815,9 @@ TimeZone.setDefault( TimeZone.getTimeZone( 'UTC' ) )
 try
 {
 	// Set environment settings
-	def projectName = "ABI V6.4 Transact"
-	def suiteName = "Reports Manager"
-	def baseURL = "https://ww4.cenpos.net"
+	def projectName = "ABI V6.4 Admin"
+	def suiteName = "User Manager"
+	def baseURL = "https://abi.va2.cenpos.net"
 	
 	// Additional services might be needed on some scenarios
 	// value is relative to baseURL
@@ -842,30 +848,30 @@ try
 	def BeginDate
 	def EndDate
 
-	if ( dayStart > 0 ) { BeginDate = currDate - dayStart } else { BeginDate = currDate }
-	if ( dayEnd > 0 ) { EndDate = currDate - dayEnd } else { EndDate = currDate }
+	if (dayStart > 0) { BeginDate = currDate - dayStart } else { BeginDate = currDate }
+	if (dayEnd > 0) { EndDate = currDate - dayEnd } else { EndDate = currDate }
 	
 	// Date format should be 2014-07-17T04:00:00Z
-	BeginDate = BeginDate.format( "yyyy-MM-dd'T'HH:mm:ss'Z'" )
-	EndDate = EndDate.format( "yyyy-MM-dd'T'HH:mm:ss'Z'" )
+	BeginDate = BeginDate.format("yyyy-MM-dd'T'HH:mm:ss'Z'")
+	EndDate = EndDate.format("yyyy-MM-dd'T'HH:mm:ss'Z'")
 
 	// Get the list of test steps
 	def endpoint = ""
 	def workspace = context.testCase.getTestSuite().getProject().getWorkspace()
-	def project = workspace.getProjectByName( projectName )
-	if ( ! project ) throw new Exception( "Invalid project name..." )
+	def project = workspace.getProjectByName(projectName)
+	if (! project) throw new Exception("Invalid project name...")
 	def testSuite = project.getTestSuiteByName( suiteName )
-	if ( ! testSuite ) throw new Exception( "Invalid suite name..." )
+	if (! testSuite) throw new Exception("Invalid suite name...")
 	def testCaseList = testSuite.getTestCaseList()
 
 	// Set login info
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "UserId", userId )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "Password", password )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "MerchantId", merchantId )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("UserId", userId)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("Password", password)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("MerchantId", merchantId)
 
 	// Set project start and end dates
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "BeginDate", BeginDate )
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue( "EndDate", EndDate )
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("BeginDate", BeginDate)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("EndDate", EndDate)
 	
 	// First, let's update endpoint for all transactions
 	testCaseList.each
@@ -878,39 +884,39 @@ try
 			def modelItem = it.getModelItem().toString()
 
 			// Update endpoint, one at a time
-			if ( modelItem.contains( "WsdlTestRequestStep" ) )
+			if (modelItem.contains("WsdlTestRequestStep"))
 			{
 				def currentEndpoint = it.getHttpRequest().getEndpoint()
 				
-				if ( currentEndpoint.contains( "transact.asmx" ) ) endpoint = baseURL + tranxService
-				if ( currentEndpoint.contains( "ecommerce.asmx" ) ) endpoint = baseURL + ecommService
-				if ( currentEndpoint.contains( "moto.asmx" ) ) endpoint = baseURL + motoService
-				if ( currentEndpoint.contains( "mobile.asmx" ) ) endpoint = baseURL + mobileService
-				if ( currentEndpoint.contains( "tokens.asmx" ) ) endpoint = baseURL + tokenService
-				if ( currentEndpoint.contains( "admin.asmx" ) ) endpoint = baseURL + adminService
-				if ( currentEndpoint.contains( "check.asmx" ) ) endpoint = baseURL + checkService
+				if (currentEndpoint.contains("transact.asmx")) endpoint = baseURL + tranxService
+				if (currentEndpoint.contains("ecommerce.asmx")) endpoint = baseURL + ecommService
+				if (currentEndpoint.contains("moto.asmx")) endpoint = baseURL + motoService
+				if (currentEndpoint.contains("mobile.asmx")) endpoint = baseURL + mobileService
+				if (currentEndpoint.contains("tokens.asmx")) endpoint = baseURL + tokenService
+				if (currentEndpoint.contains("admin.asmx")) endpoint = baseURL + adminService
+				if (currentEndpoint.contains("check.asmx")) endpoint = baseURL + checkService
 
-				it.getHttpRequest().setEndpoint( endpoint )
+				it.getHttpRequest().setEndpoint(endpoint)
 			}
 		}
 	}
 
 	// Show info on the console
-	log.info( "Running " + context.currentStep.name + ", please wait..." )
+	log.info("Running " + context.currentStep.name + ", please wait...")
 	
 	// Run test cases
 	map = new com.eviware.soapui.support.types.StringToObjectMap()
-	UISupport.showDesktopPanel( testSuite )
-	testRunner = testSuite.run( map, false )
-	UISupport.showInfoMessage( context.currentStep.name + " finished with status " + testRunner.status, context.currentStep.name )
+	UISupport.showDesktopPanel(testSuite)
+	testRunner = testSuite.run(map, false)
+	UISupport.showInfoMessage(context.currentStep.name + " finished with status " + testRunner.status, context.currentStep.name)
 
 	// Show finished status om console
-	log.info( context.currentStep.name + " finished with status " + testRunner.status )
+	log.info(context.currentStep.name + " finished with status " + testRunner.status)
 } 
 
-catch( e )
+catch(e)
 {
-	log.error( "An error occurred: " + e.toString() );	
+	log.error("An error occurred: " + e.toString())
 }</script>
     </con:config>
   </con:testStep>
@@ -1066,23 +1072,23 @@ def abi = ''
 def connector = ''
 def baseURL = ''
 
-while( abi == '' || connector == '' || baseURL == '' )
+while(abi == '' || connector == '' || baseURL == '')
 {
-	abi = com.eviware.soapui.support.UISupport.prompt( "Please select ABI version:", "ABI Version", [ '--Please Select--', '6', '5.1', '5' ] )
-	connector = com.eviware.soapui.support.UISupport.prompt( "Please select ABI connector:", "ABI Connector", [ '--Please Select--', 'Transact', 'Ecommerce', 'Mobile', 'MOTO', 'Admin', 'Token', 'Check' ] )
-	baseURL = com.eviware.soapui.support.UISupport.prompt( 'Please select base URL:', 'Base URL', [ '--Please Select--', 'https://ww3.cenpos.net', 'https://cert.cenpos.net:8443', 'https://ww2.payment1.cenpos.net', 'https://test.cenpos.net:9443' ] )
+	abi = com.eviware.soapui.support.UISupport.prompt('Please select ABI version:', 'ABI Version', ['--Please Select--', '6', '5.1', '5'])
+	connector = com.eviware.soapui.support.UISupport.prompt('Please select ABI connector:', 'ABI Connector', ['--Please Select--', 'Transact', 'Ecommerce', 'Mobile', 'MOTO', 'Admin', 'Token', 'Check'])
+	baseURL = com.eviware.soapui.support.UISupport.prompt('Please select base URL:', 'Base URL', ['--Please Select--', 'https://ww3.cenpos.net', 'https://cert.cenpos.net:8443', 'https://ww2.payment1.cenpos.net', 'https://test.cenpos.net:9443'])
 
-	if ( '--Please Select--' == abi ) { abi = '' }
-	if ( '--Please Select--' == connector ) { connector = '' }
-	if ( '--Please Select--' == baseURL ) { baseURL = '' }
+	if ('--Please Select--' == abi) {abi = ''}
+	if ('--Please Select--' == connector) {connector = ''}
+	if ('--Please Select--' == baseURL) {baseURL = ''}
 }
 
 log.info abi
 log.info connector
 log.info baseURL
 
-testRunner.testCase.testSuite.getProject().
-log.info endpoint = baseURL + '/' + abi + '/' + connector.toLowerCase() + '.asmx'</script>
+//testRunner.testCase.testSuite.getProject().
+log.info baseURL + '/' + abi + '/' + connector.toLowerCase() + '.asmx'</script>
     </con:config>
   </con:testStep>
   <con:testStep type="groovy" name="Cards - Generic" id="2846c188-ac27-41cb-9a30-c3340124bb1d" disabled="true">
@@ -2273,36 +2279,49 @@ catch( e )
     <con:settings/>
     <con:config>
       <script>import com.eviware.soapui.support.types.StringToStringMap
-
 try {
-	def testCase = context.testCase
-	def testSteps = testCase.getTestStepList()
-	
-	//Loop through transactions
-	testSteps.each
+	def projects = context.testCase.testSuite.getProject().getWorkspace().getProjectList()
+
+	projects.each
 	{
-		def testCaseName = it.testCase.name
-		def testStepName = it.name
-		def modelItem = it.getModelItem().toString()
+		def projectName = it.name
+		def suites = it.getTestSuiteList()
 
-		it.
-		
-		if ( modelItem.contains( "WsdlTestRequestStep" ) )
+		suites.each
 		{
-			//Update operation
-			def headers = new StringToStringMap()
-			headers.put("SOAPAction","http://tempuri.org/Transactional/ProcessCreditCard")
-			
-			//it.httpRequest.setRequestHeaders( headers )
-			it.httpRequest.getRequestHeaders()
+			def testSuiteName = it.name
+			def cases = it.getTestCaseList()
 
-			//Update teststep name
-			//it.setName( testStepName.replaceAll( "Personal ", "" ) )
-			//it.setName( "ProcessCheck - " + testStepName )	
+			cases.each
+			{
+				def testCaseName = it.name
+				def steps = it.getTestStepList()
+
+				steps.each
+				{
+					def testStepName = it.name
+					def modelItem = it.getModelItem().toString()
+					
+					if (modelItem.contains("WsdlTestRequestStep"))
+					{
+						/*//Update operation
+						def headers = new StringToStringMap()
+						headers.put("SOAPAction","http://tempuri.org/Transactional/ProcessCreditCard")
+						
+						//it.httpRequest.setRequestHeaders(headers)
+						it.httpRequest.getRequestHeaders()*/
+			
+						//Update teststep name
+						it.setName(testStepName.replaceAll("UseToken - ", ""))
+						//it.setName("ProcessCheck - " + testStepName)
+					}
+				}
+			}
 		}
 	}
+}
 
-} catch( e ) {
+catch(e) {
 	log.error("An error occurred: " + e.toString());
 }</script>
     </con:config>
@@ -2627,61 +2646,6 @@ catch( e )
 }</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Copy of Global Replace" disabled="true" id="b65edad1-c1ab-4f0b-b7f9-91da61283084">
-    <con:settings/>
-    <con:config>
-      <script>try
-{
-	def projects = context.testCase.testSuite.getProject().getWorkspace().getProjectList()
-
-	projects.each
-	{
-		def projectName = it.name
-		def suites = it.getTestSuiteList()
-
-		suites.each
-		{
-			def testSuiteName = it.name
-			def cases = it.getTestCaseList()
-
-			cases.each
-			{
-				def testCaseName = it.name
-				def steps = it.getTestStepList()
-
-				steps.each
-				{
-					if (! it.isDisabled())
-					{
-						def testStepName = it.name
-						def modelItem = it.getModelItem().toString()
-						
-						if ( modelItem.contains( "WsdlTestRequestStep" ) )
-						{
-							//Get current request content
-							def request = it.httpRequest
-							requestContent = request.getRequestContent()
-				
-							//Update request 
-							if (projectName.contains("Project 1"))
-							{								
-								//def updatedRequest = requestContent.replace('acr2:', 'acr1:')
-								//request.setRequestContent( updatedRequest )
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-catch( e )
-{
-	log.error("An error occurred: " + e.toString());
-}</script>
-    </con:config>
-  </con:testStep>
   <con:testStep type="groovy" name="SWP Regression" id="0710a897-0b00-4388-adf1-f1b1ff440ebd" disabled="true">
     <con:settings/>
     <con:config>
@@ -2697,7 +2661,7 @@ try
 	def stdBaseURL     = "https://www4.cenpos.net"
 	
 	// SimpleWebpay base URL (relative to stdBaseURL)
-	def swpBaseUrl     = "/simplewebpay"
+	def swpBaseUrl     = "/simplewebpay-test"
 
 	// SimpleWebpay endpoints (relative to swpBaseUrl)
 	def swpCardsApi    = "/cards/api/"
@@ -2706,7 +2670,7 @@ try
 	def swpChecksVerify = "/checks/default.aspx?app=genericcontroller&action=siteVerify"
 
 	//Standard login information (used to prepopulate test tokens)
-	def merchantId = "12721627"
+	def merchantId = "10000009"
 	def userId = "jon"
 	def userPassword = "Cenpos@2014"
 
@@ -2714,8 +2678,8 @@ try
 	def swpCardsEncryptedMerchantId     = "9J8VBTO/Wz0byXrFK6A/LBn/BaeCOE8PtWXGjoX1EWs="
 	def swpCardsSiteKey        = "ece2b8261cef7f01123265c0ceee9254"
 
-	def swpChecksEncryptedMerchantId     = "BGuxmQ4VP77LpPidI8x9TjSf4u6h9Gfm5W3EHdRskcU="
-	def swpChecksSiteKey        = "47ebd38f865324e20dd476f53bd6946a"
+	def swpChecksEncryptedMerchantId     = "IGCv4JZqdnIQ9jtadpDrZz3KfTTwBuASes6+54lCDis="
+	def swpChecksSiteKey        = "70ba3221817aae9d5e1a8322f8883885"
 
 	// Set card data to use (specific to host)
 	// Generic, Chase, Tsys, Vantiv, RapidConnect, Cielo, FDC, EMV, VisaACP

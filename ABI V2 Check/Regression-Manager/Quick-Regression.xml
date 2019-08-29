@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="ca30ce50-c176-4a48-baa7-d5b7db896c4f" discardOkResults="true" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Quick Regression" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase id="ca30ce50-c176-4a48-baa7-d5b7db896c4f" discardOkResults="true" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Quick Regression" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" disabled="true" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="ca30ce50-c176-4a48-baa7-d5b7db896c4ffileName">Quick-Regression</con:setting>
   </con:settings>
@@ -14,7 +14,7 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -32,7 +32,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>21</acr1:Amount>
+            <acr1:Amount>${CheckAmountACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -95,7 +95,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -113,7 +113,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>22</acr1:Amount>
+            <acr1:Amount>${CheckAmountACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -176,7 +176,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -194,7 +194,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>31</acr1:Amount>
+            <acr1:Amount>${CheckAmountCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -257,7 +257,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -275,7 +275,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>31</acr1:Amount>
+            <acr1:Amount>${CheckAmountCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -338,7 +338,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -356,7 +356,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>30</acr1:Amount>
+            <acr1:Amount>${CheckAmountCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -419,7 +419,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -437,7 +437,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>31</acr1:Amount>
+            <acr1:Amount>${CheckAmountCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -500,7 +500,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -518,7 +518,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>31</acr1:Amount>
+            <acr1:Amount>${CheckAmountCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -581,7 +581,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -599,7 +599,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>31</acr1:Amount>
+            <acr1:Amount>${CheckAmountCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -662,7 +662,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -680,7 +680,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>31</acr1:Amount>
+            <acr1:Amount>${CheckAmountCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -743,7 +743,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -761,7 +761,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>11</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuarantee}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -824,7 +824,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -842,7 +842,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>11</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuarantee}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -905,7 +905,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -923,7 +923,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>11</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuarantee}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -985,7 +985,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1003,7 +1003,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>11</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuarantee}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -1066,7 +1066,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1084,7 +1084,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>21</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuaranteeAndACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -1147,7 +1147,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1165,7 +1165,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>24</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuaranteeAndACH}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -1228,7 +1228,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1246,7 +1246,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>23</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuaranteeAndACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -1309,7 +1309,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1327,7 +1327,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>22</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuaranteeAndACH}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -1390,7 +1390,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1408,7 +1408,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>30</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuaranteeAndCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -1471,7 +1471,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1489,7 +1489,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType>Checking</acr1:AccountType>
-            <acr1:Amount>31</acr1:Amount>
+            <acr1:Amount>${CheckAmountGuaranteeAndCheck21}</acr1:Amount>
             <acr1:CheckBackSideImage>${CheckBackImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckBackSideImage>
             <acr1:CheckFrontImage>${CheckFrontImage}${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CheckFrontImage>
             <acr1:CheckIssueDate>${CheckIssueDate}</acr1:CheckIssueDate>
@@ -1552,7 +1552,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1565,7 +1565,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmountGenericCheckACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -1628,7 +1628,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1641,7 +1641,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmountGenericCheckACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -1704,7 +1704,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1717,7 +1717,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmountGenericCheckACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -1780,7 +1780,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1793,7 +1793,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber>${CorpCheckAccount}</acr1:AccountNumber>
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmountGenericCheckACH}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -1856,7 +1856,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://test.cenpos.net:9443/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1869,7 +1869,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -1932,7 +1932,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1945,7 +1945,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -2008,7 +2008,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2021,7 +2021,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -2084,7 +2084,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2097,7 +2097,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -2160,7 +2160,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2173,7 +2173,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -2236,7 +2236,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2249,7 +2249,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
@@ -2312,7 +2312,7 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -2325,12 +2325,88 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
             <acr1:AccountNumber xsi:nil="true" />
             <acr1:AccountNumberLastFourDigits xsi:nil="true" />
             <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
             <acr1:CheckBackSideImage xsi:nil="true" />
             <acr1:CheckFrontImage xsi:nil="true" />
             <acr1:CheckIssueDate xsi:nil="true" />
             <acr1:CheckNumber>${PersonalCheckNumber}</acr1:CheckNumber>
             <acr1:CheckType>TravelersCheck</acr1:CheckType>
+            <acr1:CustomerAddress xsi:nil="true" />
+            <acr1:CustomerBirthday xsi:nil="true" />
+            <acr1:CustomerCity xsi:nil="true" />
+            <acr1:CustomerDriversNumber xsi:nil="true" />
+            <acr1:CustomerEmailAddress xsi:nil="true" />
+            <acr1:CustomerFirstName xsi:nil="true" />
+            <acr1:CustomerLastName xsi:nil="true" />
+            <acr1:CustomerPhone xsi:nil="true" />
+            <acr1:CustomerState xsi:nil="true" />
+            <acr1:CustomerZipCode xsi:nil="true" />
+            <acr1:InvoiceDetail xsi:nil="true" />
+            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
+            <acr1:Micr xsi:nil="true" />
+            <acr1:ReferenceNumber xsi:nil="true" />
+            <acr1:TransactionType>CheckManualDeposit</acr1:TransactionType>
+         </tem:request>
+      </tem:ProcessCheck>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="4d1be42c-dceb-42af-8641-49cdc6769a45"/>
+        <con:assertion type="XPath Match" name="Match content of [Result] using RegEx" id="6cb179d6-6905-4494-a293-9f39ad294cc4">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/text(), '0|349' )</path>
+            <content>true</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:environmentSpec>
+          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
+            <con:authProfile>No Authorization</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="CheckManualDeposit - DigniFi" id="f85f95af-d45b-49cf-baaf-8e55619dbadb">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Check</con:interface>
+      <con:operation>ProcessCheck</con:operation>
+      <con:request name="CheckManualDeposit - DigniFi" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="3ce5f75e-66cb-42bb-9c9e-d803ed3a1d96" defaultOutgoingWss="" defaultIncomingWss="">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v2.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCheck>
+         <tem:request>
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:AbaNumber xsi:nil="true" />
+            <acr1:AccountNumber>${PersonalCheckAccount}</acr1:AccountNumber>
+            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
+            <acr1:AccountType xsi:nil="true" />
+            <acr1:Amount>${CheckAmount}</acr1:Amount>
+            <acr1:CheckBackSideImage xsi:nil="true" />
+            <acr1:CheckFrontImage xsi:nil="true" />
+            <acr1:CheckIssueDate xsi:nil="true" />
+            <acr1:CheckNumber xsi:nil="true" />
+            <acr1:CheckType>DigniFi</acr1:CheckType>
             <acr1:CustomerAddress xsi:nil="true" />
             <acr1:CustomerBirthday xsi:nil="true" />
             <acr1:CustomerCity xsi:nil="true" />
@@ -2388,43 +2464,43 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
-        <con:request><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
-	<SOAP-ENV:Body> 
-		<ns0:ProcessCheck xmlns:ns0="http://tempuri.org/"> 
-			<ns0:request xsi:type="tns:ProcessRecurringACHRequest" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.Check.Common"> 
-				<tns:MerchantId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${MerchantId}</tns:MerchantId> 
-				<tns:Password xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${Password}</tns:Password> 
-				<tns:UserId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${UserId}</tns:UserId> 
-				<tns:AbaNumber>${PersonalCheckABA}</tns:AbaNumber> 
-				<tns:AccountNumber>${=context.expand( '${PersonalCheckAccount}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</tns:AccountNumber> 
-				<tns:AccountNumberLastFourDigits xsi:nil="true" /> 
-				<tns:AccountType xsi:nil="true" /> 
-				<tns:Amount>${Amount2}</tns:Amount> 
-				<tns:CheckBackSideImage xsi:nil="true" /> 
-				<tns:CheckFrontImage xsi:nil="true" /> 
-				<tns:CheckIssueDate xsi:nil="true" /> 
-				<tns:CheckNumber xsi:nil="true" /> 
-				<tns:CheckType>Personal</tns:CheckType> 
-				<tns:CustomerAddress xsi:nil="true" /> 
-				<tns:CustomerBirthday xsi:nil="true" /> 
-				<tns:CustomerCity xsi:nil="true" /> 
-				<tns:CustomerDriversNumber xsi:nil="true" /> 
-				<tns:CustomerEmailAddress>${CustomerEmail}</tns:CustomerEmailAddress> 
-				<tns:CustomerFirstName>${CustomerName}</tns:CustomerFirstName> 
-				<tns:CustomerLastName xsi:nil="true" /> 
-				<tns:CustomerPhone xsi:nil="true" />
-				<tns:CustomerState xsi:nil="true" /> 
-				<tns:CustomerZipCode xsi:nil="true" /> 
-				<tns:InvoiceNumber>${InvoiceNumber}</tns:InvoiceNumber> 
-				<tns:Micr xsi:nil="true" /> 
-				<tns:ReferenceNumber xsi:nil="true" /> 
-				<tns:TransactionType>RepeatCheck</tns:TransactionType> 
-				<tns:CustomerCode>${CustomerCode}</tns:CustomerCode> 
-				<tns:RecurringACHTokenId>${AchPersonalTokenId}</tns:RecurringACHTokenId> 
-			</ns0:request> 
-		</ns0:ProcessCheck> 
-	</SOAP-ENV:Body> 
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <SOAP-ENV:Body>\r
+      <ns0:ProcessCheck xmlns:ns0="http://tempuri.org/">\r
+         <ns0:request xsi:type="tns:ProcessRecurringACHRequest" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.Check.Common">\r
+            <tns:MerchantId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${MerchantId}</tns:MerchantId>\r
+            <tns:Password xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${Password}</tns:Password>\r
+            <tns:UserId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${UserId}</tns:UserId>\r
+            <tns:AbaNumber>${PersonalCheckABA}</tns:AbaNumber>\r
+            <tns:AccountNumber>${=context.expand( '${PersonalCheckAccount}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</tns:AccountNumber>\r
+            <tns:AccountNumberLastFourDigits xsi:nil="true"/>\r
+            <tns:AccountType xsi:nil="true"/>\r
+            <tns:Amount>${CheckAmountRecurringACH}</tns:Amount>\r
+            <tns:CheckBackSideImage xsi:nil="true"/>\r
+            <tns:CheckFrontImage xsi:nil="true"/>\r
+            <tns:CheckIssueDate xsi:nil="true"/>\r
+            <tns:CheckNumber xsi:nil="true"/>\r
+            <tns:CheckType>Personal</tns:CheckType>\r
+            <tns:CustomerAddress xsi:nil="true"/>\r
+            <tns:CustomerBirthday xsi:nil="true"/>\r
+            <tns:CustomerCity xsi:nil="true"/>\r
+            <tns:CustomerDriversNumber xsi:nil="true"/>\r
+            <tns:CustomerEmailAddress>${CustomerEmail}</tns:CustomerEmailAddress>\r
+            <tns:CustomerFirstName>${CustomerName}</tns:CustomerFirstName>\r
+            <tns:CustomerLastName xsi:nil="true"/>\r
+            <tns:CustomerPhone xsi:nil="true"/>\r
+            <tns:CustomerState xsi:nil="true"/>\r
+            <tns:CustomerZipCode xsi:nil="true"/>\r
+            <tns:InvoiceNumber>${InvoiceNumber}</tns:InvoiceNumber>\r
+            <tns:Micr xsi:nil="true"/>\r
+            <tns:ReferenceNumber xsi:nil="true"/>\r
+            <tns:TransactionType>RepeatCheck</tns:TransactionType>\r
+            <tns:CustomerCode>${CustomerCode}</tns:CustomerCode>\r
+            <tns:RecurringACHTokenId>${AchPersonalTokenId}</tns:RecurringACHTokenId>\r
+         </ns0:request>\r
+      </ns0:ProcessCheck>\r
+   </SOAP-ENV:Body>\r
 </SOAP-ENV:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="310f5209-714d-434a-b380-fe12f838d37f"/>
         <con:assertion type="XPath Match" name="Match content of [Result] using RegEx" id="3d80f8b4-76fa-4a78-967f-37f64fbd4546">
@@ -2464,122 +2540,46 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
-        <con:request><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
-	<SOAP-ENV:Body> 
-		<ns0:ProcessCheck xmlns:ns0="http://tempuri.org/"> 
-			<ns0:request xsi:type="tns:ProcessRecurringACHRequest" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.Check.Common"> 
-				<tns:MerchantId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${MerchantId}</tns:MerchantId> 
-				<tns:Password xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${Password}</tns:Password> 
-				<tns:UserId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${UserId}</tns:UserId> 
-				<tns:AbaNumber>${CorpCheckABA}</tns:AbaNumber> 
-				<tns:AccountNumber>${=context.expand( '${CorpCheckAccount}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</tns:AccountNumber> 
-				<tns:AccountNumberLastFourDigits xsi:nil="true" /> 
-				<tns:AccountType xsi:nil="true" /> 
-				<tns:Amount>${Amount2}</tns:Amount> 
-				<tns:CheckBackSideImage xsi:nil="true" /> 
-				<tns:CheckFrontImage xsi:nil="true" /> 
-				<tns:CheckIssueDate xsi:nil="true" /> 
-				<tns:CheckNumber xsi:nil="true" /> 
-				<tns:CheckType>Corporate</tns:CheckType> 
-				<tns:CustomerAddress xsi:nil="true" /> 
-				<tns:CustomerBirthday xsi:nil="true" /> 
-				<tns:CustomerCity xsi:nil="true" /> 
-				<tns:CustomerDriversNumber xsi:nil="true" /> 
-				<tns:CustomerEmailAddress>${CustomerEmail}</tns:CustomerEmailAddress> 
-				<tns:CustomerFirstName>${CustomerName}</tns:CustomerFirstName> 
-				<tns:CustomerLastName xsi:nil="true" /> 
-				<tns:CustomerPhone xsi:nil="true" />
-				<tns:CustomerState xsi:nil="true" /> 
-				<tns:CustomerZipCode xsi:nil="true" /> 
-				<tns:InvoiceNumber>${InvoiceNumber}</tns:InvoiceNumber> 
-				<tns:Micr xsi:nil="true" /> 
-				<tns:ReferenceNumber xsi:nil="true" /> 
-				<tns:TransactionType>RepeatCheck</tns:TransactionType> 
-				<tns:CustomerCode>${CustomerCode}</tns:CustomerCode> 
-				<tns:RecurringACHTokenId>${AchCorporateTokenId}</tns:RecurringACHTokenId> 
-			</ns0:request> 
-		</ns0:ProcessCheck> 
-	</SOAP-ENV:Body> 
+        <con:endpoint>https://abi.va2.cenpos.net/2/check.asmx</con:endpoint>
+        <con:request><![CDATA[<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <SOAP-ENV:Body>\r
+      <ns0:ProcessCheck xmlns:ns0="http://tempuri.org/">\r
+         <ns0:request xsi:type="tns:ProcessRecurringACHRequest" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.Check.Common">\r
+            <tns:MerchantId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${MerchantId}</tns:MerchantId>\r
+            <tns:Password xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${Password}</tns:Password>\r
+            <tns:UserId xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">${UserId}</tns:UserId>\r
+            <tns:AbaNumber>${CorpCheckABA}</tns:AbaNumber>\r
+            <tns:AccountNumber>${=context.expand( '${CorpCheckAccount}' ).split( "=" )[0].trim().reverse().take(4).reverse()}</tns:AccountNumber>\r
+            <tns:AccountNumberLastFourDigits xsi:nil="true"/>\r
+            <tns:AccountType xsi:nil="true"/>\r
+            <tns:Amount>${CheckAmountRecurringACH}</tns:Amount>\r
+            <tns:CheckBackSideImage xsi:nil="true"/>\r
+            <tns:CheckFrontImage xsi:nil="true"/>\r
+            <tns:CheckIssueDate xsi:nil="true"/>\r
+            <tns:CheckNumber xsi:nil="true"/>\r
+            <tns:CheckType>Corporate</tns:CheckType>\r
+            <tns:CustomerAddress xsi:nil="true"/>\r
+            <tns:CustomerBirthday xsi:nil="true"/>\r
+            <tns:CustomerCity xsi:nil="true"/>\r
+            <tns:CustomerDriversNumber xsi:nil="true"/>\r
+            <tns:CustomerEmailAddress>${CustomerEmail}</tns:CustomerEmailAddress>\r
+            <tns:CustomerFirstName>${CustomerName}</tns:CustomerFirstName>\r
+            <tns:CustomerLastName xsi:nil="true"/>\r
+            <tns:CustomerPhone xsi:nil="true"/>\r
+            <tns:CustomerState xsi:nil="true"/>\r
+            <tns:CustomerZipCode xsi:nil="true"/>\r
+            <tns:InvoiceNumber>${InvoiceNumber}</tns:InvoiceNumber>\r
+            <tns:Micr xsi:nil="true"/>\r
+            <tns:ReferenceNumber xsi:nil="true"/>\r
+            <tns:TransactionType>RepeatCheck</tns:TransactionType>\r
+            <tns:CustomerCode>${CustomerCode}</tns:CustomerCode>\r
+            <tns:RecurringACHTokenId>${AchCorporateTokenId}</tns:RecurringACHTokenId>\r
+         </ns0:request>\r
+      </ns0:ProcessCheck>\r
+   </SOAP-ENV:Body>\r
 </SOAP-ENV:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="68a8a9ba-54df-438a-9ef8-bd8c14fd8d71"/>
         <con:assertion type="XPath Match" name="Match content of [Result] using RegEx" id="daf1d8a0-5802-4561-8e34-b090f5e8d028">
-          <con:configuration>
-            <path>declare namespace ns2='http://tempuri.org/';
-declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
-matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/text(), '0|349' )</path>
-            <content>true</content>
-            <allowWildcards>false</allowWildcards>
-            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
-            <ignoreComments>false</ignoreComments>
-          </con:configuration>
-        </con:assertion>
-        <con:credentials>
-          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-          <con:authType>No Authorization</con:authType>
-        </con:credentials>
-        <con:environmentSpec>
-          <con:entry environmentId="b7b452ce-8d9a-4267-aea5-9ea703ed6c16">
-            <con:authProfile>No Authorization</con:authProfile>
-          </con:entry>
-        </con:environmentSpec>
-        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:jmsPropertyConfig/>
-        <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Check/ProcessCheck"/>
-        <con:wsrmConfig version="1.2"/>
-      </con:request>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="request" name="Copy of CheckManualDeposit - Personal" id="5fe63031-14f9-46dd-bc8a-7256f0b977fe" disabled="true">
-    <con:settings/>
-    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:interface>BasicHttpBinding_Check</con:interface>
-      <con:operation>ProcessCheck</con:operation>
-      <con:request name="Copy of CheckManualDeposit - Personal" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="3ce5f75e-66cb-42bb-9c9e-d803ed3a1d96" defaultOutgoingWss="" defaultIncomingWss="">
-        <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-        </con:settings>
-        <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://ww4.cenpos.net/2/check.asmx</con:endpoint>
-        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Check.v3.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <tem:ProcessCheck>
-         <tem:request>
-            <acr:MerchantId>${MerchantId}</acr:MerchantId>
-            <acr:Password>${Password}</acr:Password>
-            <acr:UserId>${UserId}</acr:UserId>
-            <acr1:AbaNumber xsi:nil="true" />
-            <acr1:AccountNumber xsi:nil="true" />
-            <acr1:AccountNumberLastFourDigits xsi:nil="true" />
-            <acr1:AccountType xsi:nil="true" />
-            <acr1:Amount>${Amount}</acr1:Amount>
-            <acr1:CheckBackSideImage xsi:nil="true" />
-            <acr1:CheckFrontImage xsi:nil="true" />
-            <acr1:CheckIssueDate xsi:nil="true" />
-            <acr1:CheckNumber>${PersonalCheckNumber}</acr1:CheckNumber>
-            <acr1:CheckType>Personal</acr1:CheckType>
-            <acr1:CustomerAddress xsi:nil="true" />
-            <acr1:CustomerBirthday xsi:nil="true" />
-            <acr1:CustomerCity xsi:nil="true" />
-            <acr1:CustomerDriversNumber xsi:nil="true" />
-            <acr1:CustomerEmailAddress xsi:nil="true" />
-            <acr1:CustomerFirstName xsi:nil="true" />
-            <acr1:CustomerLastName xsi:nil="true" />
-            <acr1:CustomerPhone xsi:nil="true" />
-            <acr1:CustomerState xsi:nil="true" />
-            <acr1:CustomerZipCode xsi:nil="true" />
-            <acr1:InvoiceDetail xsi:nil="true" />
-            <acr1:InvoiceNumber>${InvoiceNumber}</acr1:InvoiceNumber>
-            <acr1:Micr xsi:nil="true" />
-            <acr1:ReferenceNumber xsi:nil="true" />
-            <acr1:TransactionType>CheckManualDeposit</acr1:TransactionType>
-         </tem:request>
-      </tem:ProcessCheck>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:request>
-        <con:assertion type="SOAP Response" name="SOAP Response" id="d7910063-809e-47df-bd67-2f0f6d9c3fed"/>
-        <con:assertion type="XPath Match" name="Match content of [Result] using RegEx" id="e5986578-713e-40eb-a2d3-4845410d7f1d">
           <con:configuration>
             <path>declare namespace ns2='http://tempuri.org/';
 declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
@@ -2685,6 +2685,11 @@ matches( //ns2:ProcessCheckResponse[1]/ns2:ProcessCheckResult[1]/ns1:Result[1]/t
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>4578d6bc-7a64-40f2-81f5-c455c37dc76d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f85f95af-d45b-49cf-baaf-8e55619dbadb</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>

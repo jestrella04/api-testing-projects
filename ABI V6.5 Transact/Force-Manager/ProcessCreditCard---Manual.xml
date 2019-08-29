@@ -3,12 +3,12 @@
   <con:settings>
     <con:setting id="5e73bd09-3950-42bf-a3a1-516fe341c037fileName">ProcessCreditCard---Manual</con:setting>
   </con:settings>
-  <con:testStep type="request" name="ProcessCreditCard - Auth" id="a2e04d92-66f8-42d4-8da5-d09c3ed3a022">
+  <con:testStep type="request" name="Auth" id="a2e04d92-66f8-42d4-8da5-d09c3ed3a022">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Auth" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Auth" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -64,12 +64,12 @@
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - RecurringAuth" id="11414661-70e3-4ca5-b8a4-ef46064b7f1b">
+  <con:testStep type="request" name="RecurringAuth" id="11414661-70e3-4ca5-b8a4-ef46064b7f1b">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - RecurringAuth" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5cfbde72-4502-42c0-8ed4-e8f7eb50dac9" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="RecurringAuth" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5cfbde72-4502-42c0-8ed4-e8f7eb50dac9" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -132,12 +132,12 @@
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" useXQuery="false" entitize="false" transferChildNodes="false">
         <con:name>Auth</con:name>
         <con:sourceType>Response</con:sourceType>
-        <con:sourceStep>ProcessCreditCard - Auth</con:sourceStep>
+        <con:sourceStep>Auth</con:sourceStep>
         <con:sourcePath>declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses';
 declare namespace ns1='http://tempuri.org/';
 //ns1:ProcessCreditCardResponse[1]/ns1:ProcessCreditCardResult[1]/a:ReferenceNumber[1]</con:sourcePath>
         <con:targetType>Request</con:targetType>
-        <con:targetStep>ProcessCreditCard - Force (Auth)</con:targetStep>
+        <con:targetStep>Force (Auth)</con:targetStep>
         <con:targetPath>declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests';
 declare namespace tem='http://tempuri.org/';
 //tem:ProcessCreditCard[1]/tem:request[1]/acr1:ReferenceNumber[1]</con:targetPath>
@@ -146,12 +146,12 @@ declare namespace tem='http://tempuri.org/';
       <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false">
         <con:name>RecurringAuth</con:name>
         <con:sourceType>Response</con:sourceType>
-        <con:sourceStep>ProcessCreditCard - RecurringAuth</con:sourceStep>
+        <con:sourceStep>RecurringAuth</con:sourceStep>
         <con:sourcePath>declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses';
 declare namespace ns1='http://tempuri.org/';
 //ns1:ProcessCreditCardResponse[1]/ns1:ProcessCreditCardResult[1]/a:ReferenceNumber[1]</con:sourcePath>
         <con:targetType>Request</con:targetType>
-        <con:targetStep>ProcessCreditCard - Force (RecurringAuth)</con:targetStep>
+        <con:targetStep>Force (RecurringAuth)</con:targetStep>
         <con:targetPath>declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Requests';
 declare namespace tem='http://tempuri.org/';
 //tem:ProcessCreditCard[1]/tem:request[1]/acr1:ReferenceNumber[1]</con:targetPath>
@@ -159,12 +159,12 @@ declare namespace tem='http://tempuri.org/';
       </con:transfers>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Force (Auth)" id="b96df38d-ba9e-45b8-855a-559dbace8f84">
+  <con:testStep type="request" name="Force (Auth)" id="b96df38d-ba9e-45b8-855a-559dbace8f84">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Force (Auth)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Force (Auth)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -219,12 +219,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Force (RecurringAuth)" id="89a4fa5a-1d73-4b7a-a630-230b64618d28">
+  <con:testStep type="request" name="Force (RecurringAuth)" id="89a4fa5a-1d73-4b7a-a630-230b64618d28">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Force (RecurringAuth)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="efab6cf4-d4da-44d5-84c2-8077097e9384" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Force (RecurringAuth)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="efab6cf4-d4da-44d5-84c2-8077097e9384" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -279,12 +279,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Auth 2" id="21a973a8-dafb-4318-b3da-2a25e89b3f49">
+  <con:testStep type="request" name="Auth 2" id="21a973a8-dafb-4318-b3da-2a25e89b3f49">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Auth 2" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Auth 2" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -340,12 +340,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Auth 3" id="8a6fe8c1-ac61-4d65-942b-eb3f9129455d">
+  <con:testStep type="request" name="Auth 3" id="8a6fe8c1-ac61-4d65-942b-eb3f9129455d">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Auth 3" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Auth 3" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -401,12 +401,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Force (Auth 2) Below" id="be35c841-e444-40cd-889a-dd7b02bddc9e">
+  <con:testStep type="request" name="Force (Auth 2) Below" id="be35c841-e444-40cd-889a-dd7b02bddc9e">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Force (Auth 2) Below" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Force (Auth 2) Below" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -442,7 +442,7 @@ declare namespace tem='http://tempuri.org/';
             <acr1:MagneticData xsi:nil="true"/>\r
             <acr1:NameOnCard xsi:nil="true"/>\r
             <acr1:Pin xsi:nil="true"/>\r
-            <acr1:ReferenceNumber>${ProcessCreditCard - Auth 2#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
+            <acr1:ReferenceNumber>${Auth 2#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
             <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
             <acr1:TransactionType>SpecialForce</acr1:TransactionType>\r
          </tem:request>\r
@@ -461,12 +461,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Force (Auth 3) Over" id="715b96f6-8479-43c3-8ae7-e711a73c4c99">
+  <con:testStep type="request" name="Force (Auth 3) Over" id="715b96f6-8479-43c3-8ae7-e711a73c4c99">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Force (Auth 3) Over" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Force (Auth 3) Over" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -502,7 +502,7 @@ declare namespace tem='http://tempuri.org/';
             <acr1:MagneticData xsi:nil="true"/>\r
             <acr1:NameOnCard xsi:nil="true"/>\r
             <acr1:Pin xsi:nil="true"/>\r
-            <acr1:ReferenceNumber>${ProcessCreditCard - Auth 3#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
+            <acr1:ReferenceNumber>${Auth 3#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
             <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
             <acr1:TransactionType>SpecialForce</acr1:TransactionType>\r
          </tem:request>\r
@@ -521,12 +521,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Auth 4" id="092375ee-81b9-4370-aa01-9727aaf67f7c">
+  <con:testStep type="request" name="Auth 4" id="092375ee-81b9-4370-aa01-9727aaf67f7c">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Auth 4" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Auth 4" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -582,12 +582,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - ReAuth (Auth 4)" id="80922fbf-a5e9-4b2f-ac5f-c686c4957bcb">
+  <con:testStep type="request" name="ReAuth (Auth 4)" id="80922fbf-a5e9-4b2f-ac5f-c686c4957bcb">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - ReAuth (Auth 4)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="ReAuth (Auth 4)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="d9ee2355-31bd-4ab8-ab79-5768b024cc90" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -624,7 +624,7 @@ declare namespace tem='http://tempuri.org/';
             <acr1:MagneticData xsi:nil="true"/>\r
             <acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>\r
             <acr1:Pin xsi:nil="true"/>\r
-            <acr1:ReferenceNumber>${ProcessCreditCard - Auth 4#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
+            <acr1:ReferenceNumber>${Auth 4#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
             <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
             <acr1:TransactionType>ReAuth</acr1:TransactionType>\r
          </tem:request>\r
@@ -643,12 +643,12 @@ declare namespace tem='http://tempuri.org/';
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="ProcessCreditCard - Force (Auth 4)" id="6d87fe87-549f-484f-b7d1-a4f568d4eaa2">
+  <con:testStep type="request" name="Force (Auth 4)" id="6d87fe87-549f-484f-b7d1-a4f568d4eaa2">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="ProcessCreditCard - Force (Auth 4)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Force (Auth 4)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="6ea926c5-ea22-4800-9a96-f69dff422ad8" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -684,7 +684,7 @@ declare namespace tem='http://tempuri.org/';
             <acr1:MagneticData xsi:nil="true"/>\r
             <acr1:NameOnCard xsi:nil="true"/>\r
             <acr1:Pin xsi:nil="true"/>\r
-            <acr1:ReferenceNumber>${ProcessCreditCard - ReAuth (Auth 4)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
+            <acr1:ReferenceNumber>${ReAuth (Auth 4)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v5.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>\r
             <acr1:TaxAmount>${TaxAmount}</acr1:TaxAmount>\r
             <acr1:TransactionType>SpecialForce</acr1:TransactionType>\r
          </tem:request>\r
