@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/ProcessCreditCard" name="ProcessCreditCard" bindingOperationName="ProcessCreditCard" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="bbac41aa-4db5-4a1d-9cad-c07439bdf96a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="9b01cff6-c288-46b4-8d50-260e8b14b4d5fileName">ProcessCreditCard</con:setting>
+    <con:setting id="bbac41aa-4db5-4a1d-9cad-c07439bdf96afileName">ProcessCreditCard</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="9c049ad5-6e66-4900-990a-35424d97b62f" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:ProcessCreditCard>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>${#Project#MerchantId}</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>${#Project#Password}</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>${#Project#UserId}</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:Amount/>
+            <!--Optional:-->
+            <acr1:AuthorizationNumber xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:CardExpirationDate/>
+            <!--Optional:-->
+            <acr1:CardLastFourDigits/>
+            <!--Optional:-->
+            <acr1:CardNumber/>
+            <!--Optional:-->
+            <acr1:CardVerificationNumber/>
+            <!--Optional:-->
+            <acr1:CardholderVerificationMethod xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:CurrencyCode>?</acr1:CurrencyCode>
+            <!--Optional:-->
+            <acr1:CustomerBillingAddress/>
+            <!--Optional:-->
+            <acr1:CustomerCity xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:CustomerCode/>
+            <!--Optional:-->
+            <acr1:CustomerEmailAddress>?</acr1:CustomerEmailAddress>
+            <!--Optional:-->
+            <acr1:CustomerPhone xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:CustomerState xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:CustomerZipCode/>
+            <!--Optional:-->
+            <acr1:InvoiceDetail xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:InvoiceNumber/>
+            <!--Optional:-->
+            <acr1:KeySerialNumber xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:MagneticData/>
+            <!--Optional:-->
+            <acr1:NameOnCard/>
+            <!--Optional:-->
+            <acr1:Pin xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:PurchaseOrderNumber>?</acr1:PurchaseOrderNumber>
+            <!--Optional:-->
+            <acr1:ReferenceNumber xsi:nil="true"/>
+            <!--Optional:-->
+            <acr1:SecureCode>?</acr1:SecureCode>
+            <acr1:TaxAmount>${#Project#TaxAmount}</acr1:TaxAmount>
+            <!--Optional:-->
+            <acr1:TerminalCapabilities>?</acr1:TerminalCapabilities>
+            <!--Optional:-->
+            <acr1:TransactionType/>
+         </tem:request>
+      </tem:ProcessCreditCard>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:jmsPropertyConfig/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/ProcessCreditCard"/>
+    <con:wsrmConfig version="1.2"/>
+  </con:call>
+</con:operation>

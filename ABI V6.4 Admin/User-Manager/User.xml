@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="User" searchProperties="true" id="962afda9-350e-45d2-8354-c4aa5269a943" xmlns:con="http://eviware.com/soapui/config">
+<con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="User" searchProperties="true" id="962afda9-350e-45d2-8354-c4aa5269a943" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" zephyrTestName="" zephyrTestId="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="962afda9-350e-45d2-8354-c4aa5269a943fileName">User</con:setting>
   </con:settings>
@@ -14,7 +14,7 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -61,7 +61,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -243,6 +243,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="2307fe71-2bb1-465f-9386-26bc386db2d3"/>
+        <con:assertion type="XPath Match" id="1a741316-0527-4a59-9fef-613185180382" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:AddUserResponse[1]/ns2:AddUserResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -269,7 +280,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -285,12 +296,35 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
             <acr:UserId>${UserId}</acr:UserId>\r
             <acr1:GeoLocationInformation xsi:nil="true"/>\r
             <acr1:IMEI xsi:nil="true"/>\r
-            <acr1:UserIdToRetrieve>testuserid</acr1:UserIdToRetrieve>\r
+            <acr1:UserIdToRetrieve>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr1:UserIdToRetrieve>\r
          </tem:request>\r
       </tem:GetUser>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" id="b691f320-bb8b-400d-b17d-1f9242d17e4e"/>
+        <con:assertion type="XPath Match" id="a1f24ffb-8d0f-4adc-961c-7e755a9d05bd" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:GetUserResponse[1]/ns2:GetUserResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="9dd3bde4-44e4-4e58-8352-152b4455a887" name="XPath Match 2">
+          <con:configuration>
+            <path>declare namespace b='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common';
+declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses';
+//ns1:GetUserResponse[1]/ns1:GetUserResult[1]/a:User[1]/b:UserId[1]</path>
+            <content>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -311,7 +345,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -332,6 +366,18 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="f4edfe58-4d9b-4091-8ec9-20f9d46e26b6"/>
+        <con:assertion type="XPath Match" id="ac01504b-e5de-400d-8c49-2aac0b786ca2" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace b='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common';
+declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses';
+//ns1:GetUserListResponse[1]/ns1:GetUserListResult[1]/a:UserList[1]/b:MerchantUser/b:UserId[1]</path>
+            <content>*${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}*</content>
+            <allowWildcards>true</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -357,7 +403,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -370,7 +416,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>P@ssw0rd</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -378,6 +424,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="28451405-6fcb-4cf0-b54f-e39143d3319b"/>
+        <con:assertion type="XPath Match" id="e2b6e39d-d3a9-49c3-a984-e76bffb2afb8" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>105</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -404,7 +461,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -417,7 +474,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>P@ssw0rd</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
             <acr1:NewPassword>123465678</acr1:NewPassword>
@@ -426,6 +483,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="fe2cba7e-a712-4945-ad2a-917230196ef9"/>
+        <con:assertion type="XPath Match" id="fbde0fec-7487-47c4-9e78-1602a9a8e369" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:ChangePasswordResponse[1]/ns2:ChangePasswordResult[1]/ns1:Result[1]</path>
+            <content>106</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -452,7 +520,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -465,7 +533,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>P@ssw0rd</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
             <acr1:NewPassword>Myp@ssw0rd!</acr1:NewPassword>
@@ -474,6 +542,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="fe2cba7e-a712-4945-ad2a-917230196ef9"/>
+        <con:assertion type="XPath Match" id="1ccefa2f-8243-4428-93c1-d0edf2a23c14" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:ChangePasswordResponse[1]/ns2:ChangePasswordResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -500,7 +579,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -513,7 +592,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Myp@ssw0rd!</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -521,6 +600,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="5c41db3f-1c3d-4e0b-bdd2-267b316183d2"/>
+        <con:assertion type="XPath Match" id="074c3eb5-45f2-4ad7-837d-5d679e05b4c6" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -547,7 +637,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -560,7 +650,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -568,6 +658,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="4975d92b-c663-4887-acab-c7cab20402ee"/>
+        <con:assertion type="XPath Match" id="7a8a0f13-9db4-4a0a-a71d-1adcd9f8d169" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -594,7 +695,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -607,7 +708,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -615,6 +716,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="36fa0652-64b8-4bf0-b09f-4f04d8619fd9"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="021c0464-314f-4d24-836d-3d9750b92704">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -641,7 +753,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -654,7 +766,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -662,6 +774,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="8f0394a2-2e39-4f5e-b896-da683ad948cb"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="0a0e306d-a236-4a86-8b55-f32b2e7398fb">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -688,7 +811,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -701,7 +824,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -709,6 +832,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="583cd01c-b172-4a42-898d-ed848421baf5"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="206512d6-9c98-4b20-90d3-3efd5ad83435">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -735,7 +869,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -748,7 +882,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -756,6 +890,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="13876ec7-8089-4f7c-ab57-ac617ec1b55c"/>
+        <con:assertion type="XPath Match" id="381f87dc-fc9a-4c1f-8153-082a73a619bd" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>103</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -782,7 +927,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -795,7 +940,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <tem:request>\r
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Myp@ssw0rd!</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>\r
@@ -803,6 +948,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" id="74b5d478-1119-419b-b220-e6a87ad44712"/>
+        <con:assertion type="XPath Match" id="e2a9bf63-c494-408c-a2cc-628c17267d72" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:PasswordResetResponse[1]/ns2:PasswordResetResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -830,7 +986,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -843,7 +999,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>${Get Temp Password#Result}</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -851,6 +1007,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="95572ee0-f4c6-41ce-900b-3bab29a2609a"/>
+        <con:assertion type="XPath Match" id="3c4f5dff-a2cd-436a-88cc-ba7d87a43b0e" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>105</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -877,7 +1044,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -890,7 +1057,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>${Get Temp Password#Result}</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
             <acr1:NewPassword>Myp@ssw0rd!2</acr1:NewPassword>
@@ -899,6 +1066,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="fe2cba7e-a712-4945-ad2a-917230196ef9"/>
+        <con:assertion type="XPath Match" id="3973982b-3807-4bf6-a90f-a1a1c865f4a4" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:ChangePasswordResponse[1]/ns2:ChangePasswordResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -925,7 +1103,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -938,7 +1116,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -946,6 +1124,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="4975d92b-c663-4887-acab-c7cab20402ee"/>
+        <con:assertion type="XPath Match" id="5ebc8f17-31e0-437e-b2a0-259b21692b86" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -972,7 +1161,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -985,7 +1174,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -993,6 +1182,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="36fa0652-64b8-4bf0-b09f-4f04d8619fd9"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="34116de2-3201-4dc4-a656-a11023e2d8b1">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1019,7 +1219,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -1032,7 +1232,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -1040,6 +1240,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="8f0394a2-2e39-4f5e-b896-da683ad948cb"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="78715c2c-f389-4f4d-a218-63c81bd36b63">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1066,7 +1277,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -1079,7 +1290,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -1087,6 +1298,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="583cd01c-b172-4a42-898d-ed848421baf5"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="a3c6a639-6bf3-4a2e-98c4-0a63e8916899">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>101</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1113,7 +1335,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -1126,7 +1348,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Test@123</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -1134,6 +1356,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="13876ec7-8089-4f7c-ab57-ac617ec1b55c"/>
+        <con:assertion type="XPath Match" id="1246abc7-7321-4b24-a5e6-bde15085a814" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>103</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1160,7 +1393,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -1176,12 +1409,23 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr:UserId>${UserId}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
-            <acr1:UserIdToUnlock>testuserid</acr1:UserIdToUnlock>
+            <acr1:UserIdToUnlock>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr1:UserIdToUnlock>
          </tem:request>
       </tem:UnlockUser>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="5c079ff2-043d-48e6-a144-33a7c2c4091b"/>
+        <con:assertion type="XPath Match" id="9534318f-4a05-486e-ad34-e719914f062a" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:UnlockUserResponse[1]/ns2:UnlockUserResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1208,7 +1452,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -1221,7 +1465,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
          <tem:request>
             <acr:MerchantId>${MerchantId}</acr:MerchantId>
             <acr:Password>Myp@ssw0rd!2</acr:Password>
-            <acr:UserId>testuserid</acr:UserId>
+            <acr:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
          </tem:request>
@@ -1229,6 +1473,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="95572ee0-f4c6-41ce-900b-3bab29a2609a"/>
+        <con:assertion type="XPath Match" id="121ee822-f073-4553-a441-2259ad9104f3" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:LoginResponse[1]/ns2:LoginResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1255,7 +1510,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <soapenv:Header/>
    <soapenv:Body>
@@ -1433,14 +1688,25 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                </acr2:PrivilegeList>
                <acr2:ReceiptType>1</acr2:ReceiptType>
                <acr2:SharedDrawer>false</acr2:SharedDrawer>
-               <acr2:UserId>testuserid</acr2:UserId>
+               <acr2:UserId>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr2:UserId>
             </acr1:User>
-            <acr1:UserIdToModify>testuserid</acr1:UserIdToModify>
+            <acr1:UserIdToModify>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr1:UserIdToModify>
          </tem:request>
       </tem:ModifyUser>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="19ab9c02-2e79-447c-ab13-113cfc2478e7"/>
+        <con:assertion type="XPath Match" id="28580a99-8d71-4ca1-8b58-ae232553ceb2" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:ModifyUserResponse[1]/ns2:ModifyUserResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1467,7 +1733,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -1483,12 +1749,35 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
             <acr:UserId>${UserId}</acr:UserId>\r
             <acr1:GeoLocationInformation xsi:nil="true"/>\r
             <acr1:IMEI xsi:nil="true"/>\r
-            <acr1:UserIdToRetrieve>testuserid</acr1:UserIdToRetrieve>\r
+            <acr1:UserIdToRetrieve>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr1:UserIdToRetrieve>\r
          </tem:request>\r
       </tem:GetUser>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" id="b691f320-bb8b-400d-b17d-1f9242d17e4e"/>
+        <con:assertion type="XPath Match" id="ca153b24-2ddf-4a45-b3ea-76c429a19a2e" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:GetUserResponse[1]/ns2:GetUserResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="b3a626fd-8876-407d-b2e8-eab88a505482" name="XPath Match 2">
+          <con:configuration>
+            <path>declare namespace b='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common';
+declare namespace ns1='http://tempuri.org/';
+declare namespace a='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses';
+//ns1:GetUserResponse[1]/ns1:GetUserResult[1]/a:User[1]/b:UserId[1]</path>
+            <content>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -1509,7 +1798,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/admin.asmx</con:endpoint>
+        <con:endpoint>https://ww4.cenpos.net/6/4/admin.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
 xmlns:tem="http://tempuri.org/"
@@ -1525,12 +1814,23 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
             <acr:UserId>${UserId}</acr:UserId>
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
-            <acr1:UserIdToDelete>testuserid</acr1:UserIdToDelete>
+            <acr1:UserIdToDelete>${AddUser#Request#declare namespace acr2='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common'; declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests'; //tem:AddUser[1]/tem:request[1]/acr1:User[1]/acr2:UserId[1]}</acr1:UserIdToDelete>
          </tem:request>
       </tem:DeleteUser>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="cc28eb65-c34f-4b3d-aa13-c02d92ed05df"/>
+        <con:assertion type="XPath Match" id="a28d13bf-6b3e-48d0-a1e2-207064820c3b" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:DeleteUserResponse[1]/ns2:DeleteUserResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>

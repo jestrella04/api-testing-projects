@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f0e163b0-ca1e-4f32-b7b2-cf239e60f5ef" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Regression (Work in progress)" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f0e163b0-ca1e-4f32-b7b2-cf239e60f5effileName">Regression-%28Work-in-progress%29</con:setting>
+  </con:settings>
+  <con:testStep type="request" id="c711e33f-4a93-4a85-a1bc-a0c4ee2ae4ed" name="AddEbppInvoice">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>AddEbppInvoice</con:operation>
+      <con:request name="AddEbppInvoice" id="0e1575ff-4929-4bdd-9af3-90bb38155ab5">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:AddEbppInvoice>\r
+         <!--Optional:-->\r
+         <v4:addInvoiceRequestVO>\r
+            <!--Optional:-->\r
+            <v4:Invoice>\r
+               <v4:Id>?</v4:Id>\r
+               <!--Optional:-->\r
+               <v4:InvoiceNumber>?</v4:InvoiceNumber>\r
+               <v4:TotalAmount>?</v4:TotalAmount>\r
+               <v4:TaxAmount>?</v4:TaxAmount>\r
+               <v4:Discount>?</v4:Discount>\r
+               <v4:AmountAfterDiscount>?</v4:AmountAfterDiscount>\r
+               <!--Optional:-->\r
+               <v4:TinyUrlCode>?</v4:TinyUrlCode>\r
+               <!--Optional:-->\r
+               <v4:BinaryInvoice>cid:1146953046569</v4:BinaryInvoice>\r
+               <v4:Processed>?</v4:Processed>\r
+               <v4:ProcessedDate>?</v4:ProcessedDate>\r
+               <v4:PaidAmount>?</v4:PaidAmount>\r
+               <!--Optional:-->\r
+               <v4:InvoiceDetailStatus>?</v4:InvoiceDetailStatus>\r
+               <v4:InvoiceDate>?</v4:InvoiceDate>\r
+               <v4:HasSpecialPayment>?</v4:HasSpecialPayment>\r
+               <v4:Balance>?</v4:Balance>\r
+               <!--Optional:-->\r
+               <v4:InvoiceEncoded>cid:1036325306040</v4:InvoiceEncoded>\r
+               <!--Optional:-->\r
+               <v4:TagNumber>?</v4:TagNumber>\r
+               <v4:IsItemTaxNotProvided>?</v4:IsItemTaxNotProvided>\r
+            </v4:Invoice>\r
+            <!--Optional:-->\r
+            <v4:Customer>\r
+               <!--Optional:-->\r
+               <v4:Phone>?</v4:Phone>\r
+               <!--Optional:-->\r
+               <v4:MobilePhone>?</v4:MobilePhone>\r
+               <!--Optional:-->\r
+               <v4:MailingZipCode>?</v4:MailingZipCode>\r
+               <!--Optional:-->\r
+               <v4:MailingState>?</v4:MailingState>\r
+               <!--Optional:-->\r
+               <v4:MailingCity>?</v4:MailingCity>\r
+               <!--Optional:-->\r
+               <v4:MailingAddress>?</v4:MailingAddress>\r
+               <!--Optional:-->\r
+               <v4:FaxNumber>?</v4:FaxNumber>\r
+               <!--Optional:-->\r
+               <v4:CustomField3>?</v4:CustomField3>\r
+               <!--Optional:-->\r
+               <v4:CustomField2>?</v4:CustomField2>\r
+               <!--Optional:-->\r
+               <v4:CustomField1>?</v4:CustomField1>\r
+               <!--Optional:-->\r
+               <v4:CustomerName>?</v4:CustomerName>\r
+               <!--Optional:-->\r
+               <v4:CustomerEmail>?</v4:CustomerEmail>\r
+               <!--Optional:-->\r
+               <v4:AlternateFaxNumber>?</v4:AlternateFaxNumber>\r
+               <!--Optional:-->\r
+               <v4:AlternateEmail>?</v4:AlternateEmail>\r
+               <!--Optional:-->\r
+               <v4:CustomerCode>?</v4:CustomerCode>\r
+            </v4:Customer>\r
+            <!--Optional:-->\r
+            <v4:LineItems>\r
+               <!--Zero or more repetitions:-->\r
+               <v4:InvoiceLineItemVO>\r
+                  <!--Optional:-->\r
+                  <v4:Description>?</v4:Description>\r
+                  <v4:TotalPrice>?</v4:TotalPrice>\r
+                  <v4:Quantity>?</v4:Quantity>\r
+                  <v4:TotalTax>?</v4:TotalTax>\r
+                  <!--Optional:-->\r
+                  <v4:Account>?</v4:Account>\r
+               </v4:InvoiceLineItemVO>\r
+            </v4:LineItems>\r
+            <!--Optional:-->\r
+            <v4:LinkButton>?</v4:LinkButton>\r
+            <!--Optional:-->\r
+            <v4:LinkLabel>?</v4:LinkLabel>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <v4:PickupTime>?</v4:PickupTime>\r
+         </v4:addInvoiceRequestVO>\r
+      </v4:AddEbppInvoice>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/AddEbppInvoice" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="b444021a-6a54-4376-a914-5107d472d734" name="GetInvoicePaymentInformation">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>GetInvoicePaymentInformation</con:operation>
+      <con:request name="GetInvoicePaymentInformation" id="6db77a87-774a-4c17-949b-a61ec533bba6">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:GetInvoicePaymentInformation>\r
+         <!--Optional:-->\r
+         <v4:paymentInfoRequestVO>\r
+            <v4:BeginDate>?</v4:BeginDate>\r
+            <!--Optional:-->\r
+            <v4:EndDate>?</v4:EndDate>\r
+            <!--Optional:-->\r
+            <v4:PaidInvoice>?</v4:PaidInvoice>\r
+            <!--Optional:-->\r
+            <v4:UserName>?</v4:UserName>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <v4:EndDateSpecified>?</v4:EndDateSpecified>\r
+            <v4:PaidInvoiceSpecified>?</v4:PaidInvoiceSpecified>\r
+         </v4:paymentInfoRequestVO>\r
+      </v4:GetInvoicePaymentInformation>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/GetInvoicePaymentInformation"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="af6327bb-3bc7-4207-8564-3b5a207fc38d" name="GetMerchantCommunicationChannel">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>GetMerchantCommunicationChannel</con:operation>
+      <con:request name="GetMerchantCommunicationChannel" id="87ae665e-a30b-4695-bbb4-6f1f865b0931">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:GetMerchantCommunicationChannel>\r
+         <!--Optional:-->\r
+         <v4:request>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+         </v4:request>\r
+      </v4:GetMerchantCommunicationChannel>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/GetMerchantCommunicationChannel"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="77d36c63-3878-40d1-9c26-c94d19f433a0" name="SetCustomerOption">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>SetCustomerOption</con:operation>
+      <con:request name="SetCustomerOption" id="09b1a02e-4af1-4be9-96ec-1a903e1dce23">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:SetCustomerOption>\r
+         <!--Optional:-->\r
+         <v4:customerOptionRequestVO>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <!--Optional:-->\r
+            <v4:CustomerEmail>?</v4:CustomerEmail>\r
+            <v4:AllowSMS>?</v4:AllowSMS>\r
+            <v4:AllowEmail>?</v4:AllowEmail>\r
+         </v4:customerOptionRequestVO>\r
+      </v4:SetCustomerOption>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/SetCustomerOption"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="68156a07-2d69-4521-b802-05059b7b1746" name="SetExternalPayments">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>SetExternalPayments</con:operation>
+      <con:request name="SetExternalPayments" id="08eb5d6d-dbb0-4b39-b0ef-5719d3e0d9b4">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:SetExternalPayments>\r
+         <!--Optional:-->\r
+         <v4:externalPaymentRequestVO>\r
+            <!--Optional:-->\r
+            <v4:ExternalPayments>\r
+               <!--Zero or more repetitions:-->\r
+               <v4:ExternalPaymentVO>\r
+                  <!--Optional:-->\r
+                  <v4:InvoiceNumber>?</v4:InvoiceNumber>\r
+                  <v4:Amount>?</v4:Amount>\r
+                  <v4:TotallyPaid>?</v4:TotallyPaid>\r
+                  <!--Optional:-->\r
+                  <v4:Comment>?</v4:Comment>\r
+                  <!--Optional:-->\r
+                  <v4:ReferenceNumber>?</v4:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <v4:AuthorizationNumber>?</v4:AuthorizationNumber>\r
+                  <v4:PaymentDate>?</v4:PaymentDate>\r
+                  <!--Optional:-->\r
+                  <v4:PaymentType>?</v4:PaymentType>\r
+                  <!--Optional:-->\r
+                  <v4:PaymentSource>?</v4:PaymentSource>\r
+                  <!--Optional:-->\r
+                  <v4:AccountNumber>?</v4:AccountNumber>\r
+                  <v4:Discount>?</v4:Discount>\r
+               </v4:ExternalPaymentVO>\r
+            </v4:ExternalPayments>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+         </v4:externalPaymentRequestVO>\r
+      </v4:SetExternalPayments>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/SetExternalPayments"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="8195df01-5826-4125-8189-5297a58352ba" name="SetInvoiceCancellationNotes">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>SetInvoiceCancellationNotes</con:operation>
+      <con:request name="SetInvoiceCancellationNotes" id="9af0bce0-64c8-4ea0-b365-f0414de1d391">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:SetInvoiceCancellationNotes>\r
+         <!--Optional:-->\r
+         <v4:setCancellationRequestVO>\r
+            <!--Optional:-->\r
+            <v4:CancellationNotes>\r
+               <!--Zero or more repetitions:-->\r
+               <v4:CancellationNote>\r
+                  <!--Optional:-->\r
+                  <v4:InvoiceNumber>?</v4:InvoiceNumber>\r
+                  <!--Optional:-->\r
+                  <v4:Comment>?</v4:Comment>\r
+               </v4:CancellationNote>\r
+            </v4:CancellationNotes>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+         </v4:setCancellationRequestVO>\r
+      </v4:SetInvoiceCancellationNotes>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/SetInvoiceCancellationNotes"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="af710eb8-7d53-4382-b15d-bd4f43692ed8" name="SetInvoiceExternalPayments">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>SetInvoiceExternalPayments</con:operation>
+      <con:request name="SetInvoiceExternalPayments" id="9e76fced-a4c1-409b-8cce-2b6d98586f42">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:SetInvoiceExternalPayments>\r
+         <!--Optional:-->\r
+         <v4:externalPaymentRequestVO>\r
+            <!--Optional:-->\r
+            <v4:ExternalPayments>\r
+               <!--Zero or more repetitions:-->\r
+               <v4:ExternalPaymentVO>\r
+                  <!--Optional:-->\r
+                  <v4:InvoiceNumber>?</v4:InvoiceNumber>\r
+                  <v4:Amount>?</v4:Amount>\r
+                  <v4:TotallyPaid>?</v4:TotallyPaid>\r
+                  <!--Optional:-->\r
+                  <v4:Comment>?</v4:Comment>\r
+                  <!--Optional:-->\r
+                  <v4:ReferenceNumber>?</v4:ReferenceNumber>\r
+                  <!--Optional:-->\r
+                  <v4:AuthorizationNumber>?</v4:AuthorizationNumber>\r
+                  <v4:PaymentDate>?</v4:PaymentDate>\r
+                  <!--Optional:-->\r
+                  <v4:PaymentType>?</v4:PaymentType>\r
+                  <!--Optional:-->\r
+                  <v4:PaymentSource>?</v4:PaymentSource>\r
+                  <!--Optional:-->\r
+                  <v4:AccountNumber>?</v4:AccountNumber>\r
+                  <v4:Discount>?</v4:Discount>\r
+               </v4:ExternalPaymentVO>\r
+            </v4:ExternalPayments>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+         </v4:externalPaymentRequestVO>\r
+      </v4:SetInvoiceExternalPayments>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/SetInvoiceExternalPayments"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="2591ee31-46a3-40b1-bed7-c72c1a17e1c1" name="SetMerchantConfiguration">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>SetMerchantConfiguration</con:operation>
+      <con:request name="SetMerchantConfiguration" id="3fa7269e-4210-4664-bdc9-8a6324bccbef">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:SetMerchantConfiguration>\r
+         <!--Optional:-->\r
+         <v4:ebppConfigurationRequestVO>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <!--Optional:-->\r
+            <v4:PaymentURL>?</v4:PaymentURL>\r
+            <v4:AllowManualInvoice>?</v4:AllowManualInvoice>\r
+            <!--Optional:-->\r
+            <v4:InvoiceNumberSequenceConfig>\r
+               <!--Optional:-->\r
+               <v4:Prefix>?</v4:Prefix>\r
+               <v4:StartWith>?</v4:StartWith>\r
+               <v4:Step>?</v4:Step>\r
+               <v4:Length>?</v4:Length>\r
+               <v4:EndsWith>?</v4:EndsWith>\r
+            </v4:InvoiceNumberSequenceConfig>\r
+            <!--Optional:-->\r
+            <v4:MerchantPortalURL>?</v4:MerchantPortalURL>\r
+            <!--Optional:-->\r
+            <v4:ReturnURL>?</v4:ReturnURL>\r
+            <!--Optional:-->\r
+            <v4:Passphrase>?</v4:Passphrase>\r
+            <!--Optional:-->\r
+            <v4:ConciliationURL>?</v4:ConciliationURL>\r
+            <v4:OneTimeNotification>?</v4:OneTimeNotification>\r
+            <v4:InvoiceNotificationDay>?</v4:InvoiceNotificationDay>\r
+            <!--Optional:-->\r
+            <v4:LinkButtonURL>?</v4:LinkButtonURL>\r
+            <!--Optional:-->\r
+            <v4:LinkButtonLabel>?</v4:LinkButtonLabel>\r
+            <v4:AllowSendEmail>?</v4:AllowSendEmail>\r
+            <v4:AllowSendSms>?</v4:AllowSendSms>\r
+            <!--Optional:-->\r
+            <v4:PaymentsConfig>\r
+               <v4:AmereicanExpress>?</v4:AmereicanExpress>\r
+               <v4:Visa>?</v4:Visa>\r
+               <v4:Master>?</v4:Master>\r
+               <v4:Discover>?</v4:Discover>\r
+               <v4:Diners>?</v4:Diners>\r
+               <v4:Check>?</v4:Check>\r
+               <v4:Token>?</v4:Token>\r
+               <v4:WireTransfer>?</v4:WireTransfer>\r
+               <v4:PartialPayments>?</v4:PartialPayments>\r
+               <v4:MultiplePayments>?</v4:MultiplePayments>\r
+               <v4:PayMultipleInvoice>?</v4:PayMultipleInvoice>\r
+               <v4:GroupPayments>?</v4:GroupPayments>\r
+               <v4:CreateTokensAutomatically>?</v4:CreateTokensAutomatically>\r
+               <v4:Paypal>?</v4:Paypal>\r
+            </v4:PaymentsConfig>\r
+            <!--Optional:-->\r
+            <v4:MailingInformationConfig>\r
+               <v4:UseCenposSMTP>?</v4:UseCenposSMTP>\r
+               <!--Optional:-->\r
+               <v4:SmtUserName>?</v4:SmtUserName>\r
+               <!--Optional:-->\r
+               <v4:Password>?</v4:Password>\r
+               <!--Optional:-->\r
+               <v4:EmailSender>?</v4:EmailSender>\r
+               <!--Optional:-->\r
+               <v4:SmtpHost>?</v4:SmtpHost>\r
+               <!--Optional:-->\r
+               <v4:MailSubject>?</v4:MailSubject>\r
+               <v4:SslEnable>?</v4:SslEnable>\r
+               <v4:SmtPort>?</v4:SmtPort>\r
+               <!--Optional:-->\r
+               <v4:NotificationEmail1>?</v4:NotificationEmail1>\r
+               <!--Optional:-->\r
+               <v4:NotificationEmail2>?</v4:NotificationEmail2>\r
+               <!--Optional:-->\r
+               <v4:NotificationEmail3>?</v4:NotificationEmail3>\r
+               <!--Optional:-->\r
+               <v4:MailBody>?</v4:MailBody>\r
+            </v4:MailingInformationConfig>\r
+            <!--Optional:-->\r
+            <v4:WireTransferAccountConfig>\r
+               <!--Optional:-->\r
+               <v4:BankName>?</v4:BankName>\r
+               <!--Optional:-->\r
+               <v4:BankStreetAddress>?</v4:BankStreetAddress>\r
+               <!--Optional:-->\r
+               <v4:BankCity>?</v4:BankCity>\r
+               <!--Optional:-->\r
+               <v4:BankState>?</v4:BankState>\r
+               <!--Optional:-->\r
+               <v4:BankZip>?</v4:BankZip>\r
+               <!--Optional:-->\r
+               <v4:BankCountry>?</v4:BankCountry>\r
+               <!--Optional:-->\r
+               <v4:Aba>?</v4:Aba>\r
+               <!--Optional:-->\r
+               <v4:Swift>?</v4:Swift>\r
+               <!--Optional:-->\r
+               <v4:PurposeofPayment>?</v4:PurposeofPayment>\r
+               <!--Optional:-->\r
+               <v4:MerchantName>?</v4:MerchantName>\r
+               <!--Optional:-->\r
+               <v4:MerchantStreetAddress>?</v4:MerchantStreetAddress>\r
+               <!--Optional:-->\r
+               <v4:MerchantCity>?</v4:MerchantCity>\r
+               <!--Optional:-->\r
+               <v4:MerchantState>?</v4:MerchantState>\r
+               <!--Optional:-->\r
+               <v4:MerchantZip>?</v4:MerchantZip>\r
+               <!--Optional:-->\r
+               <v4:MerchantCountry>?</v4:MerchantCountry>\r
+               <!--Optional:-->\r
+               <v4:AccountNumber>?</v4:AccountNumber>\r
+               <!--Optional:-->\r
+               <v4:SpecialInstruction>?</v4:SpecialInstruction>\r
+            </v4:WireTransferAccountConfig>\r
+            <!--Optional:-->\r
+            <v4:Logo>cid:772927249673</v4:Logo>\r
+            <v4:InvoiceExpirationDays>?</v4:InvoiceExpirationDays>\r
+            <v4:DenyPaymentAfterExpired>?</v4:DenyPaymentAfterExpired>\r
+            <!--Optional:-->\r
+            <v4:EncryptionKey>?</v4:EncryptionKey>\r
+         </v4:ebppConfigurationRequestVO>\r
+      </v4:SetMerchantConfiguration>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/SetMerchantConfiguration"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="8551745a-f758-4bea-ae5e-eff87dfa87e3" name="SetProcessingUser">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>SetProcessingUser</con:operation>
+      <con:request name="SetProcessingUser" id="a37a17e9-8a5f-4efd-8e63-1aeedf743577">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:SetProcessingUser>\r
+         <!--Optional:-->\r
+         <v4:setProcessingRequestVO>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+         </v4:setProcessingRequestVO>\r
+      </v4:SetProcessingUser>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/SetProcessingUser"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="4cbadaa8-bf99-475e-b7ba-eeb0780932e0" name="SetUserEbppPrivileges">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>SetUserEbppPrivileges</con:operation>
+      <con:request name="SetUserEbppPrivileges" id="eb9d1511-1179-461a-bcbb-86c7162ff365">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:SetUserEbppPrivileges>\r
+         <!--Optional:-->\r
+         <v4:setUserRequestVO>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <!--Optional:-->\r
+            <v4:Privilege>\r
+               <!--Zero or more repetitions:-->\r
+               <v4:string>?</v4:string>\r
+            </v4:Privilege>\r
+            <!--Optional:-->\r
+            <v4:TargetUsername>?</v4:TargetUsername>\r
+         </v4:setUserRequestVO>\r
+      </v4:SetUserEbppPrivileges>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/SetUserEbppPrivileges"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="0fc50a8c-747a-48d7-8165-79bbada22cf9" name="UpdateEbppInvoice">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV4Soap</con:interface>
+      <con:operation>UpdateEbppInvoice</con:operation>
+      <con:request name="UpdateEbppInvoice" id="70f8f3e2-7030-4fad-89cc-d092865d9b8d">
+        <con:settings/>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://ebpp.cenpos.net/V4">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <v4:UpdateEbppInvoice>\r
+         <!--Optional:-->\r
+         <v4:updateInvoiceRequestVO>\r
+            <!--Optional:-->\r
+            <v4:Username>?</v4:Username>\r
+            <!--Optional:-->\r
+            <v4:Password>?</v4:Password>\r
+            <!--Optional:-->\r
+            <v4:UserId>?</v4:UserId>\r
+            <v4:MerchantId>?</v4:MerchantId>\r
+            <!--Optional:-->\r
+            <v4:Invoice>\r
+               <v4:Id>?</v4:Id>\r
+               <!--Optional:-->\r
+               <v4:InvoiceNumber>?</v4:InvoiceNumber>\r
+               <v4:TotalAmount>?</v4:TotalAmount>\r
+               <v4:TaxAmount>?</v4:TaxAmount>\r
+               <v4:Discount>?</v4:Discount>\r
+               <v4:AmountAfterDiscount>?</v4:AmountAfterDiscount>\r
+               <!--Optional:-->\r
+               <v4:TinyUrlCode>?</v4:TinyUrlCode>\r
+               <!--Optional:-->\r
+               <v4:BinaryInvoice>cid:354206053851</v4:BinaryInvoice>\r
+               <v4:Processed>?</v4:Processed>\r
+               <v4:ProcessedDate>?</v4:ProcessedDate>\r
+               <v4:PaidAmount>?</v4:PaidAmount>\r
+               <!--Optional:-->\r
+               <v4:InvoiceDetailStatus>?</v4:InvoiceDetailStatus>\r
+               <v4:InvoiceDate>?</v4:InvoiceDate>\r
+               <v4:HasSpecialPayment>?</v4:HasSpecialPayment>\r
+               <v4:Balance>?</v4:Balance>\r
+               <!--Optional:-->\r
+               <v4:InvoiceEncoded>cid:298214994813</v4:InvoiceEncoded>\r
+               <!--Optional:-->\r
+               <v4:TagNumber>?</v4:TagNumber>\r
+               <v4:IsItemTaxNotProvided>?</v4:IsItemTaxNotProvided>\r
+            </v4:Invoice>\r
+            <!--Optional:-->\r
+            <v4:LineItems>\r
+               <!--Zero or more repetitions:-->\r
+               <v4:InvoiceLineItemVO>\r
+                  <!--Optional:-->\r
+                  <v4:Description>?</v4:Description>\r
+                  <v4:TotalPrice>?</v4:TotalPrice>\r
+                  <v4:Quantity>?</v4:Quantity>\r
+                  <v4:TotalTax>?</v4:TotalTax>\r
+                  <!--Optional:-->\r
+                  <v4:Account>?</v4:Account>\r
+               </v4:InvoiceLineItemVO>\r
+            </v4:LineItems>\r
+            <v4:IsLineItemsPresent>?</v4:IsLineItemsPresent>\r
+            <!--Optional:-->\r
+            <v4:TagNumber>?</v4:TagNumber>\r
+         </v4:updateInvoiceRequestVO>\r
+      </v4:UpdateEbppInvoice>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V4/UpdateEbppInvoice"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>

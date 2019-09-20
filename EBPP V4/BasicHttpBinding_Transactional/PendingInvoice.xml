@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/PendingInvoice" name="PendingInvoice" bindingOperationName="PendingInvoice" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="43a9a566-78b0-446c-b46f-39d578e3263c" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="57443856-9f3c-40b2-bae4-400bb6a926d1fileName">PendingInvoice</con:setting>
+    <con:setting id="43a9a566-78b0-446c-b46f-39d578e3263cfileName">PendingInvoice</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="805f7df0-40bc-4456-bdb6-71ba0628ef46" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:PendingInvoice>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <acr1:Amount>?</acr1:Amount>
+            <!--Optional:-->
+            <acr1:EmailAddress>?</acr1:EmailAddress>
+            <!--Optional:-->
+            <acr1:InvoiceId>?</acr1:InvoiceId>
+            <!--Optional:-->
+            <acr1:PhoneNumber>?</acr1:PhoneNumber>
+            <!--Optional:-->
+            <acr1:TaxAmount>?</acr1:TaxAmount>
+         </tem:request>
+      </tem:PendingInvoice>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/PendingInvoice"/>
+  </con:call>
+</con:operation>

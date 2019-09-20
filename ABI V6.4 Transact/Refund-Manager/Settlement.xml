@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="f4be06e9-2d02-4423-b5b1-57f0d2d15e78" discardOkResults="true" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Settlement" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" zephyrTestName="" zephyrTestId="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f4be06e9-2d02-4423-b5b1-57f0d2d15e78fileName">Settlement</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="calltestcase" name="Trx" id="55887f19-7980-4a99-a8d6-16a57aee2e51">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>a9930cc0-6b64-4373-a822-d21025c8c916</con:targetTestCase>
+      <con:properties/>
+      <con:returnProperties/>
+      <con:runMode>SINGLETON_AND_WAIT</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="Settlement" id="a71ce47c-55d5-48a3-8ae3-aeaab09200c2" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>BasicHttpBinding_Transactional</con:interface>
+      <con:operation>ProcessSettlement</con:operation>
+      <con:request name="Settlement" id="37e196ec-b223-4580-a18a-6d359951da95">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ProcessSettlement>\r
+         <tem:request>\r
+            <acr:MerchantId>${MerchantId}</acr:MerchantId>
+            <acr:Password>${Password}</acr:Password>
+            <acr:UserId>${UserId}</acr:UserId>
+            <acr1:GeoLocationInformation xsi:nil="true"/>
+            <acr1:IMEI xsi:nil="true"/>
+            <acr1:ReferenceNumber xsi:nil="true"/>
+            <acr1:TransactionType>CaptureAll</acr1:TransactionType>\r
+         </tem:request>\r
+      </tem:ProcessSettlement>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="b955a98f-29e7-4f3c-bcd2-6a776b3f93ac"/>
+        <con:assertion type="XPath Match" id="027b5698-152c-48f7-ae00-4d396958642c" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:ProcessSettlementResponse[1]/ns2:ProcessSettlementResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="RunSettlement" id="3894dd68-8bb6-4684-92ee-c3ee4f3f30fb">
+    <con:settings/>
+    <con:config>
+      <script>testRunner.runTestStep(context.testCase.getTestStepByName("Settlement"))</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="delay" name="Settlement In Progress... Please wait!" id="ac087493-261b-41ac-be0d-33377c252351">
+    <con:settings/>
+    <con:config>
+      <delay>60000</delay>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Rename" id="c522f391-0a66-403a-b184-3997629210ed">
+    <con:settings/>
+    <con:config>
+      <script>def tcName = context.testCase.testSuite.getTestCaseByName("Refunds")
+if (tcName) tcName.setName("Refunds (Settled)")</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="calltestcase" name="Refunds" id="f24d4857-1587-424f-b2b8-2e3a1f7403f3">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>b858887c-a3c2-48bc-b3a9-45bc1ccd9752</con:targetTestCase>
+      <con:properties/>
+      <con:returnProperties/>
+      <con:runMode>SINGLETON_AND_WAIT</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="calltestcase" name="Export" id="37160d77-cf01-44c6-ad24-cb6bf3a729af">
+    <con:settings/>
+    <con:config xsi:type="con:RunTestCaseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:targetTestCase>c1eac9f7-e194-4d1e-ac1f-4b7fe2e7f228</con:targetTestCase>
+      <con:properties/>
+      <con:returnProperties/>
+      <con:runMode>SINGLETON_AND_WAIT</con:runMode>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Rename2" id="de42e548-efe1-4e6b-9221-ded466b9ad0b">
+    <con:settings/>
+    <con:config>
+      <script>def tcName = context.testCase.testSuite.getTestCaseByName("Refunds (Settled)")
+if (tcName) tcName.setName("Refunds")</script>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>55887f19-7980-4a99-a8d6-16a57aee2e51</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c522f391-0a66-403a-b184-3997629210ed</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3894dd68-8bb6-4684-92ee-c3ee4f3f30fb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/GetTrx" name="GetTrx" bindingOperationName="GetTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="cd625211-7bab-4ad7-b78f-8615580f3cc2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="8b84dbc5-ca19-48d7-9daa-51aec46e53a2fileName">GetTrx</con:setting>
+    <con:setting id="cd625211-7bab-4ad7-b78f-8615580f3cc2fileName">GetTrx</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="6aea41cf-3984-45e7-aa93-b92c3ccde369" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetTrx>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:BeginDate>?</acr1:BeginDate>
+            <!--Optional:-->
+            <acr1:BringLinkedHierarchy>?</acr1:BringLinkedHierarchy>
+            <!--Optional:-->
+            <acr1:ColumnDelimiter>?</acr1:ColumnDelimiter>
+            <!--Optional:-->
+            <acr1:CustomerName>?</acr1:CustomerName>
+            <!--Optional:-->
+            <acr1:EndDate>?</acr1:EndDate>
+            <!--Optional:-->
+            <acr1:ExcludeResult>?</acr1:ExcludeResult>
+            <!--Optional:-->
+            <acr1:ExcludeTransactionType>?</acr1:ExcludeTransactionType>
+            <acr1:ExcludeVoid>?</acr1:ExcludeVoid>
+            <acr1:IncludeHeader>?</acr1:IncludeHeader>
+            <acr1:IncludeImage>?</acr1:IncludeImage>
+            <!--Optional:-->
+            <acr1:InvoiceId>?</acr1:InvoiceId>
+            <!--Optional:-->
+            <acr1:MerchantType>?</acr1:MerchantType>
+            <!--Optional:-->
+            <acr1:PaymentNumber>?</acr1:PaymentNumber>
+            <!--Optional:-->
+            <acr1:PaymentType>?</acr1:PaymentType>
+            <!--Optional:-->
+            <acr1:ProcessDate>?</acr1:ProcessDate>
+            <acr1:Processed>?</acr1:Processed>
+            <!--Optional:-->
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>
+            <!--Optional:-->
+            <acr1:Result>?</acr1:Result>
+            <!--Optional:-->
+            <acr1:RowDelimiter>?</acr1:RowDelimiter>
+            <!--Optional:-->
+            <acr1:TransactionType>?</acr1:TransactionType>
+            <acr1:TransformType>?</acr1:TransformType>
+            <!--Optional:-->
+            <acr1:User>?</acr1:User>
+         </tem:request>
+      </tem:GetTrx>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/GetTrx"/>
+  </con:call>
+</con:operation>

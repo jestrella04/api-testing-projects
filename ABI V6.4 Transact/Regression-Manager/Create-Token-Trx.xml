@@ -4,17 +4,17 @@
     <con:setting id="beee0160-a8f9-4511-845c-fa7763d172adfileName">Create-Token-Trx</con:setting>
   </con:settings>
   <con:savedRecentRuns>1</con:savedRecentRuns>
-  <con:testStep type="request" name="Sale 1" id="1018056f-dabb-4c3d-9cc7-1be49c877b55">
+  <con:testStep type="request" name="Sale 1 (Standard)" id="1018056f-dabb-4c3d-9cc7-1be49c877b55">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Transactional</con:interface>
       <con:operation>ProcessCreditCard</con:operation>
-      <con:request name="Sale 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="1cd650c7-d7ab-4123-8d26-9fd1cb2001a3" defaultOutgoingWss="" defaultIncomingWss="">
+      <con:request name="Sale 1 (Standard)" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="1cd650c7-d7ab-4123-8d26-9fd1cb2001a3" defaultOutgoingWss="" defaultIncomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
@@ -36,7 +36,7 @@
             <acr1:CustomerBillingAddress>${CustomerAddress}</acr1:CustomerBillingAddress>\r
             <acr1:CustomerCity xsi:nil="true"/>\r
             <acr1:CustomerCode>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</acr1:CustomerCode>\r
-            <acr1:CustomerEmailAddress>${CustomerEmail}</acr1:CustomerEmailAddress>\r
+            <acr1:CustomerEmailAddress>mysupercooltestemailv${=String.valueOf((int) Math.floor(Math.random()*1000000000))}@mailinator.com</acr1:CustomerEmailAddress>\r
             <acr1:CustomerPhone xsi:nil="true"/>\r
             <acr1:CustomerState xsi:nil="true"/>\r
             <acr1:CustomerZipCode>${CustomerZipCode}</acr1:CustomerZipCode>\r
@@ -89,7 +89,7 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -106,7 +106,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
             <acr:UserId>${UserId}</acr:UserId>\r
             <acr1:GeoLocationInformation xsi:nil="true" />
             <acr1:IMEI xsi:nil="true" />
-            <acr1:ReferenceNumber>${Sale 1#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
+            <acr1:ReferenceNumber>${Sale 1 (Standard)#Response#declare namespace tem='http://tempuri.org/'; declare namespace acr1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Responses'; //tem:ProcessCreditCardResponse[1]/tem:ProcessCreditCardResult[1]/acr1:ReferenceNumber[1]}</acr1:ReferenceNumber>
             <acr1:Token>\r
                <acr2:CustomerBillingAddress xsi:nil="true" />
                <acr2:CustomerCode xsi:nil="true" />
@@ -155,17 +155,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="Sale 1 2" id="7149f9a2-7c52-40dd-b033-70c2c36e9f74">
+  <con:testStep type="request" name="UseToken (Sale)" id="7149f9a2-7c52-40dd-b033-70c2c36e9f74">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Tokens</con:interface>
       <con:operation>UseToken</con:operation>
-      <con:request name="Sale 1 2" id="0a427450-fb29-4079-9e2a-a3fd4a868a14" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+      <con:request name="UseToken (Sale)" id="0a427450-fb29-4079-9e2a-a3fd4a868a14" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -233,17 +233,17 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="Auth 1" id="19235d42-5dba-4509-9ee9-1b8fbe245177">
+  <con:testStep type="request" name="UseToken (Auth)" id="19235d42-5dba-4509-9ee9-1b8fbe245177">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Tokens</con:interface>
       <con:operation>UseToken</con:operation>
-      <con:request name="Auth 1" id="0a427450-fb29-4079-9e2a-a3fd4a868a14" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+      <con:request name="UseToken (Auth)" id="0a427450-fb29-4079-9e2a-a3fd4a868a14" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -311,17 +311,17 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="Credit 1" id="5281ff88-bb9f-4308-abf4-14afbc979550">
+  <con:testStep type="request" name="UseToken (Credit)" id="5281ff88-bb9f-4308-abf4-14afbc979550">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>BasicHttpBinding_Tokens</con:interface>
       <con:operation>UseToken</con:operation>
-      <con:request name="Credit 1" id="0a427450-fb29-4079-9e2a-a3fd4a868a14" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
+      <con:request name="UseToken (Credit)" id="0a427450-fb29-4079-9e2a-a3fd4a868a14" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -399,7 +399,7 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://test.cenpos.net:9443/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -422,86 +422,21 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="3805d755-cfda-4348-95e3-cc92cf3c1b2c"/>
+        <con:assertion type="XPath Match" id="02ac2d3e-a26e-4095-80eb-8ca69612cfdb" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace ns2='http://tempuri.org/';
+declare namespace ns1='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//ns2:DeleteCardTokenResponse[1]/ns2:DeleteCardTokenResult[1]/ns1:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
         </con:credentials>
-        <con:environmentSpec>
-          <con:entry environmentId="afd73651-c265-450b-984e-50803ff5c72d">
-            <con:authProfile>No Authorization</con:authProfile>
-          </con:entry>
-          <con:entry environmentId="fcf599c0-8332-44ae-beb4-a3e6918ea2a9">
-            <con:authProfile>No Authorization</con:authProfile>
-          </con:entry>
-          <con:entry environmentId="36b1c437-790b-4f6a-9782-12bfd75695f0">
-            <con:authProfile>No Authorization</con:authProfile>
-          </con:entry>
-          <con:entry environmentId="190d1fe4-7ac4-4043-b1b5-609060276e0a">
-            <con:authProfile>No Authorization</con:authProfile>
-          </con:entry>
-        </con:environmentSpec>
-        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
-        <con:wsrmConfig version="1.2"/>
-      </con:request>
-    </con:config>
-  </con:testStep>
-  <con:testStep type="request" name="Copy of AddCardToken" id="f7ca83ed-a4be-4315-949c-1cd8491c58cc" disabled="true">
-    <con:settings/>
-    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:interface>BasicHttpBinding_Tokens</con:interface>
-      <con:operation>AddCardToken</con:operation>
-      <con:request name="Copy of AddCardToken" id="9e8dd641-9839-4f22-9981-81c678d69942" defaultOutgoingWss="" defaultIncomingWss="" outgoingWss="" incomingWss="">
-        <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-        </con:settings>
-        <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.va2.cenpos.net/2/tokens.asmx</con:endpoint>
-        <con:request><![CDATA[<soapenv:Envelope 
-xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
-xmlns:tem="http://tempuri.org/" 
-xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" 
-xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common.Requests" 
-xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.Tokens.v2.Common"
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <tem:AddCardToken>\r
-         <tem:request>\r
-            <acr:MerchantId>584</acr:MerchantId>\r
-            <acr:Password>${Password}</acr:Password>\r
-            <acr:UserId>${UserId}</acr:UserId>\r
-            <acr1:GeoLocationInformation xsi:nil="true" />
-            <acr1:IMEI xsi:nil="true" />
-            <acr1:ReferenceNumber>1601470630</acr1:ReferenceNumber>
-            <acr1:Token>\r
-               <acr2:CustomerBillingAddress xsi:nil="true" />
-               <acr2:CustomerCode>12dffd89</acr2:CustomerCode>
-               <acr2:CustomerEmailAddress xsi:nil="true" />
-               <acr2:CustomerZipCode xsi:nil="true" />
-               <acr2:MerchantId>584</acr2:MerchantId>\r
-               <acr2:Signature xsi:nil="true" />
-               <acr2:TokenId xsi:nil="true" />
-               <acr2:CardExpirationDate xsi:nil="true" />
-               <acr2:CardNumber xsi:nil="true" />
-               <acr2:CardType xsi:nil="true" />
-               <acr2:CardVerificationNumber xsi:nil="true" />
-               <acr2:DriversNumber xsi:nil="true" />
-               <acr2:InsuranceInformation xsi:nil="true" />
-               <acr2:MagneticData xsi:nil="true" />
-               <acr2:NameOnCard xsi:nil="true" />
-               <acr2:TaxExempt>false</acr2:TaxExempt>\r
-            </acr1:Token>\r
-         </tem:request>\r
-      </tem:AddCardToken>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request>
-        <con:assertion type="SOAP Response" name="SOAP Response" id="1820ad92-e6a5-431e-9dec-c488b3dbd3fa"/>
-        <con:credentials>
-          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
-          <con:authType>No Authorization</con:authType>
-        </con:credentials>
-        <con:jmsPropertyConfig/>
         <con:environmentSpec>
           <con:entry environmentId="afd73651-c265-450b-984e-50803ff5c72d">
             <con:authProfile>No Authorization</con:authProfile>

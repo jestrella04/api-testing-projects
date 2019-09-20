@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" id="f1de0091-ebef-43b9-89cc-12f59fc1d115" wsaVersion="NONE" name="EbppIntegrationServiceV3Soap12" type="wsdl" bindingName="{http://ebpp.cenpos.net/V3}EbppIntegrationServiceV3Soap12" soapVersion="1_2" anonymous="optional" definition="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="44ca1d2a-8c6e-486b-aa01-bdb35b4c6418fileName">EbppIntegrationServiceV3Soap12</con:setting>
+    <con:setting id="f1de0091-ebef-43b9-89cc-12f59fc1d115fileName">EbppIntegrationServiceV3Soap12</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl">
+    <con:part>
+      <con:url>https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx?wsdl</con:url>
+      <con:content><![CDATA[<wsdl:definitions targetNamespace="http://ebpp.cenpos.net/V3" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ebpp.cenpos.net/V3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ebpp.cenpos.net/V3">
+      <s:element name="AddEbppInvoice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="addInvoiceRequestVO" type="tns:AddEbppInvoiceRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddEbppInvoiceRequestVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Invoice" type="tns:InvoiceVO"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Customer" type="tns:InvoiceCustomerVO"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LineItems" type="tns:ArrayOfInvoiceLineItemVO"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LinkButton" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LinkLabel" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PickupTime" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNumber" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmount" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TaxAmount" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Discount" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="AmountAfterDiscount" type="s:double"/>
+          <s:element minOccurs="0" maxOccurs="1" name="TinyUrlCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="BinaryInvoice" type="s:base64Binary"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Processed" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedDate" nillable="true" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PaidAmount" type="s:double"/>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceDetailStatus" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceDate" nillable="true" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="HasSpecialPayment" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:double"/>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceEncoded" type="s:base64Binary"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceCustomerVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MobilePhone" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailingZipCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailingState" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailingCity" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailingAddress" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="FaxNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomField3" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomField2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomField1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerEmail" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AlternateFaxNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AlternateEmail" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerCode" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInvoiceLineItemVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InvoiceLineItemVO" nillable="true" type="tns:InvoiceLineItemVO"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InvoiceLineItemVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPrice" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TotalTax" type="s:double"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddEbppInvoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddEbppInvoiceResult" type="tns:AddEbppInvoiceResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddEbppInvoiceResultVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentURL" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Succeed" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LogMessage" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetInvoiceCancellationNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setCancellationRequestVO" type="tns:CancellationNoteRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CancellationNoteRequestVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CancellationNotes" type="tns:ArrayOfCancellationNote"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCancellationNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CancellationNote" nillable="true" type="tns:CancellationNote"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CancellationNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetInvoiceCancellationNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetInvoiceCancellationNotesResult" type="tns:ResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Succeed" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LogMessage" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetInvoiceExternalPayments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="externalPaymentRequestVO" type="tns:ExternalPaymentRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExternalPaymentRequestVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalPayments" type="tns:ArrayOfExternalPaymentVO"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExternalPaymentVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExternalPaymentVO" nillable="true" type="tns:ExternalPaymentVO"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExternalPaymentVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNumber" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" nillable="true" type="s:double"/>
+          <s:element minOccurs="1" maxOccurs="1" name="TotallyPaid" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationNumber" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentDate" nillable="true" type="s:dateTime"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentType" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentSource" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Discount" nillable="true" type="s:double"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetInvoiceExternalPaymentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetInvoiceExternalPaymentsResult" type="tns:ResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoicePaymentInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentInfoRequestVO" type="tns:InvoicePaymentInfoRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InvoicePaymentInfoRequestVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PaidInvoice" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="EndDateSpecified" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PaidInvoiceSpecified" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInvoicePaymentInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInvoicePaymentInformationResult" type="tns:GetInvoicePaymentInfoResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetInvoicePaymentInfoResultVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResultObject" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LogMessage" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Succeed" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetProcessingUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setProcessingRequestVO" type="tns:RequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequestVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UpdateEbppInvoiceRequestVO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestVO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Invoice" type="tns:InvoiceVO"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LineItems" type="tns:ArrayOfInvoiceLineItemVO"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IsLineItemsPresent" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomerOptionRequestVO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestVO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="CustomerEmail" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="AllowSMS" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="AllowEmail" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SetUserRequestVO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestVO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Privilege" type="tns:ArrayOfString"/>
+              <s:element minOccurs="0" maxOccurs="1" name="TargetUsername" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EbppConfigurationRequestVO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestVO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentURL" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="AllowManualInvoice" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="InvoiceNumberSequenceConfig" type="tns:InvoiceNumberSequenceVO"/>
+              <s:element minOccurs="0" maxOccurs="1" name="MerchantPortalURL" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ReturnURL" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Passphrase" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="ConciliationURL" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="OneTimeNotification" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="InvoiceNotificationDay" type="s:int"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LinkButtonURL" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LinkButtonLabel" type="s:string"/>
+              <s:element minOccurs="1" maxOccurs="1" name="AllowSendEmail" type="s:boolean"/>
+              <s:element minOccurs="1" maxOccurs="1" name="AllowSendSms" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="PaymentsConfig" type="tns:PaymentsConfigurationVO"/>
+              <s:element minOccurs="0" maxOccurs="1" name="MailingInformationConfig" type="tns:MailingInformationVO"/>
+              <s:element minOccurs="0" maxOccurs="1" name="WireTransferAccountConfig" type="tns:WireTransferAccountConfigVO"/>
+              <s:element minOccurs="0" maxOccurs="1" name="Logo" type="s:base64Binary"/>
+              <s:element minOccurs="1" maxOccurs="1" name="InvoiceExpirationDays" type="s:int"/>
+              <s:element minOccurs="1" maxOccurs="1" name="DenyPaymentAfterExpired" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="1" name="EncryptionKey" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="InvoiceNumberSequenceVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Prefix" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="StartWith" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Step" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Length" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="EndsWith" type="s:long"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PaymentsConfigurationVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AmereicanExpress" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Visa" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Master" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Discover" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Diners" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Check" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Token" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="WireTransfer" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PartialPayments" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MultiplePayments" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="PayMultipleInvoice" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="GroupPayments" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTokensAutomatically" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Paypal" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MailingInformationVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UseCenposSMTP" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SmtUserName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="EmailSender" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SmtpHost" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailSubject" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="SslEnable" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="SmtPort" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationEmail1" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationEmail2" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationEmail3" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MailBody" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WireTransferAccountConfigVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="BankStreetAddress" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="BankCity" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="BankState" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="BankZip" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="BankCountry" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Aba" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Swift" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="PurposeofPayment" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantStreetAddress" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantCity" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantState" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantZip" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantCountry" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialInstruction" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetProcessingUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetProcessingUserResult" type="tns:ResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserEbppPrivileges">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="setUserRequestVO" type="tns:SetUserRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetUserEbppPrivilegesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetUserEbppPrivilegesResult" type="tns:ResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMerchantConfiguration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ebppConfigurationRequestVO" type="tns:EbppConfigurationRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMerchantConfigurationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetMerchantConfigurationResult" type="tns:ResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerOption">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerOptionRequetVO" type="tns:CustomerOptionRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCustomerOptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCustomerOptionResult" type="tns:ResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExternalPayments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="externalPaymentRequestVO" type="tns:ExternalPaymentRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetExternalPaymentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetExternalPaymentsResult" type="tns:ExternalPaymentsResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExternalPaymentsResultVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnedObject" type="tns:ArrayOfExternalInvoiceResultVO"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Succeed" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:long"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfExternalInvoiceResultVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExternalInvoiceResultVO" nillable="true" type="tns:ExternalInvoiceResultVO"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExternalInvoiceResultVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceNumber" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateEbppInvoice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="updateInvoiceRequestVO" type="tns:UpdateEbppInvoiceRequestVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateEbppInvoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateEbppInvoiceResult" type="tns:UpdateEbppInvoiceResultVO"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UpdateEbppInvoiceResultVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentURL" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="Succeed" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="MessageId" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="LogMessage" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddEbppInvoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:AddEbppInvoice"/>
+  </wsdl:message>
+  <wsdl:message name="AddEbppInvoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:AddEbppInvoiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetInvoiceCancellationNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetInvoiceCancellationNotes"/>
+  </wsdl:message>
+  <wsdl:message name="SetInvoiceCancellationNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetInvoiceCancellationNotesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetInvoiceExternalPaymentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetInvoiceExternalPayments"/>
+  </wsdl:message>
+  <wsdl:message name="SetInvoiceExternalPaymentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetInvoiceExternalPaymentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetInvoicePaymentInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInvoicePaymentInformation"/>
+  </wsdl:message>
+  <wsdl:message name="GetInvoicePaymentInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInvoicePaymentInformationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetProcessingUserSoapIn">
+    <wsdl:part name="parameters" element="tns:SetProcessingUser"/>
+  </wsdl:message>
+  <wsdl:message name="SetProcessingUserSoapOut">
+    <wsdl:part name="parameters" element="tns:SetProcessingUserResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetUserEbppPrivilegesSoapIn">
+    <wsdl:part name="parameters" element="tns:SetUserEbppPrivileges"/>
+  </wsdl:message>
+  <wsdl:message name="SetUserEbppPrivilegesSoapOut">
+    <wsdl:part name="parameters" element="tns:SetUserEbppPrivilegesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetMerchantConfigurationSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMerchantConfiguration"/>
+  </wsdl:message>
+  <wsdl:message name="SetMerchantConfigurationSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMerchantConfigurationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetCustomerOptionSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCustomerOption"/>
+  </wsdl:message>
+  <wsdl:message name="SetCustomerOptionSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCustomerOptionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SetExternalPaymentsSoapIn">
+    <wsdl:part name="parameters" element="tns:SetExternalPayments"/>
+  </wsdl:message>
+  <wsdl:message name="SetExternalPaymentsSoapOut">
+    <wsdl:part name="parameters" element="tns:SetExternalPaymentsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateEbppInvoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateEbppInvoice"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateEbppInvoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateEbppInvoiceResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="EbppIntegrationServiceV3Soap">
+    <wsdl:operation name="AddEbppInvoice">
+      <wsdl:documentation><![CDATA[<table>     
+            <tr>         
+                <td><b>Summary:</b></td>
+                <td>This method allow to thrid party systems add and invoice to the CenPOS Ebpp system</td>     
+            </tr>
+            <tr>
+                <td><b>Parameters:</></td>
+                <td>addEbppInvoiceResultVO: The request of the Web Method. Contains information about invoice, invoice line item, customer and authentication</td>         
+            </tr>     
+            <tr>         
+                <td><b>Returns:</b></td>
+                <td>AddEbppInvoiceResultVO. Contains information about the operation result. also PaymentURL: represents the URL generated by the systyem in which customer
+                can pay their invoices</td>     
+            </tr> 
+       </table>]]]]>><![CDATA[</wsdl:documentation>
+      <wsdl:input message="tns:AddEbppInvoiceSoapIn"/>
+      <wsdl:output message="tns:AddEbppInvoiceSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetInvoiceCancellationNotes">
+      <wsdl:documentation><![CDATA[<table>     
+            <tr>         
+                <td><b>Summary:</b></td>
+                <td>This method allow to third party systems set a cancell status to the given invoices.</td>     
+            </tr>
+            <tr>
+                <td><b>Parameters:</></td>
+                <td>setCancellationRequestVO: The request of the Web Method. Contains information about invoice or invoices to be cancelled and comment for thoses cancellations</td>         
+            </tr>     
+            <tr>         
+                <td><b>Returns:</b></td>
+                <td>ResultVO Contains information about the operation result</td>     
+            </tr> 
+       </table>]]]]>><![CDATA[</wsdl:documentation>
+      <wsdl:input message="tns:SetInvoiceCancellationNotesSoapIn"/>
+      <wsdl:output message="tns:SetInvoiceCancellationNotesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetInvoiceExternalPayments">
+      <wsdl:documentation><![CDATA[<table>     
+            <tr>         
+                <td><b>Summary:</b></td>
+                <td>This method allow to third party systems to set a partial or completed payment of invoices. thoses payments which are collected outside of ebpp systems and must be notify
+                 to the ebpp using this method.</td>     
+            </tr>
+            <tr>
+                <td><b>Parameters:</></td>
+                <td>externalPaymentRequestVO: The request of the web method contains information about the user credential. invoice information and payment data</td>         
+            </tr>     
+            <tr>         
+                <td><b>Returns:</b></td>
+                <td>AddEbppInvoiceResultVO. Contains information about the operation result. also PaymentURL: represents the URL generated by the systyem in which customer
+                can pay their invoices</td>     
+            </tr> 
+       </table>]]]]>><![CDATA[</wsdl:documentation>
+      <wsdl:input message="tns:SetInvoiceExternalPaymentsSoapIn"/>
+      <wsdl:output message="tns:SetInvoiceExternalPaymentsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePaymentInformation">
+      <wsdl:input message="tns:GetInvoicePaymentInformationSoapIn"/>
+      <wsdl:output message="tns:GetInvoicePaymentInformationSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetProcessingUser">
+      <wsdl:input message="tns:SetProcessingUserSoapIn"/>
+      <wsdl:output message="tns:SetProcessingUserSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserEbppPrivileges">
+      <wsdl:input message="tns:SetUserEbppPrivilegesSoapIn"/>
+      <wsdl:output message="tns:SetUserEbppPrivilegesSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetMerchantConfiguration">
+      <wsdl:input message="tns:SetMerchantConfigurationSoapIn"/>
+      <wsdl:output message="tns:SetMerchantConfigurationSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerOption">
+      <wsdl:input message="tns:SetCustomerOptionSoapIn"/>
+      <wsdl:output message="tns:SetCustomerOptionSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="SetExternalPayments">
+      <wsdl:documentation><![CDATA[<table>     
+            <tr>         
+                <td><b>Summary:</b></td>
+                <td>This method allow to third party systems to set a partial or completed payment of invoices. thoses payments which are collected outside of ebpp systems and must be notify
+                 to the ebpp using this method.</td>     
+            </tr>
+            <tr>
+                <td><b>Parameters:</></td>
+                <td>externalPaymentRequestVO: The request of the web method contains information about the user credential. invoice information and payment data</td>         
+            </tr>     
+            <tr>         
+                <td><b>Returns:</b></td>
+                <td>AddEbppInvoiceResultVO. Contains information about the operation result. also PaymentURL: represents the URL generated by the systyem in which customer
+                can pay their invoices</td>     
+            </tr> 
+       </table>]]]]>><![CDATA[</wsdl:documentation>
+      <wsdl:input message="tns:SetExternalPaymentsSoapIn"/>
+      <wsdl:output message="tns:SetExternalPaymentsSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEbppInvoice">
+      <wsdl:documentation><![CDATA[<table>     
+            <tr>         
+                <td><b>Summary:</b></td>
+                <td>This method allow to thrid party systems to update an invoice to the CenPOS Ebpp system</td>     
+            </tr>
+            <tr>
+                <td><b>Parameters:</></td>
+                <td>updateEbppInvoiceResultVO: The request of the Web Method. Contains information about invoice, invoice line item, customer and authentication</td>         
+            </tr>     
+            <tr>         
+                <td><b>Returns:</b></td>
+                <td>UpdateEbppInvoiceResultVO. Contains information about the operation result. also PaymentURL: represents the URL generated by the systyem in which customer
+                can pay their invoices</td>     
+            </tr> 
+       </table>]]]]>><![CDATA[</wsdl:documentation>
+      <wsdl:input message="tns:UpdateEbppInvoiceSoapIn"/>
+      <wsdl:output message="tns:UpdateEbppInvoiceSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EbppIntegrationServiceV3Soap" type="tns:EbppIntegrationServiceV3Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddEbppInvoice">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/AddEbppInvoice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInvoiceCancellationNotes">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/SetInvoiceCancellationNotes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInvoiceExternalPayments">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/SetInvoiceExternalPayments" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePaymentInformation">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/GetInvoicePaymentInformation" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProcessingUser">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/SetProcessingUser" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserEbppPrivileges">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/SetUserEbppPrivileges" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMerchantConfiguration">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/SetMerchantConfiguration" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerOption">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/SetCustomerOption" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExternalPayments">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/SetExternalPayments" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEbppInvoice">
+      <soap:operation soapAction="http://ebpp.cenpos.net/V3/UpdateEbppInvoice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EbppIntegrationServiceV3Soap12" type="tns:EbppIntegrationServiceV3Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="AddEbppInvoice">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/AddEbppInvoice" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInvoiceCancellationNotes">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/SetInvoiceCancellationNotes" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetInvoiceExternalPayments">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/SetInvoiceExternalPayments" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoicePaymentInformation">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/GetInvoicePaymentInformation" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetProcessingUser">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/SetProcessingUser" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetUserEbppPrivileges">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/SetUserEbppPrivileges" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMerchantConfiguration">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/SetMerchantConfiguration" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCustomerOption">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/SetCustomerOption" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetExternalPayments">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/SetExternalPayments" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEbppInvoice">
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V3/UpdateEbppInvoice" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EbppIntegrationServiceV3">
+    <wsdl:port name="EbppIntegrationServiceV3Soap" binding="tns:EbppIntegrationServiceV3Soap">
+      <soap:address location="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="EbppIntegrationServiceV3Soap12" binding="tns:EbppIntegrationServiceV3Soap12">
+      <soap12:address location="https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+      <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:endpoint>https://www3.cenpos.net/ebpp/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+  </con:endpoints>
+</con:interface>

@@ -3,6 +3,7 @@
   <con:settings>
     <con:setting id="dfd1a8ac-9eb1-4252-b928-4e3fbc3eac63fileName">Export-Results</con:setting>
   </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
   <con:testStep type="groovy" name="Export Results" id="00dff7a6-6e1c-4338-8f78-8545df68239b">
     <con:settings/>
     <con:config>
@@ -10,12 +11,12 @@
 	def currentWorkspace = context.testCase.testSuite.getProject().getWorkspace()
 
 	// Run ExportTrxResults script					
-	ExportTrxResults = testRunner.runTestStep( currentWorkspace.getProjectByName( "Automation" ).testSuites['Automation'].testCases['Automation'].testSteps['ExportTrxResults'] )
+	ExportTrxResults = testRunner.runTestStep( currentWorkspace.getProjectByName("Automation" ).testSuites['Automation'].testCases['Automation'].testSteps['ExportTrxResults'])
 }
 
-catch( e )
+catch(e)
 {
-	log.error( "An error occurred: " + e.toString() );
+	log.error("An error occurred: " + e.toString());
 }</script>
     </con:config>
   </con:testStep>

@@ -1,0 +1,2281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="BasicHttpBinding_Transactional" type="wsdl" bindingName="{http://tempuri.org/}BasicHttpBinding_Transactional" soapVersion="1_1" anonymous="optional" definition="https://test.cenpos.net:9443/6/transact.asmx?wsdl" id="ad1c99c4-a680-4953-bd32-b9daf874c938" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="539a0702-0cd8-437d-b9d5-f2bd8e41a870fileName">BasicHttpBinding_Transactional</con:setting>
+    <con:setting id="ad1c99c4-a680-4953-bd32-b9daf874c938fileName">BasicHttpBinding_Transactional</con:setting>
+  </con:settings>
+  <con:definitionCache type="TEXT" rootPart="https://test.cenpos.net:9443/6/transact.asmx?wsdl">
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/transact.asmx?wsdl</con:url>
+      <con:content><![CDATA[<wsdl:definitions name="TransactionalWebService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_Transactional_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false"/>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd0" namespace="http://tempuri.org/"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+      <xsd:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Transactional_ProcessCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCard"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCardResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessCreditCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditCard"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessCreditCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditCardResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessDebitCard_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessDebitCard"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessDebitCard_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessDebitCardResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessSignature_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSignature"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessSignature_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSignatureResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetCardTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetCardTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetCardTrx2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardTrx2"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetCardTrx2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCardTrx2Response"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessSettlement_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSettlement"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessSettlement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSettlementResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessSynchronize_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSynchronize"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessSynchronize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSynchronizeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetTrx2_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrx2"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetTrx2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTrx2Response"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_SendAuthFormEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendAuthFormEmail"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_SendAuthFormEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendAuthFormEmailResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_PendingInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:PendingInvoice"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_PendingInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PendingInvoiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetEBPPInvoice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEBPPInvoice"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetEBPPInvoice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEBPPInvoiceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessEBPPMarkAsPaid_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessEBPPMarkAsPaid"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessEBPPMarkAsPaid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessEBPPMarkAsPaidResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetRestaurantTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetRestaurantTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetRestaurantTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetRestaurantTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetAdditionalInformationTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetAdditionalInformationTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetAdditionalInformationTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetAdditionalInformationTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetGenericLogIndustryProductsTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetGenericLogIndustryProductsTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetGenericLogIndustryProductsTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetGenericLogIndustryProductsTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetLevelIIIInvoiceTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetLevelIIIInvoiceTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetLevelIIIInvoiceTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetLevelIIIInvoiceTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetFleetCardInvoiceTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetFleetCardInvoiceTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessGetFleetCardInvoiceTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessGetFleetCardInvoiceTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessPayPal_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPayPal"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessPayPal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPayPalResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessCash_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCash"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessCash_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCashResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetPayPalTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayPalTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetPayPalTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPayPalTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetRecurringTokenType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecurringTokenType"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetRecurringTokenType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecurringTokenTypeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetFleetProductCodes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFleetProductCodes"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetFleetProductCodes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFleetProductCodesResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetDepositTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepositTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetDepositTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepositTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetCashTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetCashTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCashTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetDonationsTrx_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDonationsTrx"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_GetDonationsTrx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDonationsTrxResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessAffirm_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessAffirm"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessAffirm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessAffirmResponse"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessAffirmCheckout_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessAffirmCheckout"/>
+  </wsdl:message>
+  <wsdl:message name="Transactional_ProcessAffirmCheckout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessAffirmCheckoutResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Transactional">
+    <wsdl:operation name="ProcessCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessCard" message="tns:Transactional_ProcessCard_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessCardResponse" message="tns:Transactional_ProcessCard_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessCreditCard" message="tns:Transactional_ProcessCreditCard_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessCreditCardResponse" message="tns:Transactional_ProcessCreditCard_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDebitCard">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessDebitCard" message="tns:Transactional_ProcessDebitCard_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessDebitCardResponse" message="tns:Transactional_ProcessDebitCard_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSignature">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessSignature" message="tns:Transactional_ProcessSignature_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessSignatureResponse" message="tns:Transactional_ProcessSignature_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetCardTrx" message="tns:Transactional_GetCardTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetCardTrxResponse" message="tns:Transactional_GetCardTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardTrx2">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetCardTrx2" message="tns:Transactional_GetCardTrx2_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetCardTrx2Response" message="tns:Transactional_GetCardTrx2_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSettlement">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessSettlement" message="tns:Transactional_ProcessSettlement_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessSettlementResponse" message="tns:Transactional_ProcessSettlement_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSynchronize">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessSynchronize" message="tns:Transactional_ProcessSynchronize_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessSynchronizeResponse" message="tns:Transactional_ProcessSynchronize_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetTrx" message="tns:Transactional_GetTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetTrxResponse" message="tns:Transactional_GetTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrx2">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetTrx2" message="tns:Transactional_GetTrx2_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetTrx2Response" message="tns:Transactional_GetTrx2_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="SendAuthFormEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/SendAuthFormEmail" message="tns:Transactional_SendAuthFormEmail_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/SendAuthFormEmailResponse" message="tns:Transactional_SendAuthFormEmail_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/SendEmail" message="tns:Transactional_SendEmail_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/SendEmailResponse" message="tns:Transactional_SendEmail_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="PendingInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/PendingInvoice" message="tns:Transactional_PendingInvoice_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/PendingInvoiceResponse" message="tns:Transactional_PendingInvoice_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetEBPPInvoice">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetEBPPInvoice" message="tns:Transactional_GetEBPPInvoice_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetEBPPInvoiceResponse" message="tns:Transactional_GetEBPPInvoice_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessEBPPMarkAsPaid">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessEBPPMarkAsPaid" message="tns:Transactional_ProcessEBPPMarkAsPaid_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessEBPPMarkAsPaidResponse" message="tns:Transactional_ProcessEBPPMarkAsPaid_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetRestaurantTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessGetRestaurantTrx" message="tns:Transactional_ProcessGetRestaurantTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessGetRestaurantTrxResponse" message="tns:Transactional_ProcessGetRestaurantTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetAdditionalInformationTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessGetAdditionalInformationTrx" message="tns:Transactional_ProcessGetAdditionalInformationTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessGetAdditionalInformationTrxResponse" message="tns:Transactional_ProcessGetAdditionalInformationTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetGenericLogIndustryProductsTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessGetGenericLogIndustryProductsTrx" message="tns:Transactional_ProcessGetGenericLogIndustryProductsTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessGetGenericLogIndustryProductsTrxResponse" message="tns:Transactional_ProcessGetGenericLogIndustryProductsTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetLevelIIIInvoiceTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessGetLevelIIIInvoiceTrx" message="tns:Transactional_ProcessGetLevelIIIInvoiceTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessGetLevelIIIInvoiceTrxResponse" message="tns:Transactional_ProcessGetLevelIIIInvoiceTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetFleetCardInvoiceTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessGetFleetCardInvoiceTrx" message="tns:Transactional_ProcessGetFleetCardInvoiceTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessGetFleetCardInvoiceTrxResponse" message="tns:Transactional_ProcessGetFleetCardInvoiceTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPayPal">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessPayPal" message="tns:Transactional_ProcessPayPal_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessPayPalResponse" message="tns:Transactional_ProcessPayPal_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCash">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessCash" message="tns:Transactional_ProcessCash_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessCashResponse" message="tns:Transactional_ProcessCash_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayPalTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetPayPalTrx" message="tns:Transactional_GetPayPalTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetPayPalTrxResponse" message="tns:Transactional_GetPayPalTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecurringTokenType">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetRecurringTokenType" message="tns:Transactional_GetRecurringTokenType_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetRecurringTokenTypeResponse" message="tns:Transactional_GetRecurringTokenType_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetFleetProductCodes">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetFleetProductCodes" message="tns:Transactional_GetFleetProductCodes_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetFleetProductCodesResponse" message="tns:Transactional_GetFleetProductCodes_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepositTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetDepositTrx" message="tns:Transactional_GetDepositTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetDepositTrxResponse" message="tns:Transactional_GetDepositTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetCashTrx" message="tns:Transactional_GetCashTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetCashTrxResponse" message="tns:Transactional_GetCashTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsTrx">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/GetDonationsTrx" message="tns:Transactional_GetDonationsTrx_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/GetDonationsTrxResponse" message="tns:Transactional_GetDonationsTrx_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAffirm">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessAffirm" message="tns:Transactional_ProcessAffirm_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessAffirmResponse" message="tns:Transactional_ProcessAffirm_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAffirmCheckout">
+      <wsdl:input wsaw:Action="http://tempuri.org/Transactional/ProcessAffirmCheckout" message="tns:Transactional_ProcessAffirmCheckout_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/Transactional/ProcessAffirmCheckoutResponse" message="tns:Transactional_ProcessAffirmCheckout_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_Transactional" type="tns:Transactional">
+    <wsp:PolicyReference URI="#BasicHttpBinding_Transactional_policy"/>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ProcessCard">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessCard" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditCard">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessCreditCard" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessDebitCard">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessDebitCard" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSignature">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessSignature" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetCardTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardTrx2">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetCardTrx2" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSettlement">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessSettlement" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSynchronize">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessSynchronize" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrx2">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetTrx2" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendAuthFormEmail">
+      <soap:operation soapAction="http://tempuri.org/Transactional/SendAuthFormEmail" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://tempuri.org/Transactional/SendEmail" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PendingInvoice">
+      <soap:operation soapAction="http://tempuri.org/Transactional/PendingInvoice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEBPPInvoice">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetEBPPInvoice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessEBPPMarkAsPaid">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessEBPPMarkAsPaid" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetRestaurantTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessGetRestaurantTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetAdditionalInformationTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessGetAdditionalInformationTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetGenericLogIndustryProductsTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessGetGenericLogIndustryProductsTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetLevelIIIInvoiceTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessGetLevelIIIInvoiceTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessGetFleetCardInvoiceTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessGetFleetCardInvoiceTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPayPal">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessPayPal" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCash">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessCash" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPayPalTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetPayPalTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecurringTokenType">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetRecurringTokenType" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFleetProductCodes">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetFleetProductCodes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepositTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetDepositTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCashTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetCashTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDonationsTrx">
+      <soap:operation soapAction="http://tempuri.org/Transactional/GetDonationsTrx" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAffirm">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessAffirm" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessAffirmCheckout">
+      <soap:operation soapAction="http://tempuri.org/Transactional/ProcessAffirmCheckout" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransactionalWebService">
+    <wsdl:port name="BasicHttpBinding_Transactional" binding="tns:BasicHttpBinding_Transactional">
+      <soap:address location="https://test.cenpos.net:9443/6/transact.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content>
+      <con:type>http://schemas.xmlsoap.org/wsdl/</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd0</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tempuri.org/">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+  <xs:element name="ProcessCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q1:ProcessCardRequest" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessCardResult" nillable="true" type="q2:ProcessCardResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCreditCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q3:ProcessCreditCardRequest" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCreditCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessCreditCardResult" nillable="true" type="q4:ProcessCreditCardResponse" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessDebitCard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q5:ProcessDebitCardRequest" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessDebitCardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessDebitCardResult" nillable="true" type="q6:ProcessDebitCardResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSignature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q7:ProcessSignatureRequest" xmlns:q7="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSignatureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessSignatureResult" nillable="true" type="q8:ProcessSignatureResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q9:GetCardTrxRequest" xmlns:q9="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCardTrxResult" nillable="true" type="q10:GetCardTrxResponse" xmlns:q10="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardTrx2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q11:GetCardTrxRequest" xmlns:q11="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCardTrx2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCardTrx2Result" nillable="true" type="q12:GetCardTrxResponse" xmlns:q12="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSettlement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q13:ProcessSettlementRequest" xmlns:q13="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSettlementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessSettlementResult" nillable="true" type="q14:ProcessSettlementResponse" xmlns:q14="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSynchronize">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q15:ProcessSynchronizeRequest" xmlns:q15="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessSynchronizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessSynchronizeResult" nillable="true" type="q16:ProcessSynchronizeResponse" xmlns:q16="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q17:GetTrxRequest" xmlns:q17="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTrxResult" nillable="true" type="q18:GetTrxResponse" xmlns:q18="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrx2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q19:GetTrxRequest" xmlns:q19="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrx2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTrx2Result" nillable="true" type="q20:GetTrxResponse" xmlns:q20="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAuthFormEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q21:SendAuthFormEmailRequest" xmlns:q21="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendAuthFormEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendAuthFormEmailResult" nillable="true" type="q22:SendAuthFormEmailResponse" xmlns:q22="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q23:SendEmailRequest" xmlns:q23="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SendEmailResult" nillable="true" type="q24:SendEmailResponse" xmlns:q24="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PendingInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q25:PendingInvoiceRequest" xmlns:q25="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PendingInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PendingInvoiceResult" nillable="true" type="q26:PendingInvoiceResponse" xmlns:q26="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEBPPInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q27:GetEBPPInvoiceRequest" xmlns:q27="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEBPPInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetEBPPInvoiceResult" nillable="true" type="q28:GetEBPPInvoiceResponse" xmlns:q28="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessEBPPMarkAsPaid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q29:ProcessEBPPMarkAsPaidRequest" xmlns:q29="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessEBPPMarkAsPaidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessEBPPMarkAsPaidResult" nillable="true" type="q30:ProcessEBPPMarkAsPaidResponse" xmlns:q30="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetRestaurantTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q31:GetRestaurantTrxRequest" xmlns:q31="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetRestaurantTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessGetRestaurantTrxResult" nillable="true" type="q32:GetRestaurantTrxResponse" xmlns:q32="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetAdditionalInformationTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q33:GetAdditionalInformationTrxRequest" xmlns:q33="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetAdditionalInformationTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessGetAdditionalInformationTrxResult" nillable="true" type="q34:GetAdditionalInformationTrxResponse" xmlns:q34="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetGenericLogIndustryProductsTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q35:GetGenericLogIndustryProductsTrxRequest" xmlns:q35="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetGenericLogIndustryProductsTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessGetGenericLogIndustryProductsTrxResult" nillable="true" type="q36:GetGenericLogIndustryProductsTrxResponse" xmlns:q36="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetLevelIIIInvoiceTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q37:GetLevelIIIInvoiceTrxRequest" xmlns:q37="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetLevelIIIInvoiceTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessGetLevelIIIInvoiceTrxResult" nillable="true" type="q38:GetLevelIIIInvoiceTrxResponse" xmlns:q38="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetFleetCardInvoiceTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q39:GetFleetCardInvoiceTrxRequest" xmlns:q39="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessGetFleetCardInvoiceTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessGetFleetCardInvoiceTrxResult" nillable="true" type="q40:GetFleetCardInvoiceTrxResponse" xmlns:q40="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPayPal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q41:ProcessPayPalRequest" xmlns:q41="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessPayPalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessPayPalResult" nillable="true" type="q42:ProcessPayPalResponse" xmlns:q42="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCash">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q43:ProcessCashRequest" xmlns:q43="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCashResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessCashResult" nillable="true" type="q44:ProcessCashResponse" xmlns:q44="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayPalTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q45:GetPayPalTrxRequest" xmlns:q45="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPayPalTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPayPalTrxResult" nillable="true" type="q46:GetPayPalTrxResponse" xmlns:q46="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecurringTokenType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q47:GetRecurringTokenTypeRequest" xmlns:q47="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecurringTokenTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetRecurringTokenTypeResult" nillable="true" type="q48:GetRecurringTokenTypeResponse" xmlns:q48="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFleetProductCodes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q49:GetFleetProductCodeRequest" xmlns:q49="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFleetProductCodesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFleetProductCodesResult" nillable="true" type="q50:GetFleetProductCodeResponse" xmlns:q50="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepositTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q51:GetDepositTrxRequest" xmlns:q51="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepositTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDepositTrxResult" nillable="true" type="q52:GetDepositTrxResponse" xmlns:q52="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCashTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q53:GetCashTrxRequest" xmlns:q53="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCashTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCashTrxResult" nillable="true" type="q54:GetCashTrxResponse" xmlns:q54="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDonationsTrx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q55:GetDonationsRequest" xmlns:q55="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDonationsTrxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDonationsTrxResult" nillable="true" type="q56:GetDonationsResponse" xmlns:q56="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessAffirm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q57:ProcessAffirmRequest" xmlns:q57="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessAffirmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessAffirmResult" nillable="true" type="q58:ProcessAffirmResponse" xmlns:q58="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessAffirmCheckout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="q59:ProcessAffirmCheckoutRequest" xmlns:q59="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessAffirmCheckoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProcessAffirmCheckoutResult" nillable="true" type="q60:ProcessAffirmCheckoutResponse" xmlns:q60="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd2</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+  <xs:import schemaLocation="https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <xs:complexType name="ProcessCardRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AuthorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardExpirationDate" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardLastFourDigits" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardVerificationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardholderVerificationMethod" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerBillingAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCity" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerEmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerPhone" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerState" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerZipCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceDetail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="KeySerialNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="MagneticData" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="NameOnCard" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PurchaseOrderNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SecureCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TerminalCapabilities" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCardRequest" nillable="true" type="tns:ProcessCardRequest"/>
+  <xs:complexType name="SecureVirtualTerminalWebServiceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q1:VirtualTerminalWebServiceRequest" xmlns:q1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GeoLocationInformation" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IMEI" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SecureVirtualTerminalWebServiceRequest" nillable="true" type="tns:SecureVirtualTerminalWebServiceRequest"/>
+  <xs:complexType name="ProcessCardRecurringSaleRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProcessCardRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RecurringSaleTokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCardRecurringSaleRequest" nillable="true" type="tns:ProcessCardRecurringSaleRequest"/>
+  <xs:complexType name="ProcessCardResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q2:VirtualTerminalWebServiceResponse" xmlns:q2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountBalanceAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AutorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Discount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="EmvData" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ParameterValidationResultList" nillable="true" type="tns:ArrayOfParameterValidationResult"/>
+          <xs:element minOccurs="0" name="PartiallyAuthorizedAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Surcharge" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SurchargeAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TraceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCardResponse" nillable="true" type="tns:ProcessCardResponse"/>
+  <xs:complexType name="ArrayOfParameterValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParameterValidationResult" nillable="true" type="tns:ParameterValidationResult"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameterValidationResult" nillable="true" type="tns:ArrayOfParameterValidationResult"/>
+  <xs:complexType name="ParameterValidationResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParameterValidationResult" nillable="true" type="tns:ParameterValidationResult"/>
+  <xs:complexType name="ProcessGiftCardResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProcessCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BalanceCheck" nillable="true" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessGiftCardResponse" nillable="true" type="tns:ProcessGiftCardResponse"/>
+  <xs:complexType name="ProcessCardRecurringSaleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProcessCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProtectedCardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="RecurringSaleTokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCardRecurringSaleResponse" nillable="true" type="tns:ProcessCardRecurringSaleResponse"/>
+  <xs:complexType name="ProcessCreditCardRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AuthorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardExpirationDate" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardLastFourDigits" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardVerificationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardholderVerificationMethod" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerBillingAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCity" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerEmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerPhone" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerState" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerZipCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceDetail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="KeySerialNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="MagneticData" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="NameOnCard" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PurchaseOrderNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SecureCode" nillable="true" type="xs:string"/>
+          <xs:element name="TaxAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TerminalCapabilities" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCreditCardRequest" nillable="true" type="tns:ProcessCreditCardRequest"/>
+  <xs:complexType name="ProcessRecurringSaleRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProcessCreditCardRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RecurringSaleTokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessRecurringSaleRequest" nillable="true" type="tns:ProcessRecurringSaleRequest"/>
+  <xs:complexType name="ProcessCreditCardResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q3:VirtualTerminalWebServiceResponse" xmlns:q3="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountBalanceAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AutorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Discount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="EmvData" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ParameterValidationResultList" nillable="true" type="tns:ArrayOfParameterValidationResult"/>
+          <xs:element minOccurs="0" name="PartiallyAuthorizedAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Surcharge" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SurchargeAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TraceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCreditCardResponse" nillable="true" type="tns:ProcessCreditCardResponse"/>
+  <xs:complexType name="ProcessRecurringSaleResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProcessCreditCardResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ProtectedCardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="RecurringSaleTokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessRecurringSaleResponse" nillable="true" type="tns:ProcessRecurringSaleResponse"/>
+  <xs:complexType name="ProcessDebitCardRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="CardExpirationDate" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardLastFourDigits" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardholderVerificationMethod" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CashBackAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerEmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EbtCardType" type="q4:EbtCardType" xmlns:q4="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+          <xs:element minOccurs="0" name="InvoiceDetail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="KeySerialNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="MagneticData" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Pin" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PurchaseOrderNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SecureCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TerminalCapabilities" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessDebitCardRequest" nillable="true" type="tns:ProcessDebitCardRequest"/>
+  <xs:complexType name="ProcessDebitCardResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q5:VirtualTerminalWebServiceResponse" xmlns:q5="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountBalanceAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AutorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="DeviceIdentifier" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Discount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="EmvData" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="PartiallyAuthorizedAmount" nillable="true" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Surcharge" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="SurchargeAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TraceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessDebitCardResponse" nillable="true" type="tns:ProcessDebitCardResponse"/>
+  <xs:complexType name="ProcessSignatureRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AuthorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="RecurringSaleTokenId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Signature" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SignatureType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessSignatureRequest" nillable="true" type="tns:ProcessSignatureRequest"/>
+  <xs:complexType name="ProcessSignatureResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q6:VirtualTerminalWebServiceResponse" xmlns:q6="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessSignatureResponse" nillable="true" type="tns:ProcessSignatureResponse"/>
+  <xs:complexType name="GetCardTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="BringLinkedHierarchy" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="CardNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ColumnDelimiter" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="ExcludeResult" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="ExcludeTransactionType" nillable="true" type="xs:string"/>
+          <xs:element name="ExcludeVoid" type="xs:boolean"/>
+          <xs:element name="IncludeHeader" type="xs:boolean"/>
+          <xs:element name="IncludeSignature" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="MerchantType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="NameOnCard" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PaymentType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="RowDelimiter" nillable="true" type="xs:string"/>
+          <xs:element name="Settle" nillable="true" type="xs:short"/>
+          <xs:element minOccurs="0" name="SettleDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element name="TransformType" type="q7:TransformType" xmlns:q7="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCardTrxRequest" nillable="true" type="tns:GetCardTrxRequest"/>
+  <xs:complexType name="GetCardTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q8:VirtualTerminalWebServiceResponse" xmlns:q8="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionDetails" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCardTrxResponse" nillable="true" type="tns:GetCardTrxResponse"/>
+  <xs:complexType name="ProcessSettlementRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessSettlementRequest" nillable="true" type="tns:ProcessSettlementRequest"/>
+  <xs:complexType name="ProcessSettlementResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q9:VirtualTerminalWebServiceResponse" xmlns:q9="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AutorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element name="CenPayNetAmount" type="xs:decimal"/>
+          <xs:element name="CenPayNetCount" type="xs:int"/>
+          <xs:element name="NetAmount" type="xs:decimal"/>
+          <xs:element name="NetCount" type="xs:int"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessSettlementResponse" nillable="true" type="tns:ProcessSettlementResponse"/>
+  <xs:complexType name="ProcessSynchronizeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessSynchronizeRequest" nillable="true" type="tns:ProcessSynchronizeRequest"/>
+  <xs:complexType name="ProcessSynchronizeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q10:VirtualTerminalWebServiceResponse" xmlns:q10="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessSynchronizeResponse" nillable="true" type="tns:ProcessSynchronizeResponse"/>
+  <xs:complexType name="GetTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="BringLinkedHierarchy" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ColumnDelimiter" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="ExcludeResult" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="ExcludeTransactionType" nillable="true" type="xs:string"/>
+          <xs:element name="ExcludeVoid" type="xs:boolean"/>
+          <xs:element name="IncludeHeader" type="xs:boolean"/>
+          <xs:element name="IncludeImage" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="MerchantType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PaymentNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PaymentType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ProcessDate" nillable="true" type="xs:dateTime"/>
+          <xs:element name="Processed" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="RowDelimiter" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element name="TransformType" type="q11:TransformType" xmlns:q11="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrxRequest" nillable="true" type="tns:GetTrxRequest"/>
+  <xs:complexType name="GetTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q12:VirtualTerminalWebServiceResponse" xmlns:q12="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionDetails" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTrxResponse" nillable="true" type="tns:GetTrxResponse"/>
+  <xs:complexType name="SendAuthFormEmailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="RecurringSaleTokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendAuthFormEmailRequest" nillable="true" type="tns:SendAuthFormEmailRequest"/>
+  <xs:complexType name="SendAuthFormEmailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q13:VirtualTerminalWebServiceResponse" xmlns:q13="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendAuthFormEmailResponse" nillable="true" type="tns:SendAuthFormEmailResponse"/>
+  <xs:complexType name="SendEmailRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendEmailRequest" nillable="true" type="tns:SendEmailRequest"/>
+  <xs:complexType name="SendEmailResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q14:VirtualTerminalWebServiceResponse" xmlns:q14="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SendEmailResponse" nillable="true" type="tns:SendEmailResponse"/>
+  <xs:complexType name="PendingInvoiceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PendingInvoiceRequest" nillable="true" type="tns:PendingInvoiceRequest"/>
+  <xs:complexType name="PendingInvoiceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q15:VirtualTerminalWebServiceResponse" xmlns:q15="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PendingInvoiceResponse" nillable="true" type="tns:PendingInvoiceResponse"/>
+  <xs:complexType name="GetEBPPInvoiceRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetEBPPInvoiceRequest" nillable="true" type="tns:GetEBPPInvoiceRequest"/>
+  <xs:complexType name="GetEBPPInvoiceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q16:VirtualTerminalWebServiceResponse" xmlns:q16="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EBPPInvoiceList" nillable="true" type="tns:ArrayOfEBPPInvoice"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetEBPPInvoiceResponse" nillable="true" type="tns:GetEBPPInvoiceResponse"/>
+  <xs:complexType name="ArrayOfEBPPInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EBPPInvoice" nillable="true" type="tns:EBPPInvoice"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEBPPInvoice" nillable="true" type="tns:ArrayOfEBPPInvoice"/>
+  <xs:complexType name="EBPPInvoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Paid" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="PaymentDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="TaxAmount" nillable="true" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EBPPInvoice" nillable="true" type="tns:EBPPInvoice"/>
+  <xs:complexType name="ProcessEBPPMarkAsPaidRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EBPPInvoiceId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PaymentDate" nillable="true" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessEBPPMarkAsPaidRequest" nillable="true" type="tns:ProcessEBPPMarkAsPaidRequest"/>
+  <xs:complexType name="ProcessEBPPMarkAsPaidResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q17:VirtualTerminalWebServiceResponse" xmlns:q17="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessEBPPMarkAsPaidResponse" nillable="true" type="tns:ProcessEBPPMarkAsPaidResponse"/>
+  <xs:complexType name="GetRestaurantTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RestaurantTransaction" nillable="true" type="tns:RestaurantTransaction"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRestaurantTrxRequest" nillable="true" type="tns:GetRestaurantTrxRequest"/>
+  <xs:complexType name="RestaurantTransaction">
+    <xs:sequence>
+      <xs:element name="BeginDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="ExcludeTransactionType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="IncludeTransactionType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RestaurantTransaction" nillable="true" type="tns:RestaurantTransaction"/>
+  <xs:complexType name="GetRestaurantTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q18:VirtualTerminalWebServiceResponse" xmlns:q18="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GetRestaurantTrxList" nillable="true" type="tns:ArrayOfRestaurantDetail"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRestaurantTrxResponse" nillable="true" type="tns:GetRestaurantTrxResponse"/>
+  <xs:complexType name="ArrayOfRestaurantDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RestaurantDetail" nillable="true" type="tns:RestaurantDetail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRestaurantDetail" nillable="true" type="tns:ArrayOfRestaurantDetail"/>
+  <xs:complexType name="RestaurantDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="Cashier" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="LastFourDigits" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="MerchantId" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Modified" nillable="true" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="ReferenceNumber" type="xs:int"/>
+      <xs:element minOccurs="0" name="TableNumber" type="xs:int"/>
+      <xs:element minOccurs="0" name="Tax" nillable="true" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="Tip" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="TransactionDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Waiter" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RestaurantDetail" nillable="true" type="tns:RestaurantDetail"/>
+  <xs:complexType name="GetAdditionalInformationTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdditionalInformation" nillable="true" type="tns:AdditionalInformation"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAdditionalInformationTrxRequest" nillable="true" type="tns:GetAdditionalInformationTrxRequest"/>
+  <xs:complexType name="AdditionalInformation">
+    <xs:sequence>
+      <xs:element name="BeginDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalInformation" nillable="true" type="tns:AdditionalInformation"/>
+  <xs:complexType name="GetAdditionalInformationTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q19:VirtualTerminalWebServiceResponse" xmlns:q19="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GetAddtionalInformationTrxList" nillable="true" type="tns:ArrayOfAdditionalInformationDetail"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetAdditionalInformationTrxResponse" nillable="true" type="tns:GetAdditionalInformationTrxResponse"/>
+  <xs:complexType name="ArrayOfAdditionalInformationDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInformationDetail" nillable="true" type="tns:AdditionalInformationDetail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdditionalInformationDetail" nillable="true" type="tns:ArrayOfAdditionalInformationDetail"/>
+  <xs:complexType name="AdditionalInformationDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="AuthNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="Field1" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Field2" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Field3" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Field4" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ID_Merchant" nillable="true" type="xs:int"/>
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="LastFourNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="MessageTransac" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="NameMerchant" nillable="true" type="xs:int"/>
+      <xs:element minOccurs="0" name="ProcessedTransactionType" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:int"/>
+      <xs:element minOccurs="0" name="Result" type="xs:int"/>
+      <xs:element minOccurs="0" name="ResultTransac" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdditionalInformationDetail" nillable="true" type="tns:AdditionalInformationDetail"/>
+  <xs:complexType name="GetGenericLogIndustryProductsTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GenericLogIndustryProducts" nillable="true" type="tns:GenericLogIndustryProducts"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetGenericLogIndustryProductsTrxRequest" nillable="true" type="tns:GetGenericLogIndustryProductsTrxRequest"/>
+  <xs:complexType name="GenericLogIndustryProducts">
+    <xs:sequence>
+      <xs:element name="BeginDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenericLogIndustryProducts" nillable="true" type="tns:GenericLogIndustryProducts"/>
+  <xs:complexType name="GetGenericLogIndustryProductsTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q20:VirtualTerminalWebServiceResponse" xmlns:q20="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GetGenericLogIndustryProductsTrxList" nillable="true" type="q21:ArrayOfstring" xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetGenericLogIndustryProductsTrxResponse" nillable="true" type="tns:GetGenericLogIndustryProductsTrxResponse"/>
+  <xs:complexType name="GetLevelIIIInvoiceTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LevelIIIInvoice" nillable="true" type="tns:LevelIIIInvoice"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLevelIIIInvoiceTrxRequest" nillable="true" type="tns:GetLevelIIIInvoiceTrxRequest"/>
+  <xs:complexType name="LevelIIIInvoice">
+    <xs:sequence>
+      <xs:element name="BeginDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LevelIIIInvoice" nillable="true" type="tns:LevelIIIInvoice"/>
+  <xs:complexType name="GetLevelIIIInvoiceTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q22:VirtualTerminalWebServiceResponse" xmlns:q22="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GetLevelIIIInvoiceTrxList" nillable="true" type="q23:ArrayOfstring" xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetLevelIIIInvoiceTrxResponse" nillable="true" type="tns:GetLevelIIIInvoiceTrxResponse"/>
+  <xs:complexType name="GetFleetCardInvoiceTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FleetCardInvoice" nillable="true" type="tns:FleetCardInvoice"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFleetCardInvoiceTrxRequest" nillable="true" type="tns:GetFleetCardInvoiceTrxRequest"/>
+  <xs:complexType name="FleetCardInvoice">
+    <xs:sequence>
+      <xs:element name="BeginDate" nillable="true" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FleetCardInvoice" nillable="true" type="tns:FleetCardInvoice"/>
+  <xs:complexType name="GetFleetCardInvoiceTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q24:VirtualTerminalWebServiceResponse" xmlns:q24="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GetFleetCardInvoiceTrxList" nillable="true" type="q25:ArrayOfstring" xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFleetCardInvoiceTrxResponse" nillable="true" type="tns:GetFleetCardInvoiceTrxResponse"/>
+  <xs:complexType name="ProcessPayPalRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AuthorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BillingAgreementCustom" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BillingAgreementDescription" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BillingAgreementId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BuyerEmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CancelBillingAgreement" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="CancelUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerBillingAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerEmailOptionenable" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InvoiceDetail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="IsLastCapture" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="NoShippingInd" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="PayerId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="RequestMethod" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReturnUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SkipBaCreation" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+          <xs:element name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UserSelectedFundingSource" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessPayPalRequest" nillable="true" type="tns:ProcessPayPalRequest"/>
+  <xs:complexType name="ProcessPayPalResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q26:VirtualTerminalWebServiceResponse" xmlns:q26="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AutorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="PayerId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="RedirectUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="SuccessPageRedirectRequested" nillable="true" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TraceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessPayPalResponse" nillable="true" type="tns:ProcessPayPalResponse"/>
+  <xs:complexType name="ProcessCashRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="Cashier" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCashRequest" nillable="true" type="tns:ProcessCashRequest"/>
+  <xs:complexType name="ProcessCashResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q27:VirtualTerminalWebServiceResponse" xmlns:q27="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BalanceCheck" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessCashResponse" nillable="true" type="tns:ProcessCashResponse"/>
+  <xs:complexType name="GetPayPalTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="BillMeLater" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="BillingAgreementId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="BringLinkedHierarchy" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="ColumnDelimiter" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="ExcludeResult" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="ExcludeTransactionType" nillable="true" type="xs:string"/>
+          <xs:element name="ExcludeVoid" type="xs:boolean"/>
+          <xs:element name="IncludeHeader" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OriginalReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PayerId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="Result" nillable="true" type="xs:int"/>
+          <xs:element minOccurs="0" name="RowDelimiter" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element name="TransformType" type="q28:TransformType" xmlns:q28="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPayPalTrxRequest" nillable="true" type="tns:GetPayPalTrxRequest"/>
+  <xs:complexType name="GetPayPalTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q29:VirtualTerminalWebServiceResponse" xmlns:q29="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionDetails" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetPayPalTrxResponse" nillable="true" type="tns:GetPayPalTrxResponse"/>
+  <xs:complexType name="GetRecurringTokenTypeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RecurringTokenId" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRecurringTokenTypeRequest" nillable="true" type="tns:GetRecurringTokenTypeRequest"/>
+  <xs:complexType name="GetRecurringTokenTypeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q30:VirtualTerminalWebServiceResponse" xmlns:q30="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FoundInCard" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="FoundInCheck" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetRecurringTokenTypeResponse" nillable="true" type="tns:GetRecurringTokenTypeResponse"/>
+  <xs:complexType name="GetFleetProductCodeRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFleetProductCodeRequest" nillable="true" type="tns:GetFleetProductCodeRequest"/>
+  <xs:complexType name="GetFleetProductCodeResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q31:VirtualTerminalWebServiceResponse" xmlns:q31="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FleetProductCodeList" nillable="true" type="tns:ArrayOfFleetProductCode"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetFleetProductCodeResponse" nillable="true" type="tns:GetFleetProductCodeResponse"/>
+  <xs:complexType name="ArrayOfFleetProductCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FleetProductCode" nillable="true" type="tns:FleetProductCode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFleetProductCode" nillable="true" type="tns:ArrayOfFleetProductCode"/>
+  <xs:complexType name="FleetProductCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ProductCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ProductType" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FleetProductCode" nillable="true" type="tns:FleetProductCode"/>
+  <xs:complexType name="GetDepositTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="BringLinkedHierarchy" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="InvoiceId" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="PaymentNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="User" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDepositTrxRequest" nillable="true" type="tns:GetDepositTrxRequest"/>
+  <xs:complexType name="GetDepositTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q32:VirtualTerminalWebServiceResponse" xmlns:q32="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionDetails" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDepositTrxResponse" nillable="true" type="tns:GetDepositTrxResponse"/>
+  <xs:complexType name="GetCashTrxRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="Cashier" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="Processed" nillable="true" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCashTrxRequest" nillable="true" type="tns:GetCashTrxRequest"/>
+  <xs:complexType name="GetCashTrxResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q33:VirtualTerminalWebServiceResponse" xmlns:q33="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionDetails" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetCashTrxResponse" nillable="true" type="tns:GetCashTrxResponse"/>
+  <xs:complexType name="GetDonationsRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="BeginDate" nillable="true" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:dateTime"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDonationsRequest" nillable="true" type="tns:GetDonationsRequest"/>
+  <xs:complexType name="GetDonationsResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q34:VirtualTerminalWebServiceResponse" xmlns:q34="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GetDonationsList" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetDonationsResponse" nillable="true" type="tns:GetDonationsResponse"/>
+  <xs:complexType name="ProcessAffirmRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AffirmCheckoutToken" nillable="true" type="xs:string"/>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AuthorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerBillingAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCity" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerEmailAddress" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerLastname" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerPhone" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerState" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerZipCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceDetail" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OrderChannel" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OrderDescription" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ProductCode" nillable="true" type="q35:AffirmProductCode" xmlns:q35="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="RefundReason" nillable="true" type="q36:AffirmRefundReason" xmlns:q36="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common"/>
+          <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="UserAgentHeader" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessAffirmRequest" nillable="true" type="tns:ProcessAffirmRequest"/>
+  <xs:complexType name="ProcessAffirmResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q37:VirtualTerminalWebServiceResponse" xmlns:q37="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="AutorizationNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="OriginalAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="ReferenceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="TraceNumber" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessAffirmResponse" nillable="true" type="tns:ProcessAffirmResponse"/>
+  <xs:complexType name="ProcessAffirmCheckoutRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SecureVirtualTerminalWebServiceRequest">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="BillingAddress" nillable="true" type="tns:Address"/>
+          <xs:element minOccurs="0" name="BillingSameFromShipping" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="CancelUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ConfirmationUrl" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="CustomerCode" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="InvoiceDetail" nillable="true" type="tns:Invoice"/>
+          <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+          <xs:element minOccurs="0" name="ShippingAddress" nillable="true" type="tns:Address"/>
+          <xs:element minOccurs="0" name="ShippingAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+          <xs:element minOccurs="0" name="TransactionType" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessAffirmCheckoutRequest" nillable="true" type="tns:ProcessAffirmCheckoutRequest"/>
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address1" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Address2" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CustomerLastname" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="CustomerName" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="PhoneNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address"/>
+  <xs:complexType name="Invoice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="CurrencyCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="DutyAmount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="InvoiceNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="LineItems" nillable="true" type="tns:ArrayOfInvoiceItem"/>
+      <xs:element minOccurs="0" name="PurchaseOrderNumber" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ShippingAmount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Invoice" nillable="true" type="tns:Invoice"/>
+  <xs:complexType name="ArrayOfInvoiceItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InvoiceItem" nillable="true" type="tns:InvoiceItem"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInvoiceItem" nillable="true" type="tns:ArrayOfInvoiceItem"/>
+  <xs:complexType name="InvoiceItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ItemDescription" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ItemImageUrl" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="ItemUrl" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Quantity" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="TaxAmount" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="UnitCost" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="UnitOfMeasure" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvoiceItem" nillable="true" type="tns:InvoiceItem"/>
+  <xs:complexType name="ProcessAffirmCheckoutResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="q38:VirtualTerminalWebServiceResponse" xmlns:q38="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CheckoutObjectData" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProcessAffirmCheckoutResponse" nillable="true" type="tns:ProcessAffirmCheckoutResponse"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd3</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common">
+  <xs:complexType name="VirtualTerminalWebServiceRequest">
+    <xs:sequence>
+      <xs:element name="MerchantId" type="xs:int"/>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VirtualTerminalWebServiceRequest" nillable="true" type="tns:VirtualTerminalWebServiceRequest"/>
+  <xs:complexType name="VirtualTerminalWebServiceResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ClientWebServiceResponse">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VirtualTerminalWebServiceResponse" nillable="true" type="tns:VirtualTerminalWebServiceResponse"/>
+  <xs:complexType name="ClientWebServiceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string"/>
+      <xs:element minOccurs="0" name="Result" type="xs:short"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientWebServiceResponse" nillable="true" type="tns:ClientWebServiceResponse"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd4</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Common">
+  <xs:simpleType name="EbtCardType">
+    <xs:annotation>
+      <xs:appinfo>
+        <ActualType Name="short" Namespace="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None"/>
+      <xs:enumeration value="FoodAndStamps"/>
+      <xs:enumeration value="CashBenefits"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EbtCardType" nillable="true" type="tns:EbtCardType"/>
+  <xs:simpleType name="TransformType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="XML"/>
+      <xs:enumeration value="DELIM"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TransformType" nillable="true" type="tns:TransformType"/>
+  <xs:simpleType name="AffirmProductCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PhysicalDelivery"/>
+      <xs:enumeration value="CashAndCarry"/>
+      <xs:enumeration value="DigitalGood"/>
+      <xs:enumeration value="Service"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AffirmProductCode" nillable="true" type="tns:AffirmProductCode"/>
+  <xs:simpleType name="AffirmRefundReason">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Other"/>
+      <xs:enumeration value="NoInventory"/>
+      <xs:enumeration value="CustomerReturn"/>
+      <xs:enumeration value="GeneralAdjustment"/>
+      <xs:enumeration value="CouldNotShip"/>
+      <xs:enumeration value="CustomerCancel"/>
+      <xs:enumeration value="ProductOutofStock"/>
+      <xs:enumeration value="Exchange"/>
+      <xs:enumeration value="DifferentItem"/>
+      <xs:enumeration value="Abandoned"/>
+      <xs:enumeration value="PriceError"/>
+      <xs:enumeration value="CustomerAddressIncorrect"/>
+      <xs:enumeration value="RiskAssessmentInformationNotValid"/>
+      <xs:enumeration value="CarrierCoverageFailure"/>
+      <xs:enumeration value="TransactionRecord"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AffirmRefundReason" nillable="true" type="tns:AffirmRefundReason"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd5</con:url>
+      <con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+  <xs:complexType name="ArrayOfstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+    <con:part>
+      <con:url>https://test.cenpos.net:9443/6/transact.asmx?xsd=xsd1</con:url>
+      <con:content><![CDATA[<xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+  <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+  <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+  <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+  <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+  <xs:element name="byte" nillable="true" type="xs:byte"/>
+  <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+  <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+  <xs:element name="double" nillable="true" type="xs:double"/>
+  <xs:element name="float" nillable="true" type="xs:float"/>
+  <xs:element name="int" nillable="true" type="xs:int"/>
+  <xs:element name="long" nillable="true" type="xs:long"/>
+  <xs:element name="QName" nillable="true" type="xs:QName"/>
+  <xs:element name="short" nillable="true" type="xs:short"/>
+  <xs:element name="string" nillable="true" type="xs:string"/>
+  <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+  <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+  <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+  <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+  <xs:element name="char" nillable="true" type="tns:char"/>
+  <xs:simpleType name="char">
+    <xs:restriction base="xs:int"/>
+  </xs:simpleType>
+  <xs:element name="duration" nillable="true" type="tns:duration"/>
+  <xs:simpleType name="duration">
+    <xs:restriction base="xs:duration">
+      <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+      <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+      <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="guid" nillable="true" type="tns:guid"/>
+  <xs:simpleType name="guid">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:attribute name="FactoryType" type="xs:QName"/>
+  <xs:attribute name="Id" type="xs:ID"/>
+  <xs:attribute name="Ref" type="xs:IDREF"/>
+</xs:schema>]]></con:content>
+      <con:type>http://www.w3.org/2001/XMLSchema</con:type>
+    </con:part>
+  </con:definitionCache>
+  <con:endpoints>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:endpoint>https://ww2.payment1.cenpos.net/6/transact.asmx</con:endpoint>
+  </con:endpoints>
+</con:interface>

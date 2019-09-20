@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation isOneWay="false" action="http://tempuri.org/Transactional/GetDepositTrx" name="GetDepositTrx" bindingOperationName="GetDepositTrx" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="27ef8ff7-2d81-4d9c-8e10-ca455359ebee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f857ff56-843c-4aef-8ad7-9823f922933bfileName">GetDepositTrx</con:setting>
+    <con:setting id="27ef8ff7-2d81-4d9c-8e10-ca455359ebeefileName">GetDepositTrx</con:setting>
+  </con:settings>
+  <con:call name="Request 1" id="94288c7e-4b1d-4e70-a192-5ce80f5811e7" defaultOutgoingWss="" defaultIncomingWss="">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://test.cenpos.net:9443/6/transact.asmx</con:endpoint>
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:GetDepositTrx>
+         <!--Optional:-->
+         <tem:request>
+            <acr:MerchantId>?</acr:MerchantId>
+            <!--Optional:-->
+            <acr:Password>?</acr:Password>
+            <!--Optional:-->
+            <acr:UserId>?</acr:UserId>
+            <!--Optional:-->
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>
+            <!--Optional:-->
+            <acr1:IMEI>?</acr1:IMEI>
+            <!--Optional:-->
+            <acr1:BeginDate>?</acr1:BeginDate>
+            <!--Optional:-->
+            <acr1:BringLinkedHierarchy>?</acr1:BringLinkedHierarchy>
+            <!--Optional:-->
+            <acr1:CustomerName>?</acr1:CustomerName>
+            <!--Optional:-->
+            <acr1:EndDate>?</acr1:EndDate>
+            <!--Optional:-->
+            <acr1:InvoiceId>?</acr1:InvoiceId>
+            <!--Optional:-->
+            <acr1:PaymentNumber>?</acr1:PaymentNumber>
+            <!--Optional:-->
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>
+            <!--Optional:-->
+            <acr1:User>?</acr1:User>
+         </tem:request>
+      </tem:GetDepositTrx>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Transactional/GetDepositTrx"/>
+  </con:call>
+</con:operation>
