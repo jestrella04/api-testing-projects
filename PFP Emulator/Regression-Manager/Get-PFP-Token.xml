@@ -125,42 +125,6 @@ com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("PFPTokenV2", tokenV
 com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("PFPTokenV3", tokenV3)</script>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" name="Copy of GenerateToken (v3)" id="fd856a81-aa37-40c8-b27a-1bd261fdbc12" disabled="true">
-    <con:settings/>
-    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <con:interface>TokenService3Soap</con:interface>
-      <con:operation>GenerateToken</con:operation>
-      <con:request name="Copy of GenerateToken (v3)" id="8dc4d873-89fc-4e44-8efc-a11789e8584e">
-        <con:settings>
-          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
-        </con:settings>
-        <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://test.cenpos.net:7443/PaypalProxy/V3/TokenService.asmx</con:endpoint>
-        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
-   <soapenv:Header/>\r
-   <soapenv:Body>\r
-      <tem:GenerateToken>\r
-         <tem:merchantId>?</tem:merchantId>\r
-         <!--Optional:-->\r
-         <tem:customerCode>?</tem:customerCode>\r
-         <!--Optional:-->\r
-         <tem:cardNumber>?</tem:cardNumber>\r
-      </tem:GenerateToken>\r
-   </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request>
-        <con:assertion type="SOAP Response" id="6ab3cc86-963b-44d9-b29e-4b394c177297"/>
-        <con:assertion type="SOAP Fault Assertion" id="4dade28f-9b12-4d0d-9027-89b56ec7bb2e"/>
-        <con:credentials>
-          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
-          <con:authType>No Authorization</con:authType>
-        </con:credentials>
-        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
-        <con:jmsPropertyConfig/>
-        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
-        <con:wsrmConfig version="1.2"/>
-      </con:request>
-    </con:config>
-  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
   <con:breakPoints>

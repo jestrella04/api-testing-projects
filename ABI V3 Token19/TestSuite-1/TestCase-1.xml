@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="dec98a5b-c89b-4c28-aae8-3071da26a957" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="TestCase 1" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="dec98a5b-c89b-4c28-aae8-3071da26a957fileName">TestCase-1</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="request" name="SOAP Request" id="768985c3-40bc-48d9-a646-36945478dc9d">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>TokenService3Soap</con:interface>
+      <con:operation>GenerateToken</con:operation>
+      <con:request name="SOAP Request" id="06628f31-1f7f-464a-8d2b-bf7ff40cb2db">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://hub.cenpos.net/v3/TokenService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:GenerateToken>\r
+         <tem:merchantId>12721627</tem:merchantId>\r
+         <tem:customerCode>je001</tem:customerCode>\r
+         <tem:cardNumber>5454545454545454</tem:cardNumber>\r
+      </tem:GenerateToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="8be5669a-2da5-4170-8ef8-d7b9d1453471"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" name="SOAP Request 2" id="3853ec81-19ba-4215-b2c8-5d2e387d177c">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>TokenService3Soap</con:interface>
+      <con:operation>AddToken</con:operation>
+      <con:request name="SOAP Request 2" id="13745e77-dffd-4235-8709-92f60c7786e1">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://hub.cenpos.net/v3/TokenService.asmx</con:endpoint>
+        <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:AddToken>\r
+         <tem:userInfo>\r
+            <tem:UserName>${UserId}</tem:UserName>\r
+            <tem:Password>${Password}</tem:Password>\r
+            <tem:MerchantId>${MerchantId}</tem:MerchantId>\r
+         </tem:userInfo>\r
+         <tem:nameOnCard>${NameOnCard}</tem:nameOnCard>\r
+         <tem:cardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</tem:cardNumber>\r
+         <tem:expDate>${CardExpDate}</tem:expDate>\r
+         <tem:customerEmail>${CustomerEmail}</tem:customerEmail>\r
+         <tem:customerCode>${CustomerCode}</tem:customerCode>\r
+         <tem:address>${CustomerAddress}</tem:address>
+         <tem:zipCode>${CustomerZipCode}</tem:zipCode>\r
+      </tem:AddToken>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" id="5872b4ea-9952-4fd1-aa4b-614665ee5132"/>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+</con:testCase>
