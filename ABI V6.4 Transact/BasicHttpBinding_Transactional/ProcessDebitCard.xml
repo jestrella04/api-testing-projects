@@ -9,7 +9,7 @@
     </con:settings>
     <con:encoding>UTF-8</con:encoding>
     <con:endpoint>https://test.cenpos.net:9443/6/4/transact.asmx</con:endpoint>
-    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.v6.Common" xmlns:acr2="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests">\r
+    <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <tem:ProcessDebitCard>\r
@@ -21,48 +21,70 @@
             <!--Optional:-->\r
             <acr:UserId>?</acr:UserId>\r
             <!--Optional:-->\r
-            <acr2:GeoLocationInformation>?</acr2:GeoLocationInformation>\r
+            <acr1:GeoLocationInformation>?</acr1:GeoLocationInformation>\r
             <!--Optional:-->\r
-            <acr2:IMEI>?</acr2:IMEI>\r
-            <acr2:Amount>?</acr2:Amount>\r
+            <acr1:IMEI>?</acr1:IMEI>\r
+            <acr1:Amount>?</acr1:Amount>\r
             <!--Optional:-->\r
-            <acr2:CardExpirationDate>?</acr2:CardExpirationDate>\r
+            <acr1:BridgeVersionNumber>?</acr1:BridgeVersionNumber>\r
             <!--Optional:-->\r
-            <acr2:CardLastFourDigits>?</acr2:CardLastFourDigits>\r
+            <acr1:CardExpirationDate>?</acr1:CardExpirationDate>\r
             <!--Optional:-->\r
-            <acr2:CardNumber>?</acr2:CardNumber>\r
+            <acr1:CardLastFourDigits>?</acr1:CardLastFourDigits>\r
             <!--Optional:-->\r
-            <acr2:CardholderVerificationMethod>?</acr2:CardholderVerificationMethod>\r
+            <acr1:CardNumber>?</acr1:CardNumber>\r
             <!--Optional:-->\r
-            <acr2:CashBackAmount>?</acr2:CashBackAmount>\r
+            <acr1:CardholderVerificationMethod>?</acr1:CardholderVerificationMethod>\r
             <!--Optional:-->\r
-            <acr2:CurrencyCode>?</acr2:CurrencyCode>\r
+            <acr1:CashBackAmount>?</acr1:CashBackAmount>\r
             <!--Optional:-->\r
-            <acr2:CustomerCode>?</acr2:CustomerCode>\r
+            <acr1:ClientLocalIp>?</acr1:ClientLocalIp>\r
             <!--Optional:-->\r
-            <acr2:CustomerEmailAddress>?</acr2:CustomerEmailAddress>\r
+            <acr1:ClientLocalMacAddress>?</acr1:ClientLocalMacAddress>\r
             <!--Optional:-->\r
-            <acr2:EbtCardType>?</acr2:EbtCardType>\r
+            <acr1:ConnectionType>?</acr1:ConnectionType>\r
             <!--Optional:-->\r
-            <acr2:InvoiceDetail>?</acr2:InvoiceDetail>\r
+            <acr1:CurrencyCode>?</acr1:CurrencyCode>\r
             <!--Optional:-->\r
-            <acr2:InvoiceNumber>?</acr2:InvoiceNumber>\r
+            <acr1:CustomerCode>?</acr1:CustomerCode>\r
             <!--Optional:-->\r
-            <acr2:KeySerialNumber>?</acr2:KeySerialNumber>\r
+            <acr1:CustomerEmailAddress>?</acr1:CustomerEmailAddress>\r
             <!--Optional:-->\r
-            <acr2:MagneticData>?</acr2:MagneticData>\r
+            <acr1:DeviceDebitKey>?</acr1:DeviceDebitKey>\r
             <!--Optional:-->\r
-            <acr2:Pin>?</acr2:Pin>\r
+            <acr1:DeviceOsVersionNumber>?</acr1:DeviceOsVersionNumber>\r
             <!--Optional:-->\r
-            <acr2:PurchaseOrderNumber>?</acr2:PurchaseOrderNumber>\r
+            <acr1:DeviceRbaVersionNunmber>?</acr1:DeviceRbaVersionNunmber>\r
             <!--Optional:-->\r
-            <acr2:ReferenceNumber>?</acr2:ReferenceNumber>\r
+            <acr1:DeviceSerialNumber>?</acr1:DeviceSerialNumber>\r
             <!--Optional:-->\r
-            <acr2:SecureCode>?</acr2:SecureCode>\r
+            <acr1:DeviceType>?</acr1:DeviceType>\r
             <!--Optional:-->\r
-            <acr2:TerminalCapabilities>?</acr2:TerminalCapabilities>\r
+            <acr1:EbtCardType>?</acr1:EbtCardType>\r
             <!--Optional:-->\r
-            <acr2:TransactionType>?</acr2:TransactionType>\r
+            <acr1:InvoiceDetail>?</acr1:InvoiceDetail>\r
+            <!--Optional:-->\r
+            <acr1:InvoiceNumber>?</acr1:InvoiceNumber>\r
+            <!--Optional:-->\r
+            <acr1:KernelVersionNumber>?</acr1:KernelVersionNumber>\r
+            <!--Optional:-->\r
+            <acr1:KeySerialNumber>?</acr1:KeySerialNumber>\r
+            <!--Optional:-->\r
+            <acr1:MagneticData>?</acr1:MagneticData>\r
+            <!--Optional:-->\r
+            <acr1:Pin>?</acr1:Pin>\r
+            <!--Optional:-->\r
+            <acr1:PurchaseOrderNumber>?</acr1:PurchaseOrderNumber>\r
+            <!--Optional:-->\r
+            <acr1:ReferenceNumber>?</acr1:ReferenceNumber>\r
+            <!--Optional:-->\r
+            <acr1:SecureCode>?</acr1:SecureCode>\r
+            <!--Optional:-->\r
+            <acr1:TerminalCapabilities>?</acr1:TerminalCapabilities>\r
+            <!--Optional:-->\r
+            <acr1:TerminalConfigurationFingerprint>?</acr1:TerminalConfigurationFingerprint>\r
+            <!--Optional:-->\r
+            <acr1:TransactionType>?</acr1:TransactionType>\r
          </tem:request>\r
       </tem:ProcessDebitCard>\r
    </soapenv:Body>\r

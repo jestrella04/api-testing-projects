@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:interface xsi:type="con:WsdlInterface" id="2a8e98d4-7fa1-4b03-adf3-151b6895be38" wsaVersion="NONE" name="EbppIntegrationServiceV4Soap" type="wsdl" bindingName="{http://ebpp.cenpos.net/V4}EbppIntegrationServiceV4Soap" soapVersion="1_1" anonymous="optional" definition="https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+<con:interface xsi:type="con:WsdlInterface" id="f1de0091-ebef-43b9-89cc-12f59fc1d115" wsaVersion="NONE" name="EbppIntegrationServiceV6Soap12" type="wsdl" bindingName="{http://ebpp.cenpos.net/V6}EbppIntegrationServiceV6Soap12" soapVersion="1_2" anonymous="optional" definition="https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
-    <con:setting id="2a8e98d4-7fa1-4b03-adf3-151b6895be38fileName">EbppIntegrationServiceV4Soap</con:setting>
+    <con:setting id="44ca1d2a-8c6e-486b-aa01-bdb35b4c6418fileName">EbppIntegrationServiceV3Soap12</con:setting>
+    <con:setting id="f1de0091-ebef-43b9-89cc-12f59fc1d115fileName">EbppIntegrationServiceV6Soap12</con:setting>
   </con:settings>
-  <con:definitionCache type="TEXT" rootPart="https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx?WSDL">
+  <con:definitionCache type="TEXT" rootPart="https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx?wsdl">
     <con:part>
-      <con:url>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx?WSDL</con:url>
-      <con:content><![CDATA[<wsdl:definitions targetNamespace="http://ebpp.cenpos.net/V4" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ebpp.cenpos.net/V4" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+      <con:url>https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx?wsdl</con:url>
+      <con:content><![CDATA[<wsdl:definitions targetNamespace="http://ebpp.cenpos.net/V6" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ebpp.cenpos.net/V6" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://ebpp.cenpos.net/V4">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ebpp.cenpos.net/V6">
       <s:element name="AddEbppInvoice">
         <s:complexType>
           <s:sequence>
@@ -49,6 +50,8 @@
           <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:double"/>
           <s:element minOccurs="0" maxOccurs="1" name="InvoiceEncoded" type="s:base64Binary"/>
           <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="UseCustomerCode" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchantRedirectUrl" type="s:string"/>
         </s:sequence>
       </s:complexType>
       <s:complexType name="InvoiceCustomerVO">
@@ -236,18 +239,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="MerchantId" type="s:int"/>
         </s:sequence>
       </s:complexType>
-      <s:complexType name="UpdateEbppInvoiceRequestVO">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:RequestVO">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Invoice" type="tns:InvoiceVO"/>
-              <s:element minOccurs="0" maxOccurs="1" name="LineItems" type="tns:ArrayOfInvoiceLineItemVO"/>
-              <s:element minOccurs="1" maxOccurs="1" name="IsLineItemsPresent" type="s:boolean"/>
-              <s:element minOccurs="0" maxOccurs="1" name="TagNumber" type="s:string"/>
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
       <s:complexType name="CustomerOptionRequestVO">
         <s:complexContent mixed="false">
           <s:extension base="tns:RequestVO">
@@ -255,6 +246,32 @@
               <s:element minOccurs="0" maxOccurs="1" name="CustomerEmail" type="s:string"/>
               <s:element minOccurs="1" maxOccurs="1" name="AllowSMS" type="s:boolean"/>
               <s:element minOccurs="1" maxOccurs="1" name="AllowEmail" type="s:boolean"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SetUserRequestVO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestVO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Privilege" type="tns:ArrayOfString"/>
+              <s:element minOccurs="0" maxOccurs="1" name="TargetUsername" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UpdateEbppInvoiceRequestVO">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestVO">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Invoice" type="tns:InvoiceVO"/>
+              <s:element minOccurs="0" maxOccurs="1" name="LineItems" type="tns:ArrayOfInvoiceLineItemVO"/>
+              <s:element minOccurs="1" maxOccurs="1" name="IsLineItemsPresent" type="s:boolean"/>
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -349,21 +366,6 @@
           <s:element minOccurs="0" maxOccurs="1" name="MerchantCountry" type="s:string"/>
           <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string"/>
           <s:element minOccurs="0" maxOccurs="1" name="SpecialInstruction" type="s:string"/>
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="SetUserRequestVO">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:RequestVO">
-            <s:sequence>
-              <s:element minOccurs="0" maxOccurs="1" name="Privilege" type="tns:ArrayOfString"/>
-              <s:element minOccurs="0" maxOccurs="1" name="TargetUsername" type="s:string"/>
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="ArrayOfString">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
         </s:sequence>
       </s:complexType>
       <s:element name="SetProcessingUserResponse">
@@ -571,7 +573,7 @@
   <wsdl:message name="GetMerchantCommunicationChannelSoapOut">
     <wsdl:part name="parameters" element="tns:GetMerchantCommunicationChannelResponse"/>
   </wsdl:message>
-  <wsdl:portType name="EbppIntegrationServiceV4Soap">
+  <wsdl:portType name="EbppIntegrationServiceV6Soap">
     <wsdl:operation name="AddEbppInvoice">
       <wsdl:documentation><![CDATA[<table>     
             <tr>         
@@ -693,10 +695,10 @@
       <wsdl:output message="tns:GetMerchantCommunicationChannelSoapOut"/>
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="EbppIntegrationServiceV4Soap" type="tns:EbppIntegrationServiceV4Soap">
+  <wsdl:binding name="EbppIntegrationServiceV6Soap" type="tns:EbppIntegrationServiceV6Soap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="AddEbppInvoice">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/AddEbppInvoice" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/AddEbppInvoice" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -705,7 +707,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetInvoiceCancellationNotes">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/SetInvoiceCancellationNotes" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/SetInvoiceCancellationNotes" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -714,7 +716,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetInvoiceExternalPayments">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/SetInvoiceExternalPayments" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/SetInvoiceExternalPayments" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -723,7 +725,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetInvoicePaymentInformation">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/GetInvoicePaymentInformation" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/GetInvoicePaymentInformation" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -732,7 +734,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetProcessingUser">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/SetProcessingUser" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/SetProcessingUser" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -741,7 +743,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetUserEbppPrivileges">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/SetUserEbppPrivileges" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/SetUserEbppPrivileges" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -750,7 +752,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetMerchantConfiguration">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/SetMerchantConfiguration" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/SetMerchantConfiguration" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -759,7 +761,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetCustomerOption">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/SetCustomerOption" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/SetCustomerOption" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -768,7 +770,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetExternalPayments">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/SetExternalPayments" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/SetExternalPayments" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -777,7 +779,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateEbppInvoice">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/UpdateEbppInvoice" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/UpdateEbppInvoice" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -786,7 +788,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetMerchantCommunicationChannel">
-      <soap:operation soapAction="http://ebpp.cenpos.net/V4/GetMerchantCommunicationChannel" style="document"/>
+      <soap:operation soapAction="http://ebpp.cenpos.net/V6/GetMerchantCommunicationChannel" style="document"/>
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
@@ -795,10 +797,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="EbppIntegrationServiceV4Soap12" type="tns:EbppIntegrationServiceV4Soap">
+  <wsdl:binding name="EbppIntegrationServiceV6Soap12" type="tns:EbppIntegrationServiceV6Soap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
     <wsdl:operation name="AddEbppInvoice">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/AddEbppInvoice" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/AddEbppInvoice" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -807,7 +809,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetInvoiceCancellationNotes">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/SetInvoiceCancellationNotes" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/SetInvoiceCancellationNotes" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -816,7 +818,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetInvoiceExternalPayments">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/SetInvoiceExternalPayments" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/SetInvoiceExternalPayments" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -825,7 +827,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetInvoicePaymentInformation">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/GetInvoicePaymentInformation" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/GetInvoicePaymentInformation" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -834,7 +836,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetProcessingUser">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/SetProcessingUser" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/SetProcessingUser" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -843,7 +845,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetUserEbppPrivileges">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/SetUserEbppPrivileges" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/SetUserEbppPrivileges" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -852,7 +854,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetMerchantConfiguration">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/SetMerchantConfiguration" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/SetMerchantConfiguration" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -861,7 +863,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetCustomerOption">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/SetCustomerOption" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/SetCustomerOption" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -870,7 +872,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetExternalPayments">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/SetExternalPayments" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/SetExternalPayments" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -879,7 +881,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateEbppInvoice">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/UpdateEbppInvoice" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/UpdateEbppInvoice" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -888,7 +890,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetMerchantCommunicationChannel">
-      <soap12:operation soapAction="http://ebpp.cenpos.net/V4/GetMerchantCommunicationChannel" style="document"/>
+      <soap12:operation soapAction="http://ebpp.cenpos.net/V6/GetMerchantCommunicationChannel" style="document"/>
       <wsdl:input>
         <soap12:body use="literal"/>
       </wsdl:input>
@@ -897,12 +899,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="EbppIntegrationServiceV4">
-    <wsdl:port name="EbppIntegrationServiceV4Soap" binding="tns:EbppIntegrationServiceV4Soap">
-      <soap:address location="https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx"/>
+  <wsdl:service name="EbppIntegrationServiceV6">
+    <wsdl:port name="EbppIntegrationServiceV6Soap" binding="tns:EbppIntegrationServiceV6Soap">
+      <soap:address location="https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx"/>
     </wsdl:port>
-    <wsdl:port name="EbppIntegrationServiceV4Soap12" binding="tns:EbppIntegrationServiceV4Soap12">
-      <soap12:address location="https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx"/>
+    <wsdl:port name="EbppIntegrationServiceV6Soap12" binding="tns:EbppIntegrationServiceV6Soap12">
+      <soap12:address location="https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>]]></con:content>
@@ -910,6 +912,9 @@
     </con:part>
   </con:definitionCache>
   <con:endpoints>
-    <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v4/EbppIntegrationService.asmx</con:endpoint>
+    <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx</con:endpoint>
+    <con:endpoint>https://www3.cenpos.net/ebpp/v3/EbppIntegrationService.asmx</con:endpoint>
+    <con:endpoint>https://www3.cenpos.net/ebppqa/v3/EbppIntegrationService.asmx</con:endpoint>
   </con:endpoints>
 </con:interface>

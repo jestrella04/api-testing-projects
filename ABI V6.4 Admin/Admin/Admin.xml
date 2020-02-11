@@ -2156,65 +2156,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="groovy" name="Testcase Replace" disabled="true" id="4fee1137-e1d4-49ba-9e8e-786c2192521f">
-    <con:settings/>
-    <con:config>
-      <script><![CDATA[try
-{
-	steps = context.testCase.getTestStepList()
-
-	steps.each
-	{
-		def testCaseName = it.testCase.name
-		def testStepName = it.name
-		def modelItem = it.getModelItem().toString()
-		
-		if ( modelItem.contains( "WsdlTestRequestStep" ) )
-		{
-			//Get current request content
-			def request = it.httpRequest
-			def requestContent = request.getRequestContent()
-
-			//Update request
-			def updatedRequest = requestContent
-			
-			updatedRequest = updatedRequest.replace( 'jestrella', 'Sauron' )
-			/*updatedRequest = updatedRequest.replace( '<acr1:NameOnCard>${NameOnCard}</acr1:NameOnCard>', '<acr1:NameOnCard>${DataSource#NameOnCard}</acr1:NameOnCard>' )
-			updatedRequest = updatedRequest.replace( '<acr1:MagneticData>${MagneticData}</acr1:MagneticData>', '<acr1:MagneticData>${DataSource#MagneticData}</acr1:MagneticData>' )
-			updatedRequest = updatedRequest.replace( '<acr1:MagneticData>${ContactlessMagData}</acr1:MagneticData>', '<acr1:MagneticData>${DataSource#ContactlessMagData}</acr1:MagneticData>' )
-			/*updatedRequest = updatedRequest.replace( '', '' )
-			updatedRequest = updatedRequest.replace( '', '' )
-			updatedRequest = updatedRequest.replace( '', '' )
-			updatedRequest = updatedRequest.replace( '', '' )
-			updatedRequest = updatedRequest.replace( '', '' )
-			updatedRequest = updatedRequest.replace( '', '' )
-			updatedRequest = updatedRequest.replace( '', '' )*/
-			
-			
-			// Save changes now
-			request.setRequestContent( updatedRequest )		
-		}
-
-		/*else if ( modelItem.contains( "WsdlGroovyScriptTestStep" ) )
-		{
-			//Get script contents
-			def scriptContent = it.getScript()
-
-			//Replace script content
-			def scriptUpdated = scriptContent.replace( 'com.eviware.soapui.SoapUI.globalProperties.getPropertyValue(', 'com.eviware.soapui.SoapUI.globalProperties.getPropertyValue(' )
-
-			//Update script contents
-			it.setScript( scriptUpdated )
-		}*/
-	}
-} 
-
-catch( e )
-{
-	log.error("An error occurred: " + e.toString());
-}]]></script>
-    </con:config>
-  </con:testStep>
   <con:properties/>
   <con:reportParameters/>
   <con:breakPoints>

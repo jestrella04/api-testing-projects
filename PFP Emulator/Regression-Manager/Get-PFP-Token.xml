@@ -14,7 +14,7 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://test.cenpos.net:7443/PaypalProxy/TokenService.asmx</con:endpoint>
+        <con:endpoint>https://hub.cenpos.net/PfpQA/TokenService.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/">\r
@@ -47,7 +47,7 @@ xmlns:tem="http://tempuri.org/">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://test.cenpos.net:7443/PaypalProxy/V2/TokenService.asmx</con:endpoint>
+        <con:endpoint>https://hub.cenpos.net/PfpQA/V2/TokenService.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/">\r
@@ -63,7 +63,7 @@ xmlns:tem="http://tempuri.org/">\r
          <tem:cardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</tem:cardNumber>\r
          <tem:expDate>${CardExpDate}</tem:expDate>\r
          <tem:customerEmail>${CustomerEmail}</tem:customerEmail>\r
-         <tem:customerCode>${CustomerCode}</tem:customerCode>\r
+         <tem:customerCode>${CustomerCode}-PFPv2</tem:customerCode>\r
       </tem:AddToken>\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
@@ -89,13 +89,13 @@ xmlns:tem="http://tempuri.org/">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://test.cenpos.net:7443/PaypalProxy/V3/TokenService.asmx</con:endpoint>
+        <con:endpoint>https://hub.cenpos.net/PfpQA/V3/TokenService.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
       <tem:GenerateToken>\r
          <tem:merchantId>${MerchantId}</tem:merchantId>
-         <tem:customerCode>${CustomerCode}</tem:customerCode>\r
+         <tem:customerCode>${CustomerCode}-PFPv3</tem:customerCode>\r
          <tem:cardNumber>${=context.expand( '${MagneticData}' ).split( "=" )[0].trim()}</tem:cardNumber>\r
       </tem:GenerateToken>\r
    </soapenv:Body>\r

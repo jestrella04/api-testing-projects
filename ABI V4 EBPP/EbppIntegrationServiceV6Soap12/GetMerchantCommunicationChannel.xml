@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:operation id="d6695822-633a-4d93-8cdd-d1feac5d2301" isOneWay="false" action="http://ebpp.cenpos.net/V6/GetMerchantCommunicationChannel" name="GetMerchantCommunicationChannel" bindingOperationName="GetMerchantCommunicationChannel" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="d6695822-633a-4d93-8cdd-d1feac5d2301fileName">GetMerchantCommunicationChannel</con:setting>
+  </con:settings>
+  <con:call id="e9bcc85d-121d-4aa7-a6cc-a251ee10bb63" name="Request 1">
+    <con:settings/>
+    <con:encoding>UTF-8</con:encoding>
+    <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx</con:endpoint>
+    <con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:GetMerchantCommunicationChannel>\r
+         <!--Optional:-->\r
+         <tem:request>\r
+            <!--Optional:-->\r
+            <tem:Username>?</tem:Username>\r
+            <!--Optional:-->\r
+            <tem:Password>?</tem:Password>\r
+            <!--Optional:-->\r
+            <tem:UserId>?</tem:UserId>\r
+            <tem:MerchantId>?</tem:MerchantId>\r
+         </tem:request>\r
+      </tem:GetMerchantCommunicationChannel>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+    <con:credentials>
+      <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+      <con:authType>No Authorization</con:authType>
+    </con:credentials>
+    <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/EbppIntegrationServiceV6Soap/GetMerchantCommunicationChannelRequest"/>
+  </con:call>
+</con:operation>
