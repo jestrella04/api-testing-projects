@@ -167,7 +167,7 @@ import groovy.time.TimeCategory
 try
 {
 	// Set environment settings
-	def projectName 	= "EBPP V6"
+	def projectName 	= "ABI V6.4 Transact"
 	def suiteName   	= "Regression Manager"
 	def stdBaseURL 	= "https://ww4.cenpos.net"
 	def pfpBaseURL  	= "https://hub.cenpos.net/PfpQA"
@@ -219,15 +219,7 @@ try
 	//def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
 	def cardTypes = ["Visa"]
 
-	// Set additional information
-	def amount = 46.26
-	def amountPartial = 10.26
-	def amountDebit = 46.26
-	def amountTimeout = 8.00
-	def amountTip = 10.00
-	def poNumber = "PO123456"
-	def invoice = "IV-20190426"
-	def invoiceTimeout = "GENERATE TIMEOUT"
+	// Set customer information
 	def avs = "123 SW Rd"
 	def zip = "85284"
 	def city = "Miami"
@@ -235,6 +227,20 @@ try
 	def customerEmail = "mysupercooltestemailv2@mailinator.com"
 	def customerEmailFake = "jon@than.es"
 	def customerCode = "POS-005"
+	def customerName = "Jon"
+	def customerLastName = "Estrella"
+
+	// Set transactional information
+	def amount = 46.26
+	def amountPartial = 10.26
+	def amountDebit = 46.26
+	def amountTimeout = 8.00
+	def amountTip = 10.00
+	def poNumber = "PO123456"
+	def invoice = "IV-20190426"
+	
+	// Set additional information
+	def invoiceTimeout = "GENERATE TIMEOUT"
 	def exportDir = "C:/Users/jestrella/Desktop"
 	def getTrxRequest = "GetCardTrx"
 	
@@ -250,7 +256,7 @@ try
 
 	// Set to false if you don't want to create
 	// test tokens before the script starts running.
-	def createTestTokens = false
+	def createTestTokens = true
 
 	// Set to true if you want to delete the tokens
 	// created after the script is done running.
@@ -326,6 +332,8 @@ try
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerEmail", customerEmail)
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerEmailFake", customerEmailFake)
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerCode", customerCode)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerName", customerName)
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CustomerLastName", customerLastName)
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("ExportDir", exportDir)
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CurrentDateTime1", currDateTime1)
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CurrentDateTime2", currDateTime2)

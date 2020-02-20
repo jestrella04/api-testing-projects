@@ -325,7 +325,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>F-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -422,7 +422,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>P-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -519,7 +519,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>X-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -616,7 +616,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>F-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -713,7 +713,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>P-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -810,7 +810,201 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>S-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
+               <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
+               <v6:Discount>0</v6:Discount>\r
+               <v6:AmountAfterDiscount>${Amount}</v6:AmountAfterDiscount>\r
+               <v6:TinyUrlCode />
+               <v6:BinaryInvoice />
+               <v6:Processed>false</v6:Processed>\r
+               <v6:ProcessedDate>${CurrentDateTime1}</v6:ProcessedDate>\r
+               <v6:PaidAmount>0</v6:PaidAmount>\r
+               <v6:InvoiceDetailStatus />
+               <v6:InvoiceDate>${CurrentDateTime1}</v6:InvoiceDate>\r
+               <v6:HasSpecialPayment>false</v6:HasSpecialPayment>\r
+               <v6:Balance>${Amount}</v6:Balance>\r
+               <v6:InvoiceEncoded />
+               <v6:TagNumber />
+               <v6:UseCustomerCode>false</v6:UseCustomerCode>
+               <v6:MerchantRedirectUrl />
+            </v6:Invoice>\r
+            <v6:Customer>\r
+               <v6:Phone />
+               <v6:MobilePhone>${CustomerPhone}</v6:MobilePhone>\r
+               <v6:MailingZipCode />
+               <v6:MailingState />
+               <v6:MailingCity />
+               <v6:MailingAddress />
+               <v6:FaxNumber />
+               <v6:CustomField3 />
+               <v6:CustomField2 />
+               <v6:CustomField1 />
+               <v6:CustomerName>${CustomerName}</v6:CustomerName>
+               <v6:CustomerEmail>${CustomerEmail}</v6:CustomerEmail>
+               <v6:AlternateFaxNumber />
+               <v6:AlternateEmail />
+               <v6:CustomerCode>${CustomerCode}</v6:CustomerCode>\r
+            </v6:Customer>\r
+            <v6:LineItems>\r
+               <v6:InvoiceLineItemVO>\r
+                  <v6:Description>Line 1</v6:Description>\r
+                  <v6:TotalPrice>${Amount}</v6:TotalPrice>\r
+                  <v6:Quantity>1</v6:Quantity>\r
+                  <v6:TotalTax>${TaxAmount}</v6:TotalTax>\r
+               </v6:InvoiceLineItemVO>\r
+            </v6:LineItems>\r
+            <v6:LinkButton />
+            <v6:LinkLabel />
+            <v6:Username>${UserId}</v6:Username>\r
+            <v6:UserId>${UserId}</v6:UserId>\r
+            <v6:Password>${Password}</v6:Password>\r
+            <v6:MerchantId>${MerchantId}</v6:MerchantId>\r
+            <v6:PickupTime>false</v6:PickupTime>
+         </v6:addInvoiceRequestVO>\r
+      </v6:AddEbppInvoice>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="d183e511-9646-4840-90a5-e66dc6bcbdeb"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="ecc7f741-7c30-4208-87f9-64a617f8041a">
+          <con:configuration>
+            <path>declare namespace ns1='http://ebpp.cenpos.net/V6';
+//ns1:AddEbppInvoiceResponse[1]/ns1:AddEbppInvoiceResult[1]/ns1:MessageId[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V3/EbppIntegrationServiceV3Soap/AddEbppInvoiceRequest" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="e240a819-c703-47c4-8e36-6a55eda7766d" name="AddEbppInvoice (7)">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV6Soap12</con:interface>
+      <con:operation>AddEbppInvoice</con:operation>
+      <con:request name="AddEbppInvoice (7)" id="855c0ac3-69db-4b16-840a-1bffce10abef">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope 
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope" 
+xmlns:v6="http://ebpp.cenpos.net/V6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v6:AddEbppInvoice>\r
+         <v6:addInvoiceRequestVO>\r
+            <v6:Invoice>\r
+               <v6:Id>0</v6:Id>\r
+               <v6:InvoiceNumber>S-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
+               <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
+               <v6:Discount>0</v6:Discount>\r
+               <v6:AmountAfterDiscount>${Amount}</v6:AmountAfterDiscount>\r
+               <v6:TinyUrlCode />
+               <v6:BinaryInvoice />
+               <v6:Processed>false</v6:Processed>\r
+               <v6:ProcessedDate>${CurrentDateTime1}</v6:ProcessedDate>\r
+               <v6:PaidAmount>0</v6:PaidAmount>\r
+               <v6:InvoiceDetailStatus />
+               <v6:InvoiceDate>${CurrentDateTime1}</v6:InvoiceDate>\r
+               <v6:HasSpecialPayment>false</v6:HasSpecialPayment>\r
+               <v6:Balance>${Amount}</v6:Balance>\r
+               <v6:InvoiceEncoded />
+               <v6:TagNumber />
+               <v6:UseCustomerCode>false</v6:UseCustomerCode>
+               <v6:MerchantRedirectUrl />
+            </v6:Invoice>\r
+            <v6:Customer>\r
+               <v6:Phone />
+               <v6:MobilePhone>${CustomerPhone}</v6:MobilePhone>\r
+               <v6:MailingZipCode />
+               <v6:MailingState />
+               <v6:MailingCity />
+               <v6:MailingAddress />
+               <v6:FaxNumber />
+               <v6:CustomField3 />
+               <v6:CustomField2 />
+               <v6:CustomField1 />
+               <v6:CustomerName>${CustomerName}</v6:CustomerName>
+               <v6:CustomerEmail>${CustomerEmail}</v6:CustomerEmail>
+               <v6:AlternateFaxNumber />
+               <v6:AlternateEmail />
+               <v6:CustomerCode>${CustomerCode}</v6:CustomerCode>\r
+            </v6:Customer>\r
+            <v6:LineItems>\r
+               <v6:InvoiceLineItemVO>\r
+                  <v6:Description>Line 1</v6:Description>\r
+                  <v6:TotalPrice>${Amount}</v6:TotalPrice>\r
+                  <v6:Quantity>1</v6:Quantity>\r
+                  <v6:TotalTax>${TaxAmount}</v6:TotalTax>\r
+               </v6:InvoiceLineItemVO>\r
+            </v6:LineItems>\r
+            <v6:LinkButton />
+            <v6:LinkLabel />
+            <v6:Username>${UserId}</v6:Username>\r
+            <v6:UserId>${UserId}</v6:UserId>\r
+            <v6:Password>${Password}</v6:Password>\r
+            <v6:MerchantId>${MerchantId}</v6:MerchantId>\r
+            <v6:PickupTime>false</v6:PickupTime>
+         </v6:addInvoiceRequestVO>\r
+      </v6:AddEbppInvoice>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="d183e511-9646-4840-90a5-e66dc6bcbdeb"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="ecc7f741-7c30-4208-87f9-64a617f8041a">
+          <con:configuration>
+            <path>declare namespace ns1='http://ebpp.cenpos.net/V6';
+//ns1:AddEbppInvoiceResponse[1]/ns1:AddEbppInvoiceResult[1]/ns1:MessageId[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V3/EbppIntegrationServiceV3Soap/AddEbppInvoiceRequest" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="12f88168-52d8-4954-b65d-f208b0d28949" name="AddEbppInvoice (8)">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV6Soap12</con:interface>
+      <con:operation>AddEbppInvoice</con:operation>
+      <con:request name="AddEbppInvoice (8)" id="855c0ac3-69db-4b16-840a-1bffce10abef">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope 
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope" 
+xmlns:v6="http://ebpp.cenpos.net/V6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v6:AddEbppInvoice>\r
+         <v6:addInvoiceRequestVO>\r
+            <v6:Invoice>\r
+               <v6:Id>0</v6:Id>\r
+               <v6:InvoiceNumber>S-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -907,7 +1101,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>K-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -983,7 +1177,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" id="1ecc801c-5b7e-4f3b-b60c-c40ad71d9aac" name="AddEbppInvoice (Discount)">
+  <con:testStep type="request" id="2fc03205-69e9-4d78-9b1b-b49a8478e5e6" name="AddEbppInvoice (Discount)">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>EbppIntegrationServiceV6Soap12</con:interface>
@@ -1004,7 +1198,104 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>D-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
+               <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
+               <v6:Discount>${AmountDiscount}</v6:Discount>\r
+               <v6:AmountAfterDiscount>${AmountAfterDiscount}</v6:AmountAfterDiscount>\r
+               <v6:TinyUrlCode />
+               <v6:BinaryInvoice />
+               <v6:Processed>false</v6:Processed>\r
+               <v6:ProcessedDate>${CurrentDateTime1}</v6:ProcessedDate>\r
+               <v6:PaidAmount>0</v6:PaidAmount>\r
+               <v6:InvoiceDetailStatus />
+               <v6:InvoiceDate>${CurrentDateTime1}</v6:InvoiceDate>\r
+               <v6:HasSpecialPayment>false</v6:HasSpecialPayment>\r
+               <v6:Balance>${AmountAfterDiscount}</v6:Balance>\r
+               <v6:InvoiceEncoded />
+               <v6:TagNumber />
+               <v6:UseCustomerCode>false</v6:UseCustomerCode>
+               <v6:MerchantRedirectUrl />
+            </v6:Invoice>\r
+            <v6:Customer>\r
+               <v6:Phone />
+               <v6:MobilePhone>${CustomerPhone}</v6:MobilePhone>\r
+               <v6:MailingZipCode />
+               <v6:MailingState />
+               <v6:MailingCity />
+               <v6:MailingAddress />
+               <v6:FaxNumber />
+               <v6:CustomField3 />
+               <v6:CustomField2 />
+               <v6:CustomField1 />
+               <v6:CustomerName>${CustomerName}</v6:CustomerName>
+               <v6:CustomerEmail>${CustomerEmail}</v6:CustomerEmail>
+               <v6:AlternateFaxNumber />
+               <v6:AlternateEmail />
+               <v6:CustomerCode>${CustomerCode}</v6:CustomerCode>\r
+            </v6:Customer>\r
+            <v6:LineItems>\r
+               <v6:InvoiceLineItemVO>\r
+                  <v6:Description>Line 1</v6:Description>\r
+                  <v6:TotalPrice>${Amount}</v6:TotalPrice>\r
+                  <v6:Quantity>1</v6:Quantity>\r
+                  <v6:TotalTax>${TaxAmount}</v6:TotalTax>\r
+               </v6:InvoiceLineItemVO>\r
+            </v6:LineItems>\r
+            <v6:LinkButton />
+            <v6:LinkLabel />
+            <v6:Username>${UserId}</v6:Username>\r
+            <v6:UserId>${UserId}</v6:UserId>\r
+            <v6:Password>${Password}</v6:Password>\r
+            <v6:MerchantId>${MerchantId}</v6:MerchantId>\r
+            <v6:PickupTime>false</v6:PickupTime>
+         </v6:addInvoiceRequestVO>\r
+      </v6:AddEbppInvoice>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request>
+        <con:assertion type="SOAP Response" name="SOAP Response" id="40f4a817-9fc0-47ef-8b40-a7cde450f071"/>
+        <con:assertion type="XPath Match" name="XPath Match" id="865365b5-d985-4597-ba5c-bfd98412cadf">
+          <con:configuration>
+            <path>declare namespace ns1='http://ebpp.cenpos.net/V6';
+//ns1:AddEbppInvoiceResponse[1]/ns1:AddEbppInvoiceResult[1]/ns1:MessageId[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:wsaConfig action="http://ebpp.cenpos.net/V3/EbppIntegrationServiceV3Soap/AddEbppInvoiceRequest" mustUnderstand="NONE" version="200508"/>
+        <con:wsrmConfig version="1.2"/>
+      </con:request>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="request" id="1ecc801c-5b7e-4f3b-b60c-c40ad71d9aac" name="AddEbppInvoice (Discount - Removed Later)">
+    <con:settings/>
+    <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:interface>EbppIntegrationServiceV6Soap12</con:interface>
+      <con:operation>AddEbppInvoice</con:operation>
+      <con:request name="AddEbppInvoice (Discount - Removed Later)" id="855c0ac3-69db-4b16-840a-1bffce10abef">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:encoding>UTF-8</con:encoding>
+        <con:endpoint>https://web.mia2.cenpos.net/ebppqa/v6/EbppIntegrationService.asmx</con:endpoint>
+        <con:request><![CDATA[<soap:Envelope 
+xmlns:soap="http://www.w3.org/2003/05/soap-envelope" 
+xmlns:v6="http://ebpp.cenpos.net/V6"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <v6:AddEbppInvoice>\r
+         <v6:addInvoiceRequestVO>\r
+            <v6:Invoice>\r
+               <v6:Id>0</v6:Id>\r
+               <v6:InvoiceNumber>S-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>${AmountDiscount}</v6:Discount>\r
@@ -1101,7 +1392,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>DK-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>${AmountDiscount}</v6:Discount>\r
@@ -1198,7 +1489,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>B-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -1295,7 +1586,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>R-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -1392,7 +1683,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>RK-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -1489,7 +1780,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>RD-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>${AmountDiscount}</v6:Discount>\r
@@ -1586,7 +1877,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>RDK-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>${AmountDiscount}</v6:Discount>\r
@@ -1683,7 +1974,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
          <v6:addInvoiceRequestVO>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>RB-${=String.valueOf((int) Math.floor(Math.random()*1000000000))}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -2075,7 +2366,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
          <v6:externalPaymentRequestVO>\r
             <v6:ExternalPayments>\r
                <v6:ExternalPaymentVO>\r
-                  <v6:InvoiceNumber>${AddEbppInvoice (1)#RawRequest#declare namespace v6='http://tempuri.org/'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
+                  <v6:InvoiceNumber>${AddEbppInvoice (1)#RawRequest#declare namespace v6='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
                   <v6:Amount>${Amount}</v6:Amount>\r
                   <v6:TotallyPaid>true</v6:TotallyPaid>\r
                   <v6:Comment>Paid at the store</v6:Comment>
@@ -2135,7 +2426,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
          <v6:externalPaymentRequestVO>\r
             <v6:ExternalPayments>\r
                <v6:ExternalPaymentVO>\r
-                  <v6:InvoiceNumber>${AddEbppInvoice (2)#RawRequest#declare namespace v6='http://tempuri.org/'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
+                  <v6:InvoiceNumber>${AddEbppInvoice (2)#RawRequest#declare namespace v6='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
                   <v6:Amount>${AmountExternalPartial}</v6:Amount>\r
                   <v6:TotallyPaid>false</v6:TotallyPaid>\r
                   <v6:Comment>Paid at the store</v6:Comment>
@@ -2195,7 +2486,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
          <v6:externalPaymentRequestVO>\r
             <v6:ExternalPayments>\r
                <v6:ExternalPaymentVO>\r
-                  <v6:InvoiceNumber>${AddEbppInvoice (2)#RawRequest#declare namespace v6='http://tempuri.org/'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
+                  <v6:InvoiceNumber>${AddEbppInvoice (2)#RawRequest#declare namespace v6='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
                   <v6:Amount>${AmountExternalPartial}</v6:Amount>\r
                   <v6:TotallyPaid>false</v6:TotallyPaid>\r
                   <v6:Comment>Paid at the store</v6:Comment>
@@ -2255,7 +2546,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
          <v6:externalPaymentRequestVO>\r
             <v6:ExternalPayments>\r
                <v6:ExternalPaymentVO>\r
-                  <v6:InvoiceNumber>${AddEbppInvoice (2)#RawRequest#declare namespace v6='http://tempuri.org/'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
+                  <v6:InvoiceNumber>${AddEbppInvoice (2)#RawRequest#declare namespace v6='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
                   <v6:Amount>${AmountExternalPartial}</v6:Amount>\r
                   <v6:TotallyPaid>false</v6:TotallyPaid>\r
                   <v6:Comment>Paid at the store</v6:Comment>
@@ -2759,7 +3050,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" id="f3af08cd-b9d6-4a03-b375-aee321908924" name="SetMerchantConfiguration">
+  <con:testStep type="request" id="f3af08cd-b9d6-4a03-b375-aee321908924" name="SetMerchantConfiguration" disabled="true">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>EbppIntegrationServiceV6Soap12</con:interface>
@@ -2876,7 +3167,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" id="e9371361-fd18-4603-9bc7-5845a2401abf" name="SetMerchantConfiguration (NoPrivilege)">
+  <con:testStep type="request" id="e9371361-fd18-4603-9bc7-5845a2401abf" name="SetMerchantConfiguration (NoPrivilege)" disabled="true">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>EbppIntegrationServiceV6Soap12</con:interface>
@@ -2993,12 +3284,12 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
       </con:request>
     </con:config>
   </con:testStep>
-  <con:testStep type="request" id="38bc0ed9-a412-408b-9ada-0a2a220f25ef" name="UpdateEbppInvoice">
+  <con:testStep type="request" id="38bc0ed9-a412-408b-9ada-0a2a220f25ef" name="UpdateEbppInvoice (Remove Discount)">
     <con:settings/>
     <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:interface>EbppIntegrationServiceV6Soap12</con:interface>
       <con:operation>UpdateEbppInvoice</con:operation>
-      <con:request name="UpdateEbppInvoice" id="22c4ead4-9153-4db9-9c9a-7e383adf5ef0">
+      <con:request name="UpdateEbppInvoice (Remove Discount)" id="22c4ead4-9153-4db9-9c9a-7e383adf5ef0">
         <con:settings>
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
@@ -3015,7 +3306,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
             <v6:MerchantId>${MerchantId}</v6:MerchantId>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${AddEbppInvoice (Discount)#RawRequest#declare namespace v6='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>${AddEbppInvoice (Discount - Removed Later)#RawRequest#declare namespace v6='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -3091,7 +3382,7 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
             <v6:MerchantId>${MerchantId}</v6:MerchantId>\r
             <v6:Invoice>\r
                <v6:Id>0</v6:Id>\r
-               <v6:InvoiceNumber>${AddEbppInvoice (Discount)#RawRequest#declare namespace v4='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
+               <v6:InvoiceNumber>${AddEbppInvoice (Discount - Removed Later)#RawRequest#declare namespace v4='http://ebpp.cenpos.net/V6'; //v6:AddEbppInvoice[1]/v6:addInvoiceRequestVO[1]/v6:Invoice[1]/v6:InvoiceNumber[1]}</v6:InvoiceNumber>\r
                <v6:TotalAmount>${Amount}</v6:TotalAmount>\r
                <v6:TaxAmount>${TaxAmount}</v6:TaxAmount>\r
                <v6:Discount>0</v6:Discount>\r
@@ -3303,6 +3594,21 @@ xmlns:v6="http://ebpp.cenpos.net/V6">\r
   </con:breakPoints>
   <con:breakPoints>
     <con:testStepId>2c4a0bb4-4167-4d9d-9548-44f2ed935fa9</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e240a819-c703-47c4-8e36-6a55eda7766d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>12f88168-52d8-4954-b65d-f208b0d28949</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2fc03205-69e9-4d78-9b1b-b49a8478e5e6</con:testStepId>
     <con:status>NONE</con:status>
     <con:properties/>
   </con:breakPoints>
