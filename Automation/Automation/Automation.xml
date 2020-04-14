@@ -167,9 +167,9 @@ import groovy.time.TimeCategory
 try
 {
 	// Set environment settings
-	def projectName 	= "ABI V6.4 Transact"
-	def suiteName   	= "Regression Manager"
-	def stdBaseURL 	= "https://ww4.cenpos.net"
+	def projectName 	= "ABI V3 Tokens"
+	def suiteName   	= "Token Manager"
+	def stdBaseURL 	= "https://abi.va2.cenpos.net"
 	def pfpBaseURL  	= "https://hub.cenpos.net/PfpQA"
 	def ebpBaseURL  	= "https://web.mia2.cenpos.net"
 	def cbsBaseURL  	= "https://miami1.cenpos.net"
@@ -179,7 +179,7 @@ try
 	def ecommService    = "/6/4/ecommerce.asmx"
 	def motoService     = "/6/4/moto.asmx"
 	def mobileService   = "/6/mobile.asmx"
-	def tokenService    = "/2/tokens.asmx"
+	def tokenService    = "/3/tokens.asmx"
 	def adminService    = "/6/admin.asmx"
 	def checkService    = "/2/check.asmx"
 	def pfpService      = "/Handler.ashx"
@@ -216,8 +216,8 @@ try
 	def hostCardData = "Generic"
 	
 	// Comma separated list of card brands to run
-	//def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
-	def cardTypes = ["Visa"]
+	def cardTypes = ["Visa", "Mastercard", "Amex", "Discover"]
+	//def cardTypes = ["Visa"]
 
 	// Set customer information
 	def avs = "123 SW Rd"
@@ -391,6 +391,10 @@ try
 			}
 		}
 	}
+
+	// Final test tokens validation
+	if (suiteName.contains("Token Manager")) createTestTokens = false
+	
 
 	// GetCardTrx & Tokens
 	def getCardTrxSuite = project.getTestSuiteByName("GetTrxRequest")
@@ -834,7 +838,7 @@ try
 	// Set environment settings
 	def projectName   = "ABI V6.4 Admin"
 	def suiteName     = "User Manager"
-	def baseURL       = "https://abi.va2.cenpos.net"
+	def baseURL       = "https://abi.mia3.cenpos.net"
 	
 	// Additional services might be needed on some scenarios
 	// value is relative to baseURL
@@ -952,7 +956,7 @@ try
 	def stdBaseURL      = "https://www4.cenpos.net"
 	
 	// SimpleWebpay base URL (relative to stdBaseURL)
-	def swpBaseUrl      = "/simplewebpay-test"
+	def swpBaseUrl      = "/simplewebpay"
 
 	// SimpleWebpay endpoints (relative to swpBaseUrl)
 	def swpCardsApi     = "/cards/api/"
@@ -1701,8 +1705,8 @@ else if ("Discover" == type)
 	
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CorpCardCVV", "996")
 	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CorpCardExpDate", "1225")
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CorpCardMagneticData", "6011000090001201=251210116817502")
-	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CorpCardNameOnCard", "DISCOVER TEST")	
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CorpCardMagneticData", "6011000995500000=251210116817502")
+	com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("CorpCardNameOnCard", "DISCOVER CONSUMER")	
 }</script>
     </con:config>
   </con:testStep>
