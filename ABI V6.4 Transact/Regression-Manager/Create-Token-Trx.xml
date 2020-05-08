@@ -14,7 +14,7 @@
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.mia3.cenpos.net/6/4/transact.asmx</con:endpoint>
+        <con:endpoint>https://va2abi.cenpos.net/6/4/transact.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:acr="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common" xmlns:acr1="http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.Client.VirtualTerminal.v6.v4.Common.Requests"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
    <soapenv:Header/>\r
    <soapenv:Body>\r
@@ -89,7 +89,7 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.mia3.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://va2abi.cenpos.net/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -130,6 +130,17 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
    </soapenv:Body>\r
 </soapenv:Envelope>]]></con:request>
         <con:assertion type="SOAP Response" name="SOAP Response" id="1820ad92-e6a5-431e-9dec-c488b3dbd3fa"/>
+        <con:assertion type="XPath Match" id="4c7afdef-a1a6-43a8-a714-105f3654a6cc" name="XPath Match">
+          <con:configuration>
+            <path>declare namespace tem='http://tempuri.org/';
+declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPOS.EPayment.VirtualTerminal.Common';
+//tem:AddCardTokenResponse[1]/tem:AddCardTokenResult[1]/acr:Result[1]</path>
+            <content>0</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -165,7 +176,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">\r
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.mia3.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://va2abi.cenpos.net/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -243,7 +254,7 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.mia3.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://va2abi.cenpos.net/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -321,7 +332,7 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.mia3.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://va2abi.cenpos.net/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 
@@ -399,7 +410,7 @@ declare namespace acr='http://schemas.datacontract.org/2004/07/Acriter.ABI.CenPO
           <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
         </con:settings>
         <con:encoding>UTF-8</con:encoding>
-        <con:endpoint>https://abi.mia3.cenpos.net/2/tokens.asmx</con:endpoint>
+        <con:endpoint>https://va2abi.cenpos.net/2/tokens.asmx</con:endpoint>
         <con:request><![CDATA[<soapenv:Envelope 
 xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
 xmlns:tem="http://tempuri.org/" 

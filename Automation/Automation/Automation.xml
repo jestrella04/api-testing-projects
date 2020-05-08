@@ -167,9 +167,9 @@ import groovy.time.TimeCategory
 try
 {
 	// Set environment settings
-	def projectName 	= "ABI V3 Tokens"
-	def suiteName   	= "Token Manager"
-	def stdBaseURL 	= "https://abi.va2.cenpos.net"
+	def projectName 	= "ABI V6.4 Transact"
+	def suiteName   	= "Regression Manager"
+	def stdBaseURL 	= "https://va2abi.cenpos.net"
 	def pfpBaseURL  	= "https://hub.cenpos.net/PfpQA"
 	def ebpBaseURL  	= "https://web.mia2.cenpos.net"
 	def cbsBaseURL  	= "https://miami1.cenpos.net"
@@ -179,7 +179,7 @@ try
 	def ecommService    = "/6/4/ecommerce.asmx"
 	def motoService     = "/6/4/moto.asmx"
 	def mobileService   = "/6/mobile.asmx"
-	def tokenService    = "/3/tokens.asmx"
+	def tokenService    = "/2/tokens.asmx"
 	def adminService    = "/6/admin.asmx"
 	def checkService    = "/2/check.asmx"
 	def pfpService      = "/Handler.ashx"
@@ -241,7 +241,7 @@ try
 	
 	// Set additional information
 	def invoiceTimeout = "GENERATE TIMEOUT"
-	def exportDir = "C:/Users/jestrella/Desktop"
+	def exportDir = "C:/Users/c054049/Desktop"
 	def getTrxRequest = "GetCardTrx"
 	
 	// Comma separated list of currencies to run
@@ -838,7 +838,7 @@ try
 	// Set environment settings
 	def projectName   = "ABI V6.4 Admin"
 	def suiteName     = "User Manager"
-	def baseURL       = "https://abi.mia3.cenpos.net"
+	def baseURL       = "https://va2abi.cenpos.net"
 	
 	// Additional services might be needed on some scenarios
 	// value is relative to baseURL
@@ -2710,7 +2710,7 @@ try {
 								// Set reference number for getTrx
 								com.eviware.soapui.SoapUI.globalProperties.setPropertyValue("GetTrx", trxReferenceNumber)
 				
-								// Run getTrx					
+								// Run getTrx
 								getTrx = testRunner.runTestStep(getTrxSuite.testCases["GetTrxRequest"].testSteps[getTrxStep])
 				
 								// Get response from getTrx
